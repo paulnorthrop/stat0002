@@ -52,11 +52,12 @@
 #'   \item {\link[=USelection]{The 2000 U.S. Presidential Election}}
 #'   \item {\link[=aussie_births]{Australian Birth Times Data}}
 #'   \item {\link[=hubble]{Nebulae data from Hubble (1929)}}
+#'   \item {\link[=birds]{Between-species dominance in birds}}
 #' }
 #'
 #' @section \link[=movies]{Movies}:
 #'
-#' Some of the following movies, and other movies are also available in a more
+#' Some of the following movies, and other movies, are also available in a more
 #' user-friendly form, via the \code{\link[smovie]{smovie}} package.
 #' If you have \code{smovie} installed (\code{install.packages("smovie")})
 #' then you can access these using \code{library(smovie)} and then
