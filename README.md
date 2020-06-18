@@ -15,14 +15,14 @@ Status](https://ci.appveyor.com/api/projects/status/github/paulnorthrop/stat0002
 The `stat0002` package provides R code, datasets and vignettes
 (tutorials demonstrating how to use R code) to help students taking
 STAT0002 Introduction to Probability and Statistics at University
-College London to understand the course material and to see how R can be
-used to perform some of the analyses in the course.
+College London (UCL) to understand the course material and to see how R
+can be used to perform some of the analyses in the course.
 
 The package is:
 
   - not complete, but developed enough to be useful to STAT0002
     students;
-  - probably of little use to people not taking STAT0002 at UCL.
+  - probably of little use to people not taking STAT0002.
 
 ### Installation
 
@@ -36,7 +36,7 @@ Installers** near the bottom of the page and choose the installer that
 is appropriate for your operating system.
 
 To install the `stat0002` package from GitHub type the following at the
-R Console command prompt `>`. If
+R Console command prompt `>`.
 
 ``` r
 install.packages("remotes")
