@@ -26,6 +26,7 @@ reference:
       - "USelection"
       - "aussie_births"
       - "hubble"
+      - "birds"
   - title: Movies
     desc: ~
     contents:

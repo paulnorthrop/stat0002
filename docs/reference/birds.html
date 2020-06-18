@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Space shuttle: uncertainty in estimated probability of O-ring damage — shuttle_sim_hists • stat0002</title>
+<title>Between-species dominance in birds data — birds • stat0002</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,10 @@
 
 
 
-<meta property="og:title" content="Space shuttle: uncertainty in estimated probability of O-ring damage — shuttle_sim_hists" />
-<meta property="og:description" content="Illustrates the uncertainty in the estimated probability of an O-ring
-suffering thermal distress for a given launch temperature." />
+<meta property="og:title" content="Between-species dominance in birds data — birds" />
+<meta property="og:description" content="Francis et al. (2018) conducted an experiment to study the competitive
+interactions between 10 species of birds.  These are the data presented in
+Table 1 of this paper." />
 
 
 
@@ -142,56 +143,47 @@ suffering thermal distress for a given launch temperature." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Space shuttle: uncertainty in estimated probability of O-ring damage</h1>
-    <small class="dont-index">Source: <a href='http://github.com/paulnorthrop/stat0002/blob/master/R/shuttle_sim.R'><code>R/shuttle_sim.R</code></a></small>
-    <div class="hidden name"><code>shuttle_sim_hists.Rd</code></div>
+    <h1>Between-species dominance in birds data</h1>
+    <small class="dont-index">Source: <a href='http://github.com/paulnorthrop/stat0002/blob/master/R/stat0002.R'><code>R/stat0002.R</code></a></small>
+    <div class="hidden name"><code>birds.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Illustrates the uncertainty in the estimated probability of an O-ring
-suffering thermal distress for a given launch temperature.</p>
+    <p>Francis et al. (2018) conducted an experiment to study the competitive
+interactions between 10 species of birds.  These are the data presented in
+<a href='https://doi.org/10.1371/journal.pone.0202152.t001'>Table 1</a> of this paper.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>shuttle_sim_hists</span>(<span class='no'>x</span>, <span class='no'>temps</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='no'>birds</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>A 2-column matrix returned from a call to
-<code><a href='shuttle_sim_plot.html'>shuttle_sim_plot</a></code></p></td>
-    </tr>
-    <tr>
-      <th>temps</th>
-      <td><p>A numeric vector of temperatures, in degrees Fahrenheit.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Further arguments to be passed to <code>hist</code>. [Apart from
-<code>probability</code>, <code>xlab</code>, <code>ylab</code> and <code>main</code>,
-which are set inside <code>shuttle_sim_hists</code>.]</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>Nothing, just the plot.</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <p>A data frame with 10 observations on the following 8 variables.</p><ul>
+<li><p><code>species:</code> a two-letter abbreviation for the bird species.</p></li>
+<li><p><code>species_name:</code> the common bird species name.</p></li>
+<li><p><code>sci_name:</code> the scientific bird species name.</p></li>
+<li><p><code>mass_g:</code> mean species mass in grams.</p></li>
+<li><p><code>dom_rank:</code> dominance rank, the smaller the value the more
+  dominant species tends to be over other species.</p></li>
+<li><p><code>dom_rank_LCI:</code> lower 95% confidence limit for the dominance
+  rank.</p></li>
+<li><p><code>dom_rank_UCI:</code> upper 95% confidence limit for the dominance
+  rank.</p></li>
+</ul>
 
-    <p>For details of the linear logistic model see
-  <a href='../doc/stat0002-shuttle-vignette.html'>Challenger Space Shuttle Disaster</a>
-  vignette and for simulation from this model see
-  <code><a href='shuttle_sim.html'>shuttle_sim</a></code>.</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <div class='dont-index'><p><code><a href='shuttle_sim_plot.html'>shuttle_sim_plot</a></code> and <code><a href='shuttle_sim.html'>shuttle_sim</a></code>.</p>
-<p>The <a href='../doc/stat0002-shuttle-vignette.html'>Challenger Space Shuttle Disaster</a>
-  vignette.</p></div>
+    <p><a href='https://doi.org/10.1371/journal.pone.0202152.s002'>S1 dataset.</a>
+  Data for species identities, mass and dominance rankings from
+  Francis et al (2018).</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='shuttle_sim_plot.html'>shuttle_sim_plot</a></span>(<span class='kw'>n_sim</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>plot</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-<span class='fu'>shuttle_sim_hists</span>(<span class='no'>x</span>, <span class='kw'>temps</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>31</span>, <span class='fl'>50</span>, <span class='fl'>65</span>, <span class='fl'>80</span>), <span class='kw'>col</span> <span class='kw'>=</span> <span class='fl'>8</span>)</div><div class='img'><img src='shuttle_sim_hists-1.png' alt='' width='700' height='433' /></div></pre>
+    <p>Francis M.L., Plummer K.E., Lythgoe B.A., Macallan C., Currie T.E.,
+  Blount J.D. (2018) Effects of supplementary feeding on interspecific
+  dominance hierarchies in garden birds. PLoS ONE 13(9): e0202152.
+  <a href='https://doi.org/10.1371/journal.pone.0202152'>https://doi.org/10.1371/journal.pone.0202152</a></p>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
