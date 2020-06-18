@@ -15,19 +15,12 @@ r:
 #  - devel
 #  - oldrel
 
-addons:
-  apt:
-    packages:
-    - tcl8.5-dev
-    - tk8.5-dev
-
-before_install:
-- if [ "$TRAVIS_OS_NAME" == "linux" ]; then export DISPLAY=:99.0; fi
-#- if [ "$TRAVIS_OS_NAME" == "linux" ]; then sh -e /etc/init.d/xvfb start; fi
 
 # Nicked from https://github.com/spatstat/spatstat/blob/master/.travis.yml
+before_install:
+- if [ "$TRAVIS_OS_NAME" == "linux" ]; then tlmgr install anysize; fi
 addons:
   apt:
     packages:
-    - tk-dev
+    - libgsl0-dev
     - bwidget
