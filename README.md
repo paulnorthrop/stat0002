@@ -21,7 +21,7 @@ The package is:
 
 If you need to install R then you can get it from [CRAN](https://cran.r-project.org/).
 
-If you would like to use RStudio (a user-friendly front-end to R) then you can get it from [here](https://www.rstudio.com/products/rstudio/download/) \[See "Installers for Supported Platforms" near the bottom of the page. Choose the FREE RStudio Desktop Open Source License.\]
+If you would like to use RStudio (a user-friendly front-end to R) then you can get it from the [Download RStudio page](https://www.rstudio.com/products/rstudio/download/). Find **All Installers** near the bottom of the page. Choose the FREE RStudio Desktop Open Source License.
 
 To install the `stat0002` package from GitHub type the following at the R Console command prompt `>`. If
 
@@ -47,7 +47,7 @@ library(stat0002)
 ?stat0002
 ```
 
-to open the main help page, which contains links to vignettes, datasets and other sources of information. \[If `?stat0002` doesn't work then close RStudio, reopen it and try again.\]
+to open the main help page, which contains links to vignettes, datasets and other sources of information. If `?stat0002` doesn't work then close RStudio, reopen it and try again.
 
 You will find that some vignettes contain ideas that we have not yet covered in lectures. If you want to try to understand these ideas before we cover them then please use the links to further information that have been provided.
 
