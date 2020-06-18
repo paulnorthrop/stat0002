@@ -1,0 +1,13 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^README\.Rmd$
+^README-.*\.png$
+^standalone\.png$
+^create_datasets$
+^vignettes/stat0002-ch1b-stochastic-simulation-vignette-no-rust\.Rmd$
+^appveyor\.yml$
+^doc$
+^Meta$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
