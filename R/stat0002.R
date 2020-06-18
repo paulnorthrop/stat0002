@@ -334,9 +334,9 @@ NULL
 #' \item{\code{mass_g:}}{ mean species mass in grams.}
 #' \item{\code{dom_rank:}}{ dominance rank, the smaller the value the more
 #'   dominant species tends to be over other species.}
-#' \item{\code{dom_rank_LCI:}}{ lower 95% confidence limit for the dominance
+#' \item{\code{dom_rank_LCI:}}{ lower 95\% confidence limit for the dominance
 #'   rank.}
-#' \item{\code{dom_rank_UCI:}}{ upper 95% confidence limit for the dominance
+#' \item{\code{dom_rank_UCI:}}{ upper 95\% confidence limit for the dominance
 #'   rank.}
 #' }
 #' @source \href{https://doi.org/10.1371/journal.pone.0202152.s002}{S1 dataset.}
