@@ -317,3 +317,31 @@ NULL
 #' among extra-galactic nebulae. \emph{Proceedings of the National Academy of
 #' Science}, \strong{15}, 168-173.
 "hubble"
+
+# ========================== Bird dominance data =========================
+
+#' Between-species dominance in birds data
+#'
+#' Francis et al. (2018) conducted an experiment to study the competitive
+#' interactions between 10 species of birds.  These are the data presented in
+#' \href{https://doi.org/10.1371/journal.pone.0202152.t001}{Table 1} of this paper.
+#'
+#' @format A data frame with 10 observations on the following 8 variables.
+#' \itemize{
+#' \item{\code{species:}}{ a two-letter abbreviation for the bird species.}
+#' \item{\code{species_name:}}{ the common bird species name.}
+#' \item{\code{sci_name:}}{ the scientific bird species name.}
+#' \item{\code{mass_g:}}{ mean species mass in grams.}
+#' \item{\code{dom_rank:}}{ dominance rank, the smaller the value the more
+#'   dominant species tends to be over other species.}
+#' \item{\code{dom_rank_LCI:}}{ lower 95% confidence limit for the dominance
+#'   rank.}
+#' \item{\code{dom_rank_UCI:}}{ upper 95% confidence limit for the dominance
+#'   rank.}
+#' }
+#' @source  Francis M.L., Plummer K.E., Lythgoe B.A., Macallan C., Currie T.E.,
+#'   Blount J.D. (2018) Effects of supplementary feeding on interspecific
+#'   dominance hierarchies in garden birds. PLoS ONE 13(9): e0202152.
+#'   \href{https://doi.org/10.1371/journal.pone.0202152}{https://doi.org/10.1371/journal.pone.0202152}
+"birds"
+
