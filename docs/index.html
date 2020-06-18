@@ -104,9 +104,9 @@
   <div class="contents col-md-9">
 
 
-<div id="stat0002" class="section level1">
+<div id="stat0002-" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#stat0002" class="anchor"></a>stat0002 <img src="standalone.png" align="right">
+<a href="#stat0002-" class="anchor"></a>stat0002 <img src="standalone.png" align="right">
 </h1></div>
 <div id="introduction-to-probability-and-statistics" class="section level2">
 <h2 class="hasAnchor">
@@ -125,20 +125,20 @@
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h3>
 <p>If you need to install R then you can get it from <a href="https://cran.r-project.org/">CRAN</a>.</p>
-<p>If you would like to use RStudio (a user-friendly front-end to R) then you can get it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page. Choose the FREE RStudio Desktop Open Source License.</p>
+<p>If you would like to use RStudio (a free user-friendly front-end to R) then you can get it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer that is appropriate for your operating system.</p>
 <p>To install the <code>stat0002</code> package from GitHub type the following at the R Console command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>. If</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
 
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"tkrplot"</span>, <span class="st">"MASS"</span>, <span class="st">"knitr"</span>, <span class="st">"distributions3"</span>),
                  <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>)</pre></div>
 <p>You only need to do this (install the <code>remotes</code> package etc) once. Then install <code>stat0002</code> (or reinstall it to get the latest version) using</p>
-<div class="sourceCode"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>, <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>, <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
 </div>
 <div id="getting-started" class="section level3">
 <h3 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h3>
 <p>Then type</p>
-<div class="sourceCode"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stat0002</span>)
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stat0002</span>)
 ?<span class="no">stat0002</span></pre></div>
 <p>to open the main help page, which contains links to vignettes, datasets and other sources of information. If <code><a href="reference/stat0002.html">?stat0002</a></code> doesn’t work then close RStudio, reopen it and try again.</p>
 <p>You will find that some vignettes contain ideas that we have not yet covered in lectures. If you want to try to understand these ideas before we cover them then please use the links to further information that have been provided.</p>

@@ -31,9 +31,9 @@ The package is:
 
 If you need to install R then you can get it from [CRAN](https://cran.r-project.org/).
 
-If you would like to use RStudio (a user-friendly front-end to R) then you can get it from the 
+If you would like to use RStudio (a free user-friendly front-end to R) then you can get it from the 
 [Download RStudio page](https://www.rstudio.com/products/rstudio/download/). 
-Find **All Installers** near the bottom of the page.  Choose the FREE RStudio Desktop Open Source License.
+Find **All Installers** near the bottom of the page and choose the installer that is appropriate for your operating system.
 
 To install the `stat0002` package from GitHub type the following at the R Console command prompt `>`.  If 
 
