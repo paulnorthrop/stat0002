@@ -1,8 +1,8 @@
 Package: stat0002
 Type: Package
 Title: stat0002: Introduction to Probability and Statistics at UCL
-Version: 0.0.0.9000
-Date: 2019-10-01
+Version: 1.0.0
+Date: 2020-06-18
 Authors@R: person(c("Paul", "J."), "Northrop", email = "p.northrop@ucl.ac.uk",
   role = c("aut", "cre", "cph"))
 Description: Provides R code, datasets and vignettes to help students taking 
