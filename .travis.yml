@@ -15,7 +15,14 @@ r:
 #  - devel
 #  - oldrel
 
+addons:
+  apt:
+    packages:
+    - tk-dev
+    - bwidget
+
 services:
   - xvfb
+
 before_script:
   - export DISPLAY=:99.0
