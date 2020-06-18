@@ -14,7 +14,7 @@ The `stat0002` package provides R code, datasets and vignettes (tutorials demons
 
 The package is:
 
--   in the middling stages of development;
+-   not complete, but developed enough to be useful to STAT0002 students;
 -   probably of little use to people not taking STAT0002 at UCL.
 
 ### Installation
