@@ -14,3 +14,9 @@ r:
   - release
 #  - devel
 #  - oldrel
+
+addons:
+  apt:
+    packages:
+    - tcl8.5-dev
+    - tk8.5-dev
