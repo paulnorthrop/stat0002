@@ -1,0 +1,169 @@
+---
+title: "Chapter 5: binomial, geometric and Poisson distributions"
+author: "Paul Northrop"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Chapter 5: binomial, geometric and Poisson distributions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: stat0002.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE)
+knitr::opts_knit$set(global.par = TRUE)
+```
+
+```{r, include = FALSE}
+# Set a random number `seed'.  
+set.seed(2601)
+# Set margins globally
+par(mar = c(4, 4, 1, 1))
+```
+
+The purposes of this vignette are to direct you to R functions relating to the **discrete** probability distributions considered in Chapter 5 of the STAT0002 notes and to provide code to do some of the things that appear in the lecture slides.  First, we do this using the standard R functions (in the **stats** package).  Then we repeat some of the calculations using the **distributions3** package [@distributions3], which provides a neat way to work with random variables in R.
+
+We illustrate these functions using the Australian birth times data, which are available in the data frame `aussie_births`.
+
+
+```{r}
+library(stat0002)
+head(aussie_births)
+```
+
+The **stats** package contains functions to evaluate the probability mass function (p.m.f.), cumulative distribution function (c.d.f.) and quantile function (which could also be called the inverse c.d.f.) of many discrete probability distributions, including the binomial, geometric and Poisson.  It also contains functions to simulate random variates from these distributions.  For a general description of these functions use `?Distributions`.  These functions are named in the following way, where `xxx` is the name (perhaps abbreviated) of the distribution in question: `dxxx` (p.m.f), `pxxx` (c.d.f), `qxxx` (quantile function) and `rxxx` (random variate generation).
+
+## The binomial distribution
+
+Following the STAT0002 notes, let us suppose that (before we observe the data) the number $Y$ of boy babies is a random variable with a binomial(44, $p$) distribution, where $p$ is the probability that a randomly chosen birth produces a boy.  We use the data to estimate $p$.
+
+```{r}
+nboys <- sum(aussie_births[, "sex"] == "boy")
+ngirls <- sum(aussie_births[, "sex"] == "girl")
+phat <- nboys / (nboys + ngirls)
+phat
+```
+
+The function `dbinom` evaluates the p.m.f. of a binomial distribution.  See `?Binomial` for information about this function and `pbinom`, `qbinom` and `rbinom`.  The following code produces a plot that is similar to the ones we looked at in a lecture.  You could vary `p`, perhaps setting it to be equal to `phat`, and see the effect on the p.m.f. of the binomial distribution.
+
+```{r, fig.align='center', fig.width=7}
+# Plot the binomial(44, 1/2) p.m.f. 
+n <- nboys + ngirls
+p <- 1 / 2
+y <- 0:n
+# Note that dbinom calculates the probabilities all values in the vector y
+plot(y, dbinom(y, n, p), type = "h", lwd = 3, ylab = "P(Y = y)", xlab = "y")
+```
+
+For the purposes of illustrating how the functions `pbinom`, `qbinom` and `rbinom` work, let us suppose that $p = 1/2$.  We used the values of the following probabilities during a lecture, when we considered how surprised we might to observe a number of boys 4 or more from the expected value of 22 under the hypothesis that $p = 1/2$.
+
+```{r}
+# Calculate P(Y >= 26) = P(Y > 25) and P(Y <= 18)
+pbinom(25, size = n, prob = 1 / 2, lower.tail = FALSE)
+pbinom(18, n, 1 / 2)
+```
+
+Suppose that we want to find the median of $Y$. We can use `qbinom`:
+
+```{r}
+qbinom(1 / 2, n, 1 / 2)
+# A check (look at the definition of the median in the notes)
+pbinom(21:23, n, 1 / 2)
+```
+
+The following code simulates 100 values from a Binomial(44, 1/2) distribution.
+
+```{r, fig.align='center', fig.width=7}
+ysim <- rbinom(100, 44, 1 / 2)
+ysim
+summary(ysim)
+```
+
+### The distributions3 package
+
+In September 2019 the **distributions3** package [@distributions3] was released.
+A neat feature of this package is that it enables us to create an R object that corresponds to a particular random variable.  Then we are able easily to use some simple R functions to perform calculations with this random variable.  The way that this works is perhaps more intuitive than the way in which we use functions like `dbinom()` above.
+
+```{r}
+library(distributions3)
+# (The warnings tell us that the distributions3 package has functions with the
+# same names as functions from other packages and has `masked' them, that is,
+# R will use these functions from distributions3, not the other functions.)
+#
+# Create an R object that is, effectively, a binomial(n, 1/2) random variable
+Y <- Binomial(n, 1 / 2)
+Y
+```
+
+We reproduce the plot and repeat the calculation of the probabilities.
+
+```{r, fig.align='center', fig.width=7}
+# Reproduce the plot.  
+plot(0:n, pmf(Y, 0:n), type = "h", lwd = 3, ylab = "P(X = x)", xlab = "x")
+1 - cdf(Y, 25)
+cdf(Y, 18)
+```
+
+Now we use the **distributions** package to performs some of the calculations that were involved in producing the lecture slides associated with the geometric and Poisson distributions.  
+ 
+## The geometric distribution
+
+We recreate the table in the lecture slides, of the observed frequencies and proportions and the corresponding estimated expected values under a geometric distribution fitted to the data.
+
+R's `dgeom` function, and the function `Geometric` in the **distributions** package, are is based on the number of failures before the first success, not the number of trials.  Therefore, we subtract 1 below when we call the function `dgeom`.
+
+```{r}
+# Observed, adding a zero for greater than or equal to 6
+geom <- diff(c(0, which(aussie_births$sex == "boy")))
+max_w <- max(geom)
+geom <- c(1:(max_w + 1), geom)
+obs_freq <- table(geom) - 1
+obs_prop <- obs_freq / sum(obs_freq)
+round(obs_prop, 3)
+
+# Estimated expected, using dgeom
+est_prob <- dgeom((1:max_w) - 1, prob = phat)
+est_prob <- c(est_prob, 1 - sum(est_prob))
+exp_freq <- nboys * est_prob
+
+# The table
+round(cbind(w = 1:(max_w + 1), obs_freq, exp_freq, obs_prop, est_prob), 3)
+```
+
+Alternatively, We could also use the **distributions3** package to calculate the probabilities that we require.
+
+```{r}
+W <- Geometric(phat)
+W
+# P(W = w), for w = 1, ..., 5 (note the -1)
+pmf(W, 1:5 - 1)
+# P(W >= 6) = 1 - P(W < 6) = 1 - P(W <= 5)
+1 - cdf(W, 5 - 1)
+```
+
+## The Poisson distribution
+
+Here we use the **distributions** package to produce a plot of the p.m.f. of the Poisson($\hat{\lambda}$) distribution, where $\hat{\lambda}$ is equal to the sample mean of the numbers of babies born in each of the 24 hourly periods.  We also calculate the probabilities involved in the table of observed and estimated expected frequencies given in the lecture.
+
+```{r}
+lambdahat <- 44 / 24
+N <- Poisson(lambdahat)
+N
+```
+
+```{r, fig.align='center', fig.width=7}
+plot(0:10, pmf(N, 0:10), type = "h", lwd = 3, ylab = "P(N = n)", xlab = "n")
+
+pmf(N, 0:4)
+# P(N >= 5)
+1 - cdf(N, 4)
+```
+
+## References
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
+</script>
