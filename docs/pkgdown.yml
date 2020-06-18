@@ -1,0 +1,14 @@
+pandoc: 1.19.2.1
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  stat0002-ch1a-shuttle-vignette: stat0002-ch1a-shuttle-vignette.html
+  stat0002-ch1b-stochastic-simulation-vignette: stat0002-ch1b-stochastic-simulation-vignette.html
+  stat0002-ch2a-descriptive-statistics-vignette: stat0002-ch2a-descriptive-statistics-vignette.html
+  stat0002-ch2b-graphs-vignette: stat0002-ch2b-graphs-vignette.html
+  stat0002-ch2c-graphs-vignette: stat0002-ch2c-graphs-vignette.html
+  stat0002-ch2d-box-cox-transformation-vignette: stat0002-ch2d-box-cox-transformation-vignette.html
+  stat0002-ch5a-discrete-random-variables-vignette: stat0002-ch5a-discrete-random-variables-vignette.html
+  stat0002-ch5b-continous-random-variables-vignette: stat0002-ch5b-continous-random-variables-vignette.html
+last_built: 2020-06-18T14:37Z
+
