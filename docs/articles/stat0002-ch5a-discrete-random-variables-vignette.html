@@ -114,7 +114,7 @@
     
 <p>The purposes of this vignette are to direct you to R functions relating to the <strong>discrete</strong> probability distributions considered in Chapter 5 of the STAT0002 notes and to provide code to do some of the things that appear in the lecture slides. First, we do this using the standard R functions (in the <strong>stats</strong> package). Then we repeat some of the calculations using the <strong>distributions3</strong> package <span class="citation">(Hayes and Moller-Trane 2019)</span>, which provides a neat way to work with random variables in R.</p>
 <p>We illustrate these functions using the Australian birth times data, which are available in the data frame <code>aussie_births</code>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; library(stat0002)
+<div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
 &gt; head(aussie_births)
   time  sex weight
 1    5 girl   3837
@@ -128,13 +128,13 @@
 <h2 class="hasAnchor">
 <a href="#the-binomial-distribution" class="anchor"></a>The binomial distribution</h2>
 <p>Following the STAT0002 notes, let us suppose that (before we observe the data) the number <span class="math inline">\(Y\)</span> of boy babies is a random variable with a binomial(44, <span class="math inline">\(p\)</span>) distribution, where <span class="math inline">\(p\)</span> is the probability that a randomly chosen birth produces a boy. We use the data to estimate <span class="math inline">\(p\)</span>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; nboys &lt;- sum(aussie_births[, "sex"] == "boy")
+<div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; nboys &lt;- sum(aussie_births[, "sex"] == "boy")
 &gt; ngirls &lt;- sum(aussie_births[, "sex"] == "girl")
 &gt; phat &lt;- nboys / (nboys + ngirls)
 &gt; phat
 [1] 0.5909091</pre></body></html></div>
 <p>The function <code>dbinom</code> evaluates the p.m.f. of a binomial distribution. See <code><a href="https://rdrr.io/r/stats/Binomial.html">?Binomial</a></code> for information about this function and <code>pbinom</code>, <code>qbinom</code> and <code>rbinom</code>. The following code produces a plot that is similar to the ones we looked at in a lecture. You could vary <code>p</code>, perhaps setting it to be equal to <code>phat</code>, and see the effect on the p.m.f. of the binomial distribution.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Plot the binomial(44, 1/2) p.m.f. 
+<div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; # Plot the binomial(44, 1/2) p.m.f. 
 &gt; n &lt;- nboys + ngirls
 &gt; p &lt;- 1 / 2
 &gt; y &lt;- 0:n
@@ -142,19 +142,19 @@
 &gt; plot(y, dbinom(y, n, p), type = "h", lwd = 3, ylab = "P(Y = y)", xlab = "y")</pre></body></html></div>
 <p><img src="stat0002-ch5a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>For the purposes of illustrating how the functions <code>pbinom</code>, <code>qbinom</code> and <code>rbinom</code> work, let us suppose that <span class="math inline">\(p = 1/2\)</span>. We used the values of the following probabilities during a lecture, when we considered how surprised we might to observe a number of boys 4 or more from the expected value of 22 under the hypothesis that <span class="math inline">\(p = 1/2\)</span>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Calculate P(Y &gt;= 26) = P(Y &gt; 25) and P(Y &lt;= 18)
+<div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; # Calculate P(Y &gt;= 26) = P(Y &gt; 25) and P(Y &lt;= 18)
 &gt; pbinom(25, size = n, prob = 1 / 2, lower.tail = FALSE)
 [1] 0.1456076
 &gt; pbinom(18, n, 1 / 2)
 [1] 0.1456076</pre></body></html></div>
 <p>Suppose that we want to find the median of <span class="math inline">\(Y\)</span>. We can use <code>qbinom</code>:</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; qbinom(1 / 2, n, 1 / 2)
+<div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; qbinom(1 / 2, n, 1 / 2)
 [1] 22
 &gt; # A check (look at the definition of the median in the notes)
 &gt; pbinom(21:23, n, 1 / 2)
 [1] 0.4401979 0.5598021 0.6742061</pre></body></html></div>
 <p>The following code simulates 100 values from a Binomial(44, 1/2) distribution.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; ysim &lt;- rbinom(100, 44, 1 / 2)
+<div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; ysim &lt;- rbinom(100, 44, 1 / 2)
 &gt; ysim
   [1] 22 26 22 18 22 30 24 24 20 21 18 21 22 24 19 20 26 22 24 17 23 20 16 24 26
  [26] 24 17 24 25 18 20 18 24 24 24 27 19 22 18 21 20 25 26 22 21 25 22 25 23 22
@@ -167,7 +167,7 @@
 <h3 class="hasAnchor">
 <a href="#the-distributions3-package" class="anchor"></a>The distributions3 package</h3>
 <p>In September 2019 the <strong>distributions3</strong> package <span class="citation">(Hayes and Moller-Trane 2019)</span> was released. A neat feature of this package is that it enables us to create an R object that corresponds to a particular random variable. Then we are able easily to use some simple R functions to perform calculations with this random variable. The way that this works is perhaps more intuitive than the way in which we use functions like <code><a href="https://rdrr.io/r/stats/Binomial.html">dbinom()</a></code> above.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; library(distributions3)
+<div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; library(distributions3)
 
 Attaching package: 'distributions3'
 The following objects are masked from 'package:stats':
@@ -185,10 +185,10 @@ The following object is masked from 'package:grDevices':
 &gt; Y
 Binomial distribution (size = 44, p = 0.5)</pre></body></html></div>
 <p>We reproduce the plot and repeat the calculation of the probabilities.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Reproduce the plot.  
+<div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; # Reproduce the plot.  
 &gt; plot(0:n, pmf(Y, 0:n), type = "h", lwd = 3, ylab = "P(X = x)", xlab = "x")</pre></body></html></div>
 <p><img src="stat0002-ch5a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><html><body><pre class="r">&gt; 1 - cdf(Y, 25)
+<div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; 1 - cdf(Y, 25)
 [1] 0.1456076
 &gt; cdf(Y, 18)
 [1] 0.1456076</pre></body></html></div>
@@ -200,7 +200,7 @@ Binomial distribution (size = 44, p = 0.5)</pre></body></html></div>
 <a href="#the-geometric-distribution" class="anchor"></a>The geometric distribution</h2>
 <p>We recreate the table in the lecture slides, of the observed frequencies and proportions and the corresponding estimated expected values under a geometric distribution fitted to the data.</p>
 <p>R’s <code>dgeom</code> function, and the function <code>Geometric</code> in the <strong>distributions</strong> package, are is based on the number of failures before the first success, not the number of trials. Therefore, we subtract 1 below when we call the function <code>dgeom</code>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Observed, adding a zero for greater than or equal to 6
+<div class="sourceCode" id="cb10"><html><body><pre class="r">&gt; # Observed, adding a zero for greater than or equal to 6
 &gt; geom &lt;- diff(c(0, which(aussie_births$sex == "boy")))
 &gt; max_w &lt;- max(geom)
 &gt; geom &lt;- c(1:(max_w + 1), geom)
@@ -226,7 +226,7 @@ geom
 5 5        1    0.430    0.038    0.017
 6 6        0    0.298    0.000    0.011</pre></body></html></div>
 <p>Alternatively, We could also use the <strong>distributions3</strong> package to calculate the probabilities that we require.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; W &lt;- Geometric(phat)
+<div class="sourceCode" id="cb11"><html><body><pre class="r">&gt; W &lt;- Geometric(phat)
 &gt; W
 Geometric distribution (p = 0.590909090909091)
 &gt; # P(W = w), for w = 1, ..., 5 (note the -1)
@@ -240,13 +240,13 @@ Geometric distribution (p = 0.590909090909091)
 <h2 class="hasAnchor">
 <a href="#the-poisson-distribution" class="anchor"></a>The Poisson distribution</h2>
 <p>Here we use the <strong>distributions</strong> package to produce a plot of the p.m.f. of the Poisson(<span class="math inline">\(\hat{\lambda}\)</span>) distribution, where <span class="math inline">\(\hat{\lambda}\)</span> is equal to the sample mean of the numbers of babies born in each of the 24 hourly periods. We also calculate the probabilities involved in the table of observed and estimated expected frequencies given in the lecture.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; lambdahat &lt;- 44 / 24
+<div class="sourceCode" id="cb12"><html><body><pre class="r">&gt; lambdahat &lt;- 44 / 24
 &gt; N &lt;- Poisson(lambdahat)
 &gt; N
 Poisson distribution (lambda = 1.83333333333333)</pre></body></html></div>
-<div class="sourceCode"><html><body><pre class="r">&gt; plot(0:10, pmf(N, 0:10), type = "h", lwd = 3, ylab = "P(N = n)", xlab = "n")</pre></body></html></div>
+<div class="sourceCode" id="cb13"><html><body><pre class="r">&gt; plot(0:10, pmf(N, 0:10), type = "h", lwd = 3, ylab = "P(N = n)", xlab = "n")</pre></body></html></div>
 <p><img src="stat0002-ch5a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode"><html><body><pre class="r">&gt; 
+<div class="sourceCode" id="cb14"><html><body><pre class="r">&gt; 
 &gt; pmf(N, 0:4)
 [1] 0.15987975 0.29311287 0.26868680 0.16419749 0.07525718
 &gt; # P(N &gt;= 5)
@@ -260,7 +260,7 @@ Poisson distribution (lambda = 1.83333333333333)</pre></body></html></div>
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script><div id="refs" class="references">
 <div id="ref-distributions3">
-<p>Hayes, A., and R. Moller-Trane. 2019. <em>distributions3: Probability Distributions as S3 Objects</em>. <a href="https://github.com/alexpghayes/distributions3" class="uri">https://github.com/alexpghayes/distributions3</a>.</p>
+<p>Hayes, A., and R. Moller-Trane. 2019. <em>distributions3: Probability Distributions as S3 Objects</em>. <a href="https://github.com/alexpghayes/distributions3">https://github.com/alexpghayes/distributions3</a>.</p>
 </div>
 </div>
 </div>

@@ -118,11 +118,11 @@
 <h2 class="hasAnchor">
 <a href="#the-oxford-birth-times-data" class="anchor"></a>The Oxford Birth Times data</h2>
 <p>These data are available in the data frame <code>ox_births</code>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; library(stat0002)
+<div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
 &gt; birth_times &lt;- ox_births[, "time"]
 &gt; day &lt;- ox_births[, "day"]</pre></body></html></div>
 <p>To display these data we manipulate them into a matrix that is of the same format as Table 2.1 in the notes. The number of birth times varies between days so we pad the matrix with R’s missing values code <code>NA</code> in order that each column of the matrix has the same number of rows.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; ox_mat &lt;- matrix(NA, ncol = 7, nrow = 16)
+<div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; ox_mat &lt;- matrix(NA, ncol = 7, nrow = 16)
 &gt; for (i in 1:7) {
 +   day_i_times &lt;- ox_births$time[which(ox_births$day == i)]
 +   ox_mat[1:length(day_i_times), i] &lt;- sort(day_i_times)
@@ -147,7 +147,7 @@
 [15,] 16.00 15.00    NA    NA    NA    NA    NA
 [16,] 19.00 16.50    NA    NA    NA    NA    NA</pre></body></html></div>
 <p>We have a numeric continuous variable, <code>birth_times</code>, and a categorical variable, <code>day</code>. The following code produces the graphs in the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 lecture slides</a> that contain a plot of birth_times for each day of the week.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; par(mar = c(4, 4, 0.5, 1))
+<div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; par(mar = c(4, 4, 0.5, 1))
 &gt; xlab &lt;- "time (hours)"
 &gt; x_labs &lt;- c(min(birth_times), pretty(birth_times), max(birth_times))
 &gt; # top left
@@ -170,7 +170,7 @@
 <h2 class="hasAnchor">
 <a href="#the-2000-us-presidential-election-in-florida" class="anchor"></a>The 2000 US Presidential Election in Florida</h2>
 <p>These data are available in the data frame <code>USelection</code>. See <code><a href="../reference/USelection.html">?USelection</a></code> for details.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # County identifiers and location
+<div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; # County identifiers and location
 &gt; head(USelection[, 1:4])
   co co_names  lat  lon
 1  1  Alachua 29.7 82.4
@@ -199,13 +199,13 @@
 6 177323 386561 1212 7101   50  129  788   34   74  124</pre></body></html></div>
 <p>For the moment we simply produce some scatter plots. A separate vignette will be devoted to these data.</p>
 <p>A plot to show the locations of the counties.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; plot(-USelection[, "lon"], USelection[, "lat"], xlab = "longitude (degrees north)", ylab = "latitude (degrees east)", pch = 16)</pre></body></html></div>
+<div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; plot(-USelection[, "lon"], USelection[, "lat"], xlab = "longitude (degrees north)", ylab = "latitude (degrees east)", pch = 16)</pre></body></html></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 <ol style="list-style-type: decimal">
 <li><strong>Can you see the outline of the state of Florida?</strong></li>
 </ol>
 <p>A plot of the percentage of the vote for Buchanan against population size.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; pbuch &lt;- 100 * USelection$buch/USelection$tvot
+<div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; pbuch &lt;- 100 * USelection$buch/USelection$tvot
 &gt; is_PB &lt;- USelection[, "co_names"] == "PalmBeach"
 &gt; pch &lt;- 1 + 3 * is_PB
 &gt; pch
@@ -219,10 +219,10 @@
 <li><strong>Can you see how the code used to identify Palm Beach on the plot works?</strong></li>
 </ol>
 <p>Pairwise scatter plots of the demographic variables.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; pairs(USelection[, 5:12])</pre></body></html></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; pairs(USelection[, 5:12])</pre></body></html></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
 <p>A plot of the square root of the percentage of the vote for Buchanan against population size, in thousands of people. The horizontal axis has been plotted on a log scale.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; x &lt;- USelection$npop / 1000
+<div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; x &lt;- USelection$npop / 1000
 &gt; y &lt;- sqrt(pbuch)
 &gt; ystring &lt;- expression(sqrt("% Buchanan vote"))
 &gt; rm_PB &lt;- which(!is_PB)
@@ -235,10 +235,10 @@
 <li><p><strong>Can you guess what the numbers on the axes are? See <code>scatter</code> to find out.</strong></p></li>
 </ol>
 <p>Similarly, we use <code>scatter_hist</code> to create a scatter plot in which the distribution of each variable is summarized by a histogram.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; scatter_hist(x, y, log = "x", pch = 16, xlab ="Total Population (1000s)", ylab = ystring)</pre></body></html></div>
+<div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; scatter_hist(x, y, log = "x", pch = 16, xlab ="Total Population (1000s)", ylab = ystring)</pre></body></html></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-10-1.png" width="576"></p>
 <p>The plot in the lecture slides is produced by specifying particular bins for the histograms.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; logx &lt;- log(x)
+<div class="sourceCode" id="cb10"><html><body><pre class="r">&gt; logx &lt;- log(x)
 &gt; xbreaks &lt;- seq(from = min(logx), to = max(logx), len = 25)
 &gt; ybreaks &lt;- seq(from = min(y), to = max(y), len = 25)
 &gt; scatter_hist(x, y, log = "x", pch = 16, xlab ="Total Population (1000s)", ylab = ystring, xbreaks = xbreaks, ybreaks = ybreaks)</pre></body></html></div>

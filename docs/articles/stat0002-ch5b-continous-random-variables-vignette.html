@@ -114,7 +114,7 @@
     
 <p>The purposes of this vignette are to direct you to R functions relating to the <strong>continuous</strong> probability distributions considered in Chapter 5 of the STAT0002 notes and to provide code to do some of the things that appear in the lecture slides. We do this using the standard R functions (in the <strong>stats</strong> package) and using the <strong>distributions3</strong> package <span class="citation">(Hayes and Moller-Trane 2019)</span>, which provides a neat way to work with random variables in R. Please see the <a href="stat0002-ch5a-discrete-random-variables-vignette.html">Discrete Random Variables vignette</a> for a brief introduction to these functions.</p>
 <p>We illustrate these functions using the Australian birth times data, which are available in the data frame <code>aussie_births</code>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; library(stat0002)
+<div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
 &gt; head(aussie_births)
   time  sex weight
 1    5 girl   3837
@@ -128,7 +128,7 @@
 <a href="#the-uniform-distribution" class="anchor"></a>The uniform distribution</h2>
 <p>We will not say much about the uniform distribution here. However, it is a very important distribution because the standard uniform distribution, U(0, 1), is use widely to simulate values from probability distributions. See the <a href="stat0002-ch1b-stochastic-simulation.html">Stochastic Simulation vignette</a> for details.</p>
 <p>First, we show two ways to produce a (pseudo-)random sample from a U(0, 1) distribution. We use the same seed (use <code><a href="https://rdrr.io/r/base/Random.html">?set.seed</a></code> to find out more) to show that these approaches are equivalent. This is because the <code>distributions3</code> package actually uses the function <code>runif</code> in the background.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Using the runif() function in the stats package
+<div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; # Using the runif() function in the stats package
 &gt; set.seed(13112019)
 &gt; n &lt;- 10
 &gt; u1 &lt;- runif(n)
@@ -156,13 +156,13 @@ The following object is masked from 'package:grDevices':
 <h2 class="hasAnchor">
 <a href="#the-exponential-distribution" class="anchor"></a>The exponential distribution</h2>
 <p>The inversion method (see <a href="stat0002-ch1b-stochastic-simulation.html">Stochastic Simulation vignette</a> for details) means that we can easily transform the simulated values produced by <code>runif</code> in a way that produces a (pseudo-)random sample from an exponential distribution.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; lambda &lt;- 2
+<div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; lambda &lt;- 2
 &gt; u &lt;- runif(1000)
 &gt; e1 &lt;- -log(u) / lambda
 &gt; hist(e1, prob = TRUE, main = "")</pre></body></html></div>
 <p><img src="stat0002-ch5b-continous-random-variables-vignette_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We produce a histogram of sample waiting times in the Australian birth times data, with a superimposed exponential density.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Calculate the sample waiting times, in minutes
+<div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; # Calculate the sample waiting times, in minutes
 &gt; w &lt;- diff(c(0, aussie_births$time)) 
 &gt; # Estimate lambda (rate of births per minute)
 &gt; lambdahat &lt;- 1 / mean(w)
@@ -181,29 +181,29 @@ The following object is masked from 'package:grDevices':
 <h2 class="hasAnchor">
 <a href="#the-normal-distribution" class="anchor"></a>The normal distribution</h2>
 <p>We use the birth weights in the Australian birth times data to illustrate how to perform calculations relating to the normal distribution.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Convert weights from grams to pounds
+<div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; # Convert weights from grams to pounds
 &gt; wt &lt;- aussie_births$weight / 453.5
 &gt; # Produce a histogram of the birth weights
 &gt; hist(wt, prob = TRUE, xlab = "weight (pounds)", col = 8, main = "")</pre></body></html></div>
 <p><img src="stat0002-ch5b-continous-random-variables-vignette_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We suppose that the weight <span class="math inline">\(W\)</span> (in pounds) of a randomly chosen baby has a <span class="math inline">\(N(\mu, \sigma^2)\)</span> distribution, even though it seems clear from the histogram that this assumption may be inappropriate.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Estimate the mean, variance and (standard deviation) of W
+<div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; # Estimate the mean, variance and (standard deviation) of W
 &gt; muhat &lt;- mean(wt)
 &gt; sigma2hat &lt;- var(wt)
 &gt; sigmahat &lt;- sd(wt)</pre></body></html></div>
 <p>Suppose that <span class="math inline">\(W\)</span> has a normal distribution, with mean equal to <code>muhat</code> and standard deviation equal to <code>sigmahat</code>. In an example in the notes we calculated <span class="math inline">\(P(W &gt; 10)\)</span>, using a tables of c.d.f. of the standard normal distribution. To perform this calculation in R we could do either of the following.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; pnorm(10, mean = muhat, sd = sigmahat, lower.tail = FALSE)
+<div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; pnorm(10, mean = muhat, sd = sigmahat, lower.tail = FALSE)
 [1] 0.008553284
 &gt; W &lt;- Normal(mu = muhat, sigma = sigmahat)
 &gt; 1 - cdf(W, 10)
 [1] 0.008553284</pre></body></html></div>
 <p>The answer that we get is slightly different from the one in the lecture slides, because we rounded a number (to 2.38) before we looked up the value that we needed in the table. Below we confirm that R gives the same answer as the table (to 5 decimal places).</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; pnorm(2.38)
+<div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; pnorm(2.38)
 [1] 0.9913437
 &gt; 1 - pnorm(2.38)
 [1] 0.008656319</pre></body></html></div>
 <p>In the coffee example in the lecture slides we needed to calculate the 95% quantile of a standard N(0, 1) normal random variable. We could do this in one of the following ways.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; qnorm(0.95)
+<div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; qnorm(0.95)
 [1] 1.644854
 &gt; Z &lt;- Normal(0, 1)
 &gt; quantile(Z, 0.95)
@@ -216,7 +216,7 @@ The following object is masked from 'package:grDevices':
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script><div id="refs" class="references">
 <div id="ref-distributions3">
-<p>Hayes, A., and R. Moller-Trane. 2019. <em>distributions3: Probability Distributions as S3 Objects</em>. <a href="https://github.com/alexpghayes/distributions3" class="uri">https://github.com/alexpghayes/distributions3</a>.</p>
+<p>Hayes, A., and R. Moller-Trane. 2019. <em>distributions3: Probability Distributions as S3 Objects</em>. <a href="https://github.com/alexpghayes/distributions3">https://github.com/alexpghayes/distributions3</a>.</p>
 </div>
 </div>
 </div>

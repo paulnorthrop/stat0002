@@ -127,12 +127,12 @@
 <p>In this vignette we consider how R can be used to analyse data related to this disaster. See <span class="citation">Dalal, Fowlkes, and Hoadley (1989)</span> for more information about these data and analyses to estimate the probability of a catastrophic failure of the Challenger space shuttle under the launch conditions on 28th January 1986. This paper is used as a <a href="https://moodle.ucl.ac.uk/mod/resource/view.php?id=316154">worked example</a> for the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=4">STAT0002 Meet your Professor ICA</a>.</p>
 <p>In the following R commands follow the command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code> and <code>#</code> is used to create a comment, that is, to prevent R from trying to execute text that contains comments rather than a command.</p>
 <p>First we load the <code>stat0002</code> package.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; library(stat0002)</pre></body></html></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)</pre></body></html></div>
 <div id="the-o-ring-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#the-o-ring-data" class="anchor"></a>The O-ring data</h3>
 <p>The data are available in a <strong>data frame</strong> called <code>shuttle</code>. A data frame is what R calls a table of data. Use <code><a href="../reference/shuttle.html">?shuttle</a></code> to find out about these data.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Print the data to the screen 
+<div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; # Print the data to the screen 
 &gt; shuttle
    flight       date damaged temperature pressure
 1       1 21/04/1981       0          66       50
@@ -162,7 +162,7 @@
 <ol style="list-style-type: decimal">
 <li><strong>What do you think <code>NA</code> means?</strong></li>
 </ol>
-<div class="sourceCode"><html><body><pre class="r">&gt; # The function head() prints only the first 6 lines of the data (useful to see the structure of large datasets)
+<div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; # The function head() prints only the first 6 lines of the data (useful to see the structure of large datasets)
 &gt; head(shuttle)
   flight       date damaged temperature pressure
 1      1 21/04/1981       0          66       50
@@ -174,16 +174,16 @@
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Can you guess which R function prints only the last 6 lines of the data?</strong></li>
 </ol>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Tabulate the number of O-rings with thermal distress
+<div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; # Tabulate the number of O-rings with thermal distress
 &gt; table(shuttle[, "damaged"])
 
  0  1  2  3 
 16  5  1  1 </pre></body></html></div>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Repeat and assign the output to the vector o_ring_table 
+<div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; # Repeat and assign the output to the vector o_ring_table 
 &gt; o_ring_table &lt;- table(shuttle[, 3])</pre></body></html></div>
 <p><strong>Note the different way to get the column that we want.</strong></p>
 <p>We produce a bar plot of the numbers of distressed O-rings and a scatter plot of temperature against pressure. See also the vignette <a href="stat0002-ch2c-graphs-simulation-vignette.html">Chapter 2: Graphs (more than one variable)</a>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; barplot(o_ring_table, xlab = "number of distressed O-rings", ylab = "frequency")
+<div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; barplot(o_ring_table, xlab = "number of distressed O-rings", ylab = "frequency")
 &gt; attach(shuttle)
 The following object is masked from package:datasets:
 
@@ -194,14 +194,14 @@ The following object is masked from package:datasets:
 <li><strong>Can you see what <code><a href="https://rdrr.io/r/base/attach.html">attach(shuttle)</a></code> enabled us to do? Type <code><a href="https://rdrr.io/r/base/attach.html">?attach</a></code> to find out what the <code><a href="https://rdrr.io/r/base/attach.html">attach()</a></code> function does.</strong></li>
 </ol>
 <p><strong>Did you also note the warning message? This means that there exists another variable called <code>pressure</code>, in the R package called <code>datasets</code>. [Type <code><a href="https://rdrr.io/r/datasets">library(help = "datasets")</a></code> to see all the datasets available in the <code>datasets</code> package.] Using <code><a href="https://rdrr.io/r/base/attach.html">attach(shuttle)</a></code> means that if we ask R for the variable <code>pressure</code> then R gives us <code>shuttle[, "pressure"]</code>. Otherwise <code>pressure</code> would give us the data in the <code>datasets</code> package. This highlights the fact that if we use <code><a href="https://rdrr.io/r/base/attach.html">attach()</a></code> then we need to be careful.</strong></p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # The opposite of the function attach() is the function detach()
+<div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; # The opposite of the function attach() is the function detach()
 &gt; detach(shuttle)</pre></body></html></div>
-<div class="sourceCode"><html><body><pre class="r">&gt; pairs(shuttle[, 3:5])</pre></body></html></div>
+<div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; pairs(shuttle[, 3:5])</pre></body></html></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-9-1.png" width="576"></p>
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Can you work out what the <code>3:5</code> bit is used for and what the <code><a href="https://rdrr.io/r/graphics/pairs.html">pairs()</a></code> function does?</strong></li>
 </ol>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Remove the zeros from the O-ring damage data
+<div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; # Remove the zeros from the O-ring damage data
 &gt; not_zero &lt;- shuttle$damaged &gt; 0
 &gt; not_zero
  [1] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE
@@ -209,7 +209,7 @@ The following object is masked from package:datasets:
 <ol start="5" style="list-style-type: decimal">
 <li><strong>Can you see what the vector <code>not_zero</code> contains?</strong></li>
 </ol>
-<div class="sourceCode"><html><body><pre class="r">&gt; xlim &lt;- range(shuttle$temperature)
+<div class="sourceCode" id="cb10"><html><body><pre class="r">&gt; xlim &lt;- range(shuttle$temperature)
 &gt; xlim
 [1] 31 81
 &gt; # Plot with no zeros
@@ -240,7 +240,7 @@ The following object is masked from package:datasets:
 <li><p><strong>What happens in the special case where <span class="math inline">\(\beta = 0\)</span>?</strong></p></li>
 </ol>
 <p>A linear logistic regression model is a special case of a Generalized Linear Model. The function <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> can be used to fit this type of model, using <em>maximum likelihood estimation</em> to estimate the unknown parameters (or <em>coefficients</em>) <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. First we create <em>response</em> data <code>y</code> (numbers of O-rings with and without thermal distress) and the <em>explanatory</em> data <code>x</code> (the launch temperatures).</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Create a matrix y containing 2 columns:
+<div class="sourceCode" id="cb11"><html><body><pre class="r">&gt; # Create a matrix y containing 2 columns:
 &gt; #   column 1: number of O-rings WITH thermal distress
 &gt; #   column 2: number of O-rings WITHOUT thermal distress
 &gt; y &lt;- cbind(shuttle[1:23, 3], 6 - shuttle[1:23, 3])
@@ -256,7 +256,7 @@ The following object is masked from package:datasets:
 &gt; x
  [1] 66 70 69 68 67 72 73 70 57 63 70 78 67 53 67 75 70 81 76 79 75 76 58</pre></body></html></div>
 <p>Then we fit the model.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; shuttle_fit &lt;- glm(y ~ x, family = binomial)
+<div class="sourceCode" id="cb12"><html><body><pre class="r">&gt; shuttle_fit &lt;- glm(y ~ x, family = binomial)
 &gt; # Produce a summary of the estimates.  There is a lot of output: only look at the
 &gt; # numbers in the column headed "Estimate".
 &gt; summary(shuttle_fit)
@@ -285,19 +285,19 @@ Number of Fisher Scoring iterations: 5
 &gt; alpha_hat &lt;- shuttle_fit$coefficients[1]
 &gt; beta_hat &lt;- shuttle_fit$coefficients[2]</pre></body></html></div>
 <p>We calculate the <em>fitted</em>, or <em>estimated</em> probability <span class="math inline">\(p(t)\)</span> over a range of temperatures that includes 31 degrees F, and stored these numbers in a vector called <code>fitted_probs</code>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; temp &lt;- seq(from = 30, to = 85, by = 0.1)
+<div class="sourceCode" id="cb13"><html><body><pre class="r">&gt; temp &lt;- seq(from = 30, to = 85, by = 0.1)
 &gt; linear_predictor &lt;- alpha_hat + beta_hat * temp
 &gt; fitted_curve &lt;- exp(linear_predictor) / (1 + exp(linear_predictor))</pre></body></html></div>
 <ol start="11" style="list-style-type: decimal">
 <li><strong>Can you guess what the function <code>seq</code> does? Use <code><a href="https://rdrr.io/r/base/seq.html">?seq</a></code> to find out.</strong></li>
 </ol>
 <p>We plot the <em>proportions</em> of distressed O-rings against temperature with the fitted logistic probability curve <span class="math inline">\(p(t)\)</span> superimposed. The second plot is the same as the plot in the lecture slides.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; plot(shuttle$temperature, shuttle$damaged / 6, ann = FALSE, ylim = c(0, 1))
+<div class="sourceCode" id="cb14"><html><body><pre class="r">&gt; plot(shuttle$temperature, shuttle$damaged / 6, ann = FALSE, ylim = c(0, 1))
 &gt; title(xlab = "temperature / deg F", ylab = "proportion of distressed O-rings")
 &gt; lines(temp, fitted_curve)</pre></body></html></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-15-1.png" width="576"></p>
 <p>Now we produce a better plot, one that is similar to the plot that appears in the lecture slides.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; repeated_data &lt;- which(duplicated(shuttle[, 3:4]))
+<div class="sourceCode" id="cb15"><html><body><pre class="r">&gt; repeated_data &lt;- which(duplicated(shuttle[, 3:4]))
 &gt; shuttle[repeated_data, ]
    flight       date damaged temperature pressure
 11     11 30/08/1984       1          70      200
@@ -325,7 +325,7 @@ Number of Fisher Scoring iterations: 5
 <p>In reality we are not able to repeat the launches and so we have only one dataset, producing one estimated curve. However, we should appreciate that this dataset (and its estimated curve) is one example taken from a <em>population</em> of datasets (and their respective estimated curves) could be obtained. The size of our uncertainty based on this one dataset is related to how variable is this population of estimated curves. If the estimated curves are very similar then it may not matter which of them we get from our real dataset, because our findings will be similar for all datasets. However, if the estimated curves are very different then our findings will vary a lot depending on which dataset we have obtained.</p>
 <p>Although we cannot repeat the launches we can get an idea of how much uncertainty there is about <span class="math inline">\(p(t)\)</span> for given values of <span class="math inline">\(t\)</span> by simulating fake datasets from the model fitted to the real data. This involves getting a computer to `decide’ whether or not a given O-ring suffers thermal distress during a launch at temperature <span class="math inline">\(t\)</span>, in a random manner such that the probability of distress equals <span class="math inline">\(\hat{p}(t)\)</span>. For more details about how we can use a computer to generate <em>pseudo-random numbers</em> (numbers that are close enough to being random for our purposes) see the vignette <a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic simulation</a> and/or the short <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=8">Stochastic simulation video</a>.</p>
 <p>The function <code>shuttle_sim</code> simulates fake O-ring thermal distress data for Challenger Space Shuttle launches at different launch temperatures. The following code simulates 10 fake datasets of size 23, using the real launch temperatures.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Simulate 10 fake datasets of size 23, using the real temperatures.
+<div class="sourceCode" id="cb16"><html><body><pre class="r">&gt; # Simulate 10 fake datasets of size 23, using the real temperatures.
 &gt; res &lt;- shuttle_sim(n_sim = 10)
 &gt; res
    temps real sim1 sim2 sim3 sim4 sim5 sim6 sim7 sim8 sim9 sim10
@@ -353,7 +353,7 @@ Number of Fisher Scoring iterations: 5
 22    76    0    0    1    0    1    0    0    0    1    0     0
 23    58    1    2    2    0    1    2    2    2    2    0     2</pre></body></html></div>
 <p>This function can also be used to simulate the number of distressed O-rings under the scenario that we launch the space shuttle many times at a single temperature. Here we do this 1000 times at 31 degrees F.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Simulate the number of distressed O-rings for 1000 launches at 31 deg F.
+<div class="sourceCode" id="cb17"><html><body><pre class="r">&gt; # Simulate the number of distressed O-rings for 1000 launches at 31 deg F.
 &gt; res &lt;- shuttle_sim(n_sim = 1000, temperature = 31)
 &gt; res[1:100]
   [1] 5 6 5 6 5 6 6 6 6 6 5 6 6 5 4 4 6 6 6 6 5 6 6 6 5 6 6 6 6 5 5 6 5 6 5 5 6
@@ -364,17 +364,17 @@ res
     2     3     4     5     6 
    15   204  1703  7336 13742 </pre></body></html></div>
 <p>The function <code>shuttle_sim_plot</code> plots multiple linear logistic curves. Each curve is the result of simulating a fake dataset from the linear logistic model fitted to the real data and then estimating the linear logistic curve using the fake dataset. The following plot also contains the real data and a (blue) curve showing the curve fitted to the real data.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; shuttle_sim_plot(n_sim = 50, col = "grey")</pre></body></html></div>
+<div class="sourceCode" id="cb18"><html><body><pre class="r">&gt; shuttle_sim_plot(n_sim = 50, col = "grey")</pre></body></html></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-20-1.png" width="672"></p>
 <p>Given that we are simulating data using a computer we could consider a scenario where 10 launches are carried out at each temperature in the real dataset, i.e. the simulated datasets now have size 23 x 10 = 230, rather than 23. This plot shows how the estimated curves would vary between different simulated datasets.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; shuttle_sim_plot(n_sim = 50, n_reps = 10, plot_real_data = FALSE, lty = 1)</pre></body></html></div>
+<div class="sourceCode" id="cb19"><html><body><pre class="r">&gt; shuttle_sim_plot(n_sim = 50, n_reps = 10, plot_real_data = FALSE, lty = 1)</pre></body></html></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-21-1.png" width="672"></p>
 <p>Now we consider the case where the simulated datasets each have size 2300.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; shuttle_sim_plot(n_sim = 50, n_reps = 100, plot_real_data = FALSE, lty = 1)</pre></body></html></div>
+<div class="sourceCode" id="cb20"><html><body><pre class="r">&gt; shuttle_sim_plot(n_sim = 50, n_reps = 100, plot_real_data = FALSE, lty = 1)</pre></body></html></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-22-1.png" width="672"></p>
 <p>See also the function <code>shuttle_movie</code> for an animated version of <code>shuttle_sim_plot</code>.</p>
 <p>Finally, we produce a plot that is (almost) the same as Figure 1.6 in the notes.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; x &lt;- shuttle_sim_plot(n_sim = 1000, plot = FALSE)
+<div class="sourceCode" id="cb21"><html><body><pre class="r">&gt; x &lt;- shuttle_sim_plot(n_sim = 1000, plot = FALSE)
 Warning: glm.fit: algorithm did not converge
 Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
 &gt; shuttle_sim_hists(x, temps = c(31, 50, 65, 80), col = 8)</pre></body></html></div>
@@ -388,7 +388,7 @@ Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script><div id="refs" class="references">
 <div id="ref-shuttle">
-<p>Dalal, S. R., E. B. Fowlkes, and B. Hoadley. 1989. “Risk Analysis of the Space Shuttle: Pre-Challenger Prediction of Failure.” <em>Journal of the American Statistical Association</em> 84 (408): 945–57. <a href="http://dx.doi.org/10.1080/01621459.1989.10478858" class="uri">http://dx.doi.org/10.1080/01621459.1989.10478858</a>.</p>
+<p>Dalal, S. R., E. B. Fowlkes, and B. Hoadley. 1989. “Risk Analysis of the Space Shuttle: Pre-Challenger Prediction of Failure.” <em>Journal of the American Statistical Association</em> 84 (408): 945–57. <a href="http://dx.doi.org/10.1080/01621459.1989.10478858">http://dx.doi.org/10.1080/01621459.1989.10478858</a>.</p>
 </div>
 </div>
 </div>

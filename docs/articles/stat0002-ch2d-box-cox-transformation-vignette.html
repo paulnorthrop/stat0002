@@ -147,7 +147,7 @@
 <h3 class="hasAnchor">
 <a href="#log-normal-distribution" class="anchor"></a>Log-normal distribution</h3>
 <p>The following code: simulates a sample of size 100 from a log-normal distribution; draws a histogram of these data with the log-normal p.d.f. superimposed; and then produces a similar plot after transforming using a log transformation (<code>lambda = 0</code>).</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; library(stat0002)
+<div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
 &gt; x &lt;- rlnorm(100)
 &gt; boxcox_plot(x, density_fn = dlnorm, main = "data and true density function")
 &gt; boxcox_plot(x, density_fn = dlnorm, lambda = 0, main = "after transformation")</pre></body></html></div>
@@ -158,10 +158,10 @@
 <p>In this example we <em>know</em> which value of <span class="math inline">\(\lambda\)</span> should produce approximate symmetry. When confronted with real data we won’t be in this position. However, we could look at a plot of the original data and judge whether we need to make the data less positively skewed (use <span class="math inline">\(\lambda &lt; 1\)</span>) or less negatively skewed (use <span class="math inline">\(\lambda &gt; 1\)</span>), and then use trial-and-error.</p>
 <p>There is also a more automatic way to suggest a suitable value for <span class="math inline">\(\lambda\)</span>: we try a number of values of <span class="math inline">\(\lambda\)</span> and summarise how well a normal distribution fits the transformed data using the value of something called a <em>profile log-likelihood</em>. Don’t worry about what this means, just appreciate that larger values of the profile log-likelihood suggest a better fit. This produces a ‘best guess’ at the value of <span class="math inline">\(\lambda\)</span>. We can also produce a confidence interval for <span class="math inline">\(\lambda\)</span>. We don’t study confidence intervals in detail in STAT0002. The idea is that this interval is a measure of uncertainty about the value of <span class="math inline">\(\lambda\)</span>.</p>
 <p>The function <code>boxcox</code> in the MASS package (<span class="citation">Venables and Ripley (2002)</span>) produces plot of the profile log-likelihood against <span class="math inline">\(\lambda\)</span>, with a 95% confidence interval for <span class="math inline">\(\lambda\)</span>. The <code>~ 1</code> bit in the <em>formula</em> notation <code>x ~ 1</code> below is specifying that there is no other variable to consider in addition to <code>x</code>. In <a href="#linearity">Transformation to Approximate Linearity</a> below we will extend this notation to deal with the case when consider two variables.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; library(MASS, warn.conflicts = FALSE)
+<div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; library(MASS, warn.conflicts = FALSE)
 &gt; res &lt;- MASS::boxcox(x ~ 1)</pre></body></html></div>
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-4-1.png" width="624"></p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # Find the value of lambda with the largest profile log-likelihood
+<div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; # Find the value of lambda with the largest profile log-likelihood
 &gt; res$x[which.max(res$y)]
 [1] 0.1010101</pre></body></html></div>
 <p>As we expect the ‘best’ value of <span class="math inline">\(\lambda\)</span> is close to zero and zero lies within the confidence intervals for <span class="math inline">\(\lambda\)</span>. Typically, we choose a simple value of <span class="math inline">\(\lambda\)</span>, e.g. a simple fraction or whole number, that is close to the ‘best’ and lies within the confidence interval.</p>
@@ -170,7 +170,7 @@
 <h3 class="hasAnchor">
 <a href="#exponential-distribution" class="anchor"></a>Exponential distribution</h3>
 <p>An exponential random variable (Section 5.6 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>) exhibits strong positive skewness. Therefore, if we wish to Box-Cox transform data that have been sampled from an exponential distribution in order to make it more symmetric then we should use <span class="math inline">\(\lambda &lt; 1\)</span>. We can use the MASS function <code>boxcox</code> to help us to decide which value of <span class="math inline">\(\lambda\)</span> we could use. However, an exponential distribution is a special case of a gamma distribution (we don’t study this in STAT0002) and it has long been known (<span class="citation">Wilson and Hilferty (1931)</span>) that a cube root transformation tends to make a gamma random variable behave rather like a normal random variable. Therefore, <span class="math inline">\(\lambda = 1/3\)</span> might work well.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; x2 &lt;- rexp(100)
+<div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; x2 &lt;- rexp(100)
 &gt; boxcox_plot(x2, density_fn = dexp, main = "data and true density function")
 &gt; boxcox_plot(x2, density_fn = dexp, lambda = 1 / 3, main = "after transformation")
 &gt; boxcox(x2 ~ 1)
@@ -192,7 +192,7 @@
   \end{cases}
   \right.
 \]</span> i.e. a triangle with base along (0,1). The functions <code>dtri</code> and <code>rtri</code> in the following code are used to calculate this p.d.f. and to simulate from this distribution, respectively. The latter uses the <em>inversion method</em> of simulation. See the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=8">Stochastic simulation video</a> for details.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; # A function to define the p.d.f.
+<div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; # A function to define the p.d.f.
 &gt; dtri &lt;- function(x) {
 +   return(ifelse(x &gt; 0 &amp; x &lt; 1, 2 * x, 0))
 + }  
@@ -205,12 +205,12 @@
 <li><strong>(After we reach Exercises 6 in the course) can you prove that if a random variable <span class="math inline">\(X\)</span> has the triangular p.d.f. above then <span class="math inline">\(X^2\)</span> has a standard U(0,1) distribution and hence that <span class="math inline">\((X^2-1)/2\)</span> has a U(-1/2,0) distribution?</strong></li>
 </ol>
 <p>We simulate same data from this triangular distribution and show that using <span class="math inline">\(\lambda = 2\)</span> does indeed produce a density that is flat, and therefore symmetric.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; x3 &lt;- rtri(200)
+<div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; x3 &lt;- rtri(200)
 &gt; boxcox_plot(x3, density_fn = dtri)
 &gt; boxcox_plot(x3, density_fn = dtri, lambda = 2)</pre></body></html></div>
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-7-1.png" width="326.4"><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-7-2.png" width="326.4"></p>
 <p>Interestingly the <code>boxcox</code> function suggests a values of <span class="math inline">\(\lambda\)</span> that is close to 1.5 and the resulting transformed density is not particularly close to being symmetric. This is because the objective of the <code>boxcox</code> function is to seek a Box-Cox transformation for which the transformed density is as close as possible to being normal. It can’t do this very well in this case but we know that <span class="math inline">\(\lambda = 2\)</span> produces a density that is perfectly symmetric, although it is a uniform density, not a normal density.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; boxcox(x3 ~ 1, lambda = seq(0, 4, 1 / 10))
+<div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; boxcox(x3 ~ 1, lambda = seq(0, 4, 1 / 10))
 &gt; boxcox_plot(x3, density_fn = dtri, lambda = 1.5)</pre></body></html></div>
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-8-1.png" width="326.4"><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-8-2.png" width="326.4"></p>
 </div>
@@ -218,7 +218,7 @@
 <h3 class="hasAnchor">
 <a href="#the-oxford-births-data" class="anchor"></a>The Oxford births data</h3>
 <p>Suppose that we create a vector <code>x4</code> containing the Oxford birth durations. These are real data so we don’t know the true p.d.f.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; x4 &lt;- ox_births$time
+<div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; x4 &lt;- ox_births$time
 &gt; boxcox_plot(x4)</pre></body></html></div>
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-9-1.png" width="624"></p>
 <ol start="4" style="list-style-type: decimal">
@@ -234,7 +234,7 @@
 <h3 class="hasAnchor">
 <a href="#us-presidential-election-data-in-florida" class="anchor"></a>2000 US Presidential Election Data in Florida</h3>
 <p>Consider the following plot of the percentage of the vote obtained by the candidate Pat Buchanan (<span class="math inline">\(Y\)</span>) against the total population (in thousands of people) of the county (<span class="math inline">\(x\)</span>) in each of the 67 counties in Florida.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; xlab &lt;- "population (1000s)"
+<div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; xlab &lt;- "population (1000s)"
 &gt; ylab &lt;- "Buchanan's % vote"
 &gt; y &lt;- 100 * USelection$buch / USelection$tvot
 &gt; x &lt;- USelection$npop / 1000
@@ -242,10 +242,10 @@
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-10-1.png" width="624"></p>
 <p>Clearly <span class="math inline">\(Y\)</span> is not linearly related to <span class="math inline">\(x\)</span>. In Section 8.4 of the notes we consider the use of transformation in the setting of simple linear regression. If we are hoping to use a <em>linear</em> regression model then one of the most important considerations is whether the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(x\)</span> is approximately linear. If it is not then one approach is to consider transforming <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(x\)</span>. In the  we saw that we could choose these transformations using trial-and-error.</p>
 <p>In <span class="citation">Smith (2002)</span> the author uses <span class="math inline">\(\sqrt{Y}\)</span> instead of <span class="math inline">\(Y\)</span> and <span class="math inline">\(\log(x)\)</span> instead of <span class="math inline">\(x\)</span>. In a lecture we found that this did indeed produce a relationship that looked much closer to being linear. Here we also use <span class="math inline">\(\log(x)\)</span> instead of <span class="math inline">\(x\)</span> and we use the <code>boxcox</code> function to suggest a Box-Cox transformation for <span class="math inline">\(y\)</span>. [It is possible to look to look simultaneously for the ‘best’ Box-Cox transformations of both <span class="math inline">\(Y\)</span> and <span class="math inline">\(x\)</span>, but the <code>boxcox</code> doesn’t provide this option.] In the regression setting the <code>boxcox</code> function seeks a transformation of <span class="math inline">\(Y\)</span> for which the distribution of the random error is as close as possible to being normal.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; boxcox(y ~ log(x))</pre></body></html></div>
+<div class="sourceCode" id="cb10"><html><body><pre class="r">&gt; boxcox(y ~ log(x))</pre></body></html></div>
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 <p>Here the plot suggests that we might also transform <span class="math inline">\(Y\)</span> using <span class="math inline">\(\log(Y)\)</span>. The plot on the left below is of <span class="math inline">\(\log(Y)\)</span> against <span class="math inline">\(\log(x)\)</span> (we plot both variables on log scales). The plot on the right is of <span class="math inline">\(\sqrt{Y}\)</span> against <span class="math inline">\(x\)</span>.</p>
-<div class="sourceCode"><html><body><pre class="r">&gt; xlab &lt;- "population (1000s)"
+<div class="sourceCode" id="cb11"><html><body><pre class="r">&gt; xlab &lt;- "population (1000s)"
 &gt; ylab &lt;- "Buchanan vote"
 &gt; plot(x, y, pch = 16, log = "xy", xlab = xlab, ylab = ylab)
 &gt; ylab &lt;- expression(sqrt(Buchanan~vote))
@@ -261,19 +261,19 @@
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script><div id="refs" class="references">
 <div id="ref-BC1964">
-<p>Box, G. E. P., and D. R. Cox. 1964. “An Analysis of Transformations.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 26 (2). Wiley for the Royal Statistical Society: 211–52. <a href="http://www.jstor.org/stable/2984418" class="uri">http://www.jstor.org/stable/2984418</a>.</p>
+<p>Box, G. E. P., and D. R. Cox. 1964. “An Analysis of Transformations.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 26 (2): 211–52. <a href="http://www.jstor.org/stable/2984418">http://www.jstor.org/stable/2984418</a>.</p>
 </div>
 <div id="ref-Smith2002">
-<p>Smith, R. L. 2002. “A Statistical Assessment of Buchanan’s Vote in Palm Beach County.” <em>Statist. Sci.</em> 17 (4). The Institute of Mathematical Statistics: 441–57. doi:<a href="https://doi.org/10.1214/ss/1049993203">10.1214/ss/1049993203</a>.</p>
+<p>Smith, R. L. 2002. “A Statistical Assessment of Buchanan’s Vote in Palm Beach County.” <em>Statist. Sci.</em> 17 (4): 441–57. <a href="https://doi.org/10.1214/ss/1049993203">https://doi.org/10.1214/ss/1049993203</a>.</p>
 </div>
 <div id="ref-MASS">
-<p>Venables, W. N., and B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. Fourth. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4" class="uri">http://www.stats.ox.ac.uk/pub/MASS4</a>.</p>
+<p>Venables, W. N., and B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. Fourth. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4">http://www.stats.ox.ac.uk/pub/MASS4</a>.</p>
 </div>
 <div id="ref-WH1931">
-<p>Wilson, E. B., and M. M. Hilferty. 1931. “The Distribution of Chi-Square.” <em>Proc. Natl. Acad. Sci. USA</em> 17 (12): 684–88. <a href="http://www.jstor.org/stable/86022" class="uri">http://www.jstor.org/stable/86022</a>.</p>
+<p>Wilson, E. B., and M. M. Hilferty. 1931. “The Distribution of Chi-Square.” <em>Proc. Natl. Acad. Sci. USA</em> 17 (12): 684–88. <a href="http://www.jstor.org/stable/86022">http://www.jstor.org/stable/86022</a>.</p>
 </div>
 <div id="ref-YJ2000">
-<p>Yeo, I.-K., and Richard A. Johnson. 2000. “A New Family of Power Transformations to Improve Normality or Symmetry.” <em>Biometrika</em> 87 (4). [Oxford University Press, Biometrika Trust]: 954–59. <a href="http://www.jstor.org/stable/2673623" class="uri">http://www.jstor.org/stable/2673623</a>.</p>
+<p>Yeo, I.-K., and Richard A. Johnson. 2000. “A New Family of Power Transformations to Improve Normality or Symmetry.” <em>Biometrika</em> 87 (4): 954–59. <a href="http://www.jstor.org/stable/2673623">http://www.jstor.org/stable/2673623</a>.</p>
 </div>
 </div>
 </div>
