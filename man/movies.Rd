@@ -26,7 +26,7 @@ user-friendly form, via the \code{\link[smovie]{smovie}} package.
 If you have \code{smovie} installed (\code{install.packages("smovie")})
 then you can access these using \code{library(smovie)} and then
 \code{movies()}.
-See \code{\link[smovie]{movies}} for more details.)
+See \code{\link[smovie]{movies}} for more details.
 
 When one of these functions is called R opens up a small
 \emph{parameter window} containing clickable buttons that can be
