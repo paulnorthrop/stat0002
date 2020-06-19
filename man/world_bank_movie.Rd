@@ -34,18 +34,11 @@ surrounding these data see
 \href{https://www.theguardian.com/global-development/video/2013/may/17/population-climate-change-hans-rosling-video}{this video}
 }
 \examples{
-# Load packages rpanel and tkrplot
-\dontrun{
-library(rpanel)
-library(tkrplot)
-# [Use install.packages("tkrplot") if necessary]
-
 # Produce the movie.  You may ignore the warning message that is produced.
-# [I think the cause may be that some countries have a lot of missing data.]
+# (I think the cause may be that some countries have a lot of missing data.)
 rp.bubbleplot(log(gdp_per_capita), log(co2_per_capita), 1960:2014,
               size = population_size, col = life_expectancy,
               interpolate = TRUE, hscale = 1.5, vscale = 1.5)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.
