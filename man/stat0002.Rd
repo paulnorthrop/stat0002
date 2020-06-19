@@ -45,6 +45,8 @@ If you have any questions about this package please ask them via the
   \item {\href{../doc/stat0002-ch2b-graphs-vignette.html}{Chapter 2: Graphs (One Variable)}}
   \item {\href{../doc/stat0002-ch2c-graphs-vignette.html}{Chapter 2: Graphs (More Than One Variable)}}
   \item {\href{../doc/stat0002-ch2d-box-cox-transformation-vignette.html}{Chapter 2: Transformation Of Variable}}
+  \item {\href{../doc/stat0002-ch5a-discrete-random-variables.html}{Chapter 5: binomial, geometric and Poisson distributions}}
+  \item {\href{../doc/stat0002-ch5b-continuous-random-variables.html}{Chapter 5: uniform, exponential and normal distributions}}
 }
 }
 
