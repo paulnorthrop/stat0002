@@ -8,6 +8,8 @@ stat0002 will have CRAN package check results errors on osx, but these are inher
 
 - ubuntu 12.04 (on travis-ci), R-release, R-devel    
 - win-builder (R-devel and R-release)
+- Fedora Linux, R-devel, clang, gfortran, using r-hub
+- Debian Linux, R-devel, GCC, using r-hub
 
 ## Downstream dependencies
 
