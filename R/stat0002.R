@@ -205,14 +205,14 @@ NULL
 #' Influenza data
 #'
 #' The numbers of people (in thousands of people) in the UK visiting their
-#' doctor with symptoms of influenza (’flu) during four-weekly time periods
+#' doctor with symptoms of influenza (flu) during four-weekly time periods
 #' over the time period 28th January 1967 to 13th November 2004.
 #'
 #' @format A data frame with 494 observations on the following 2 variables.
 #' \itemize{
 #' \item{\code{date:}}{ the date.}
 #' \item{\code{visits:}}{ the number of people visiting their doctor with
-#' symptoms of 'flu.}}
+#' symptoms of flu.}}
 #'
 "flu"
 
