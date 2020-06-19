@@ -101,7 +101,6 @@
 #'   (for students not taking STAT0004, e.g. Natural Sciences students).
 #' @docType package
 #' @name stat0002
-#' @import methods
 #' @importFrom stats runif
 #' @importFrom graphics plot
 #' @import rpanel

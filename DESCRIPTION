@@ -20,16 +20,13 @@ Imports: distributions3,
     graphics,
     grDevices,
     MASS,
-    methods,
     plotrix,
     rust,
     smovie,
     stats,
-    tkrplot,
-    utils
-Suggests: knitr,
-    rmarkdown,
     tkrplot
+Suggests: knitr,
+    rmarkdown
 VignetteBuilder: knitr
 URL: https://paulnorthrop.github.io/stat0002/,
      https://github.com/paulnorthrop/stat0002
