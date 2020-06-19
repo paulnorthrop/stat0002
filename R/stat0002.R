@@ -103,6 +103,9 @@
 #' @name stat0002
 #' @importFrom stats runif
 #' @importFrom graphics plot
+#' @importFrom distributions3 cdf
+#' @importFrom rust ru
+#' @importFrom smovie movies
 #' @import rpanel
 #' @aliases stat0002
 NULL
@@ -291,7 +294,7 @@ NULL
 #'
 #' The baby arrivals data introduced in Section 5 of the STAT0002 notes.
 #' Information concerning the 44 babies (18 girls and 26 boys) born in a
-#' 24-hour period at the Mater Mothers’ Hospital, Brisbane, Australia, on
+#' 24-hour period at the Mater Mothers' Hospital, Brisbane, Australia, on
 #' December 18, 1997.
 #'
 #' @format A data frame with 44 observations on the following 3 variables.
