@@ -35,12 +35,17 @@ page](https://www.rstudio.com/products/rstudio/download/). Find **All
 Installers** near the bottom of the page and choose the installer that
 is appropriate for your operating system.
 
-To install the `stat0002` package from GitHub type the following at the
-R Console command prompt `>`.
+To get the current released version of `stat0002` from CRAN:
+
+``` r
+install.packages("stat0002")
+```
+
+To install a development version from GitHub type the following at the R
+Console command prompt `>`.
 
 ``` r
 install.packages("remotes")
-
 install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3"), 
                  dependencies = "Depends")
 ```
@@ -62,8 +67,13 @@ library(stat0002)
 ```
 
 to open the main help page, which contains links to vignettes, datasets
-and other sources of information. If `?stat0002` doesn’t work then close
-RStudio, reopen it and try again.
+and movies. The Index at the bottom links to help files for functions.
+If `?stat0002` doesn’t work then close RStudio, reopen it and try again.
+
+However, perhaps the most convenient source of this information is the
+[stat0002 home page on
+GitHub](https://paulnorthrop.github.io/stat0002/), which has help files
+under **Reference** and vignettes under **Articles**.
 
 You will find that some vignettes contain ideas that we have not yet
 covered in lectures. If you want to try to understand these ideas before
@@ -73,3 +83,14 @@ been provided.
 If you have any questions about this package please ask them via the
 [STAT0002 Moodle Discussion
 Forum](https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=866683).
+
+### Software required for the movies
+
+The movies are produced using the
+[`rpanel`](https://cran.r-project.org/package=rpanel) package, which
+requires the Tcl extension
+[`BWidget`](https://sourceforge.net/projects/tcllib/files/BWidget/).
+`BWidget` is included in the R installers for Windows and macOS. For
+other platforms please see [Section 1.1.7 of Writing R
+Extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Non_002dR-scripts-in-packages)
+for installation advice.

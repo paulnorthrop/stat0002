@@ -7,13 +7,15 @@
 #' This package can also be used to complement STAT0004 Introduction to
 #' Practical Statistics, enabling students to become more familiar with R
 #' code by seeing it in action and playing with it themselves.
+#' A useful source of information is the
+#' \href{https://paulnorthrop.github.io/stat0002/}{stat0002 home page on GitHub}.
 #'
 #' @section Please note:
-#' \strong{The main sources of information about the material in STAT0002
-#' are the lectures and tutorials, with notes, lecture slides, exercises
-#' etc available from the
+#' \strong{The main source of information about the material in STAT0002 is
+#' the
 #' \href{https://moodle.ucl.ac.uk/course/view.php?id=8579&section=0}{STAT0002 Moodle page}.
-#' The focus of this R package is mainly on R code.}
+#' You are not required to use the `stat0002` package during STAT0002, but it
+#' is recommended as a supplement to the STAT0002 syllabus.}
 #'
 #' @section How to learn about R:
 #' The best way to learn how to use a computer program is to play with code and
