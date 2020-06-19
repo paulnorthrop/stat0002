@@ -10,7 +10,7 @@ poisson_process_sim(lambda = 1, hours = 24, n_events = NULL)
 \item{lambda}{A positive numeric scalar.  The rate of the Poisson process.}
 
 \item{hours}{A positive integer scalar.  The number of hours for which to
-simulate a Poisson process of rate \eqn{lambda} events per hour.}
+simulate a Poisson process of rate \eqn{\lambda} events per hour.}
 
 \item{n_events}{A positive integer scalar.  The number of events to
 simulate.}

@@ -7,7 +7,7 @@
 #'
 #' @param lambda A positive numeric scalar.  The rate of the Poisson process.
 #' @param hours A positive integer scalar.  The number of hours for which to
-#'   simulate a Poisson process of rate \eqn{lambda} events per hour.
+#'   simulate a Poisson process of rate \eqn{\lambda} events per hour.
 #' @param n_events A positive integer scalar.  The number of events to
 #'   simulate.
 #' @details If \code{n_events} is supplied then exactly \code{n_events} are
