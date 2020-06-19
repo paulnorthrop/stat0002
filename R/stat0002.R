@@ -102,6 +102,7 @@
 #' @import methods
 #' @importFrom stats runif
 #' @importFrom graphics plot
+#' @import rpanel
 #' @aliases stat0002
 NULL
 
