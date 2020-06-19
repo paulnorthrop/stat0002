@@ -30,5 +30,5 @@ Suggests: knitr,
     rmarkdown,
     tkrplot
 VignetteBuilder: knitr
-URL: http://github.com/paulnorthrop/stat0002
-BugReports: http://github.com/paulnorthrop/stat0002/issues
+URL: https://github.com/paulnorthrop/stat0002
+BugReports: https://github.com/paulnorthrop/stat0002/issues

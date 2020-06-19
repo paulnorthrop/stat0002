@@ -35,7 +35,7 @@ head(aussie_births)
 
 ## The uniform distribution
 
-We will not say much about the uniform distribution here.  However, it is a very important distribution because the standard uniform distribution, U(0, 1), is use widely to simulate values from probability distributions. See the [Stochastic Simulation vignette](stat0002-ch1b-stochastic-simulation.html) for details.
+We will not say much about the uniform distribution here.  However, it is a very important distribution because the standard uniform distribution, U(0, 1), is use widely to simulate values from probability distributions. See the [Stochastic Simulation vignette](stat0002-ch1b-stochastic-simulation-vignette.html) for details.
 
 First, we show two ways to produce a (pseudo-)random sample from a U(0, 1) distribution.  We use the same seed (use `?set.seed` to find out more) to show that these approaches are equivalent.  This is because the `distributions3` package actually uses the function `runif` in the background.
 

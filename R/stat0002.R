@@ -24,7 +24,7 @@
 #' use either \code{?name} or \code{help(name)}.
 #'
 #' If you have any questions about this package please ask them via the
-#' \href{https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=755813}{STAT0002 Moodle Discussion Forum}.
+#' \href{https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=866683}{STAT0002 Moodle Discussion Forum}.
 #'
 #' @section Vignettes (tutorials demonstrating how to use R code):
 #'
