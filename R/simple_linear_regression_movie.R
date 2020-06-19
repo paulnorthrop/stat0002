@@ -79,6 +79,7 @@ lin_reg_movie <- function(data, delta_alpha = 0.1, delta_beta = 0.0001, ...) {
   ls_line <- 0
   alpha <- 1
   beta <- 0
+  reg_line_only <- "no"
   # Create buttons for movie
   lin_reg_panel <- rpanel::rp.control("parameters", y_data = data[, 1],
                                       x_data = data[, 2], alpha = 1, beta = 0,

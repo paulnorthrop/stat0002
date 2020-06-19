@@ -25,7 +25,7 @@ For information about R see the [STAT0004 Moodle page](https://moodle.ucl.ac.uk/
 
 The R code used in this vignette are available: [shuttle-vignette.R](stat0002-ch1a-shuttle-vignette.R).  The functions `shuttle_sim` and `shuttle_sim_plot` can be viewed either by typing the name of the function at R command prompt `>` or at  [GitHub](https://github.com/paulnorthrop/stat0002/tree/master/R/shuttle_sim.R)
 
-If you have any questions please ask them using the [STAT0002 discussion forum](https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=755813).
+If you have any questions please ask them using the [STAT0002 discussion forum](https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=866683).
 
 ## The Challenger Space Shuttle Disaster
 
@@ -70,7 +70,7 @@ o_ring_table <- table(shuttle[, 3])
 
 **Note the different way to get the column that we want.**
 
-We produce a bar plot of the numbers of distressed O-rings and a scatter plot of temperature against pressure.  See also the vignette [Chapter 2: Graphs (more than one variable)](stat0002-ch2c-graphs-simulation-vignette.html).
+We produce a bar plot of the numbers of distressed O-rings and a scatter plot of temperature against pressure.  See also the vignette [Chapter 2: Graphs (more than one variable)](inst/doc/stat0002-ch2c-graphs-simulation-vignette.html).
 
 ```{r, fig.show='hold'}
 barplot(o_ring_table, xlab = "number of distressed O-rings", ylab = "frequency")
