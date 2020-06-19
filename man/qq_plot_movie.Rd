@@ -31,16 +31,10 @@ This movie enables the user to scroll forwards and backwards
   will be a bit of a mess!
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-\dontrun{
 # Create the same dataset used in the lecture notes/slides
 set.seed(382)
 x <- sort(round(rnorm(9, mean = 7.72, sd = 3.57), 2))
 qq_plot_movie(data = x, mu = 7.72, sigma = 3.57)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

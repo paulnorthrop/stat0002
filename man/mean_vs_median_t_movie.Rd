@@ -65,14 +65,7 @@ The movie is based on simulating repeatedly samples of size
   buttons in the panel.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-# Produce movie using values from the Aussie births data
-\dontrun{
 mean_vs_median_t_movie(t_df = 2)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

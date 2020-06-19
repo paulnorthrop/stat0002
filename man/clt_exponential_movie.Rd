@@ -71,19 +71,13 @@ Loosely speaking, a consequence of the
   where the original variables are normally distributed.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
 # Produce movie using values based on the Aussie births data
-\dontrun{
 clt_exponential_movie(44, 1.84, "time since last birth (hours)")
 
 # ... and with some smaller sample sizes
 clt_exponential_movie(10, 1.84, "time since last birth (hours)")
 
 clt_exponential_movie(3, 1.84, "time since last birth (hours)")
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

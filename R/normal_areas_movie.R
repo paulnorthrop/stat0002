@@ -21,14 +21,7 @@
 #' @seealso \code{\link{normal_pdf_movie}}: normal probability density function
 #'   movie.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' # Produce movie using values from the Aussie births data
-#' \dontrun{
 #' normal_areas_movie()
-#' }
 #' @export
 normal_areas_movie <- function(starting_multiple = 1, delta_multiple = 1,
                                ndec = 3) {

@@ -64,15 +64,9 @@
 #' @seealso \code{\link{poisson_process_check}}: for similar plots based on
 #'   data supplied by a user.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' \dontrun{
 #' poisson_process_movie(lambda = 2)
 #' poisson_process_movie(lambda = 10)
 #' poisson_process_movie(lambda = 0.5)
-#' }
 #' @export
 poisson_process_movie <- function(lambda = 1, hours = 24, pos = 1,
                                   envir = as.environment(pos)) {

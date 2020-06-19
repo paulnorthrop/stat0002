@@ -54,14 +54,7 @@
 #' @seealso \code{\link{clt_exponential_movie}}: a similar movie using data
 #'   simulated from an exponential distribution.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' # Produce movie using values based on the Aussie births data
-#' \dontrun{
 #' clt_normal_movie(44, 7.22, sqrt(1.36), "weight (pounds)")
-#' }
 #' @export
 clt_normal_movie <- function(n = 30, mu = 0, sigma = 1, xlab = "x", pos = 1,
                              envir = as.environment(pos)) {

@@ -25,15 +25,8 @@
 #' @seealso \code{\link{normal_areas_movie}}: normal central probability areas
 #'   movie.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' # Produce movie using values from the Aussie births data
-#' \dontrun{
 #' normal_pdf_movie()
 #' normal_pdf_movie(delta_var = 1)
-#' }
 #' @export
 normal_pdf_movie <- function(starting_mean = 0, starting_var = 1,
                              delta_mean = 0.1, delta_var = 0.1) {

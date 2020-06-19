@@ -39,14 +39,8 @@
 #' @return Nothing is returned, only the animation is produced.
 #' @seealso \code{\link{movies}}: general information about the movies.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' \dontrun{
 #' lev_inf_movie()
 #' lev_inf_movie(association = "none")
-#' }
 #' @export
 lev_inf_movie <- function(association = c("positive", "negative", "none"),
                           n = 25) {

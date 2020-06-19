@@ -36,13 +36,7 @@ function (p.d.f.).
   it in STAT0003 if you take that next term.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-\dontrun{
 ox_births_movie()
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

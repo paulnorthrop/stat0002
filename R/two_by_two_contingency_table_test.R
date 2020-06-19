@@ -45,11 +45,6 @@
 #' @return Nothing is returned, only the animation is produced.
 #' @seealso \code{\link{movies}}: general information about the movies.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' \dontrun{
 #' # Ignore department
 #' sex_outcome <- apply(UCBAdmissions, 2:1, FUN = sum)
 #' colnames(sex_outcome) <- c("A", "R")
@@ -67,7 +62,6 @@
 #' colnames(sex_outcome_2) <- c("A", "R")
 #' rownames(sex_outcome_2) <- c("M", "F")
 #' two_by_two_movie(data = sex_outcome_2)
-#' }
 #' @export
 two_by_two_movie <- function(data, bin_width = 0.25,
                                  pos = 1, envir = as.environment(pos)) {

@@ -53,27 +53,20 @@ Election data from Florida.
   clicking - decreases the power by \code{delta_power}.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
 # Proportion of votes gained by Buchanan
 pbuch <- 100 * USelection$buch / USelection$tvot
 
 # Produce plot
-\dontrun{
 scatterplot_movie(x = USelection$npop, y = pbuch)
 # Change the plotting character
 scatterplot_movie(x = USelection$npop, y = pbuch, pch = 16)
-}
+
 # Identify Palm Beach using a different plotting character
 county_name <- USelection[, "co_names"]
 pb <- which(county_name == "PalmBeach")
 my_pch <- rep(16, length(county_name))
 my_pch[pb] <- 4
-\dontrun{
 scatterplot_movie(x = USelection$npop, y = pbuch, pch = my_pch)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

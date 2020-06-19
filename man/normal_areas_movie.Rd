@@ -31,14 +31,7 @@ The value of the multiple can be changed using the
   a value of 5.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-# Produce movie using values from the Aussie births data
-\dontrun{
 normal_areas_movie()
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

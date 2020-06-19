@@ -46,14 +46,8 @@
 #' @return Nothing is returned, only the animation is produced.
 #' @seealso \code{\link{movies}}: general information about the movies.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' \dontrun{
 #' corr_sim_movie(n = 2)
 #' corr_sim_movie(n = 10, delta_n = 10)
-#' }
 #' @export
 corr_sim_movie <- function(n = 30, rho = 0, delta_n = 1, delta_rho = 0.1,
                            pos = 1, envir = as.environment(pos)) {

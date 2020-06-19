@@ -25,11 +25,6 @@
 #' @return Nothing is returned, only the animation is produced.
 #' @seealso \code{\link{movies}}: general information about the movies.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' \dontrun{
 #' binomial_pmf_movie()
 #'
 #' # Increase n and see what happens
@@ -42,7 +37,6 @@
 #' # Start at p = 0.591 (approximately 26/44)
 #' binomial_pmf_movie(starting_n = 44, starting_p = 0.591, delta_p = 0.01,
 #'                    observed_value = 26)
-#' }
 #' @export
 binomial_pmf_movie <- function(starting_n = 1, starting_p = 1 /2, delta_n = 1,
                                delta_p = 0.05, observed_value = NA) {

@@ -47,14 +47,7 @@
 #'   sampling distributions of the sample mean and sample median based
 #'   on a random sample of size \eqn{n} from a Student's t distribution.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' # Produce movie using values from the Aussie births data
-#' \dontrun{
 #' mean_vs_median_normal_movie()
-#' }
 #' @export
 mean_vs_median_normal_movie <- function(n = 10, delta_n = 1, pos = 1,
                                         envir = as.environment(pos)) {

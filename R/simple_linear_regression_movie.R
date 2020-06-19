@@ -38,15 +38,9 @@
 #' @return Nothing is returned, only the animation is produced.
 #' @seealso \code{\link{movies}}: general information about the movies.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
 #' # Produce movie using values from the Aussie births data
-#' \dontrun{
 #' lin_reg_movie(hubble, pch = 16, xlab = "recession velocity (km/sec)",
 #'               ylab = "distance (megaparsecs)")
-#' }
 #' @export
 lin_reg_movie <- function(data, delta_alpha = 0.1, delta_beta = 0.0001, ...) {
   if (!is.data.frame(data) & !is.matrix(data)) {

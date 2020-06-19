@@ -80,15 +80,9 @@ This movie contains two displays of plots: one plot on the top and
     plot may be incorrect because they extend beyond the plot region.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-\dontrun{
 poisson_process_movie(lambda = 2)
 poisson_process_movie(lambda = 10)
 poisson_process_movie(lambda = 0.5)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

@@ -51,14 +51,8 @@ least squares regression line.
   then its influence will be low.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-\dontrun{
 lev_inf_movie()
 lev_inf_movie(association = "none")
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

@@ -49,15 +49,9 @@ A scatter plot of response data against the explanatory data
   the legend, for comparison.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
 # Produce movie using values from the Aussie births data
-\dontrun{
 lin_reg_movie(hubble, pch = 16, xlab = "recession velocity (km/sec)",
               ylab = "distance (megaparsecs)")
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

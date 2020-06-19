@@ -25,13 +25,7 @@
 #' @return Nothing is returned, only the animation is produced.
 #' @seealso \code{\link{movies}}: general information about the movies.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' \dontrun{
 #' ox_births_movie()
-#' }
 #' @export
 ox_births_movie <- function(starting_n = 100, delta_n = 1000) {
   # Fit a gamma distribution to the birth times

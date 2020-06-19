@@ -72,15 +72,9 @@ This movie contains two displays of plots: one plot on the top and
   button.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
 # Data in which an event occurs exactly on the hour
-\dontrun{
 poisson_process_check(user_data = (1:24), 24, 24)
 poisson_process_check(user_data = (1:24), 24, 24, exp_bins = 100)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

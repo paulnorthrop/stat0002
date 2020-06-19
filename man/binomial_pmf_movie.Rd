@@ -45,11 +45,6 @@ The probability mass function of a binomial random variable with
   relevant buttons.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-\dontrun{
 binomial_pmf_movie()
 
 # Increase n and see what happens
@@ -62,7 +57,6 @@ binomial_pmf_movie(starting_n = 44, starting_p = 0.1, delta_p = 0.1,
 # Start at p = 0.591 (approximately 26/44)
 binomial_pmf_movie(starting_n = 44, starting_p = 0.591, delta_p = 0.01,
                    observed_value = 26)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

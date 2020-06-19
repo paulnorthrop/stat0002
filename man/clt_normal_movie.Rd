@@ -73,14 +73,7 @@ Loosely speaking, a consequence of the
   in the case where the original variables are exponentially distributed.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-# Produce movie using values based on the Aussie births data
-\dontrun{
 clt_normal_movie(44, 7.22, sqrt(1.36), "weight (pounds)")
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

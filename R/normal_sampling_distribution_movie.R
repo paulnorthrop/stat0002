@@ -30,13 +30,7 @@
 #' @return Nothing is returned, only the animation is produced.
 #' @seealso \code{\link{movies}}: general information about the movies.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
-#' \dontrun{
 #' normal_sampling_distns_movie()
-#' }
 #' @export
 normal_sampling_distns_movie <- function(starting_n = 30, delta_n = 1, mu = 0,
                                          sigma = 1) {

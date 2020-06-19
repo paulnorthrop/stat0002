@@ -58,11 +58,6 @@ The movie is split into three sections.
   1, 100 or 1000 datasets.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-\dontrun{
 # Ignore department
 sex_outcome <- apply(UCBAdmissions, 2:1, FUN = sum)
 colnames(sex_outcome) <- c("A", "R")
@@ -80,7 +75,6 @@ sex_outcome_2 <- UCBAdmissions[, , 2]
 colnames(sex_outcome_2) <- c("A", "R")
 rownames(sex_outcome_2) <- c("M", "F")
 two_by_two_movie(data = sex_outcome_2)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

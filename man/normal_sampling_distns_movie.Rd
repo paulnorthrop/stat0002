@@ -43,13 +43,7 @@ The movie is based on two plots.  The top plot shows the
   \eqn{n} cannot exceed 100.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-\dontrun{
 normal_sampling_distns_movie()
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

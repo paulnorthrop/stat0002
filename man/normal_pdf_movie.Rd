@@ -41,15 +41,8 @@ The values of the mean and/or variance can be changed using the
   value of 0.1.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-# Produce movie using values from the Aussie births data
-\dontrun{
 normal_pdf_movie()
 normal_pdf_movie(delta_var = 1)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.

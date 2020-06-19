@@ -68,14 +68,8 @@ Random samples of size \eqn{n} are simulated from a bivariate
   simulated using the new combination of \eqn{n} and \eqn{\rho}.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
-\dontrun{
 corr_sim_movie(n = 2)
 corr_sim_movie(n = 10, delta_n = 10)
-}
 }
 \seealso{
 \code{\link{movies}}: general information about the movies.
