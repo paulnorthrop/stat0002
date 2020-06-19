@@ -41,22 +41,6 @@ To get the current released version of `stat0002` from CRAN:
 install.packages("stat0002")
 ```
 
-To install a development version from GitHub type the following at the R
-Console command prompt `>`.
-
-``` r
-install.packages("remotes")
-install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3"), 
-                 dependencies = "Depends")
-```
-
-You only need to do this (install the `remotes` package etc) once. Then
-install `stat0002` (or reinstall it to get the latest version) using
-
-``` r
-remotes::install_github("paulnorthrop/stat0002", dependencies = "Depends", build_vignettes = TRUE)
-```
-
 ### Getting started
 
 Then type
@@ -94,3 +78,21 @@ requires the Tcl extension
 other platforms please see [Section 1.1.7 of Writing R
 Extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Non_002dR-scripts-in-packages)
 for installation advice.
+
+### Development version
+
+To install a development version from GitHub type the following at the R
+Console command prompt `>`.
+
+``` r
+install.packages("remotes")
+install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3"), 
+                 dependencies = "Depends")
+```
+
+You only need to do this (install the `remotes` package etc) once. Then
+install `stat0002` (or reinstall it to get the latest version) using
+
+``` r
+remotes::install_github("paulnorthrop/stat0002", dependencies = "Depends", build_vignettes = TRUE)
+```

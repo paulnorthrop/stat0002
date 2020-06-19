@@ -82,7 +82,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="http://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -103,9 +103,9 @@
       <h1 data-toc-skip>Chapter 2: Transformation Of Variable</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-06-18</h4>
+            <h4 class="date">2020-06-19</h4>
       
-      <small class="dont-index">Source: <a href="http://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2d-box-cox-transformation-vignette.Rmd"><code>vignettes/stat0002-ch2d-box-cox-transformation-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2d-box-cox-transformation-vignette.Rmd"><code>vignettes/stat0002-ch2d-box-cox-transformation-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch2d-box-cox-transformation-vignette.Rmd</code></div>
 
     </div>
@@ -148,6 +148,9 @@
 <a href="#log-normal-distribution" class="anchor"></a>Log-normal distribution</h3>
 <p>The following code: simulates a sample of size 100 from a log-normal distribution; draws a histogram of these data with the log-normal p.d.f. superimposed; and then produces a similar plot after transforming using a log transformation (<code>lambda = 0</code>).</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
+Loading required package: rpanel
+Loading required package: tcltk
+Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 &gt; x &lt;- rlnorm(100)
 &gt; boxcox_plot(x, density_fn = dlnorm, main = "data and true density function")
 &gt; boxcox_plot(x, density_fn = dlnorm, lambda = 0, main = "after transformation")</pre></body></html></div>
@@ -200,9 +203,9 @@
 &gt; rtri &lt;- function(n = 1) {
 +   return(sqrt(runif(n)))
 + }  </pre></body></html></div>
-<p>In this example it can be shown that using <span class="math inline">\(\lambda = 2\)</span> will produce a random variable whose p.d.f. is constant (and equal to 2) over the range (-1/2, 0), that is, we produce a uniform U(-1/2, 0) random variable (see Section 5.5 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>). You will be able to prove this after you have done Question 1 of <a href="https://moodle.ucl.ac.uk/mod/resource/view.php?id=316125">Exercises 6</a>. Question 5 of the <a href="https://moodle.ucl.ac.uk/mod/quiz/view.php?id=316126">Quiz for Exercises 6</a> also uses this method.</p>
+<p>In this example it can be shown that using <span class="math inline">\(\lambda = 2\)</span> will produce a random variable whose p.d.f. is constant (and equal to 2) over the range (-1/2, 0), that is, we produce a uniform U(-1/2, 0) random variable (see Section 5.5 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>).</p>
 <ol start="3" style="list-style-type: decimal">
-<li><strong>(After we reach Exercises 6 in the course) can you prove that if a random variable <span class="math inline">\(X\)</span> has the triangular p.d.f. above then <span class="math inline">\(X^2\)</span> has a standard U(0,1) distribution and hence that <span class="math inline">\((X^2-1)/2\)</span> has a U(-1/2,0) distribution?</strong></li>
+<li><strong>Can you prove that if a random variable <span class="math inline">\(X\)</span> has the triangular p.d.f. above then <span class="math inline">\(X^2\)</span> has a standard U(0,1) distribution and hence that <span class="math inline">\((X^2-1)/2\)</span> has a U(-1/2,0) distribution?</strong></li>
 </ol>
 <p>We simulate same data from this triangular distribution and show that using <span class="math inline">\(\lambda = 2\)</span> does indeed produce a density that is flat, and therefore symmetric.</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; x3 &lt;- rtri(200)
@@ -261,7 +264,7 @@
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script><div id="refs" class="references">
 <div id="ref-BC1964">
-<p>Box, G. E. P., and D. R. Cox. 1964. “An Analysis of Transformations.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 26 (2): 211–52. <a href="http://www.jstor.org/stable/2984418">http://www.jstor.org/stable/2984418</a>.</p>
+<p>Box, G. E. P., and D. R. Cox. 1964. “An Analysis of Transformations.” <em>Journal of the Royal Statistical Society. Series B (Methodological)</em> 26 (2): 211–52. <a href="https://doi.org/10.1111/j.2517-6161.1964.tb00553.x">https://doi.org/10.1111/j.2517-6161.1964.tb00553.x</a>.</p>
 </div>
 <div id="ref-Smith2002">
 <p>Smith, R. L. 2002. “A Statistical Assessment of Buchanan’s Vote in Palm Beach County.” <em>Statist. Sci.</em> 17 (4): 441–57. <a href="https://doi.org/10.1214/ss/1049993203">https://doi.org/10.1214/ss/1049993203</a>.</p>
@@ -270,10 +273,10 @@
 <p>Venables, W. N., and B. D. Ripley. 2002. <em>Modern Applied Statistics with S</em>. Fourth. New York: Springer. <a href="http://www.stats.ox.ac.uk/pub/MASS4">http://www.stats.ox.ac.uk/pub/MASS4</a>.</p>
 </div>
 <div id="ref-WH1931">
-<p>Wilson, E. B., and M. M. Hilferty. 1931. “The Distribution of Chi-Square.” <em>Proc. Natl. Acad. Sci. USA</em> 17 (12): 684–88. <a href="http://www.jstor.org/stable/86022">http://www.jstor.org/stable/86022</a>.</p>
+<p>Wilson, E. B., and M. M. Hilferty. 1931. “The Distribution of Chi-Square.” <em>Proc. Natl. Acad. Sci. USA</em> 17 (12): 684–88. <a href="https://doi.org/10.1073/pnas.17.12.684">https://doi.org/10.1073/pnas.17.12.684</a>.</p>
 </div>
 <div id="ref-YJ2000">
-<p>Yeo, I.-K., and Richard A. Johnson. 2000. “A New Family of Power Transformations to Improve Normality or Symmetry.” <em>Biometrika</em> 87 (4): 954–59. <a href="http://www.jstor.org/stable/2673623">http://www.jstor.org/stable/2673623</a>.</p>
+<p>Yeo, I.-K., and Richard A. Johnson. 2000. “A New Family of Power Transformations to Improve Normality or Symmetry.” <em>Biometrika</em> 87 (4): 954–59. <a href="https://doi.org/10.1093/biomet/87.4.954">https://doi.org/10.1093/biomet/87.4.954</a>.</p>
 </div>
 </div>
 </div>

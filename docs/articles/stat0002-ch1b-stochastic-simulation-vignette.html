@@ -82,7 +82,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="http://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -103,9 +103,9 @@
       <h1 data-toc-skip>Chapter 1: Stochastic Simulation</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-06-18</h4>
+            <h4 class="date">2020-06-19</h4>
       
-      <small class="dont-index">Source: <a href="http://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch1b-stochastic-simulation-vignette.Rmd"><code>vignettes/stat0002-ch1b-stochastic-simulation-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch1b-stochastic-simulation-vignette.Rmd"><code>vignettes/stat0002-ch1b-stochastic-simulation-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch1b-stochastic-simulation-vignette.Rmd</code></div>
 
     </div>
@@ -114,12 +114,15 @@
     
 <p>Stochastic simulation uses computer-generated <em>pseudo-random numbers</em> to mimic a stochastic real event or dataset. Pseudo-random numbers are not random (they are produced by an algorithm) but the algorithm is constructed in order to imitate randomness closely enough. A typical use of stochastic simulation is to generate numbers that behave approximately like a random sample from an particular probability distribution.</p>
 <p>In this vignette we concentrate on using R to perform stochastic simulation. For a more general introduction to stochastic simulation, and a more detailed explanation of the ideas underlying the R code, see the short <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=8">Stochastic simulation video</a>. If you want to know more then good sources of information are <span class="citation">Morgan (1984)</span> and <span class="citation">Jasra (2011)</span>.</p>
-<p>The R code used in this vignette are available: <a href="stat0002-ch1b-stochastic-simulation-vignette.R">stochastic-simulation-vignette.R</a>. The function <code>rbinomial</code> can be viewed either by typing <code>rbinomial</code> at R command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code> or at <a href="https://github.com/paulnorthrop/stat0002/tree/master/R/stochastic_simulation.R">GitHub</a></p>
+<p>The R code used in this vignette are available: <a href="stat0002-ch1b-stochastic-simulation-vignette.R">stochastic-simulation-vignette.R</a>. The function <code>rbinomial</code> can be viewed by typing <code>rbinomial</code> at R command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
 <div id="pseudo-random-numbers-in-01" class="section level2">
 <h2 class="hasAnchor">
 <a href="#pseudo-random-numbers-in-01" class="anchor"></a>Pseudo-random numbers in (0,1)</h2>
 <p>The basic building block of stochastic simulation methods is the ability to simulate numbers (pseudo-) randomly from the interval (0,1). As we will see in Section 5.5 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a> this is equivalent to generating numbers that behave approximately like a random sample from a standard uniform U(0,1) distribution. The function in R that does this is <code>runif</code>.</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
+Loading required package: rpanel
+Loading required package: tcltk
+Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 &gt; runif(10)
  [1] 0.2716465 0.2459657 0.7786462 0.9790115 0.4347586 0.9141322 0.4885213
  [8] 0.3757858 0.5054086 0.4264149</pre></body></html></div>
@@ -191,7 +194,7 @@
 <ol start="5" style="list-style-type: decimal">
 <li><strong>Can you guess what the function <code>dexp</code> does? Use <code><a href="https://rdrr.io/r/stats/Exponential.html">?dexp</a></code> to find out.</strong></li>
 </ol>
-<p>After you have answered Question 5 of the <a href="https://moodle.ucl.ac.uk/mod/quiz/view.php?id=316126">Quiz for Exercises 6</a> you will see why the following R code could be used to simulate from an exponential distribution.</p>
+<p>The following R code could also be used to simulate from an exponential distribution.</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; u &lt;- runif(1000)
 &gt; exp_inv &lt;- -log(u)/lambda
 &gt; hist(exp_inv, probability = TRUE, ylim = c(0, lambda), main = "", breaks = 14, col = "grey")

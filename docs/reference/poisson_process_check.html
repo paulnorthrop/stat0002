@@ -125,7 +125,7 @@ Poisson process." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="http://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -144,7 +144,7 @@ Poisson process." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Graphical checking of Poisson process properties</h1>
-    <small class="dont-index">Source: <a href='http://github.com/paulnorthrop/stat0002/blob/master/R/poisson_process_check_movie.R'><code>R/poisson_process_check_movie.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/paulnorthrop/stat0002/blob/master/R/poisson_process_check_movie.R'><code>R/poisson_process_check_movie.R</code></a></small>
     <div class="hidden name"><code>poisson_process_check.Rd</code></div>
     </div>
 
@@ -234,15 +234,8 @@ number of bins used in <code><a href='https://rdrr.io/r/graphics/hist.html'>hist
   data simulated from a Poisson process.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Load package rpanel</span>
-<span class='co'># [Use install.packages("rpanel") if necessary]</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>rpanel</span>)
-
-<span class='co'># Data in which an event occurs exactly on the hour</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>poisson_process_check</span>(<span class='kw'>user_data</span> <span class='kw'>=</span> (<span class='fl'>1</span>:<span class='fl'>24</span>), <span class='fl'>24</span>, <span class='fl'>24</span>)
-<span class='fu'>poisson_process_check</span>(<span class='kw'>user_data</span> <span class='kw'>=</span> (<span class='fl'>1</span>:<span class='fl'>24</span>), <span class='fl'>24</span>, <span class='fl'>24</span>, <span class='kw'>exp_bins</span> <span class='kw'>=</span> <span class='fl'>100</span>)
-}</div></pre>
+    <pre class="examples"><div class='input'><span class='co'># Data in which an event occurs exactly on the hour</span>
+<span class='fu'>poisson_process_check</span>(<span class='kw'>user_data</span> <span class='kw'>=</span> (<span class='fl'>1</span>:<span class='fl'>24</span>), <span class='fl'>24</span>, <span class='fl'>24</span>)</div><div class='input'><span class='fu'>poisson_process_check</span>(<span class='kw'>user_data</span> <span class='kw'>=</span> (<span class='fl'>1</span>:<span class='fl'>24</span>), <span class='fl'>24</span>, <span class='fl'>24</span>, <span class='kw'>exp_bins</span> <span class='kw'>=</span> <span class='fl'>100</span>)</div><div class='img'><img src='poisson_process_check-1.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

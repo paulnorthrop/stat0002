@@ -3,7 +3,7 @@
 \docType{data}
 \name{lymphoma}
 \alias{lymphoma}
-\title{T-cell count data in Exercises 2}
+\title{T-cell count data}
 \format{
 A data frame with 42 observations on the following 2 variables.
 \itemize{

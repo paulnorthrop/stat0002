@@ -126,7 +126,7 @@ their inter-relationships vary over time." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="http://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -145,7 +145,7 @@ their inter-relationships vary over time." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>World Bank Development Indicators Movie</h1>
-    <small class="dont-index">Source: <a href='http://github.com/paulnorthrop/stat0002/blob/master/R/world_bank_movie.R'><code>R/world_bank_movie.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/paulnorthrop/stat0002/blob/master/R/world_bank_movie.R'><code>R/world_bank_movie.R</code></a></small>
     <div class="hidden name"><code>world_bank_movie.Rd</code></div>
     </div>
 
@@ -187,18 +187,11 @@ surrounding these data see
   <code>rpanel.package</code> package used to produce this movie.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Load packages rpanel and tkrplot</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>rpanel</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>tkrplot</span>)
-<span class='co'># [Use install.packages("tkrplot") if necessary]</span>
-
-<span class='co'># Produce the movie.  You may ignore the warning message that is produced.</span>
-<span class='co'># [I think the cause may be that some countries have a lot of missing data.]</span>
-<span class='fu'><a href='https://rdrr.io/pkg/rpanel/man/rp.bubbleplot.html'>rp.bubbleplot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>gdp_per_capita</span>), <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>co2_per_capita</span>), <span class='fl'>1960</span>:<span class='fl'>2014</span>,
+    <pre class="examples"><div class='input'><span class='co'># Produce the movie.  You may ignore the warning message that is produced.</span>
+<span class='co'># (I think the cause may be that some countries have a lot of missing data.)</span>
+<span class='fu'>rp.bubbleplot</span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>gdp_per_capita</span>), <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>co2_per_capita</span>), <span class='fl'>1960</span>:<span class='fl'>2014</span>,
               <span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>population_size</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>life_expectancy</span>,
-              <span class='kw'>interpolate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hscale</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>vscale</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)
-}</div></pre>
+              <span class='kw'>interpolate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hscale</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>vscale</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

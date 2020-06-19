@@ -125,7 +125,7 @@ Election data from Florida." />
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="http://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -144,7 +144,7 @@ Election data from Florida." />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>US 2000 Presidential Election Movie: straightening scatter plots</h1>
-    <small class="dont-index">Source: <a href='http://github.com/paulnorthrop/stat0002/blob/master/R/USelection_movie.R'><code>R/USelection_movie.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/paulnorthrop/stat0002/blob/master/R/USelection_movie.R'><code>R/USelection_movie.R</code></a></small>
     <div class="hidden name"><code>scatterplot_movie.Rd</code></div>
     </div>
 
@@ -218,27 +218,18 @@ environment. See <code><a href='https://rdrr.io/r/base/environment.html'>environ
   Presidential Election data from Florida.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Load package rpanel</span>
-<span class='co'># [Use install.packages("rpanel") if necessary]</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>rpanel</span>)
-
-<span class='co'># Proportion of votes gained by Buchanan</span>
+    <pre class="examples"><div class='input'><span class='co'># Proportion of votes gained by Buchanan</span>
 <span class='no'>pbuch</span> <span class='kw'>&lt;-</span> <span class='fl'>100</span> * <span class='no'>USelection</span>$<span class='no'>buch</span> / <span class='no'>USelection</span>$<span class='no'>tvot</span>
 
 <span class='co'># Produce plot</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>scatterplot_movie</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>USelection</span>$<span class='no'>npop</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>pbuch</span>)
-<span class='co'># Change the plotting character</span>
-<span class='fu'>scatterplot_movie</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>USelection</span>$<span class='no'>npop</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>pbuch</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>16</span>)
-}
+<span class='fu'>scatterplot_movie</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>USelection</span>$<span class='no'>npop</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>pbuch</span>)</div><div class='img'><img src='scatterplot_movie-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># Change the plotting character</span>
+<span class='fu'>scatterplot_movie</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>USelection</span>$<span class='no'>npop</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>pbuch</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>16</span>)</div><div class='img'><img src='scatterplot_movie-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Identify Palm Beach using a different plotting character</span>
 <span class='no'>county_name</span> <span class='kw'>&lt;-</span> <span class='no'>USelection</span>[, <span class='st'>"co_names"</span>]
 <span class='no'>pb</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/which.html'>which</a></span>(<span class='no'>county_name</span> <span class='kw'>==</span> <span class='st'>"PalmBeach"</span>)
 <span class='no'>my_pch</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fl'>16</span>, <span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span>(<span class='no'>county_name</span>))
 <span class='no'>my_pch</span>[<span class='no'>pb</span>] <span class='kw'>&lt;-</span> <span class='fl'>4</span>
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='fu'>scatterplot_movie</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>USelection</span>$<span class='no'>npop</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>pbuch</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='no'>my_pch</span>)
-}</div></pre>
+<span class='fu'>scatterplot_movie</span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>USelection</span>$<span class='no'>npop</span>, <span class='kw'>y</span> <span class='kw'>=</span> <span class='no'>pbuch</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='no'>my_pch</span>)</div><div class='img'><img src='scatterplot_movie-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -126,7 +126,7 @@ on a linear logistic regression model fitted to the real data from the 23
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="http://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -145,7 +145,7 @@ on a linear logistic regression model fitted to the real data from the 23
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Simulate fake space shuttle data</h1>
-    <small class="dont-index">Source: <a href='http://github.com/paulnorthrop/stat0002/blob/master/R/shuttle_sim.R'><code>R/shuttle_sim.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/paulnorthrop/stat0002/blob/master/R/shuttle_sim.R'><code>R/shuttle_sim.R</code></a></small>
     <div class="hidden name"><code>shuttle_sim.Rd</code></div>
     </div>
 
@@ -215,35 +215,35 @@ returns a vector of length <code>n_sim</code>.</p>
     <pre class="examples"><div class='input'><span class='co'># Simulate 10 fake datasets of size 23, using the real temperatures.</span>
 <span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>shuttle_sim</span>(<span class='kw'>n_sim</span> <span class='kw'>=</span> <span class='fl'>10</span>)
 <span class='no'>res</span></div><div class='output co'>#&gt;    temps real sim1 sim2 sim3 sim4 sim5 sim6 sim7 sim8 sim9 sim10
-#&gt; 1     66    0    0    0    1    0    0    0    3    1    0     1
-#&gt; 2     70    1    0    0    1    0    1    0    0    0    0     0
-#&gt; 3     69    0    0    0    1    0    0    1    0    0    0     0
-#&gt; 4     68    0    1    0    0    0    0    0    0    1    0     0
-#&gt; 5     67    0    0    0    1    1    0    0    0    0    0     0
-#&gt; 6     72    0    0    0    0    0    1    0    0    0    0     0
-#&gt; 7     73    0    0    1    0    0    0    0    0    1    0     0
-#&gt; 8     70    0    0    0    1    0    0    1    0    0    0     0
-#&gt; 9     57    1    2    0    4    3    0    2    0    2    1     1
-#&gt; 10    63    1    0    1    1    1    0    1    0    0    1     0
-#&gt; 11    70    1    0    0    0    0    2    0    0    0    0     0
-#&gt; 12    78    0    0    0    1    0    0    0    0    0    0     0
-#&gt; 13    67    0    1    0    1    0    1    0    1    0    0     0
-#&gt; 14    53    3    1    0    2    2    3    1    5    1    3     1
-#&gt; 15    67    0    0    1    0    1    1    0    1    0    0     1
-#&gt; 16    75    0    1    0    0    1    0    0    0    1    0     1
-#&gt; 17    70    0    0    1    1    0    0    0    0    0    1     0
-#&gt; 18    81    0    0    0    0    0    0    0    0    0    0     0
-#&gt; 19    76    0    0    0    0    0    0    0    0    0    0     0
-#&gt; 20    79    0    0    0    0    0    0    0    0    0    0     0
+#&gt; 1     66    0    1    0    0    1    1    0    1    0    1     1
+#&gt; 2     70    1    0    1    0    0    0    0    0    2    0     0
+#&gt; 3     69    0    0    0    2    0    0    0    0    0    2     1
+#&gt; 4     68    0    1    0    0    1    0    0    2    0    0     1
+#&gt; 5     67    0    0    1    0    2    0    0    1    1    0     0
+#&gt; 6     72    0    0    0    0    0    1    0    2    2    0     0
+#&gt; 7     73    0    0    1    0    1    0    0    0    0    1     0
+#&gt; 8     70    0    0    0    0    0    2    0    1    0    0     0
+#&gt; 9     57    1    1    1    1    2    1    2    0    0    0     0
+#&gt; 10    63    1    2    0    0    0    0    0    1    0    1     0
+#&gt; 11    70    1    0    0    1    0    0    0    0    0    0     1
+#&gt; 12    78    0    0    0    0    0    0    0    1    0    0     0
+#&gt; 13    67    0    1    2    0    0    1    1    0    0    2     0
+#&gt; 14    53    3    3    3    2    4    3    0    2    1    4     2
+#&gt; 15    67    0    0    0    2    0    1    1    0    0    0     0
+#&gt; 16    75    0    1    0    0    0    0    0    0    0    0     0
+#&gt; 17    70    0    1    0    0    0    0    0    0    1    0     0
+#&gt; 18    81    0    1    0    0    0    0    0    0    0    0     0
+#&gt; 19    76    0    0    0    0    0    2    0    0    0    0     0
+#&gt; 20    79    0    0    0    1    0    0    0    0    0    0     0
 #&gt; 21    75    2    0    0    0    0    0    0    0    0    0     0
-#&gt; 22    76    0    1    0    0    0    0    0    0    0    1     0
-#&gt; 23    58    1    1    1    2    0    2    0    0    3    0     1</div><div class='input'><span class='co'># Simulate the number of distressed O-rings for 1000 launches at 31 deg F.</span>
+#&gt; 22    76    0    0    0    0    0    0    0    0    0    0     0
+#&gt; 23    58    1    1    0    1    3    0    2    1    1    0     2</div><div class='input'><span class='co'># Simulate the number of distressed O-rings for 1000 launches at 31 deg F.</span>
 <span class='no'>res</span> <span class='kw'>&lt;-</span> <span class='fu'>shuttle_sim</span>(<span class='kw'>n_sim</span> <span class='kw'>=</span> <span class='fl'>1000</span>, <span class='kw'>temperature</span> <span class='kw'>=</span> <span class='fl'>31</span>)
-<span class='no'>res</span>[<span class='fl'>1</span>:<span class='fl'>100</span>]</div><div class='output co'>#&gt;   [1] 6 5 5 4 6 5 5 5 6 4 6 6 6 6 5 6 6 6 5 6 6 6 6 6 6 6 6 5 6 4 6 6 5 5 4 6 5
-#&gt;  [38] 6 6 6 6 5 5 6 6 4 5 6 5 6 5 6 6 6 5 6 6 6 6 5 5 5 6 6 6 6 6 6 6 5 6 5 6 4
-#&gt;  [75] 5 5 5 6 4 5 6 5 6 6 6 6 6 6 6 5 6 6 5 4 5 6 6 6 6 6</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; res
+<span class='no'>res</span>[<span class='fl'>1</span>:<span class='fl'>100</span>]</div><div class='output co'>#&gt;   [1] 4 6 5 6 5 6 6 6 5 6 6 5 5 6 6 6 5 4 6 6 4 5 5 6 6 4 6 6 6 6 6 6 6 6 6 6 5
+#&gt;  [38] 6 6 6 4 6 6 6 6 5 6 6 5 6 5 6 6 6 5 5 4 6 5 5 6 6 6 5 5 6 5 6 6 6 5 6 6 6
+#&gt;  [75] 4 5 6 5 5 5 6 6 6 6 6 5 6 6 6 6 4 6 4 5 6 6 6 6 6 6</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>res</span>)</div><div class='output co'>#&gt; res
 #&gt;     2     3     4     5     6 
-#&gt;    13   183  1601  7413 13790 </div></pre>
+#&gt;    13   189  1571  7380 13847 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

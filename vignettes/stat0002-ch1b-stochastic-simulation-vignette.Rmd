@@ -119,7 +119,7 @@ lines(x, dexp(x, rate = lambda))
 
 5. **Can you guess what the function `dexp` does?  Use `?dexp` to find out.**
 
-After you have answered Question 5 of the [Quiz for Exercises 6](https://moodle.ucl.ac.uk/mod/quiz/view.php?id=316126) you will see why the following R code could be used to simulate from an exponential distribution.
+The following R code could also be used to simulate from an exponential distribution.
 
 ```{r, fig.width = 6, fig.height = 4}
 u <- runif(1000)

@@ -45,8 +45,8 @@
 #'
 #' \itemize{
 #'   \item {\link[=shuttle]{Challenger Space Shuttle Disaster}}
-#'   \item {\link[=days]{Mystery data in Exercises 1}}
-#'   \item {\link[=lymphoma]{T-cell count data in Exercises 2}}
+#'   \item {\link[=days]{Mystery data (in Exercises 1)}}
+#'   \item {\link[=lymphoma]{T-cell count data}}
 #'   \item {\link[=UCBAdmissions]{Student Admissions at UC Berkeley}}
 #'   \item {\link[=ox_births]{Oxford Birth Times}}
 #'   \item {\link[=blood_types]{Blood Types}}
@@ -162,7 +162,7 @@ NULL
 #' @format A numeric vector.  The unit of measurement is days.
 "days"
 
-#' T-cell count data in Exercises 2
+#' T-cell count data
 #'
 #' The numbers of a certain type of T-cell (a white blood cell) per cubic mm
 #' in blood samples taken from 42 patients suffering from lymphoma.

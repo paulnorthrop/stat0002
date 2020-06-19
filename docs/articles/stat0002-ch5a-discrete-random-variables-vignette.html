@@ -82,7 +82,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="http://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -103,9 +103,9 @@
       <h1 data-toc-skip>Chapter 5: binomial, geometric and Poisson distributions</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-06-18</h4>
+            <h4 class="date">2020-06-19</h4>
       
-      <small class="dont-index">Source: <a href="http://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch5a-discrete-random-variables-vignette.Rmd"><code>vignettes/stat0002-ch5a-discrete-random-variables-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch5a-discrete-random-variables-vignette.Rmd"><code>vignettes/stat0002-ch5a-discrete-random-variables-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch5a-discrete-random-variables-vignette.Rmd</code></div>
 
     </div>
@@ -115,6 +115,9 @@
 <p>The purposes of this vignette are to direct you to R functions relating to the <strong>discrete</strong> probability distributions considered in Chapter 5 of the STAT0002 notes and to provide code to do some of the things that appear in the lecture slides. First, we do this using the standard R functions (in the <strong>stats</strong> package). Then we repeat some of the calculations using the <strong>distributions3</strong> package <span class="citation">(Hayes and Moller-Trane 2019)</span>, which provides a neat way to work with random variables in R.</p>
 <p>We illustrate these functions using the Australian birth times data, which are available in the data frame <code>aussie_births</code>.</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
+Loading required package: rpanel
+Loading required package: tcltk
+Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 &gt; head(aussie_births)
   time  sex weight
 1    5 girl   3837

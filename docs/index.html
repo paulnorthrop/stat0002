@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>stat0002: Introduction to Probability and Statistics at UCL • stat0002</title>
+<title>Introduction to Probability and Statistics • stat0002</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="stat0002: Introduction to Probability and Statistics at UCL">
+<script src="pkgdown.js"></script><meta property="og:title" content="Introduction to Probability and Statistics">
 <meta property="og:description" content="Provides R code, datasets and vignettes to help students taking 
   STAT0002 Introduction to Probability and Statistics at University College 
   London to understand the course material and to see how R can be used to 
@@ -85,7 +85,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="http://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -126,23 +126,34 @@
 <a href="#installation" class="anchor"></a>Installation</h3>
 <p>If you need to install R then you can get it from <a href="https://cran.r-project.org/">CRAN</a>.</p>
 <p>If you would like to use RStudio (a free user-friendly front-end to R) then you can get it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer that is appropriate for your operating system.</p>
-<p>To install the <code>stat0002</code> package from GitHub type the following at the R Console command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
-
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"tkrplot"</span>, <span class="st">"MASS"</span>, <span class="st">"knitr"</span>, <span class="st">"distributions3"</span>),
-                 <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>)</pre></div>
-<p>You only need to do this (install the <code>remotes</code> package etc) once. Then install <code>stat0002</code> (or reinstall it to get the latest version) using</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>, <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<p>To get the current released version of <code>stat0002</code> from CRAN:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"stat0002"</span>)</pre></div>
 </div>
 <div id="getting-started" class="section level3">
 <h3 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h3>
 <p>Then type</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stat0002</span>)
+<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stat0002</span>)
 ?<span class="no">stat0002</span></pre></div>
-<p>to open the main help page, which contains links to vignettes, datasets and other sources of information. If <code><a href="reference/stat0002.html">?stat0002</a></code> doesn’t work then close RStudio, reopen it and try again.</p>
+<p>to open the main help page, which contains links to vignettes, datasets and movies. The Index at the bottom links to help files for functions. If <code><a href="reference/stat0002.html">?stat0002</a></code> doesn’t work then close RStudio, reopen it and try again.</p>
+<p>However, perhaps the most convenient source of this information is the <a href="https://paulnorthrop.github.io/stat0002/">stat0002 home page on GitHub</a>, which has help files under <strong>Reference</strong> and vignettes under <strong>Articles</strong>.</p>
 <p>You will find that some vignettes contain ideas that we have not yet covered in lectures. If you want to try to understand these ideas before we cover them then please use the links to further information that have been provided.</p>
 <p>If you have any questions about this package please ask them via the <a href="https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=866683">STAT0002 Moodle Discussion Forum</a>.</p>
+</div>
+<div id="software-required-for-the-movies" class="section level3">
+<h3 class="hasAnchor">
+<a href="#software-required-for-the-movies" class="anchor"></a>Software required for the movies</h3>
+<p>The movies are produced using the <a href="https://cran.r-project.org/package=rpanel"><code>rpanel</code></a> package, which requires the Tcl extension <a href="https://sourceforge.net/projects/tcllib/files/BWidget/"><code>BWidget</code></a>. <code>BWidget</code> is included in the R installers for Windows and macOS. For other platforms please see <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Non_002dR-scripts-in-packages">Section 1.1.7 of Writing R Extensions</a> for installation advice.</p>
+</div>
+<div id="development-version" class="section level3">
+<h3 class="hasAnchor">
+<a href="#development-version" class="anchor"></a>Development version</h3>
+<p>To install a development version from GitHub type the following at the R Console command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"tkrplot"</span>, <span class="st">"MASS"</span>, <span class="st">"knitr"</span>, <span class="st">"distributions3"</span>),
+                 <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>)</pre></div>
+<p>You only need to do this (install the <code>remotes</code> package etc) once. Then install <code>stat0002</code> (or reinstall it to get the latest version) using</p>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>, <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
 </div>
 </div>
 </div>
@@ -153,9 +164,9 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="http://github.com/paulnorthrop/stat0002/">http://​github.com/​paulnorthrop/​stat0002/​</a>
+<li>Browse source code at <br><a href="https://github.com/paulnorthrop/stat0002/">https://​github.com/​paulnorthrop/​stat0002/​</a>
 </li>
-<li>Report a bug at <br><a href="http://github.com/paulnorthrop/stat0002/issues">http://​github.com/​paulnorthrop/​stat0002/​issues</a>
+<li>Report a bug at <br><a href="https://github.com/paulnorthrop/stat0002/issues">https://​github.com/​paulnorthrop/​stat0002/​issues</a>
 </li>
 </ul>
 </div>
