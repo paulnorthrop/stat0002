@@ -55,7 +55,7 @@ u2
 
 ## The exponential distribution
 
-The inversion method (see [Stochastic Simulation vignette](stat0002-ch1b-stochastic-simulation.html) for details) means that we can easily transform the simulated values produced by `runif` in a way that produces a (pseudo-)random sample from an exponential distribution.
+The inversion method (see [Stochastic Simulation vignette](stat0002-ch1b-stochastic-simulation-vignette.html) for details) means that we can easily transform the simulated values produced by `runif` in a way that produces a (pseudo-)random sample from an exponential distribution.
 
 ```{r, fig.align='center', fig.width=7}
 lambda <- 2
