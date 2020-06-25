@@ -228,7 +228,8 @@ scatter <- function(x, y, ndec = 1, type = 6, na.rm = FALSE, ...) {
 #' @export
 scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
   # save default, for resetting...
-  def.par <- graphics::par(no.readonly = TRUE)
+  old_par <- graphics::par(no.readonly = TRUE)
+  on.exit(graphics::par(old_par))
   # Extract any arguments supplied in ....
   user_args <- list(...)
   # If the user wants a log-scale on an axis make a transformation of
@@ -272,7 +273,5 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
     yhist <- graphics::hist(yh, breaks = ybreaks, plot = FALSE)
   }
   graphics::barplot(yhist$count, axes = FALSE, space = 0, horiz = TRUE)
-  #- reset to default
-  graphics::par(def.par)
   invisible()
 }
