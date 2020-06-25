@@ -96,6 +96,8 @@ corr_sim_movie_plot <- function(panel){
   with(panel, {
 
     set.seed(nseed)
+    old_par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old_par))
     graphics::par(mfrow = c(1, 1), bty = "l", las = 1, oma = c(0, 0, 0, 0))
     vals <- matrix(stats::rnorm(2 * nsim), ncol = 2, nrow = nsim, byrow = TRUE)
     x1 <- vals[, 1]

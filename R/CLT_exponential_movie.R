@@ -88,7 +88,7 @@ clt_exponential_movie <- function(n = 10, lambda = 1, xlab = "x", pos = 1,
 clt_exponential_movie_plot <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
-    on.exit(graphics::par(oldpar))
+    on.exit(graphics::par(old_par))
     graphics::par(mfrow = c(2, 1), oma = c(0, 0, 0, 0),
                   mar = c(4, 4, 2, 2) + 0.1)
     assign("lambda", lambda, envir = envir)

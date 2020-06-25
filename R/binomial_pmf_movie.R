@@ -65,7 +65,7 @@ binomial_pmf_movie <- function(starting_n = 1, starting_p = 1 /2, delta_n = 1,
 plot_binomial_pmf <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
-    on.exit(graphics::par(oldpar))
+    on.exit(graphics::par(old_par))
     probs <- dbinom(0:n, n, prob)
     graphics::plot(c(0,n), c(0,1), type = "n", xlab = "y", ylab = "P(Y=y)",
                    axes = FALSE, ylim = c(0, max(probs)), xlim= c(0, n),
