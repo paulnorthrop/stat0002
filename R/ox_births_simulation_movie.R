@@ -23,7 +23,7 @@
 #'   We will not study the gamma distribution in STAT0002, but you will encounter
 #'   it in STAT0003 if you take that next term.
 #' @return Nothing is returned, only the animation is produced.
-#' @seealso \code{\link{movies}}: general information about the movies.
+#' @seealso \code{\link{stat0002movies}}: general information about the movies.
 #' @examples
 #' ox_births_movie()
 #' @export

@@ -7,10 +7,12 @@
 corr_sim_movie(
   n = 30,
   rho = 0,
+  panel_plot = TRUE,
+  hscale = NA,
+  vscale = hscale,
   delta_n = 1,
   delta_rho = 0.1,
-  pos = 1,
-  envir = as.environment(pos)
+  ...
 )
 }
 \arguments{
@@ -20,57 +22,82 @@ Must not be less than 2.}
 \item{rho}{A numeric scalar.  The initial value of the true correlation
 \eqn{\rho}.  Must be in [-1, 1].}
 
+\item{panel_plot}{A logical parameter that determines whether the plot
+is placed inside the panel (\code{TRUE}) or in the standard graphics
+window (\code{FALSE}).  If the plot is to be placed inside the panel
+then the tkrplot library is required.}
+
+\item{hscale}{Numeric scalars.  Scaling parameters for the size
+of the plot when \code{panel_plot = TRUE}. The default values are 1.4 on
+Unix platforms and 2 on Windows platforms.}
+
+\item{vscale}{Numeric scalars.  Scaling parameters for the size
+of the plot when \code{panel_plot = TRUE}. The default values are 1.4 on
+Unix platforms and 2 on Windows platforms.}
+
 \item{delta_n}{An integer scalar.  The amount by which the value of the
 sample size is increased/decreased after one click of the +/- button.}
 
 \item{delta_rho}{A numeric scalar.  The amount by which the value of
 rho is increased/decreased after one click of the +/- button.}
 
-\item{pos}{A numeric integer.  Used in calls to \code{\link{assign}}
-to make information available across successive frames of a movie.
-By default, uses the current environment.}
-
-\item{envir}{An alternative way (to \code{pos}) of specifying the
-environment. See \code{\link{environment}}.}
+\item{...}{Additional arguments to the rpanel functions
+\code{\link[rpanel]{rp.button}} and
+\code{\link[rpanel]{rp.doublebutton}}, not including \code{panel},
+\code{variable}, \code{title}, \code{step}, \code{action}, \code{initval},
+\code{range}.}
 }
 \value{
 Nothing is returned, only the animation is produced.
 }
 \description{
-A movie to illustrate how the sampling distribution of the (Pearson
-product moment) sample correlation coefficient \eqn{r} depends on the
+A movie to illustrate how the sampling distribution of the Pearson
+product moment sample correlation coefficient \eqn{r} depends on the
 sample size \eqn{n} and on the true correlation \eqn{\rho}.
 }
 \details{
 Random samples of size \eqn{n} are simulated from a bivariate
-  distribution with the property that the correlation between the two
-  variables is equal to the value of chosen by the user.
-  More specifically, the data are simulated from a
+  normal distribution
   \href{https://en.wikipedia.org/wiki/Multivariate_normal_distribution}{bivariate normal distribution}
-  in which each of the variables has a mean of 0 and a variance of 1.
+  in which each of the variables has a mean of 0 and a variance of 1 and
+  the correlation \eqn{\rho} between the variables is chosen by the user.
 
   The movie contains two plots.  On the top is a scatter plot of the
   simulated sample, illustrating the strength of the association between
   the simulated values of the variables.
-  A new sample is produced by clicking the + button next to
-  "simulate another sample of size n:". [Ignore the - button.]
-  For each simulated sample the sample correlation coefficient \eqn{r} is
-  calculated and displayed in the title of the top plot.
-  The values of these sample correlation coefficients are stored and
-  are plotted in the histogram in the bottom plot.  As we accumulate
-  a large number of values in this histogram the shape of the sampling
-  distribution of \eqn{r} emerges.
+  A new sample is produced by clicking "simulate another sample.
+  For each simulated sample the sample (Pearson product moment)
+  correlation coefficient \eqn{r} is calculated and displayed in the
+  title of the top plot.
+
+  The values of the sample correlation coefficients are stored and are
+  plotted in a histogram in the bottom plot.  A rug displays the individual
+  values, with the most recent value coloured red. As we accumulate a large
+  number of values in this histogram the shape of the sampling
+  distribution of \eqn{r} emerges.  The exact p.d.f. of \eqn{r} is
+  superimposed on this histogram, as is the value of \eqn{\rho}.
+
+  The bottom plot can be changed in two ways:
+  (i) a radio button can be pressed to replace the histogram and pdf with
+  a plot of the empirical c.d.f. and exact cdf;
+  (ii) the variable can be changed from \eqn{\rho} to Fisher's
+  z-transformation \eqn{F(\rho) = arctanh(\rho) = [ln(1+\rho) - ln(1-\rho)]/2}.
+  For sufficiently large values of \eqn{n}, \eqn{F(\rho)} has approximately
+  a normal distribution with mean \eqn{\rho} and variance
+  \eqn{1 / (n - 3)}.
 
   The values of the sample size \eqn{n} or true correlation coefficient
   \eqn{\rho} can be changed using the respective +/- buttons.
-  If one of these is changed then the histogram in the bottom plot is
+  If one of these is changed then the bottom plot is
   reset using the sample correlation coefficient of the first sample
   simulated using the new combination of \eqn{n} and \eqn{\rho}.
 }
 \examples{
-corr_sim_movie(n = 2)
-corr_sim_movie(n = 10, delta_n = 10)
+correlation(rho = 0.8)
+correlation(n = 10)
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link[smovie]{movies}}: a user-friendly menu panel.
+
+\code{\link[smovie]{smovie}}: general information about smovie.
 }

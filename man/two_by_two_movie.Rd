@@ -77,5 +77,5 @@ rownames(sex_outcome_2) <- c("M", "F")
 two_by_two_movie(data = sex_outcome_2)
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 }

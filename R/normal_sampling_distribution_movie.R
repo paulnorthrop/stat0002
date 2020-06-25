@@ -28,7 +28,7 @@
 #'   buttons in the panel.  For the purposes of this movie the value of
 #'   \eqn{n} cannot exceed 100.
 #' @return Nothing is returned, only the animation is produced.
-#' @seealso \code{\link{movies}}: general information about the movies.
+#' @seealso \code{\link{stat0002movies}}: general information about the movies.
 #' @examples
 #' normal_sampling_distns_movie()
 #' @export

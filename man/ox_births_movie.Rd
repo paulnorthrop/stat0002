@@ -39,5 +39,5 @@ function (p.d.f.).
 ox_births_movie()
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 }

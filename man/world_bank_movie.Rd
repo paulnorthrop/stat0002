@@ -41,7 +41,7 @@ rp.bubbleplot(log(gdp_per_capita), log(co2_per_capita), 1960:2014,
               interpolate = TRUE, hscale = 1.5, vscale = 1.5)
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 
 \code{\link{world_bank}}: description of the World Bank Data.
 

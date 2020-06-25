@@ -34,7 +34,7 @@ The value of the multiple can be changed using the
 normal_areas_movie()
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 
 \code{\link{normal_pdf_movie}}: normal probability density function
   movie.

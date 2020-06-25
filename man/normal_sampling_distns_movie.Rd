@@ -46,5 +46,5 @@ The movie is based on two plots.  The top plot shows the
 normal_sampling_distns_movie()
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 }

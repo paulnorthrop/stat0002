@@ -43,7 +43,7 @@
 #'   Three radio buttons enable the user to choose whether to simulate
 #'   1, 100 or 1000 datasets.
 #' @return Nothing is returned, only the animation is produced.
-#' @seealso \code{\link{movies}}: general information about the movies.
+#' @seealso \code{\link{stat0002movies}}: general information about the movies.
 #' @examples
 #' # Ignore department
 #' sex_outcome <- apply(UCBAdmissions, 2:1, FUN = sum)

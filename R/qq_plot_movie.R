@@ -18,7 +18,7 @@
 #'   In cases where there are many more observations than this the plots
 #'   will be a bit of a mess!
 #' @return Nothing is returned, only the animation is produced.
-#' @seealso \code{\link{movies}}: general information about the movies.
+#' @seealso \code{\link{stat0002movies}}: general information about the movies.
 #' @examples
 #' # Create the same dataset used in the lecture notes/slides
 #' set.seed(382)

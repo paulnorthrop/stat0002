@@ -40,8 +40,8 @@
 
 
 <meta property="og:title" content="Sampling distribution of the correlation coefficient movie — corr_sim_movie" />
-<meta property="og:description" content="A movie to illustrate how the sampling distribution of the (Pearson
-product moment) sample correlation coefficient \(r\) depends on the
+<meta property="og:description" content="A movie to illustrate how the sampling distribution of the Pearson
+product moment sample correlation coefficient \(r\) depends on the
 sample size \(n\) and on the true correlation \(\rho\)." />
 
 
@@ -149,18 +149,20 @@ sample size \(n\) and on the true correlation \(\rho\)." />
     </div>
 
     <div class="ref-description">
-    <p>A movie to illustrate how the sampling distribution of the (Pearson
-product moment) sample correlation coefficient \(r\) depends on the
+    <p>A movie to illustrate how the sampling distribution of the Pearson
+product moment sample correlation coefficient \(r\) depends on the
 sample size \(n\) and on the true correlation \(\rho\).</p>
     </div>
 
     <pre class="usage"><span class='fu'>corr_sim_movie</span>(
   <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>30</span>,
   <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>,
+  <span class='kw'>panel_plot</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>hscale</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
+  <span class='kw'>vscale</span> <span class='kw'>=</span> <span class='no'>hscale</span>,
   <span class='kw'>delta_n</span> <span class='kw'>=</span> <span class='fl'>1</span>,
   <span class='kw'>delta_rho</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.environment.html'>as.environment</a></span>(<span class='no'>pos</span>)
+  <span class='no'>...</span>
 )</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -177,6 +179,25 @@ Must not be less than 2.</p></td>
 \(\rho\).  Must be in [-1, 1].</p></td>
     </tr>
     <tr>
+      <th>panel_plot</th>
+      <td><p>A logical parameter that determines whether the plot
+is placed inside the panel (<code>TRUE</code>) or in the standard graphics
+window (<code>FALSE</code>).  If the plot is to be placed inside the panel
+then the tkrplot library is required.</p></td>
+    </tr>
+    <tr>
+      <th>hscale</th>
+      <td><p>Numeric scalars.  Scaling parameters for the size
+of the plot when <code>panel_plot = TRUE</code>. The default values are 1.4 on
+Unix platforms and 2 on Windows platforms.</p></td>
+    </tr>
+    <tr>
+      <th>vscale</th>
+      <td><p>Numeric scalars.  Scaling parameters for the size
+of the plot when <code>panel_plot = TRUE</code>. The default values are 1.4 on
+Unix platforms and 2 on Windows platforms.</p></td>
+    </tr>
+    <tr>
       <th>delta_n</th>
       <td><p>An integer scalar.  The amount by which the value of the
 sample size is increased/decreased after one click of the +/- button.</p></td>
@@ -187,15 +208,12 @@ sample size is increased/decreased after one click of the +/- button.</p></td>
 rho is increased/decreased after one click of the +/- button.</p></td>
     </tr>
     <tr>
-      <th>pos</th>
-      <td><p>A numeric integer.  Used in calls to <code><a href='https://rdrr.io/r/base/assign.html'>assign</a></code>
-to make information available across successive frames of a movie.
-By default, uses the current environment.</p></td>
-    </tr>
-    <tr>
-      <th>envir</th>
-      <td><p>An alternative way (to <code>pos</code>) of specifying the
-environment. See <code><a href='https://rdrr.io/r/base/environment.html'>environment</a></code>.</p></td>
+      <th>...</th>
+      <td><p>Additional arguments to the rpanel functions
+<code><a href='https://rdrr.io/pkg/rpanel/man/rp.button.html'>rp.button</a></code> and
+<code><a href='https://rdrr.io/pkg/rpanel/man/rp.doublebutton.html'>rp.doublebutton</a></code>, not including <code>panel</code>,
+<code>variable</code>, <code>title</code>, <code>step</code>, <code>action</code>, <code>initval</code>,
+<code>range</code>.</p></td>
     </tr>
     </table>
 
@@ -205,33 +223,43 @@ environment. See <code><a href='https://rdrr.io/r/base/environment.html'>environ
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>Random samples of size \(n\) are simulated from a bivariate
-  distribution with the property that the correlation between the two
-  variables is equal to the value of chosen by the user.
-  More specifically, the data are simulated from a
+  normal distribution
   <a href='https://en.wikipedia.org/wiki/Multivariate_normal_distribution'>bivariate normal distribution</a>
-  in which each of the variables has a mean of 0 and a variance of 1.</p>
+  in which each of the variables has a mean of 0 and a variance of 1 and
+  the correlation \(\rho\) between the variables is chosen by the user.</p>
 <p>The movie contains two plots.  On the top is a scatter plot of the
   simulated sample, illustrating the strength of the association between
   the simulated values of the variables.
-  A new sample is produced by clicking the + button next to
-  "simulate another sample of size n:". [Ignore the - button.]
-  For each simulated sample the sample correlation coefficient \(r\) is
-  calculated and displayed in the title of the top plot.
-  The values of these sample correlation coefficients are stored and
-  are plotted in the histogram in the bottom plot.  As we accumulate
-  a large number of values in this histogram the shape of the sampling
-  distribution of \(r\) emerges.</p>
+  A new sample is produced by clicking "simulate another sample.
+  For each simulated sample the sample (Pearson product moment)
+  correlation coefficient \(r\) is calculated and displayed in the
+  title of the top plot.</p>
+<p>The values of the sample correlation coefficients are stored and are
+  plotted in a histogram in the bottom plot.  A rug displays the individual
+  values, with the most recent value coloured red. As we accumulate a large
+  number of values in this histogram the shape of the sampling
+  distribution of \(r\) emerges.  The exact p.d.f. of \(r\) is
+  superimposed on this histogram, as is the value of \(\rho\).</p>
+<p>The bottom plot can be changed in two ways:
+  (i) a radio button can be pressed to replace the histogram and pdf with
+  a plot of the empirical c.d.f. and exact cdf;
+  (ii) the variable can be changed from \(\rho\) to Fisher's
+  z-transformation \(F(\rho) = arctanh(\rho) = [ln(1+\rho) - ln(1-\rho)]/2\).
+  For sufficiently large values of \(n\), \(F(\rho)\) has approximately
+  a normal distribution with mean \(\rho\) and variance
+  \(1 / (n - 3)\).</p>
 <p>The values of the sample size \(n\) or true correlation coefficient
   \(\rho\) can be changed using the respective +/- buttons.
-  If one of these is changed then the histogram in the bottom plot is
+  If one of these is changed then the bottom plot is
   reset using the sample correlation coefficient of the first sample
   simulated using the new combination of \(n\) and \(\rho\).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='movies.html'>movies</a></code>: general information about the movies.</p></div>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/smovie/man/movies.html'>movies</a></code>: a user-friendly menu panel.</p>
+<p><code><a href='https://rdrr.io/pkg/smovie/man/smovie.html'>smovie</a></code>: general information about smovie.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>corr_sim_movie</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='corr_sim_movie-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>corr_sim_movie</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>, <span class='kw'>delta_n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='img'><img src='corr_sim_movie-2.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>correlation</span>(<span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0.8</span>)</div><div class='output co'>#&gt; <span class='error'>Error in correlation(rho = 0.8): could not find function "correlation"</span></div><div class='input'><span class='fu'>correlation</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='output co'>#&gt; <span class='error'>Error in correlation(n = 10): could not find function "correlation"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

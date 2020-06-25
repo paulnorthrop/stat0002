@@ -72,14 +72,12 @@ If you have any questions about this package please ask them via the
 }
 }
 
-\section{\link[=movies]{Movies}}{
+\section{\link[=stat0002movies]{Movies}}{
 
 
-Some of the following movies, and other movies, are also available in a more
-user-friendly form, via the \code{\link[smovie]{smovie}} package.
-If you have \code{smovie} installed (\code{install.packages("smovie")})
-then you can access these using \code{library(smovie)} and then
-\code{movies()}.
+Some of the following movies are made available via the
+\code{\link[smovie]{smovie}} package.  You can access a menu for the
+movies in smovie using \code{library(smovie)} and then \code{movies()}.
 See \code{\link[smovie]{movies}} for more details.
 
 \itemize{
@@ -107,7 +105,7 @@ See \code{\link[smovie]{movies}} for more details.
 }
 
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 
 The \href{https://moodle.ucl.ac.uk/course/view.php?id=8579&section=0}{STAT0002 Moodle page}
   for: various forms of feedback, a discussion forum, lecturecast recordings,

@@ -54,5 +54,5 @@ lin_reg_movie(hubble, pch = 16, xlab = "recession velocity (km/sec)",
               ylab = "distance (megaparsecs)")
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 }

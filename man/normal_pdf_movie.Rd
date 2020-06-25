@@ -45,7 +45,7 @@ normal_pdf_movie()
 normal_pdf_movie(delta_var = 1)
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 
 \code{\link{normal_areas_movie}}: normal central probability areas
   movie.

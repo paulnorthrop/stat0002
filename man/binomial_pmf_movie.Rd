@@ -59,5 +59,5 @@ binomial_pmf_movie(starting_n = 44, starting_p = 0.591, delta_p = 0.01,
                    observed_value = 26)
 }
 \seealso{
-\code{\link{movies}}: general information about the movies.
+\code{\link{stat0002movies}}: general information about the movies.
 }

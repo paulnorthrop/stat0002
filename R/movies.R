@@ -1,4 +1,4 @@
-# ========================== movies =========================
+# ========================== stat0002movies =========================
 
 #' General information about the movies
 #'
@@ -16,11 +16,9 @@
 #' See \strong{Examples} below.
 #'
 #' @details
-#' (Some of these movies, and other movies are also available in a more
-#' user-friendly form, via the \code{\link[smovie]{smovie}} package.
-#' If you have \code{smovie} installed (\code{install.packages("smovie")})
-#' then you can access these using \code{library(smovie)} and then
-#' \code{movies()}.
+#' Some of the following movies are made available via the
+#' \code{\link[smovie]{smovie}} package.  You can access a menu for the
+#' movies in smovie using \code{library(smovie)} and then \code{movies()}.
 #' See \code{\link[smovie]{movies}} for more details.
 #'
 #' When one of these functions is called R opens up a small
@@ -96,7 +94,7 @@
 #'   coefficient.
 #' @section Examples:
 #' See the examples given for the individual movies listed below.
-#' @name movies
+#' @name stat002movies
 NULL
 ## NULL
 
