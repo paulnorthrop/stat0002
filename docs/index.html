@@ -115,25 +115,25 @@
 <h3 class="hasAnchor">
 <a href="#what-does-stat0002-do" class="anchor"></a>What does stat0002 do?</h3>
 <p>The <code>stat0002</code> package provides R code, datasets and vignettes (tutorials demonstrating how to use R code) to help students taking STAT0002 Introduction to Probability and Statistics at University College London (UCL) to understand the course material and to see how R can be used to perform some of the analyses in the course.</p>
-<p>The package is:</p>
-<ul>
-<li>not complete, but developed enough to be useful to STAT0002 students;</li>
-<li>probably of little use to people not taking STAT0002.</li>
-</ul>
 </div>
 <div id="installation" class="section level3">
 <h3 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h3>
 <p>If you need to install R then you can get it from <a href="https://cran.r-project.org/">CRAN</a>.</p>
-<p>If you would like to use RStudio (a free user-friendly front-end to R) then you can get it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer that is appropriate for your operating system.</p>
-<p>To get the current released version of <code>stat0002</code> from CRAN:</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"stat0002"</span>)</pre></div>
+<p>If you use a <strong>Mac</strong> then please read the notes at <a href="https://cran.r-project.org/bin/macosx/">R Mac OS X</a>, in particular the 3 paragraphs under <strong>Latest release:</strong>. You need all of the software described here.</p>
+<p>If you would like to use RStudio (a free user-friendly front-end to R) then you can get it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer for your operating system.</p>
+<p>To install <code>stat0002</code> type (you can copy and paste) the following at the R Console command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"tkrplot"</span>, <span class="st">"MASS"</span>, <span class="st">"knitr"</span>, <span class="st">"distributions3"</span>),
+                 <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>)</pre></div>
+<p>You only need to do this once. Then install <code>stat0002</code> (or reinstall it to get the latest version) using</p>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>, <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
 </div>
 <div id="getting-started" class="section level3">
 <h3 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h3>
 <p>Then type</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stat0002</span>)
+<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stat0002</span>)
 ?<span class="no">stat0002</span></pre></div>
 <p>to open the main help page, which contains links to vignettes, datasets and movies. The Index at the bottom links to help files for functions. If <code><a href="reference/stat0002.html">?stat0002</a></code> doesn’t work then close RStudio, reopen it and try again.</p>
 <p>However, perhaps the most convenient source of this information is the <a href="https://paulnorthrop.github.io/stat0002/">stat0002 home page on GitHub</a>, which has help files under <strong>Reference</strong> and vignettes under <strong>Articles</strong>.</p>
@@ -144,16 +144,6 @@
 <h3 class="hasAnchor">
 <a href="#software-required-for-the-movies" class="anchor"></a>Software required for the movies</h3>
 <p>The movies are produced using the <a href="https://cran.r-project.org/package=rpanel"><code>rpanel</code></a> package, which requires the Tcl extension <a href="https://sourceforge.net/projects/tcllib/files/BWidget/"><code>BWidget</code></a>. <code>BWidget</code> is included in the R installers for Windows and macOS. For other platforms please see <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Non_002dR-scripts-in-packages">Section 1.1.7 of Writing R Extensions</a> for installation advice.</p>
-</div>
-<div id="development-version" class="section level3">
-<h3 class="hasAnchor">
-<a href="#development-version" class="anchor"></a>Development version</h3>
-<p>To install a development version from GitHub type the following at the R Console command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"tkrplot"</span>, <span class="st">"MASS"</span>, <span class="st">"knitr"</span>, <span class="st">"distributions3"</span>),
-                 <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>)</pre></div>
-<p>You only need to do this (install the <code>remotes</code> package etc) once. Then install <code>stat0002</code> (or reinstall it to get the latest version) using</p>
-<div class="sourceCode" id="cb4"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>, <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
 </div>
 </div>
 </div>
