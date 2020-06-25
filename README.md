@@ -18,16 +18,15 @@ STAT0002 Introduction to Probability and Statistics at University
 College London (UCL) to understand the course material and to see how R
 can be used to perform some of the analyses in the course.
 
-The package is:
-
-  - not complete, but developed enough to be useful to STAT0002
-    students;
-  - probably of little use to people not taking STAT0002.
-
 ### Installation
 
 If you need to install R then you can get it from
 [CRAN](https://cran.r-project.org/).
+
+If you use a **Mac** then please read the notes at [R Mac OS
+X](https://cran.r-project.org/bin/macosx/), in particular the 3
+paragraphs under **Latest release:**. You need all of the software
+described here.
 
 If you would like to use RStudio (a free user-friendly front-end to R)
 then you can get it from the [Download RStudio
@@ -35,10 +34,20 @@ page](https://www.rstudio.com/products/rstudio/download/). Find **All
 Installers** near the bottom of the page and choose the installer that
 is appropriate for your operating system.
 
-To get the current released version of `stat0002` from CRAN:
+To install `stat0002` type (you can copy and paste) the following at the
+R Console command prompt `>`.
 
 ``` r
-install.packages("stat0002")
+install.packages("remotes")
+install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3"), 
+                 dependencies = "Depends")
+```
+
+You only need to do this once. Then install `stat0002` (or reinstall it
+to get the latest version) using
+
+``` r
+remotes::install_github("paulnorthrop/stat0002", dependencies = "Depends", build_vignettes = TRUE)
 ```
 
 ### Getting started
@@ -78,21 +87,3 @@ requires the Tcl extension
 other platforms please see [Section 1.1.7 of Writing R
 Extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Non_002dR-scripts-in-packages)
 for installation advice.
-
-### Development version
-
-To install a development version from GitHub type the following at the R
-Console command prompt `>`.
-
-``` r
-install.packages("remotes")
-install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3"), 
-                 dependencies = "Depends")
-```
-
-You only need to do this (install the `remotes` package etc) once. Then
-install `stat0002` (or reinstall it to get the latest version) using
-
-``` r
-remotes::install_github("paulnorthrop/stat0002", dependencies = "Depends", build_vignettes = TRUE)
-```
