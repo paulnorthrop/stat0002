@@ -88,7 +88,9 @@ clt_exponential_movie <- function(n = 10, lambda = 1, xlab = "x", pos = 1,
 clt_exponential_movie_plot <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
-    par(mfrow = c(2, 1), oma = c(0, 0, 0, 0), mar = c(4, 4, 2, 2) + 0.1)
+    on.exit(graphics::par(oldpar))
+    graphics::par(mfrow = c(2, 1), oma = c(0, 0, 0, 0),
+                  mar = c(4, 4, 2, 2) + 0.1)
     assign("lambda", lambda, envir = envir)
     assign("xlab", xlab, envir = envir)
     y <- stats::rexp(n, rate = lambda)
@@ -142,7 +144,6 @@ clt_exponential_movie_plot <- function(panel) {
     graphics::arrows(mean_y, 2* ytop, mean_y, 0, col = "red", lwd = 2, xpd = TRUE)
     old_n <- n
     assign("old_n", old_n, envir = envir)
-    graphics::par(old_par)
   })
   return(invisible(panel))
 }
