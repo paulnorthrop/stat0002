@@ -26,7 +26,8 @@ Imports: distributions3,
     stats,
     tkrplot
 Suggests: knitr,
-    rmarkdown
+    rmarkdown,
+    SuppDists,
 VignetteBuilder: knitr
 URL: https://paulnorthrop.github.io/stat0002/,
      https://github.com/paulnorthrop/stat0002
