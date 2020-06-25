@@ -31,8 +31,8 @@ described here.
 If you would like to use RStudio (a free user-friendly front-end to R)
 then you can get it from the [Download RStudio
 page](https://www.rstudio.com/products/rstudio/download/). Find **All
-Installers** near the bottom of the page and choose the installer that
-is appropriate for your operating system.
+Installers** near the bottom of the page and choose the installer for
+your operating system.
 
 To install `stat0002` type (you can copy and paste) the following at the
 R Console command prompt `>`.
