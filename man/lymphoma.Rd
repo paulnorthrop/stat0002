@@ -16,8 +16,8 @@ lymphoma
 }
 \description{
 The numbers of a certain type of T-cell (a white blood cell) per cubic mm
-in blood samples taken from 42 patients suffering from lymphoma.
-21 of the patients have Hodgkin's lymphoma, the other 21 have non-Hodgkin's
+in blood samples taken from 42 patients in remission from from lymphoma.
+21 of the patients had Hodgkin's lymphoma, the other 21 had non-Hodgkin's
 lymphoma.
 }
 \keyword{datasets}
