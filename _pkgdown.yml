@@ -30,7 +30,7 @@ reference:
   - title: Movies
     desc: ~
     contents:
-      - "movies"
+      - "stat0002movies"
       - "shuttle_movie"
       - "scatterplot_movie"
       - "world_bank_movie"
