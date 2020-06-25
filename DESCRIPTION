@@ -23,10 +23,10 @@ Imports: distributions3,
     plotrix,
     rust,
     smovie,
-    stats
-Suggests: knitr,
-    rmarkdown,
+    stats,
     tkrplot
+Suggests: knitr,
+    rmarkdown
 VignetteBuilder: knitr
 URL: https://paulnorthrop.github.io/stat0002/,
      https://github.com/paulnorthrop/stat0002
