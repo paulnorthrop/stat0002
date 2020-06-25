@@ -60,6 +60,7 @@ qq_plot_movie <- function(data = NULL, mu = NULL, sigma = NULL) {
 qq_movie_plot <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old_par))
     range_x <- stats::qnorm(c(0.01, 0.99), mean = mu, sd = sigma)
     range_x[1] <- floor(range_x[1])
     range_x[2] <- ceiling(range_x[2])
@@ -177,7 +178,6 @@ qq_movie_plot <- function(panel) {
                                              "line through the quartiles"),
                        lty = c(3, 2), lwd = 2)
     }
-    graphics::par(old_par)
   })
   return(invisible(panel))
 }

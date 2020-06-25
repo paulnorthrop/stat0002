@@ -117,6 +117,7 @@ poisson_process_movie <- function(lambda = 1, hours = 24, pos = 1,
 poisson_process_movie_plot <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old_par))
     graphics::layout(matrix(c(1,2), 2, 1), heights = c(1, 2))
     graphics::par(oma = c(0, 0, 0, 0), mar = c(4, 1, 2, 2) + 0.1)
     assign("lambda", lambda, envir = envir)
@@ -246,7 +247,6 @@ poisson_process_movie_plot <- function(panel) {
     } else {
       plot(1:10, 1:10, type = "n", axes = FALSE, ann = FALSE)
     }
-    graphics::par(old_par)
   })
   return(invisible(panel))
 }

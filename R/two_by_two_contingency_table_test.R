@@ -149,6 +149,7 @@ add_chi_squared_calc <- function(x_loc, y_loc, x) {
 two_by_two_plot <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old_par))
     # Create layout of
     # 1. contingency table of real data on the top left
     # 2. contingency table of simulated data on the top right
@@ -235,7 +236,6 @@ two_by_two_plot <- function(panel) {
                      col = "red")
     graphics::points(real_test_res$statistic, 0, pch = 16, cex = 2,
                      col = "blue")
-    graphics::par(old_par)
   })
   return(invisible(panel))
 }

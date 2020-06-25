@@ -115,6 +115,7 @@ poisson_process_check <- function(user_data = NULL, total_time = NULL,
 poisson_process_check_plot <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old_par))
     graphics::layout(matrix(c(1,2), 2, 1), heights = c(1, 2))
     graphics::par(oma = c(0, 0, 0, 0), mar = c(4, 1, 2, 2) + 0.1)
     # Produce the top plot
@@ -232,7 +233,6 @@ poisson_process_check_plot <- function(panel) {
     } else {
       plot(1:10, 1:10, type = "n", axes = FALSE, ann = FALSE)
     }
-    graphics::par(old_par)
   })
   return(invisible(panel))
 }

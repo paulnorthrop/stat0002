@@ -292,7 +292,8 @@ shuttle_sim_plot <- function(n_sim = 50, plot_real_data = TRUE, n_reps = 1,
 #' @export
 shuttle_sim_hists <- function(x, temps, ...) {
   # save default, for resetting...
-  def.par <- graphics::par(no.readonly = TRUE)
+  old_par <- graphics::par(no.readonly = TRUE)
+  on.exit(graphics::par(old_par))
   # Sort temperatures into decreasing order
   temps <- sort(temps, decreasing = TRUE)
   ntemps <- length(temps)
@@ -307,6 +308,6 @@ shuttle_sim_hists <- function(x, temps, ...) {
                                  temps[i], "deg F"), ylab = "density")
   }
   #- reset to default
-  graphics::par(def.par)
+  graphics::par(old_par)
   invisible()
 }

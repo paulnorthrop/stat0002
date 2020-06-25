@@ -79,6 +79,7 @@ mean_vs_median_t_movie <- function(n = 10, t_df = 2, delta_n = 1, pos = 1,
 mean_vs_median_t_plot <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old_par))
     graphics::par(mfrow = c(3, 1), oma = c(0, 0, 0, 0),
                   mar = c(4, 4, 1, 2) + 0.1, cex.axis = 1.5, cex.lab = 1.5)
     mu <- 0
@@ -169,7 +170,6 @@ mean_vs_median_t_plot <- function(panel) {
                      xpd = TRUE)
     old_n <- n
     assign("old_n", old_n, envir = envir)
-    graphics::par(old_par)
   })
   return(invisible(panel))
 }

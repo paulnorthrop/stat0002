@@ -54,6 +54,7 @@ normal_sampling_distns_movie <- function(starting_n = 30, delta_n = 1, mu = 0,
 plot_normal_sampling_distributions <- function(panel) {
   with(panel, {
     old_par <- graphics::par(no.readonly = TRUE)
+    on.exit(graphics::par(old_par))
     graphics::par(mfrow=c(2, 1), oma =c(0, 0, 0, 0), mar = c(4, 4, 2, 4) + 0.1)
     # Top plot: sampling distributon of the sample mean
     mu_low <- mu - 2 * sigma
@@ -88,7 +89,6 @@ plot_normal_sampling_distributions <- function(panel) {
     br <- pretty(seq(from = sigma_low, to = sigma_up, len = 100))
     graphics::axis(1, pos = 0, at = br, labels = br)
     graphics::abline(v = sigma ^ 2, lty = 2)
-    graphics::par(old_par)
   })
   return(invisible(panel))
 }
