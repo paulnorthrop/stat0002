@@ -24,11 +24,6 @@
 #' object \code{name}.
 #'
 #' @return Nothing is returned, only the animation is produced.
-#' @references Bowman, A., Crawford, E., Alexander, G. and Bowman, R. W.
-#'  (2007). rpanel: Simple Interactive Controls for R Functions Using the
-#'  tcltk Package.  \emph{Journal of Statistical Software}, \strong{17(9)},
-#'  1-18.
-#'  \url{http://www.jstatsoft.org/v17/i09/}.
 #' @seealso \code{\link{shuttle_movie}}: illustrates uncertainty in the
 #'   linear logistic regression curves fitted to the real space shuttle data.
 #' @seealso \code{\link{scatterplot_movie}}: straightening scatter plots
