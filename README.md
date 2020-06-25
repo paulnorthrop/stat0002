@@ -39,7 +39,7 @@ R Console command prompt `>`.
 
 ``` r
 install.packages("remotes")
-install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3"), 
+install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3", "SuppDists"), 
                  dependencies = "Depends")
 ```
 

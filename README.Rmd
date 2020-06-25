@@ -38,7 +38,7 @@ To install `stat0002` type (you can copy and paste) the following at the R Conso
 
 ```{r installation1, eval = FALSE}
 install.packages("remotes")
-install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3"), 
+install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3", "SuppDists"), 
                  dependencies = "Depends")
 ```
 
