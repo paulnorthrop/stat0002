@@ -1,3 +1,5 @@
+# ============================ screening_test() ===============================
+
 #' Screening test calculations
 #'
 #' Consider a screening test for a certain disease or condition, applied to a
@@ -18,18 +20,25 @@
 #' @param specificity A numeric scalar.  The conditional probability that a
 #'   person who does not have the disease tests negative.  If \eqn{-} is the
 #'   event that the randomly chosen person test negative then the sensitivity
-#'   is \eqn{P(- | notD)}.
+#'   is \eqn{P(- \mid {\rm not}D)}{P(- | notD)}.
 #' @details The probabilities are calculated using the **law of total
-#'   probability** and **Bayes' theorem**.
+#'   probability**
 #'   \deqn{P(+) = P(+ \mid D) P(D) + P(+ \mid {\rm not}D) P(D)}{%
 #'     P(+) = P(+ | D) P(D) + P(+ | notD) P(notD)}
+#'   and **Bayes' theorem**
+#'   \deqn{P(D \mid +) = \frac{P(+ \mid D) P(D)}{P(+)}}{%
+#'     P(D | +) = P(+ | D) P(D) / P(+)}
+#'   \deqn{P({\rm not}D \mid -) = \frac{P(- \mid {\rm not}D) P({\rm not}D)}{P(-)}.}{%
+#'     P(notD | -) = P(- | notD) P(notD) / P(-).}
 #' @return A list containing the following components
-#' * `pp` The probability \eqn{P(+)} that a person chosen randomly from the
-#'   population will test positive.
+#' * `pp` The probability \eqn{P(+)} that the person will test positive.
 #' * `ppv` The positive predictive value. The conditional probability
-#'   \eqn{P(D | +)} that a person who tests positive has the disease.
+#'   \eqn{P(D | +)} if the person tests positive then they has the disease.
 #' * `npv` The negative predictive value. The conditional probability
-#'   \eqn{P(notD | -)} that a person who tests negative does not have the disease.
+#'   \eqn{P({\rm not}D \mid -)}{P(notD | -)} if the person tests negative
+#'   then they do not have the disease.
+#' * `prior`,`sensitivity`,`specificity` The input values of `prior`,
+#'   `sensitivity` and `specificity`.
 #' @examples
 #' screening_test(0.1, 0.9, 0.9)
 #' @export
@@ -60,5 +69,41 @@ screening_test <- function(prior, sensitivity, specificity) {
   ppv <- p_p_d * p_d / pp
   npv <- p_n_nd * p_nd / pn
   # Return a list
-  return(list(pp = pp, ppv = ppv, npv = npv))
+  res <- list(pp = pp, ppv = ppv, npv = npv, prior = prior,
+              sensitivity = sensitivity, specificity = specificity)
+  class(res) <- "screening_test"
+  return(res)
+}
+
+# ============================ print.screening() ==============================
+
+#' Prints a \code{screening_test} object
+#'
+#' \code{print} method for class "screening_test".
+#'
+#' @param x an object of class "screening_test", a result of a call to
+#'   \code{\link{screening_test}}.
+#' @param digits An integer.  The number of significant digits to include in
+#'   the printed probabilities.  Passed to \code{\link{format}}.
+#' @param ... Additional arguments.  None used at present.
+#' @return Nothing is returned.
+#' @examples
+#' screening_test(0.1, 0.9, 0.9)
+#' @seealso \code{\link{screening_test}}.
+#' @export
+print.screening_test <- function(x, digits = max(3L, getOption("digits") - 3L),
+                                                 ...) {
+  if (!inherits(x, "screening_test")) {
+    stop("use only with \"screening_test\" objects")
+  }
+  inputs <- c("P(D)" = x$prior, "P(+ | D)" = x$sensitivity,
+              "P(- | notD)" = x$specificity)
+  cat("Prevalence, sensitivity, specificity:\n")
+  print.default(format(inputs, digits = digits), print.gap = 2L,
+                quote = FALSE)
+  outputs <- c("P(+)" = x$pp, "P(D | +)" = x$ppv, "P(notD | -)" = x$npv)
+  cat("P(positive test), positive and negative predictive values:\n")
+  print.default(format(outputs, digits = digits), print.gap = 2L,
+                quote = FALSE)
+  return(invisible(x))
 }
