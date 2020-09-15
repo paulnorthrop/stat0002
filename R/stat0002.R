@@ -46,6 +46,7 @@
 #' \itemize{
 #'   \item {\link[=shuttle]{Challenger Space Shuttle Disaster}}
 #'   \item {\link[=days]{Mystery data (in Exercises 1)}}
+#'   \item {\link[=clouds]{Cloud-seeding data}}
 #'   \item {\link[=lymphoma]{T-cell count data}}
 #'   \item {\link[=UCBAdmissions]{Student Admissions at UC Berkeley}}
 #'   \item {\link[=ox_births]{Oxford Birth Times}}
@@ -323,6 +324,22 @@ NULL
 #' among extra-galactic nebulae. \emph{Proceedings of the National Academy of
 #' Science}, \strong{15}, 168-173.
 "hubble"
+
+#' Cloud-seeding data
+#'
+#' The data used in the STAT0002 notes to introduce the idea of transforming
+#' data to approximate symmetry.  This dataset contains the amounts of
+#' rainfall, in acre-feet, produced by 52 clouds.  Half of the clouds were
+#' chosen at random to be seeded with silver nitrate.
+#' @format A data frame with 26 observations on the following 2 variables.
+#' \itemize{
+#' \item{\code{unseeded:}}{ the rainfall amount for unseeded clouds.}
+#' \item{\code{seeded:}}{ the rainfall amount for unseeded clouds.}
+#' }
+#' @source Simpson, J., Olsen, A. , and Eden. J.C. (1975). A Bayesian analysis
+#' of a multiplicative treatment effect in weather modification.
+#' \emph{Technometrics}, \strong{17}, 161-166.
+"clouds"
 
 # ========================== Bird dominance data =========================
 
