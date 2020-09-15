@@ -46,14 +46,14 @@
 #' \itemize{
 #'   \item {\link[=shuttle]{Challenger Space Shuttle Disaster}}
 #'   \item {\link[=days]{Mystery data (in Exercises 1)}}
-#'   \item {\link[=clouds]{Cloud-seeding data}}
 #'   \item {\link[=lymphoma]{T-cell count data}}
-#'   \item {\link[=UCBAdmissions]{Student Admissions at UC Berkeley}}
+#'   \item {\link[=clouds]{Cloud-seeding data}}
 #'   \item {\link[=ox_births]{Oxford Birth Times}}
 #'   \item {\link[=blood_types]{Blood Types}}
 #'   \item {\link[=ftse]{FTSE 100 Share Index}}
 #'   \item {\link[=world_bank]{World Bank Development Indicators}}
 #'   \item {\link[=flu]{Influenza data}}
+#'   \item {\link[=UCBAdmissions]{Student Admissions at UC Berkeley}}
 #'   \item {\link[=USelection]{The 2000 U.S. Presidential Election}}
 #'   \item {\link[=aussie_births]{Australian Birth Times Data}}
 #'   \item {\link[=hubble]{Nebulae data from Hubble (1929)}}

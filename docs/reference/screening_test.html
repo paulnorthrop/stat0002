@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sampling distribution of the correlation coefficient movie — corr_sim_movie • stat0002</title>
+<title>Screening test calculations — screening_test • stat0002</title>
 
 
 <!-- jquery -->
@@ -39,10 +39,12 @@
 
 
 
-<meta property="og:title" content="Sampling distribution of the correlation coefficient movie — corr_sim_movie" />
-<meta property="og:description" content="A movie to illustrate how the sampling distribution of the product moment
-sample correlation coefficient \(r\) depends on the sample size \(n\)
-and on the true correlation \(\rho\)." />
+<meta property="og:title" content="Screening test calculations — screening_test" />
+<meta property="og:description" content="Consider a screening test for a certain disease or condition, applied to a
+person who has a certain prior, pre-test probability of having the disease.
+For such a person this function calculates the probabilities that: the
+person has the disease given that they test positive; the person does not
+have the disease given that they test negative." />
 
 
 
@@ -143,124 +145,77 @@ and on the true correlation \(\rho\)." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Sampling distribution of the correlation coefficient movie</h1>
-    <small class="dont-index">Source: <a href='https://github.com/paulnorthrop/stat0002/blob/master/R/correlation_simulation_movie.R'><code>R/correlation_simulation_movie.R</code></a></small>
-    <div class="hidden name"><code>corr_sim_movie.Rd</code></div>
+    <h1>Screening test calculations</h1>
+    <small class="dont-index">Source: <a href='https://github.com/paulnorthrop/stat0002/blob/master/R/screening_test.R'><code>R/screening_test.R</code></a></small>
+    <div class="hidden name"><code>screening_test.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>A movie to illustrate how the sampling distribution of the product moment
-sample correlation coefficient \(r\) depends on the sample size \(n\)
-and on the true correlation \(\rho\).</p>
+    <p>Consider a screening test for a certain disease or condition, applied to a
+person who has a certain prior, pre-test probability of having the disease.
+For such a person this function calculates the probabilities that: the
+person has the disease given that they test positive; the person does not
+have the disease given that they test negative.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>corr_sim_movie</span>(
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>30</span>,
-  <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>panel_plot</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>hscale</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>vscale</span> <span class='kw'>=</span> <span class='no'>hscale</span>,
-  <span class='kw'>delta_n</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>delta_rho</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>screening_test</span>(<span class='no'>prior</span>, <span class='no'>sensitivity</span>, <span class='no'>specificity</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>n</th>
-      <td><p>An integer scalar.  The initial value of the sample size.
-Must not be less than 2.</p></td>
+      <th>prior</th>
+      <td><p>A numeric scalar.  The pre-test probability \(P(D)\) that the
+person has the disease.  In the absence of specific information this could
+be the prevalence of the disease in the population, that is, the
+proportion of people who have the disease in the general population of
+interest.</p></td>
     </tr>
     <tr>
-      <th>rho</th>
-      <td><p>A numeric scalar.  The initial value of the true correlation
-\(\rho\).  Must be in [-1, 1].</p></td>
+      <th>sensitivity</th>
+      <td><p>A numeric scalar.  The conditional probability that a
+person who has the disease tests positive.  If \(+\) is the event that
+the randomly chosen person test positive then the sensitivity is
+\(P(+ | D)\).</p></td>
     </tr>
     <tr>
-      <th>panel_plot</th>
-      <td><p>A logical parameter that determines whether the plot
-is placed inside the panel (<code>TRUE</code>) or in the standard graphics
-window (<code>FALSE</code>).  If the plot is to be placed inside the panel
-then the tkrplot library is required.</p></td>
-    </tr>
-    <tr>
-      <th>hscale</th>
-      <td><p>Numeric scalars.  Scaling parameters for the size
-of the plot when <code>panel_plot = TRUE</code>. The default values are 1.4 on
-Unix platforms and 2 on Windows platforms.</p></td>
-    </tr>
-    <tr>
-      <th>vscale</th>
-      <td><p>Numeric scalars.  Scaling parameters for the size
-of the plot when <code>panel_plot = TRUE</code>. The default values are 1.4 on
-Unix platforms and 2 on Windows platforms.</p></td>
-    </tr>
-    <tr>
-      <th>delta_n</th>
-      <td><p>An integer scalar.  The amount by which the value of the
-sample size is increased/decreased after one click of the +/- button.</p></td>
-    </tr>
-    <tr>
-      <th>delta_rho</th>
-      <td><p>A numeric scalar.  The amount by which the value of
-rho is increased/decreased after one click of the +/- button.</p></td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td><p>Additional arguments to the rpanel functions
-<code><a href='https://rdrr.io/pkg/rpanel/man/rp.button.html'>rp.button</a></code> and
-<code><a href='https://rdrr.io/pkg/rpanel/man/rp.doublebutton.html'>rp.doublebutton</a></code>, not including <code>panel</code>,
-<code>variable</code>, <code>title</code>, <code>step</code>, <code>action</code>, <code>initval</code>,
-<code>range</code>.</p></td>
+      <th>specificity</th>
+      <td><p>A numeric scalar.  The conditional probability that a
+person who does not have the disease tests negative.  If \(-\) is the
+event that the randomly chosen person test negative then the sensitivity
+is \(P(- \mid {\rm not}D)\).</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Nothing is returned, only the animation is produced.</p>
+    <p>A list containing the following components</p><ul>
+<li><p><code>pp</code> The probability \(P(+)\) that the person will test positive.</p></li>
+<li><p><code>ppv</code> The positive predictive value. The conditional probability
+\(P(D | +)\) if the person tests positive then they has the disease.</p></li>
+<li><p><code>npv</code> The negative predictive value. The conditional probability
+\(P({\rm not}D \mid -)\) if the person tests negative
+then they do not have the disease.</p></li>
+<li><p><code>prior</code>,<code>sensitivity</code>,<code>specificity</code> The input values of <code>prior</code>,
+<code>sensitivity</code> and <code>specificity</code>.</p></li>
+</ul>
+
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Random samples of size \(n\) are simulated from a bivariate
-  normal distribution
-  <a href='https://en.wikipedia.org/wiki/Multivariate_normal_distribution'>bivariate normal distribution</a>
-  in which each of the variables has a mean of 0 and a variance of 1 and
-  the correlation \(\rho\) between the variables is chosen by the user.</p>
-<p>The movie contains two plots.  On the top is a scatter plot of the
-  simulated sample, illustrating the strength of the association between
-  the simulated values of the variables.
-  A new sample is produced by clicking "simulate another sample.
-  For each simulated sample the sample (product moment) correlation
-  coefficient \(r\) is calculated and displayed in the title of the top
-  plot.</p>
-<p>The values of the sample correlation coefficients are stored and are
-  plotted in a histogram in the bottom plot.  A rug displays the individual
-  values, with the most recent value coloured red. As we accumulate a large
-  number of values in this histogram the shape of the sampling
-  distribution of \(r\) emerges.  The exact p.d.f. of \(r\) is
-  superimposed on this histogram, as is the value of \(\rho\).</p>
-<p>The bottom plot can be changed in two ways:
-  (i) a radio button can be pressed to replace the histogram and pdf with
-  a plot of the empirical c.d.f. and exact cdf;
-  (ii) the variable can be changed from \(\rho\) to Fisher's
-  z-transformation \(F(\rho) = arctanh(\rho) = [ln(1+\rho) - ln(1-\rho)]/2\).
-  For sufficiently large values of \(n\), \(F(\rho)\) has approximately
-  a normal distribution with mean \(\rho\) and variance
-  \(1 / (n - 3)\).</p>
-<p>The values of the sample size \(n\) or true correlation coefficient
-  \(\rho\) can be changed using the respective +/- buttons.
-  If one of these is changed then the bottom plot is
-  reset using the sample correlation coefficient of the first sample
-  simulated using the new combination of \(n\) and \(\rho\).</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/smovie/man/movies.html'>movies</a></code>: a user-friendly menu panel.</p>
-<p><code><a href='https://rdrr.io/pkg/smovie/man/smovie.html'>smovie</a></code>: general information about smovie.</p></div>
+    <p>The probabilities are calculated using the <strong>law of total
+probability</strong>
+$$P(+) = P(+ \mid D) P(D) + P(+ \mid {\rm not}D) P(D)$$
+and <strong>Bayes' theorem</strong>
+$$P(D \mid +) = \frac{P(+ \mid D) P(D)}{P(+)}$$
+$$P({\rm not}D \mid -) = \frac{P(- \mid {\rm not}D) P({\rm not}D)}{P(-)}.$$</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>corr_sim_movie</span>(<span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0.8</span>)
-<span class='fu'>corr_sim_movie</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>screening_test</span>(<span class='fl'>0.1</span>, <span class='fl'>0.9</span>, <span class='fl'>0.9</span>)</div><div class='output co'>#&gt; Prevalence, sensitivity, specificity:
+#&gt;        P(D)     P(+ | D)  P(- | notD)  
+#&gt;         0.1          0.9          0.9  
+#&gt; P(positive test), positive and negative predictive values:
+#&gt;        P(+)     P(D | +)  P(notD | -)  
+#&gt;      0.1800       0.5000       0.9878  </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
