@@ -142,9 +142,9 @@ NULL
 
 #' Oxford Birth Times
 #'
-#' Times spent in delivery suite by 95 women giving birth at the John Radcliffe
-#' Hospital, Oxford. These data have been taken from the SMPracticals package
-#' to which they were provided by Ethel Burns.
+#' Times spent in the delivery suite by 95 women giving birth at the John
+#' Radcliffe Hospital, Oxford. These data have been taken from the SMPracticals
+#' package to which they were provided by Ethel Burns.
 #'
 #' @format A data frame with 95 observations on the following 2 variables.
 #' \itemize{
