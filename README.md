@@ -32,9 +32,9 @@ If you use a **Mac** then please read the notes at [R Mac OS
 X](https://cran.r-project.org/bin/macosx/), in particular the 3
 paragraphs under **Latest release:**. You need all of the software
 described here. You will also need the BWidget software. If your Mac
-does not have this then please see the [BWidget installation
-instructions](https://moodle.ucl.ac.uk/mod/resource/view.php?id=2389913)
-on the STAT0002 Moodle page.
+does not have this then please see the BWidget installation instructions
+in the stat0002 R package section of the [STAT0002 Moodle
+page](https://moodle.ucl.ac.uk/course/view.php?id=8579).
 
 If you would like to use RStudio (a free user-friendly front-end to R)
 then you can get it from the [Download RStudio
