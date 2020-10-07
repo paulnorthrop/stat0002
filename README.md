@@ -43,7 +43,7 @@ To install `stat0002` type (you can copy and paste) the following at the
 R Console command prompt `>`.
 
 ``` r
-install.packages("remotes")
+install.packages("devtools")
 install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3", "SuppDists"), 
                  dependencies = "Depends")
 ```
@@ -52,7 +52,7 @@ You only need to do this once. Then install `stat0002` (or reinstall it
 to get the latest version) using
 
 ``` r
-remotes::install_github("paulnorthrop/stat0002", dependencies = "Depends", build_vignettes = TRUE)
+devtools::install_github("paulnorthrop/stat0002")
 ```
 
 ### Getting started

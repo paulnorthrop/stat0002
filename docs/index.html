@@ -124,11 +124,11 @@
 <p>If you use a <strong>Mac</strong> then please read the notes at <a href="https://cran.r-project.org/bin/macosx/">R Mac OS X</a>, in particular the 3 paragraphs under <strong>Latest release:</strong>. You need all of the software described here.</p>
 <p>If you would like to use RStudio (a free user-friendly front-end to R) then you can get it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer for your operating system.</p>
 <p>To install <code>stat0002</code> type (you can copy and paste) the following at the R Console command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"remotes"</span>)
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"tkrplot"</span>, <span class="st">"MASS"</span>, <span class="st">"knitr"</span>, <span class="st">"distributions3"</span>, <span class="st">"SuppDists"</span>),
                  <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>)</pre></div>
 <p>You only need to do this once. Then install <code>stat0002</code> (or reinstall it to get the latest version) using</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>, <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>, <span class="kw">build_vignettes</span> <span class="kw">=</span> <span class="fl">TRUE</span>)</pre></div>
+<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>)</pre></div>
 </div>
 <div id="getting-started" class="section level3">
 <h3 class="hasAnchor">

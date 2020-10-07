@@ -39,7 +39,7 @@ Find **All Installers** near the bottom of the page and choose the installer for
 To install `stat0002` type (you can copy and paste) the following at the R Console command prompt `>`.  
 
 ```{r installation1, eval = FALSE}
-install.packages("remotes")
+install.packages("devtools")
 install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3", "SuppDists"), 
                  dependencies = "Depends")
 ```
@@ -47,7 +47,7 @@ install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "kn
 You only need to do this once.  Then install `stat0002` (or reinstall it to get the latest version) using 
 
 ```{r installation2, eval = FALSE}
-remotes::install_github("paulnorthrop/stat0002", dependencies = "Depends", build_vignettes = TRUE)
+devtools::install_github("paulnorthrop/stat0002")
 ```
 
 ### Getting started
