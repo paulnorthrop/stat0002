@@ -31,7 +31,10 @@ extra step to tell R where to find Rtools.
 If you use a **Mac** then please read the notes at [R Mac OS
 X](https://cran.r-project.org/bin/macosx/), in particular the 3
 paragraphs under **Latest release:**. You need all of the software
-described here.
+described here. You will also need the BWidget software. If your Mac
+does not have this then please see the [BWidget installation
+instructions](https://moodle.ucl.ac.uk/mod/resource/view.php?id=2389913)
+on the STAT0002 Moodle page.
 
 If you would like to use RStudio (a free user-friendly front-end to R)
 then you can get it from the [Download RStudio
