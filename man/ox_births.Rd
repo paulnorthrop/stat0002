@@ -18,8 +18,8 @@ Davison, A. C. (2003) Statistical Models. Cambridge University Press.
 ox_births
 }
 \description{
-Times spent in delivery suite by 95 women giving birth at the John Radcliffe
-Hospital, Oxford. These data have been taken from the SMPracticals package
-to which they were provided by Ethel Burns.
+Times spent in the delivery suite by 95 women giving birth at the John
+Radcliffe Hospital, Oxford. These data have been taken from the SMPracticals
+package to which they were provided by Ethel Burns.
 }
 \keyword{datasets}

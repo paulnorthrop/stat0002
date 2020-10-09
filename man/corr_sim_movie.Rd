@@ -51,9 +51,9 @@ rho is increased/decreased after one click of the +/- button.}
 Nothing is returned, only the animation is produced.
 }
 \description{
-A movie to illustrate how the sampling distribution of the product moment
-sample correlation coefficient \eqn{r} depends on the sample size \eqn{n}
-and on the true correlation \eqn{\rho}.
+A movie to illustrate how the sampling distribution of the Pearson
+product moment sample correlation coefficient \eqn{r} depends on the
+sample size \eqn{n} and on the true correlation \eqn{\rho}.
 }
 \details{
 Random samples of size \eqn{n} are simulated from a bivariate
@@ -66,9 +66,9 @@ Random samples of size \eqn{n} are simulated from a bivariate
   simulated sample, illustrating the strength of the association between
   the simulated values of the variables.
   A new sample is produced by clicking "simulate another sample.
-  For each simulated sample the sample (product moment) correlation
-  coefficient \eqn{r} is calculated and displayed in the title of the top
-  plot.
+  For each simulated sample the sample (Pearson product moment)
+  correlation coefficient \eqn{r} is calculated and displayed in the
+  title of the top plot.
 
   The values of the sample correlation coefficients are stored and are
   plotted in a histogram in the bottom plot.  A rug displays the individual
