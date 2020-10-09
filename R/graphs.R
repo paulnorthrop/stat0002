@@ -14,7 +14,8 @@
 #'
 #' @param type an integer between 1 and 9 selecting one of the nine quantile
 #'   algorithms detailed in the \strong{Details} section of the
-#'   \code{\link[stats]{quantile}} documentation.
+#'   \code{\link[stats]{quantile}} documentation.  The default is
+#'   \code{type = 6}.
 #' @details See the \strong{Details} section of the \code{\link{boxplot}}
 #'   documentation.
 #' @return A list with the same contents as described in the \strong{Value}
