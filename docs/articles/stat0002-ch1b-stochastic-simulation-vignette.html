@@ -103,7 +103,7 @@
       <h1 data-toc-skip>Chapter 1: Stochastic Simulation</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-10-09</h4>
+            <h4 class="date">2020-10-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch1b-stochastic-simulation-vignette.Rmd"><code>vignettes/stat0002-ch1b-stochastic-simulation-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch1b-stochastic-simulation-vignette.Rmd</code></div>
@@ -113,12 +113,12 @@
     
     
 <p>Stochastic simulation uses computer-generated <em>pseudo-random numbers</em> to mimic a stochastic real event or dataset. Pseudo-random numbers are not random (they are produced by an algorithm) but the algorithm is constructed in order to imitate randomness closely enough. A typical use of stochastic simulation is to generate numbers that behave approximately like a random sample from an particular probability distribution.</p>
-<p>In this vignette we concentrate on using R to perform stochastic simulation. For a more general introduction to stochastic simulation, and a more detailed explanation of the ideas underlying the R code, see the short <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=8">Stochastic simulation video</a>. If you want to know more then good sources of information are <span class="citation">Morgan (1984)</span> and <span class="citation">Jasra (2011)</span>.</p>
+<p>In this vignette we concentrate on using R to perform stochastic simulation. If you want to know more then good sources of information are <span class="citation">Morgan (1984)</span> and <span class="citation">Jasra (2011)</span>.</p>
 <p>The R code used in this vignette are available: <a href="stat0002-ch1b-stochastic-simulation-vignette.R">stochastic-simulation-vignette.R</a>. The function <code>rbinomial</code> can be viewed by typing <code>rbinomial</code> at R command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
 <div id="pseudo-random-numbers-in-01" class="section level2">
 <h2 class="hasAnchor">
 <a href="#pseudo-random-numbers-in-01" class="anchor"></a>Pseudo-random numbers in (0,1)</h2>
-<p>The basic building block of stochastic simulation methods is the ability to simulate numbers (pseudo-) randomly from the interval (0,1). As we will see in Section 5.5 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a> this is equivalent to generating numbers that behave approximately like a random sample from a standard uniform U(0,1) distribution. The function in R that does this is <code>runif</code>.</p>
+<p>The basic building block of stochastic simulation methods is the ability to simulate numbers (pseudo-) randomly from the interval (0,1). As we will see in Chapter 5 of the STAT0002 notes this is equivalent to generating numbers that behave approximately like a random sample from a standard uniform U(0,1) distribution. The function in R that does this is <code>runif</code>.</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
 Loading required package: rpanel
 Loading required package: tcltk
@@ -130,7 +130,7 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 <div id="simulation-from-a-binomial-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simulation-from-a-binomial-distribution" class="anchor"></a>Simulation from a binomial distribution</h2>
-<p>In the <a href="stat0002-ch1a-shuttle-vignette.html">Challenger Space Shuttle disaster</a> vignette we needed to simulate numbers from a binomial distribution with parameters <span class="math inline">\(6\)</span> and <span class="math inline">\(p\)</span>, for a given value of <span class="math inline">\(p\)</span>. As we will see in Section 5.3 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a> this distribution arises as the number of ‘successes’ (perversely, in the space shuttle example thermal distress of an O-ring is a ‘success’) in a fixed number (here, this is 6) of independent trials, where each trial results either in a ‘success’ or a ‘failure’.</p>
+<p>In the <a href="stat0002-ch1a-shuttle-vignette.html">Challenger Space Shuttle disaster</a> vignette we needed to simulate numbers from a binomial distribution with parameters <span class="math inline">\(6\)</span> and <span class="math inline">\(p\)</span>, for a given value of <span class="math inline">\(p\)</span>. As we will see in Chapter 5 of the STAT0002 notes this distribution arises as the number of ‘successes’ (perversely, in the space shuttle example thermal distress of an O-ring is a ‘success’) in a fixed number (here, this is 6) of independent trials, where each trial results either in a ‘success’ or a ‘failure’.</p>
 <p>Suppose that <span class="math inline">\(p=0.2\)</span>, which is the approximate estimated probability (under a linear logistic model) that an O-ring suffers thermal distress when the space shuttle is launched at 58 degrees Fahrenheit.</p>
 <p>The function in R that simulates from a binomial distribution is <code>rbinom</code>.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; rbinom(n = 1, size = 6, prob = 0.2)
@@ -178,14 +178,14 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 <div id="simulation-from-a-exponential-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#simulation-from-a-exponential-distribution" class="anchor"></a>Simulation from a exponential distribution</h2>
-<p>The exponential distribution (see Section 5.6 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a> is an example of a probability distribution of a continuous random variable (see Section 4.2 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>).</p>
+<p>The exponential distribution is an example of a probability distribution of a continuous random variable.</p>
 <ol start="4" style="list-style-type: decimal">
 <li><strong>Can you guess the name of the R function for simulating from an exponential distribution?</strong></li>
 </ol>
 <p>We simulate a sample of size 1000 from an exponential distribution with (rate) parameter equal to 2.</p>
 <div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; lambda &lt;- 2
 &gt; exp_sim &lt;- rexp(n = 1000, rate = lambda)</pre></body></html></div>
-<p>We produce a histogram of these simulated values (see Section 2.5 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>) and superimpose the probability density function (p.d.f.) of the exponential distribution from which these values have been simulated.</p>
+<p>We produce a histogram of these simulated values and superimpose the probability density function (p.d.f.) of the exponential distribution from which these values have been simulated.</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; # A histogram (see Section 2.5 of the STAT0002 notes)
 &gt; hist(exp_sim, probability = TRUE, ylim = c(0, lambda), main = "")
 &gt; x &lt;- seq(0, max(exp_sim), len = 500)
@@ -204,7 +204,7 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 <div id="the-inversion-method" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-inversion-method" class="anchor"></a>The inversion method</h2>
-<p>The code immediately above is an example of the <em>inversion method</em> of simulation. See the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=8">Stochastic simulation video</a> for some detail. The following code implements this for the normal distribution (see Section 5.7 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>).</p>
+<p>The code immediately above is an example of the <em>inversion method</em> of simulation. The following code implements this for the normal distribution.</p>
 <div class="sourceCode" id="cb10"><html><body><pre class="r">&gt; u &lt;- runif(1000)
 &gt; mu &lt;- 0
 &gt; sigma &lt;- 1
@@ -216,7 +216,7 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 <ol start="6" style="list-style-type: decimal">
 <li><strong>Use <code><a href="https://rdrr.io/r/stats/Normal.html">?qnorm</a></code> to find out what <code>qnorm</code> does.</strong></li>
 </ol>
-<p>Note that the help page calls this the <em>quantile function</em>. An alternative name is the <em>inverse cumulative distribution function</em> or <em>inverse c.d.f</em> (see Section 5.7 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>).</p>
+<p>Note that the help page calls this the <em>quantile function</em>. An alternative name is the <em>inverse cumulative distribution function</em> or <em>inverse c.d.f</em>.</p>
 </div>
 <div id="more-general-methods-of-simulation" class="section level2">
 <h2 class="hasAnchor">

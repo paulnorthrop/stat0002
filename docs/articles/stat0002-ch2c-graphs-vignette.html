@@ -103,7 +103,7 @@
       <h1 data-toc-skip>Chapter 2: Graphs (More Than One Variable)</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-10-09</h4>
+            <h4 class="date">2020-10-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2c-graphs-vignette.Rmd"><code>vignettes/stat0002-ch2c-graphs-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch2c-graphs-vignette.Rmd</code></div>
@@ -112,7 +112,7 @@
 
     
     
-<p>The main purpose of this vignette is to provide R code to produce graphs that involve more than one variable. We consider two general situations: (i) plotting the values of a continuous variable for different values of a categorical variable (see <a href="#the-oxford-birth-times-data">The Oxford Birth Times data</a>) and (ii) scatter plots of one variable against another (see <a href="#the-2000-us-presidential-election-data">The 2000 US Presidential Election data</a>). The latter feature in Section 2.6 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>. See also the <a href="stat0002-ch2b-graphs-vignette.html">Chapter 2: Graphs (one variable)</a>.</p>
+<p>The main purpose of this vignette is to provide R code to produce graphs that involve more than one variable. We consider two general situations: (i) plotting the values of a continuous variable for different values of a categorical variable (see <a href="#the-oxford-birth-times-data">The Oxford Birth Times data</a>) and (ii) scatter plots of one variable against another (see <a href="#the-2000-us-presidential-election-data">The 2000 US Presidential Election data</a>). See also the <a href="stat0002-ch2b-graphs-vignette.html">Chapter 2: Graphs (one variable)</a>.</p>
 <p>The R code used in this vignette are available: <a href="stat0002-ch2b-graphs-vignette.R">stat0002-ch2b-graphs-vignette.R</a>.</p>
 <div id="the-oxford-birth-times-data" class="section level2">
 <h2 class="hasAnchor">
@@ -146,7 +146,7 @@
 [14,] 10.40 11.20    NA    NA 14.30    NA    NA
 [15,] 16.00 15.00    NA    NA    NA    NA    NA
 [16,] 19.00 16.50    NA    NA    NA    NA    NA</pre></body></html></div>
-<p>We have a numeric continuous variable, <code>birth_times</code>, and a categorical variable, <code>day</code>. The following code produces the graphs in the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 lecture slides</a> that contain a plot of birth_times for each day of the week.</p>
+<p>We have a numeric continuous variable, <code>birth_times</code>, and a categorical variable, <code>day</code>. The following code produces separate boxplots of <code>birth_times</code> for each day of the week.</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; par(mar = c(4, 4, 0.5, 1))
 &gt; xlab &lt;- "time (hours)"
 &gt; x_labs &lt;- c(min(birth_times), pretty(birth_times), max(birth_times))

@@ -103,7 +103,7 @@
       <h1 data-toc-skip>Chapter 2: Transformation Of Variable</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-10-09</h4>
+            <h4 class="date">2020-10-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2d-box-cox-transformation-vignette.Rmd"><code>vignettes/stat0002-ch2d-box-cox-transformation-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch2d-box-cox-transformation-vignette.Rmd</code></div>
@@ -142,7 +142,7 @@
 <div id="transformation-to-approximate-symmetry" class="section level2">
 <h2 class="hasAnchor">
 <a href="#transformation-to-approximate-symmetry" class="anchor"></a>Transformation to Approximate Symmetry</h2>
-<p>The normal (or Gaussian) distribution (Section 5.7 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>) is a symmetric probability distribution. If <span class="math inline">\(Y = \ln X\)</span> has a normal distribution then <span class="math inline">\(X\)</span> has a <em>log-normal</em> distribution. This is a convenient example to study because if we know that we have a sample from a log-normal distribution then taking logs of the data produces a sample from a normal distribution.</p>
+<p>The normal (or Gaussian) distribution is a symmetric probability distribution. If <span class="math inline">\(Y = \ln X\)</span> has a normal distribution then <span class="math inline">\(X\)</span> has a <em>log-normal</em> distribution. This is a convenient example to study because if we know that we have a sample from a log-normal distribution then taking logs of the data produces a sample from a normal distribution.</p>
 <div id="log-normal-distribution" class="section level3">
 <h3 class="hasAnchor">
 <a href="#log-normal-distribution" class="anchor"></a>Log-normal distribution</h3>
@@ -172,7 +172,7 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 <div id="exponential-distribution" class="section level3">
 <h3 class="hasAnchor">
 <a href="#exponential-distribution" class="anchor"></a>Exponential distribution</h3>
-<p>An exponential random variable (Section 5.6 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>) exhibits strong positive skewness. Therefore, if we wish to Box-Cox transform data that have been sampled from an exponential distribution in order to make it more symmetric then we should use <span class="math inline">\(\lambda &lt; 1\)</span>. We can use the MASS function <code>boxcox</code> to help us to decide which value of <span class="math inline">\(\lambda\)</span> we could use. However, an exponential distribution is a special case of a gamma distribution (we don’t study this in STAT0002) and it has long been known (<span class="citation">Wilson and Hilferty (1931)</span>) that a cube root transformation tends to make a gamma random variable behave rather like a normal random variable. Therefore, <span class="math inline">\(\lambda = 1/3\)</span> might work well.</p>
+<p>An exponential random variable exhibits strong positive skewness. Therefore, if we wish to Box-Cox transform data that have been sampled from an exponential distribution in order to make it more symmetric then we should use <span class="math inline">\(\lambda &lt; 1\)</span>. We can use the MASS function <code>boxcox</code> to help us to decide which value of <span class="math inline">\(\lambda\)</span> we could use. However, an exponential distribution is a special case of a gamma distribution (we don’t study this in STAT0002) and it has long been known (<span class="citation">Wilson and Hilferty (1931)</span>) that a cube root transformation tends to make a gamma random variable behave rather like a normal random variable. Therefore, <span class="math inline">\(\lambda = 1/3\)</span> might work well.</p>
 <div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; x2 &lt;- rexp(100)
 &gt; boxcox_plot(x2, density_fn = dexp, main = "data and true density function")
 &gt; boxcox_plot(x2, density_fn = dexp, lambda = 1 / 3, main = "after transformation")
@@ -194,7 +194,7 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
     0, &amp; \text{otherwise}. \\
   \end{cases}
   \right.
-\]</span> i.e. a triangle with base along (0,1). The functions <code>dtri</code> and <code>rtri</code> in the following code are used to calculate this p.d.f. and to simulate from this distribution, respectively. The latter uses the <em>inversion method</em> of simulation. See the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=8">Stochastic simulation video</a> for details.</p>
+\]</span> i.e. a triangle with base along (0,1). The functions <code>dtri</code> and <code>rtri</code> in the following code are used to calculate this p.d.f. and to simulate from this distribution, respectively. The latter uses the <em>inversion method</em> of simulation.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; # A function to define the p.d.f.
 &gt; dtri &lt;- function(x) {
 +   return(ifelse(x &gt; 0 &amp; x &lt; 1, 2 * x, 0))
@@ -203,7 +203,7 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 &gt; rtri &lt;- function(n = 1) {
 +   return(sqrt(runif(n)))
 + }  </pre></body></html></div>
-<p>In this example it can be shown that using <span class="math inline">\(\lambda = 2\)</span> will produce a random variable whose p.d.f. is constant (and equal to 2) over the range (-1/2, 0), that is, we produce a uniform U(-1/2, 0) random variable (see Section 5.5 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>).</p>
+<p>In this example it can be shown that using <span class="math inline">\(\lambda = 2\)</span> will produce a random variable whose p.d.f. is constant (and equal to 2) over the range (-1/2, 0), that is, we produce a uniform U(-1/2, 0) random variable.</p>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Can you prove that if a random variable <span class="math inline">\(X\)</span> has the triangular p.d.f. above then <span class="math inline">\(X^2\)</span> has a standard U(0,1) distribution and hence that <span class="math inline">\((X^2-1)/2\)</span> has a U(-1/2,0) distribution?</strong></li>
 </ol>
@@ -232,7 +232,7 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 <div id="linearity" class="section level2">
 <h2 class="hasAnchor">
 <a href="#linearity" class="anchor"></a>Transformation to Approximate Linearity</h2>
-<p>In Chapter 8 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>) we study simple linear regression. In short, the idea is to suppose that the distribution of a <em>response variable</em> <span class="math inline">\(Y\)</span> has a mean that is a linear function of the observed value <span class="math inline">\(x\)</span> of an *explanatory variable <span class="math inline">\(X\)</span>. Alternatively, we could think of this as <span class="math inline">\(Y\)</span> being a linear function of <span class="math inline">\(x\)</span> plus some random error that has a zero mean.</p>
+<p>In Chapter 8 of the STAT0002 notes we study simple linear regression. In short, the idea is to suppose that the distribution of a <em>response variable</em> <span class="math inline">\(Y\)</span> has a mean that is a linear function of the observed value <span class="math inline">\(x\)</span> of an *explanatory variable <span class="math inline">\(X\)</span>. Alternatively, we could think of this as <span class="math inline">\(Y\)</span> being a linear function of <span class="math inline">\(x\)</span> plus some random error that has a zero mean.</p>
 <div id="us-presidential-election-data-in-florida" class="section level3">
 <h3 class="hasAnchor">
 <a href="#us-presidential-election-data-in-florida" class="anchor"></a>2000 US Presidential Election Data in Florida</h3>
@@ -244,7 +244,7 @@ Package `rpanel', version 1.1-4: type help(rpanel) for summary information
 &gt; plot(x, y, pch = 16, xlab = xlab, ylab = ylab)</pre></body></html></div>
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-10-1.png" width="624"></p>
 <p>Clearly <span class="math inline">\(Y\)</span> is not linearly related to <span class="math inline">\(x\)</span>. In Section 8.4 of the notes we consider the use of transformation in the setting of simple linear regression. If we are hoping to use a <em>linear</em> regression model then one of the most important considerations is whether the relationship between <span class="math inline">\(Y\)</span> and <span class="math inline">\(x\)</span> is approximately linear. If it is not then one approach is to consider transforming <span class="math inline">\(Y\)</span> and/or <span class="math inline">\(x\)</span>. In the  we saw that we could choose these transformations using trial-and-error.</p>
-<p>In <span class="citation">Smith (2002)</span> the author uses <span class="math inline">\(\sqrt{Y}\)</span> instead of <span class="math inline">\(Y\)</span> and <span class="math inline">\(\log(x)\)</span> instead of <span class="math inline">\(x\)</span>. In a lecture we found that this did indeed produce a relationship that looked much closer to being linear. Here we also use <span class="math inline">\(\log(x)\)</span> instead of <span class="math inline">\(x\)</span> and we use the <code>boxcox</code> function to suggest a Box-Cox transformation for <span class="math inline">\(y\)</span>. [It is possible to look to look simultaneously for the ‘best’ Box-Cox transformations of both <span class="math inline">\(Y\)</span> and <span class="math inline">\(x\)</span>, but the <code>boxcox</code> doesn’t provide this option.] In the regression setting the <code>boxcox</code> function seeks a transformation of <span class="math inline">\(Y\)</span> for which the distribution of the random error is as close as possible to being normal.</p>
+<p>In <span class="citation">Smith (2002)</span> the author uses <span class="math inline">\(\sqrt{Y}\)</span> instead of <span class="math inline">\(Y\)</span> and <span class="math inline">\(\log(x)\)</span> instead of <span class="math inline">\(x\)</span>. In a lecture we found that this did indeed produce a relationship that looked much closer to being linear. Here we also use <span class="math inline">\(\log(x)\)</span> instead of <span class="math inline">\(x\)</span> and we use the <code>boxcox</code> function to suggest a Box-Cox transformation for <span class="math inline">\(y\)</span>. [It is possible to look to look simultaneously for the ‘best’ Box-Cox transformations of both <span class="math inline">\(Y\)</span> and <span class="math inline">\(x\)</span>, but the <code>boxcox</code> function doesn’t provide this option.] In the regression setting the <code>boxcox</code> function seeks a transformation of <span class="math inline">\(Y\)</span> for which the distribution of the random error is as close as possible to being normal.</p>
 <div class="sourceCode" id="cb10"><html><body><pre class="r">&gt; boxcox(y ~ log(x))</pre></body></html></div>
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-11-1.png" width="700"></p>
 <p>Here the plot suggests that we might also transform <span class="math inline">\(Y\)</span> using <span class="math inline">\(\log(Y)\)</span>. The plot on the left below is of <span class="math inline">\(\log(Y)\)</span> against <span class="math inline">\(\log(x)\)</span> (we plot both variables on log scales). The plot on the right is of <span class="math inline">\(\sqrt{Y}\)</span> against <span class="math inline">\(x\)</span>.</p>

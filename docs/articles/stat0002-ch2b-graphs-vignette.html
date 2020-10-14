@@ -103,7 +103,7 @@
       <h1 data-toc-skip>Chapter 2: Graphs (One Variable)</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-10-09</h4>
+            <h4 class="date">2020-10-14</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2b-graphs-vignette.Rmd"><code>vignettes/stat0002-ch2b-graphs-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch2b-graphs-vignette.Rmd</code></div>
@@ -112,7 +112,7 @@
 
     
     
-<p>The main purpose of this vignette is to provide R code to produce graphs that feature in Sections 2.4 and 2.5 of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 notes</a>. All these graphs involve one variable only. See also the <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs (more than one variable)</a>.</p>
+<p>The main purpose of this vignette is to provide R code to produce graphs that feature in Chapter 2 of the STAT0002 notes. All these graphs involve one variable only. See also the <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs (more than one variable)</a>.</p>
 <p>The R code used in this vignette are available: <a href="stat0002-ch2b-graphs-vignette.R">graphs-vignette.R</a>.</p>
 <div id="the-oxford-birth-times-data" class="section level2">
 <h2 class="hasAnchor">
@@ -162,7 +162,7 @@
 <div id="histogram" class="section level3">
 <h3 class="hasAnchor">
 <a href="#histogram" class="anchor"></a>Histogram</h3>
-<p>For an explanation of how to construct a histogram, and why it is constructed in this way, see the short <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=8">How to draw a histogram video</a>. The following code produces the plots on the right side of Figure 2.4 in the notes. Note that in the first plot the <code>probability = TRUE</code> (or <code>prob = TRUE</code> for short) argument is important: it ensures that the total area of the rectangles of the histogram is equal to 1. In the second plot it isn’t necessary to include <code>prob = TRUE</code> because if the bin widths are unequal then (sensibly) <code>hist</code> uses <code>prob = TRUE</code>.</p>
+<p>The following code produces histograms that feature in the STAT0002 notes. Note that in the first plot the <code>probability = TRUE</code> (or <code>prob = TRUE</code> for short) argument is important: it ensures that the total area of the rectangles of the histogram is equal to 1. In the second plot it isn’t necessary to include <code>prob = TRUE</code> because if the bin widths are unequal then (sensibly) <code>hist</code> uses <code>prob = TRUE</code>.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; hist(birth_times, prob = TRUE, col = 8, main = "", xlab = xlab)
 &gt; br &lt;- c(seq(from = 0, to = 12, by = 2), 20)
 &gt; hist(birth_times, breaks = br, col = 8, main = "", xlab = xlab)</pre></body></html></div>
@@ -182,7 +182,7 @@
 <ol start="4" style="list-style-type: decimal">
 <li><strong>What do you think the function <code>cumsum</code> does?</strong></li>
 </ol>
-<p>The following code produces the histogram-like alternative plots in the lecture slides <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=3">STAT0002 lecture slides</a>. As you can see we can do many things to change the appearance of plots. Use <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code> to see a list of the graphical parameters that we can use.</p>
+<p>The following code produces histogram-like alternative plots. As you can see we can do many things to change the appearance of plots. Use <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code> to see a list of the graphical parameters that we can use.</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; # adjust plot margins, produce a 2 by 2 array of plots (fill row 1 then row 2)
 &gt; par(mar = c(4, 4, 1, 1), mfrow = c(2, 2))
 &gt; # no vertical axis
@@ -207,7 +207,6 @@
 <div id="stem-and-leaf-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#stem-and-leaf-plot" class="anchor"></a>Stem-and-leaf plot</h3>
-<p>The short <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579&amp;section=8">How to draw a histogram video</a> also describes how to draw a stem-and-leaf plot.</p>
 <div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; # The default plot
 &gt; stem(birth_times)
 
