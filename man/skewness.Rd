@@ -31,8 +31,7 @@ column of a matrix of data, based on the estimators described in the
 the STAT002 notes.
 }
 \details{
-See Section 2.3 of the
-\href{https://moodle.ucl.ac.uk/course/view.php?id=8579&section=3}{STAT002 notes.}
+See Chapter 2 of the STAT002 notes.
 
 \emph{Sample quartile skewness}.
 Let \eqn{q_L}, \eqn{m} and \eqn{q_U} be the sample lower quartile,
