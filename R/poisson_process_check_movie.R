@@ -87,11 +87,13 @@ poisson_process_check <- function(user_data = NULL, total_time = NULL,
   lambda <- length(user_data) / intervals
   # Allocate the events to the correct hour
   alloc_fun <- function(x) {
-    return(sum(event_times > x & event_times <= x + 1L))
+    return(sum(event_times > x & event_times <= x + leng))
   }
   # Extract features of the data for storage
   # Numbers of events in each hour
-  n_events <- vapply(0:(total_time - 1L), alloc_fun, 0)
+  start_times <- (0:(intervals - 1)) * total_time / intervals
+  leng <- total_time / intervals
+  n_events <- vapply(start_times, alloc_fun, 0)
   # Create buttons for movie
   ppc_panel <- rpanel::rp.control("Data information",
                                   event_times = event_times,
