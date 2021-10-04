@@ -13,4 +13,4 @@
 ^pkgdown$
 ^\.travis\.yml$
 ^cran-comments\.md$
-^ex$
+^days\.Rdata$
