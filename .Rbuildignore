@@ -13,3 +13,4 @@
 ^pkgdown$
 ^\.travis\.yml$
 ^cran-comments\.md$
+^ex$
