@@ -18,44 +18,42 @@ STAT0002 Introduction to Probability and Statistics at University
 College London (UCL) to understand the course material and to see how R
 can be used to perform some of the analyses in the course.
 
-### Installation
+### Software required
 
 If you need to install R then you can get it from
 [CRAN](https://cran.r-project.org/).
 
-If you are a **Windows** user then you need to install
-[Rtools](https://cran.r-project.org/bin/windows/Rtools/) on your
-computer. This requires downloading an .exe file and running it and one
-extra step to tell R where to find Rtools.
-
-If you use a **Mac** then please read the notes at [R Mac OS
-X](https://cran.r-project.org/bin/macosx/), in particular the 3
-paragraphs under **Latest release:**. You need all of the software
-described here. You will also need the BWidget software. If your Mac
-does not have this then please see the BWidget installation instructions
-in the stat0002 R package section of the [STAT0002 Moodle
-page](https://moodle.ucl.ac.uk/course/view.php?id=8579).
-
-If you would like to use RStudio (a free user-friendly front-end to R)
-then you can get it from the [Download RStudio
+I recommend that you use RStudio (a **free** user-friendly front-end to
+R). Install it from the [Download RStudio
 page](https://www.rstudio.com/products/rstudio/download/). Find **All
 Installers** near the bottom of the page and choose the installer for
 your operating system.
 
-To install `stat0002` type (you can copy and paste) the following at the
-R Console command prompt `>`.
+If you use a **Mac** then the movies (interactive plots) in `stat0002`
+will not work unless you have [XQuartz](https://www.xquartz.org/)
+installed.
+
+### Installation of `stat0002`
+
+Copy and paste **ONE** of the following into the R Console and press
+return. Choose the option that is relevant to your computer.
+
+#### Windows
 
 ``` r
-install.packages("devtools")
-install.packages(c("plotrix", "rpanel", "rust", "smovie", "tkrplot", "MASS", "knitr", "distributions3", "SuppDists"), 
-                 dependencies = "Depends")
+install.packages("https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.zip", repos = NULL)
 ```
 
-You only need to do this once. Then install `stat0002` (or reinstall it
-to get the latest version) using
+#### Apple Mac
 
 ``` r
-devtools::install_github("paulnorthrop/stat0002")
+install.packages("https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tgz", repos = NULL)
+```
+
+#### Linux
+
+``` r
+install.packages("https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tar.gz", repos = NULL)
 ```
 
 ### Getting started
@@ -80,18 +78,3 @@ You will find that some vignettes contain ideas that we have not yet
 covered in lectures. If you want to try to understand these ideas before
 we cover them then please use the links to further information that have
 been provided.
-
-If you have any questions about this package please ask them via the
-[STAT0002 Moodle Discussion
-Forum](https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=866683).
-
-### Software required for the movies
-
-The movies are produced using the
-[`rpanel`](https://cran.r-project.org/package=rpanel) package, which
-requires the Tcl extension
-[`BWidget`](https://sourceforge.net/projects/tcllib/files/BWidget/).
-`BWidget` is included in the R installers for Windows and macOS. For
-other platforms please see [Section 1.1.7 of Writing R
-Extensions](https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Non_002dR-scripts-in-packages)
-for installation advice.
