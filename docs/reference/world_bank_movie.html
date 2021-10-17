@@ -83,7 +83,7 @@ their inter-relationships vary over time." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -127,7 +127,7 @@ their inter-relationships vary over time." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -189,9 +189,10 @@ surrounding these data see
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Produce the movie.  You may ignore the warning message that is produced.</span>
 <span class='co'># (I think the cause may be that some countries have a lot of missing data.)</span>
-<span class='fu'>rp.bubbleplot</span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>gdp_per_capita</span>), <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span>(<span class='no'>co2_per_capita</span>), <span class='fl'>1960</span>:<span class='fl'>2014</span>,
-              <span class='kw'>size</span> <span class='kw'>=</span> <span class='no'>population_size</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='no'>life_expectancy</span>,
-              <span class='kw'>interpolate</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>hscale</span> <span class='kw'>=</span> <span class='fl'>1.5</span>, <span class='kw'>vscale</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div></pre>
+<span class='fu'><a href='https://rdrr.io/pkg/rpanel/man/rp.bubbleplot.html'>rp.bubbleplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>gdp_per_capita</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>co2_per_capita</span><span class='op'>)</span>, <span class='fl'>1960</span><span class='op'>:</span><span class='fl'>2014</span>,
+              size <span class='op'>=</span> <span class='va'>population_size</span>, col <span class='op'>=</span> <span class='va'>life_expectancy</span>,
+              interpolate <span class='op'>=</span> <span class='cn'>TRUE</span>, hscale <span class='op'>=</span> <span class='fl'>1.5</span>, vscale <span class='op'>=</span> <span class='fl'>1.5</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: NaNs produced</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -207,7 +208,7 @@ surrounding these data see
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
