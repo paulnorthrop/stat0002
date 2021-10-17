@@ -42,7 +42,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -86,7 +86,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -116,35 +116,47 @@
 <a href="#what-does-stat0002-do" class="anchor"></a>What does stat0002 do?</h3>
 <p>The <code>stat0002</code> package provides R code, datasets and vignettes (tutorials demonstrating how to use R code) to help students taking STAT0002 Introduction to Probability and Statistics at University College London (UCL) to understand the course material and to see how R can be used to perform some of the analyses in the course.</p>
 </div>
-<div id="installation" class="section level3">
+<div id="software-required" class="section level3">
 <h3 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h3>
+<a href="#software-required" class="anchor"></a>Software required</h3>
 <p>If you need to install R then you can get it from <a href="https://cran.r-project.org/">CRAN</a>.</p>
-<p>If you are a <strong>Windows</strong> user then you need to install <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> on your computer. This requires downloading an .exe file and running it and one extra step to tell R where to find Rtools.</p>
-<p>If you use a <strong>Mac</strong> then please read the notes at <a href="https://cran.r-project.org/bin/macosx/">R Mac OS X</a>, in particular the 3 paragraphs under <strong>Latest release:</strong>. You need all of the software described here. You will also need the BWidget software. If your Mac does not have this then please see the BWidget installation instructions in the stat0002 R package section of the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8579">STAT0002 Moodle page</a>.</p>
-<p>If you would like to use RStudio (a free user-friendly front-end to R) then you can get it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer for your operating system.</p>
-<p>To install <code>stat0002</code> type (you can copy and paste) the following at the R Console command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
-<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"devtools"</span>)
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"tkrplot"</span>, <span class="st">"MASS"</span>, <span class="st">"knitr"</span>, <span class="st">"distributions3"</span>, <span class="st">"SuppDists"</span>),
-                 <span class="kw">dependencies</span> <span class="kw">=</span> <span class="st">"Depends"</span>)</pre></div>
-<p>You only need to do this once. Then install <code>stat0002</code> (or reinstall it to get the latest version) using</p>
-<div class="sourceCode" id="cb2"><pre class="r"><span class="kw pkg">devtools</span><span class="kw ns">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"paulnorthrop/stat0002"</span>)</pre></div>
+<p>I recommend that you use RStudio (a <strong>free</strong> user-friendly front-end to R). Install it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer for your operating system.</p>
+<p>If you use a <strong>Mac</strong> then the movies (interactive plots) in <code>stat0002</code> will not work unless you have <a href="https://www.xquartz.org/">XQuartz</a> installed.</p>
+</div>
+<div id="installation-of-stat0002" class="section level3">
+<h3 class="hasAnchor">
+<a href="#installation-of-stat0002" class="anchor"></a>Installation of <code>stat0002</code>
+</h3>
+<p>Copy and paste <strong>ONE</strong> of the following into the R Console and press return. Choose the option that is relevant to your computer.</p>
+<div id="windows" class="section level4">
+<h4 class="hasAnchor">
+<a href="#windows" class="anchor"></a>Windows</h4>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.zip"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="apple-mac" class="section level4">
+<h4 class="hasAnchor">
+<a href="#apple-mac" class="anchor"></a>Apple Mac</h4>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tgz"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="linux" class="section level4">
+<h4 class="hasAnchor">
+<a href="#linux" class="anchor"></a>Linux</h4>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tar.gz"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+</div>
 </div>
 <div id="getting-started" class="section level3">
 <h3 class="hasAnchor">
 <a href="#getting-started" class="anchor"></a>Getting started</h3>
 <p>Then type</p>
-<div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">stat0002</span>)
-?<span class="no">stat0002</span></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://paulnorthrop.github.io/stat0002/">stat0002</a></span><span class="op">)</span>
+<span class="op">?</span><span class="va">stat0002</span></code></pre></div>
 <p>to open the main help page, which contains links to vignettes, datasets and movies. The Index at the bottom links to help files for functions. If <code><a href="reference/stat0002.html">?stat0002</a></code> doesn’t work then close RStudio, reopen it and try again.</p>
 <p>However, perhaps the most convenient source of this information is the <a href="https://paulnorthrop.github.io/stat0002/">stat0002 home page on GitHub</a>, which has help files under <strong>Reference</strong> and vignettes under <strong>Articles</strong>.</p>
 <p>You will find that some vignettes contain ideas that we have not yet covered in lectures. If you want to try to understand these ideas before we cover them then please use the links to further information that have been provided.</p>
-<p>If you have any questions about this package please ask them via the <a href="https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=866683">STAT0002 Moodle Discussion Forum</a>.</p>
-</div>
-<div id="software-required-for-the-movies" class="section level3">
-<h3 class="hasAnchor">
-<a href="#software-required-for-the-movies" class="anchor"></a>Software required for the movies</h3>
-<p>The movies are produced using the <a href="https://cran.r-project.org/package=rpanel"><code>rpanel</code></a> package, which requires the Tcl extension <a href="https://sourceforge.net/projects/tcllib/files/BWidget/"><code>BWidget</code></a>. <code>BWidget</code> is included in the R installers for Windows and macOS. For other platforms please see <a href="https://cran.r-project.org/doc/manuals/r-devel/R-exts.html#Non_002dR-scripts-in-packages">Section 1.1.7 of Writing R Extensions</a> for installation advice.</p>
 </div>
 </div>
 </div>
@@ -190,7 +202,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

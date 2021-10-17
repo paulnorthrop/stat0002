@@ -85,7 +85,7 @@ is superimposed on the histogram." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -129,7 +129,7 @@ is superimposed on the histogram." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -160,14 +160,14 @@ this pdf is also Box-Cox transformed and the resulting transformed pdf
 is superimposed on the histogram.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>boxcox_plot</span>(
-  <span class='no'>x</span>,
-  <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>density_fn</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>breaks</span> <span class='kw'>=</span> <span class='st'>"Sturges"</span>,
-  <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>""</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>boxcox_plot</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  lambda <span class='op'>=</span> <span class='fl'>1</span>,
+  density_fn <span class='op'>=</span> <span class='cn'>NULL</span>,
+  breaks <span class='op'>=</span> <span class='st'>"Sturges"</span>,
+  main <span class='op'>=</span> <span class='st'>""</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -221,14 +221,17 @@ for more details of what the code in <strong>Examples</strong> below is doing.</
 <span class='co'># X has a log-normal distribution if ln(X) has a normal distribution</span>
 
 <span class='co'># Simulate a sample of size 100 from a log-normal distribution</span>
-<span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Lognormal.html'>rlnorm</a></span>(<span class='fl'>100</span>)
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Lognormal.html'>rlnorm</a></span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>
 
 <span class='co'># Plot the data and the log-normal density function</span>
-<span class='fu'>boxcox_plot</span>(<span class='no'>x</span>, <span class='kw'>density_fn</span> <span class='kw'>=</span> <span class='no'>dlnorm</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"data and true density function"</span>)</div><div class='img'><img src='boxcox_plot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># If we want to transform to approximate normality which power should we use?</span>
-<span class='fu'>boxcox_plot</span>(<span class='no'>x</span>, <span class='kw'>density_fn</span> <span class='kw'>=</span> <span class='no'>dlnorm</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>0</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"after transformation"</span>)</div><div class='img'><img src='boxcox_plot-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>boxcox_plot</span><span class='op'>(</span><span class='va'>x</span>, density_fn <span class='op'>=</span> <span class='va'>dlnorm</span>, main <span class='op'>=</span> <span class='st'>"data and true density function"</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='co'># If we want to transform to approximate normality which power should we use?</span>
+<span class='fu'>boxcox_plot</span><span class='op'>(</span><span class='va'>x</span>, density_fn <span class='op'>=</span> <span class='va'>dlnorm</span>, lambda <span class='op'>=</span> <span class='fl'>0</span>, main <span class='op'>=</span> <span class='st'>"after transformation"</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-2.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># We can use the data to suggest a good value of lambda.</span>
 <span class='co'># We need the boxcox() function in the MASS package.</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>MASS</span>)</div><div class='output co'>#&gt; <span class='message'></span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://www.stats.ox.ac.uk/pub/MASS4/'>MASS</a></span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='message'></span>
 #&gt; <span class='message'>Attaching package: 'MASS'</span></div><div class='output co'>#&gt; <span class='message'>The following object is masked from 'package:stat0002':</span>
 #&gt; <span class='message'></span>
 #&gt; <span class='message'>    shuttle</span></div><div class='input'>
@@ -238,19 +241,29 @@ for more details of what the code in <strong>Examples</strong> below is doing.</
 <span class='co'># from a normal distribution.</span>
 <span class='co'># We could choose a nice value of lambda close to the best value.</span>
 <span class='co'># The interval is a 95% confidence interval for lambda.</span>
-<span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span>(<span class='no'>x</span> ~ <span class='fl'>1</span>)</div><div class='img'><img src='boxcox_plot-3.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>~</span> <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-3.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># exponential distribution --------------------</span>
 
-<span class='no'>x2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Exponential.html'>rexp</a></span>(<span class='fl'>100</span>)
-<span class='fu'>boxcox_plot</span>(<span class='no'>x2</span> ,<span class='kw'>density_fn</span> <span class='kw'>=</span> <span class='no'>dexp</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"data and true density function"</span>)</div><div class='img'><img src='boxcox_plot-4.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'>boxcox_plot</span>(<span class='no'>x2</span>, <span class='kw'>density_fn</span> <span class='kw'>=</span> <span class='no'>dexp</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>1</span> / <span class='fl'>3</span>, <span class='kw'>main</span> <span class='kw'>=</span> <span class='st'>"after transformation"</span>)</div><div class='img'><img src='boxcox_plot-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span>(<span class='no'>x2</span> ~ <span class='fl'>1</span>)</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span>(<span class='kw'>v</span> <span class='kw'>=</span> <span class='fl'>1</span>/<span class='fl'>3</span>, <span class='kw'>col</span> <span class='kw'>=</span> <span class='st'>"red"</span>)</div><div class='img'><img src='boxcox_plot-6.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='va'>x2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Exponential.html'>rexp</a></span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>
+<span class='fu'>boxcox_plot</span><span class='op'>(</span><span class='va'>x2</span> ,density_fn <span class='op'>=</span> <span class='va'>dexp</span>, main <span class='op'>=</span> <span class='st'>"data and true density function"</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-4.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'>boxcox_plot</span><span class='op'>(</span><span class='va'>x2</span>, density_fn <span class='op'>=</span> <span class='va'>dexp</span>, lambda <span class='op'>=</span> <span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>3</span>, main <span class='op'>=</span> <span class='st'>"after transformation"</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-5.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span><span class='op'>(</span><span class='va'>x2</span> <span class='op'>~</span> <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/graphics/abline.html'>abline</a></span><span class='op'>(</span>v <span class='op'>=</span> <span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span>, col <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-6.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># A distribution that I made up --------------------</span>
 
-<span class='no'>dpn</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>x</span>) <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span>(<span class='no'>x</span> <span class='kw'>&gt;</span> <span class='fl'>0</span> <span class='kw'>&amp;</span> <span class='no'>x</span> <span class='kw'>&lt;</span> <span class='fl'>1</span>, <span class='fl'>2</span> * <span class='no'>x</span>, <span class='fl'>0</span>)
-<span class='no'>rpn</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>n</span> <span class='kw'>=</span> <span class='fl'>1</span>) <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span>(<span class='no'>n</span>))
-<span class='no'>x3</span> <span class='kw'>&lt;-</span> <span class='fu'>rpn</span>(<span class='fl'>100</span>)
-<span class='fu'>boxcox_plot</span>(<span class='no'>x3</span>, <span class='kw'>density_fn</span> <span class='kw'>=</span> <span class='no'>dpn</span>)</div><div class='img'><img src='boxcox_plot-7.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>boxcox_plot</span>(<span class='no'>x3</span>, <span class='kw'>density_fn</span> <span class='kw'>=</span> <span class='no'>dpn</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='boxcox_plot-8.png' alt='' width='700' height='433' /></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span>(<span class='no'>x3</span> ~ <span class='fl'>1</span>)</div><div class='img'><img src='boxcox_plot-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span>(<span class='no'>x3</span> ~ <span class='fl'>1</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>1</span> / <span class='fl'>10</span>))</div><div class='img'><img src='boxcox_plot-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>boxcox_plot</span>(<span class='no'>x3</span>, <span class='kw'>density_fn</span> <span class='kw'>=</span> <span class='no'>dpn</span>, <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>1.5</span>)</div><div class='img'><img src='boxcox_plot-11.png' alt='' width='700' height='433' /></div></pre>
+<span class='va'>dpn</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>&gt;</span> <span class='fl'>0</span> <span class='op'>&amp;</span> <span class='va'>x</span> <span class='op'>&lt;</span> <span class='fl'>1</span>, <span class='fl'>2</span> <span class='op'>*</span> <span class='va'>x</span>, <span class='fl'>0</span><span class='op'>)</span>
+<span class='va'>rpn</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>n</span> <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>x3</span> <span class='op'>&lt;-</span> <span class='fu'>rpn</span><span class='op'>(</span><span class='fl'>100</span><span class='op'>)</span>
+<span class='fu'>boxcox_plot</span><span class='op'>(</span><span class='va'>x3</span>, density_fn <span class='op'>=</span> <span class='va'>dpn</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-7.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>boxcox_plot</span><span class='op'>(</span><span class='va'>x3</span>, density_fn <span class='op'>=</span> <span class='va'>dpn</span>, lambda <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-8.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span><span class='op'>(</span><span class='va'>x3</span> <span class='op'>~</span> <span class='fl'>1</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-9.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='https://rdrr.io/pkg/MASS/man/boxcox.html'>boxcox</a></span><span class='op'>(</span><span class='va'>x3</span> <span class='op'>~</span> <span class='fl'>1</span>, lambda <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>4</span>, <span class='fl'>1</span> <span class='op'>/</span> <span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-10.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>boxcox_plot</span><span class='op'>(</span><span class='va'>x3</span>, density_fn <span class='op'>=</span> <span class='va'>dpn</span>, lambda <span class='op'>=</span> <span class='fl'>1.5</span><span class='op'>)</span>
+</div><div class='img'><img src='boxcox_plot-11.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -266,7 +279,7 @@ for more details of what the code in <strong>Examples</strong> below is doing.</
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

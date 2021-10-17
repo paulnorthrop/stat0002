@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -83,7 +83,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,13 +97,13 @@
 
       
 
-      </header><script src="stat0002-ch2b-graphs-vignette_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="stat0002-ch2b-graphs-vignette_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Chapter 2: Graphs (One Variable)</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-10-14</h4>
+            <h4 class="date">2021-10-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2b-graphs-vignette.Rmd"><code>vignettes/stat0002-ch2b-graphs-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch2b-graphs-vignette.Rmd</code></div>
@@ -118,42 +118,42 @@
 <h2 class="hasAnchor">
 <a href="#the-oxford-birth-times-data" class="anchor"></a>The Oxford Birth Times data</h2>
 <p>These data are available in the data frame <code>ox_births</code>.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
-&gt; birth_times &lt;- ox_births[, "time"]
-&gt; sort(birth_times)
- [1]  1.50  2.00  2.10  2.50  2.50  2.60  2.70  2.75  3.40  3.40  3.40  3.60
-[13]  3.60  4.00  4.00  4.00  4.10  4.20  4.20  4.25  4.30  4.70  4.70  4.90
-[25]  5.00  5.25  5.50  5.60  5.70  5.90  6.10  6.25  6.25  6.40  6.40  6.50
-[37]  6.50  6.80  6.90  7.00  7.00  7.20  7.25  7.25  7.30  7.30  7.30  7.50
-[49]  7.50  7.50  7.50  7.80  8.10  8.20  8.25  8.30  8.30  8.45  8.50  8.50
-[61]  8.50  8.50  8.75  8.90  9.00  9.20  9.25  9.25  9.50  9.50  9.75  9.75
-[73] 10.00 10.10 10.20 10.25 10.40 10.40 10.40 10.70 10.70 10.75 11.00 11.20
-[85] 11.50 12.75 12.90 14.25 14.30 14.50 14.60 15.00 16.00 16.50 19.00</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> birth_times <span class="ot">&lt;-</span> ox_births[, <span class="st">"time"</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sort</span>(birth_times)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>]  <span class="fl">1.50</span>  <span class="fl">2.00</span>  <span class="fl">2.10</span>  <span class="fl">2.50</span>  <span class="fl">2.50</span>  <span class="fl">2.60</span>  <span class="fl">2.70</span>  <span class="fl">2.75</span>  <span class="fl">3.40</span>  <span class="fl">3.40</span>  <span class="fl">3.40</span>  <span class="fl">3.60</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>]  <span class="fl">3.60</span>  <span class="fl">4.00</span>  <span class="fl">4.00</span>  <span class="fl">4.00</span>  <span class="fl">4.10</span>  <span class="fl">4.20</span>  <span class="fl">4.20</span>  <span class="fl">4.25</span>  <span class="fl">4.30</span>  <span class="fl">4.70</span>  <span class="fl">4.70</span>  <span class="fl">4.90</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">25</span>]  <span class="fl">5.00</span>  <span class="fl">5.25</span>  <span class="fl">5.50</span>  <span class="fl">5.60</span>  <span class="fl">5.70</span>  <span class="fl">5.90</span>  <span class="fl">6.10</span>  <span class="fl">6.25</span>  <span class="fl">6.25</span>  <span class="fl">6.40</span>  <span class="fl">6.40</span>  <span class="fl">6.50</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">37</span>]  <span class="fl">6.50</span>  <span class="fl">6.80</span>  <span class="fl">6.90</span>  <span class="fl">7.00</span>  <span class="fl">7.00</span>  <span class="fl">7.20</span>  <span class="fl">7.25</span>  <span class="fl">7.25</span>  <span class="fl">7.30</span>  <span class="fl">7.30</span>  <span class="fl">7.30</span>  <span class="fl">7.50</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>[<span class="dv">49</span>]  <span class="fl">7.50</span>  <span class="fl">7.50</span>  <span class="fl">7.50</span>  <span class="fl">7.80</span>  <span class="fl">8.10</span>  <span class="fl">8.20</span>  <span class="fl">8.25</span>  <span class="fl">8.30</span>  <span class="fl">8.30</span>  <span class="fl">8.45</span>  <span class="fl">8.50</span>  <span class="fl">8.50</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">61</span>]  <span class="fl">8.50</span>  <span class="fl">8.50</span>  <span class="fl">8.75</span>  <span class="fl">8.90</span>  <span class="fl">9.00</span>  <span class="fl">9.20</span>  <span class="fl">9.25</span>  <span class="fl">9.25</span>  <span class="fl">9.50</span>  <span class="fl">9.50</span>  <span class="fl">9.75</span>  <span class="fl">9.75</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>[<span class="dv">73</span>] <span class="fl">10.00</span> <span class="fl">10.10</span> <span class="fl">10.20</span> <span class="fl">10.25</span> <span class="fl">10.40</span> <span class="fl">10.40</span> <span class="fl">10.40</span> <span class="fl">10.70</span> <span class="fl">10.70</span> <span class="fl">10.75</span> <span class="fl">11.00</span> <span class="fl">11.20</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>[<span class="dv">85</span>] <span class="fl">11.50</span> <span class="fl">12.75</span> <span class="fl">12.90</span> <span class="fl">14.25</span> <span class="fl">14.30</span> <span class="fl">14.50</span> <span class="fl">14.60</span> <span class="fl">15.00</span> <span class="fl">16.00</span> <span class="fl">16.50</span> <span class="fl">19.00</span></span></code></pre></div>
 <div id="empirical-cumulative-distribution-function" class="section level3">
 <h3 class="hasAnchor">
 <a href="#empirical-cumulative-distribution-function" class="anchor"></a>Empirical cumulative distribution function</h3>
 <ol style="list-style-type: decimal">
 <li><strong>Can you work out from the output below what the function <code>ecdf</code> does? Use <code><a href="https://rdrr.io/r/stats/ecdf.html">?ecdf</a></code> to check our answer.</strong></li>
 </ol>
-<div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; ox_ecdf &lt;- ecdf(birth_times)
-&gt; ox_ecdf(1)
-[1] 0
-&gt; ox_ecdf(2)
-[1] 0.02105263
-&gt; 2/95
-[1] 0.02105263
-&gt; ox_ecdf(4.7)
-[1] 0.2421053
-&gt; 23/95
-[1] 0.2421053
-&gt; ox_ecdf(19)
-[1] 1
-&gt; ox_ecdf(100)
-[1] 1</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_ecdf <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(birth_times)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ox_ecdf</span>(<span class="dv">1</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ox_ecdf</span>(<span class="dv">2</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.02105263</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">95</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.02105263</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ox_ecdf</span>(<span class="fl">4.7</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.2421053</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">23</span><span class="sc">/</span><span class="dv">95</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.2421053</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ox_ecdf</span>(<span class="dv">19</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ox_ecdf</span>(<span class="dv">100</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
 <p>The <code>plot</code> method for an object returned by <code>ecdf</code> produces a plot much like (the hollow circles in) Figure 2.3 in the STAT0002 notes.</p>
-<p>We will label a lot of axes with “time (hours)”. To make our lives a little easier we create a character variable called <code>xlab</code>.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; xlab &lt;- "time (hours)"</pre></body></html></div>
-<div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; plot(ox_ecdf, main = "", xlab = xlab, ylab = "cumulative relative frequency", pch = 1)</pre></body></html></div>
+<p>We will label a lot of axes with “time (hours).” To make our lives a little easier we create a character variable called <code>xlab</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xlab <span class="ot">&lt;-</span> <span class="st">"time (hours)"</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ox_ecdf, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> <span class="st">"cumulative relative frequency"</span>, <span class="at">pch =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>It should be obvious what the arguments <code>xlab</code> and <code>ylab</code> do. What do you think that <code>main = ""</code> and <code>pch = 1</code> do? Use <code><a href="https://rdrr.io/r/graphics/title.html">?title</a></code> and <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code> (respectively) to find out more. <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code> lists lots of arguments that can be used to adjust a graph.</strong></li>
@@ -163,90 +163,90 @@
 <h3 class="hasAnchor">
 <a href="#histogram" class="anchor"></a>Histogram</h3>
 <p>The following code produces histograms that feature in the STAT0002 notes. Note that in the first plot the <code>probability = TRUE</code> (or <code>prob = TRUE</code> for short) argument is important: it ensures that the total area of the rectangles of the histogram is equal to 1. In the second plot it isn’t necessary to include <code>prob = TRUE</code> because if the bin widths are unequal then (sensibly) <code>hist</code> uses <code>prob = TRUE</code>.</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; hist(birth_times, prob = TRUE, col = 8, main = "", xlab = xlab)
-&gt; br &lt;- c(seq(from = 0, to = 12, by = 2), 20)
-&gt; hist(birth_times, breaks = br, col = 8, main = "", xlab = xlab)</pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(birth_times, <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> xlab)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> br <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">2</span>), <span class="dv">20</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(birth_times, <span class="at">breaks =</span> br, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> xlab)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-6-1.png" width="624"><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-6-2.png" width="624"></p>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Can you see what the argument <code>breaks</code> does? … and the function and <code>seq</code>?</strong></li>
 </ol>
 <p>The <code>hist</code> function returns an object (a <em>list</em> of several objects in fact) containing the information used to construct the plot. If we assign this to an R object, <code>ox_tab</code> say, then we can look at this information and perhaps use it. The <code>ls</code> function tells us the names of the objects in this list. Use <code><a href="https://rdrr.io/r/graphics/hist.html">?hist</a></code> to find out what these objects are.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; ox_tab &lt;- hist(birth_times, plot = FALSE)
-&gt; ls(ox_tab)
-[1] "breaks"   "counts"   "density"  "equidist" "mids"     "xname"   </pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_tab <span class="ot">&lt;-</span> <span class="fu">hist</span>(birth_times, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ls</span>(ox_tab)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"breaks"</span>   <span class="st">"counts"</span>   <span class="st">"density"</span>  <span class="st">"equidist"</span> <span class="st">"mids"</span>     <span class="st">"xname"</span>   </span></code></pre></div>
 <p>We use the information in <code>ox_tab</code> to reproduce the plot in Figure 2.2 of the notes.</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; cum_rel_freq &lt;- cumsum(c(0, ox_tab$counts)) / length(birth_times)
-&gt; plot(ox_tab$breaks, cum_rel_freq, type = "b", pch = 16, ylab = "cumulative relative frequency", xlab = xlab)
-&gt; abline(h = 1, lty = 2)</pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> cum_rel_freq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">c</span>(<span class="dv">0</span>, ox_tab<span class="sc">$</span>counts)) <span class="sc">/</span> <span class="fu">length</span>(birth_times)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ox_tab<span class="sc">$</span>breaks, cum_rel_freq, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">ylab =</span> <span class="st">"cumulative relative frequency"</span>, <span class="at">xlab =</span> xlab)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-8-1.png" width="624"></p>
 <ol start="4" style="list-style-type: decimal">
 <li><strong>What do you think the function <code>cumsum</code> does?</strong></li>
 </ol>
 <p>The following code produces histogram-like alternative plots. As you can see we can do many things to change the appearance of plots. Use <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code> to see a list of the graphical parameters that we can use.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; # adjust plot margins, produce a 2 by 2 array of plots (fill row 1 then row 2)
-&gt; par(mar = c(4, 4, 1, 1), mfrow = c(2, 2))
-&gt; # no vertical axis
-&gt; hist(birth_times, col = 8, prob = TRUE, axes = FALSE, xlab = xlab, ylab = "", main = "")
-&gt; axis(1, line = 0.5)
-&gt; # no vertical axis plus rug of points
-&gt; hist(birth_times, col = 8, prob = TRUE, axes = FALSE, xlab = xlab, ylab = "",main = "")
-&gt; axis(1, line = 0.5)
-&gt; rug(birth_times, line = 0.5, ticksize = 0.05)
-&gt; # non-shaded frequency polygon
-&gt; n &lt;- length(ox_tab$mids)
-&gt; ox_tab$mids &lt;- c(ox_tab$mids[1], ox_tab$mids, ox_tab$mids[n])
-&gt; ox_tab$density &lt;- c(0, ox_tab$density, 0)
-&gt; plot(ox_tab$mids, ox_tab$density, xlab = xlab, ylab = "density", type = "l", las = 1) 
-&gt; axis(1, line = 0)
-&gt; # shaded frequency polygon with no vertical axis
-&gt; plot(ox_tab$mids, ox_tab$density, xlab = xlab, ylab = "", type = "l", bty= "l", axes = FALSE)
-&gt; axis(1, line = -0.4)
-&gt; polygon(ox_tab$mids, ox_tab$density, col = 8)</pre></body></html></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># adjust plot margins, produce a 2 by 2 array of plots (fill row 1 then row 2)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># no vertical axis</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">hist</span>(birth_times, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">line =</span> <span class="fl">0.5</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># no vertical axis plus rug of points</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">hist</span>(birth_times, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> <span class="st">""</span>,<span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">line =</span> <span class="fl">0.5</span>)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rug</span>(birth_times, <span class="at">line =</span> <span class="fl">0.5</span>, <span class="at">ticksize =</span> <span class="fl">0.05</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># non-shaded frequency polygon</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> n <span class="ot">&lt;-</span> <span class="fu">length</span>(ox_tab<span class="sc">$</span>mids)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_tab<span class="sc">$</span>mids <span class="ot">&lt;-</span> <span class="fu">c</span>(ox_tab<span class="sc">$</span>mids[<span class="dv">1</span>], ox_tab<span class="sc">$</span>mids, ox_tab<span class="sc">$</span>mids[n])</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_tab<span class="sc">$</span>density <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, ox_tab<span class="sc">$</span>density, <span class="dv">0</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ox_tab<span class="sc">$</span>mids, ox_tab<span class="sc">$</span>density, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> <span class="st">"density"</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">las =</span> <span class="dv">1</span>) </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">line =</span> <span class="dv">0</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># shaded frequency polygon with no vertical axis</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(ox_tab<span class="sc">$</span>mids, ox_tab<span class="sc">$</span>density, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">bty=</span> <span class="st">"l"</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">line =</span> <span class="sc">-</span><span class="fl">0.4</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">polygon</span>(ox_tab<span class="sc">$</span>mids, ox_tab<span class="sc">$</span>density, <span class="at">col =</span> <span class="dv">8</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-9-1.png" width="624"></p>
 </div>
 <div id="stem-and-leaf-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#stem-and-leaf-plot" class="anchor"></a>Stem-and-leaf plot</h3>
-<div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; # The default plot
-&gt; stem(birth_times)
-
-  The decimal point is at the |
-
-   0 | 5
-   2 | 015567844466
-   4 | 00012233779035679
-   6 | 1334455890023333355558
-   8 | 12333555558902335588
-  10 | 0123444778025
-  12 | 89
-  14 | 33560
-  16 | 05
-  18 | 0
-&gt; 
-&gt; # The plot that appears in the notes
-&gt; stem(birth_times, scale = 2)
-
-  The decimal point is at the |
-
-   1 | 5
-   2 | 0155678
-   3 | 44466
-   4 | 00012233779
-   5 | 035679
-   6 | 133445589
-   7 | 0023333355558
-   8 | 123335555589
-   9 | 02335588
-  10 | 0123444778
-  11 | 025
-  12 | 89
-  13 | 
-  14 | 3356
-  15 | 0
-  16 | 05
-  17 | 
-  18 | 
-  19 | 0</pre></body></html></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The default plot</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">stem</span>(birth_times)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  The decimal point is at the <span class="sc">|</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>   <span class="dv">0</span> <span class="sc">|</span> <span class="dv">5</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>   <span class="dv">2</span> <span class="sc">|</span> <span class="dv">015567844466</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>   <span class="dv">4</span> <span class="sc">|</span> <span class="dv">00012233779035679</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>   <span class="dv">6</span> <span class="sc">|</span> <span class="dv">1334455890023333355558</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>   <span class="dv">8</span> <span class="sc">|</span> <span class="dv">12333555558902335588</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span> <span class="sc">|</span> <span class="dv">0123444778025</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="dv">12</span> <span class="sc">|</span> <span class="dv">89</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="dv">14</span> <span class="sc">|</span> <span class="dv">33560</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="dv">16</span> <span class="sc">|</span> <span class="dv">05</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="dv">18</span> <span class="sc">|</span> <span class="dv">0</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># The plot that appears in the notes</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">stem</span>(birth_times, <span class="at">scale =</span> <span class="dv">2</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  The decimal point is at the <span class="sc">|</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>   <span class="dv">1</span> <span class="sc">|</span> <span class="dv">5</span></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>   <span class="dv">2</span> <span class="sc">|</span> <span class="dv">0155678</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>   <span class="dv">3</span> <span class="sc">|</span> <span class="dv">44466</span></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>   <span class="dv">4</span> <span class="sc">|</span> <span class="dv">00012233779</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>   <span class="dv">5</span> <span class="sc">|</span> <span class="dv">035679</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>   <span class="dv">6</span> <span class="sc">|</span> <span class="dv">133445589</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>   <span class="dv">7</span> <span class="sc">|</span> <span class="dv">0023333355558</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>   <span class="dv">8</span> <span class="sc">|</span> <span class="dv">123335555589</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>   <span class="dv">9</span> <span class="sc">|</span> <span class="dv">02335588</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="dv">10</span> <span class="sc">|</span> <span class="dv">0123444778</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>  <span class="dv">11</span> <span class="sc">|</span> <span class="dv">025</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>  <span class="dv">12</span> <span class="sc">|</span> <span class="dv">89</span></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>  <span class="dv">13</span> <span class="sc">|</span> </span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a>  <span class="dv">14</span> <span class="sc">|</span> <span class="dv">3356</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>  <span class="dv">15</span> <span class="sc">|</span> <span class="dv">0</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>  <span class="dv">16</span> <span class="sc">|</span> <span class="dv">05</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  <span class="dv">17</span> <span class="sc">|</span> </span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  <span class="dv">18</span> <span class="sc">|</span> </span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>  <span class="dv">19</span> <span class="sc">|</span> <span class="dv">0</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
 <li><strong>Use <code><a href="https://rdrr.io/r/graphics/stem.html">?stem</a></code> to see what <code>scale</code> does.</strong></li>
 </ol>
@@ -255,14 +255,14 @@
 <h3 class="hasAnchor">
 <a href="#dotplot" class="anchor"></a>Dotplot</h3>
 <p>It is surprisingly difficult to produce a nice-looking dotplot using standard R functions. One possibility is to use <code>stripchart</code>. The code below also produces the plots Figure 2.5 in the notes.</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r">&gt; stripchart(birth_times, method = "stack", pch = 16, at = 0, offset = 2/3)
-&gt; title(xlab = xlab)</pre></body></html></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">stripchart</span>(birth_times, <span class="at">method =</span> <span class="st">"stack"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">at =</span> <span class="dv">0</span>, <span class="at">offset =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> xlab)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-11-1.png" width="624"></p>
-<div class="sourceCode" id="cb11"><html><body><pre class="r">&gt; x &lt;- round(birth_times)
-&gt; stripchart(x, method = "stack", pch = 16, at = 0, axes = FALSE, offset = 2/3)
-&gt; title(xlab = xlab)
-&gt; x_labs &lt;- c(min(x), pretty(x), max(x))
-&gt; axis(1, at = x_labs)</pre></body></html></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">round</span>(birth_times)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">stripchart</span>(x, <span class="at">method =</span> <span class="st">"stack"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">at =</span> <span class="dv">0</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">offset =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> xlab)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x_labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(x), <span class="fu">pretty</span>(x), <span class="fu">max</span>(x))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> x_labs)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-11-2.png" width="624"></p>
 <ol start="6" style="list-style-type: decimal">
 <li><strong>Find out what the functions <code>pretty</code> and <code>axis</code> do.</strong></li>
@@ -272,34 +272,34 @@
 <h3 class="hasAnchor">
 <a href="#boxplot" class="anchor"></a>Boxplot</h3>
 <p>The function that produces a boxplot (or <em>box-and-whisker</em> plot) is called <code>boxplot</code>. Inside <code>boxplot</code> the estimation of the quartiles, on which the box part of the plot is based, uses the default value of the argument <code>type</code> (i.e. <code>type = 7</code>) in a call to <code>quantile</code>. In order that we can change the value of <code>type</code> if we wish <code>stat0002</code> contains a function <code>box_plot</code>, which is a copy of <code>boxplot</code> with the extra argument <code>type</code> added. In <code>box_plot</code> the default is <code>type = 6</code>, which corresponds to the particular way of estimating quartiles that is described in the STAT0002 lecture notes and slides. See the <a href="stat0002-ch2a-descriptive-statistics-vignette.html">Descriptive Statistics</a> vignette for more information about <code>quantile</code> and the argument <code>type</code>. In many cases we will not need to worry about the choice of the value of <code>type</code>. Unless the dataset is small the value of <code>type</code> will not have enough of an effect on the appearance of the boxplot to matter. This is certainly the case for the <code>birth_times</code> data.</p>
-<div class="sourceCode" id="cb12"><html><body><pre class="r">&gt; # type = 6
-&gt; b1 &lt;- box_plot(birth_times, horizontal = TRUE, main = "type = 6", xlab = xlab)</pre></body></html></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># type = 6</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> b1 <span class="ot">&lt;-</span> <span class="fu">box_plot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"type = 6"</span>, <span class="at">xlab =</span> xlab)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-12-1.png" width="624"></p>
-<div class="sourceCode" id="cb13"><html><body><pre class="r">&gt; # type = 7
-&gt; b2 &lt;- boxplot(birth_times, horizontal = TRUE, main = "type = 7")</pre></body></html></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># type = 7</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> b2 <span class="ot">&lt;-</span> <span class="fu">boxplot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"type = 7"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-12-2.png" width="624"></p>
 <p>We know from the <a href="stat0002-ch2a-descriptive-statistics-vignette.html">Descriptive Statistics</a> vignette that only the estimates of the lower quartile differ between the <code>type = 6</code> and <code>type = 7</code> cases. We can check this using the objects <code>b1</code> and <code>b2</code> returned above.</p>
-<div class="sourceCode" id="cb14"><html><body><pre class="r">&gt; as.vector(b1$stats)
-[1]  1.50  4.90  7.50  9.75 16.50
-&gt; as.vector(b2$stats)
-[1]  1.50  4.95  7.50  9.75 16.50</pre></body></html></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">as.vector</span>(b1<span class="sc">$</span>stats)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">1.50</span>  <span class="fl">4.90</span>  <span class="fl">7.50</span>  <span class="fl">9.75</span> <span class="fl">16.50</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">as.vector</span>(b2<span class="sc">$</span>stats)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">1.50</span>  <span class="fl">4.95</span>  <span class="fl">7.50</span>  <span class="fl">9.75</span> <span class="fl">16.50</span></span></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
 <li><strong>Can you work out from the output and graphs above what <code>boxplot</code> returns in the list component <code>stats</code>? Check your answer using <code><a href="https://rdrr.io/r/graphics/boxplot.html">?boxplot</a></code>. How could we obtain the values of any data points that lie outside the whiskers?</strong></li>
 </ol>
 <p>If we read the documentation of <code>boxplot</code> carefully (see <code><a href="https://rdrr.io/r/graphics/boxplot.html">?boxplot</a></code> and <code><a href="https://rdrr.io/r/graphics/bxp.html">?bxp</a></code>) we can have a lot of control over the graph that it produces. The following code produces the plots in Figure 2.7 of the STAT0002 notes.</p>
-<div class="sourceCode" id="cb15"><html><body><pre class="r">&gt; par(mar = c(4, 1, 0.5, 1))
-&gt; x_labs &lt;- c(min(birth_times), pretty(birth_times), max(birth_times))
-&gt; # top left
-&gt; box_plot(birth_times, horizontal = TRUE, col = 8, xlab = xlab, pch = 16)
-&gt; # top right
-&gt; boxplot(birth_times, horizontal = TRUE, col = 8, axes = FALSE, xlab = xlab, pch = 16)
-&gt; axis(1, at = x_labs, labels = x_labs)
-&gt; # bottom left
-&gt; boxplot(birth_times, horizontal = TRUE, axes = FALSE, xlab = xlab, pch = 16, lty = 1, range = 0, staplewex = 0)
-&gt; axis(1, at = x_labs, labels = x_labs)
-&gt; # bottom right
-&gt; boxplot(birth_times, horizontal = TRUE, axes = FALSE, xlab = xlab, pch = 16, lty = 1, range = 0, boxcol = "white", staplewex = 0, medlty = "blank", medpch = 16)
-&gt; axis(1, at = x_labs, labels = x_labs)</pre></body></html></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x_labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(birth_times), <span class="fu">pretty</span>(birth_times), <span class="fu">max</span>(birth_times))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># top left</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">box_plot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">xlab =</span> xlab, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># top right</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">boxplot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> xlab, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> x_labs, <span class="at">labels =</span> x_labs)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># bottom left</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">boxplot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> xlab, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="dv">0</span>, <span class="at">staplewex =</span> <span class="dv">0</span>)</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> x_labs, <span class="at">labels =</span> x_labs)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># bottom right</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">boxplot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> xlab, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="dv">0</span>, <span class="at">boxcol =</span> <span class="st">"white"</span>, <span class="at">staplewex =</span> <span class="dv">0</span>, <span class="at">medlty =</span> <span class="st">"blank"</span>, <span class="at">medpch =</span> <span class="dv">16</span>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> x_labs, <span class="at">labels =</span> x_labs)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-14-1.png" width="326.4"><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-14-2.png" width="326.4"><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-14-3.png" width="326.4"><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-14-4.png" width="326.4"></p>
 <p>In the <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs (more than one variable)</a> vignette we consider both variables in the <code>ox_births</code> data frame, i.e. the numeric continuous variable <code>time</code> and the categorical variable <code>day</code>, producing separate boxplots of <code>time</code> for each day of the week.</p>
 </div>
@@ -308,13 +308,13 @@
 <h2 class="hasAnchor">
 <a href="#the-challenger-o-ring-data" class="anchor"></a>The Challenger O-ring data</h2>
 <p>We return to the data that feature in the <a href="stat0002-ch1a-shuttle-vignette.html">Challenger Space Shuttle disaster</a> vignette. The column  in the data frame  contains the observed numbers of O-rings that suffer thermal distress. This is a <em>numerical discrete</em> variable. In fact we can be more precise than this, it is an <em>integer</em> variable. One way to summarize these data graphically is using a bar plot. In order to produce the bar plot we first need to tabulate the data, using the function<code>table</code> to calculate the frequencies of the numbers of distressed O-rings.</p>
-<div class="sourceCode" id="cb16"><html><body><pre class="r">&gt; shuttle$damaged
- [1]  0  1  0  0  0  0  0  0  1  1  1  0  0  3  0  0  0  0  0  0  2  0  1 NA
-&gt; O_tab &lt;- table(shuttle$damaged)
-&gt; O_tab
-
- 0  1  2  3 
-16  5  1  1 </pre></body></html></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> shuttle<span class="sc">$</span>damaged</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>]  <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">3</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">2</span>  <span class="dv">0</span>  <span class="dv">1</span> <span class="cn">NA</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> O_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(shuttle<span class="sc">$</span>damaged)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> O_tab</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span> </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span>  <span class="dv">5</span>  <span class="dv">1</span>  <span class="dv">1</span> </span></code></pre></div>
 <p>This table is OK but it does not include the zero frequencies for the categories 4, 5 and 6.</p>
 <ol start="8" style="list-style-type: decimal">
 <li><strong>Why can we not expect the output from <code>table</code> not include the categories 4, 5 and 6?</strong></li>
@@ -322,61 +322,61 @@
 <div id="a-digression-table-and-classes-of-r-objects" class="section level3">
 <h3 class="hasAnchor">
 <a href="#a-digression-table-and-classes-of-r-objects" class="anchor"></a>A digression: <code>table</code> and classes of R objects</h3>
-<p>An answer to question 8. is “R can’t possibly know which values the variable <code>shuttle$damaged</code> could have”. It is obvious to us, because we know what these data mean and that a space shuttle has 6 O-rings, but R’s <code>table</code> function cannot infer this from the data alone. In this example it probably doesn’t matter that some of the zero frequencies are missing. However, consider the following example. We simulate 10 values from a Poisson distribution with a mean of 5. For an introduction to simulation see the <a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic simulation</a> vignette. These data are not real, but imagine that they are the respective numbers of earthquakes that occur in a particular area in the years 2008 to 2017.</p>
-<div class="sourceCode" id="cb17"><html><body><pre class="r">&gt; set.seed(47)
-&gt; x &lt;- rpois(10, 5)
-&gt; table(x)
-x
- 4  5  6  7  8 10 
- 2  3  2  1  1  1 </pre></body></html></div>
+<p>An answer to question 8. is “R can’t possibly know which values the variable <code>shuttle$damaged</code> could have.” It is obvious to us, because we know what these data mean and that a space shuttle has 6 O-rings, but R’s <code>table</code> function cannot infer this from the data alone. In this example it probably doesn’t matter that some of the zero frequencies are missing. However, consider the following example. We simulate 10 values from a Poisson distribution with a mean of 5. For an introduction to simulation see the <a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic simulation</a> vignette. These data are not real, but imagine that they are the respective numbers of earthquakes that occur in a particular area in the years 2008 to 2017.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">47</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">10</span>, <span class="dv">5</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(x)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>x</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>  <span class="dv">5</span>  <span class="dv">6</span>  <span class="dv">7</span>  <span class="dv">8</span> <span class="dv">10</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">2</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">1</span> </span></code></pre></div>
 <p>We know that these data non-negative integers. R does not know this and has included columns in the table only for non-zero frequencies, i.e. for the values 4, 5, 6, 7, 8 and 10. At the very least we might want the zero frequencies for the values 0, 1, 2, 3 and 9 to be included, and perhaps also something to indicate that there are no values greater than 10. One possibility is the following. It is not particularly elegant but it is quite effective.</p>
-<div class="sourceCode" id="cb18"><html><body><pre class="r">&gt; table(c(x, 0:11)) - 1
-
- 0  1  2  3  4  5  6  7  8  9 10 11 
- 0  0  0  0  2  3  2  1  1  0  1  0 </pre></body></html></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(<span class="fu">c</span>(x, <span class="dv">0</span><span class="sc">:</span><span class="dv">11</span>)) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span>  <span class="dv">5</span>  <span class="dv">6</span>  <span class="dv">7</span>  <span class="dv">8</span>  <span class="dv">9</span> <span class="dv">10</span> <span class="dv">11</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">2</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">0</span> </span></code></pre></div>
 <ol start="9" style="list-style-type: decimal">
 <li><strong>Can you work out what this code does? It might help to look at <code><a href="https://rdrr.io/r/base/c.html">?c</a></code>.</strong></li>
 </ol>
 <p>If we are really fussy then we could change the name of the final heading in the table.</p>
-<div class="sourceCode" id="cb19"><html><body><pre class="r">&gt; tab &lt;- table(c(x, 0:11)) - 1
-&gt; names(tab)[12] &lt;- "&gt;10"
-&gt; tab
-  0   1   2   3   4   5   6   7   8   9  10 &gt;10 
-  0   0   0   0   2   3   2   1   1   0   1   0 </pre></body></html></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tab <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">c</span>(x, <span class="dv">0</span><span class="sc">:</span><span class="dv">11</span>)) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">names</span>(tab)[<span class="dv">12</span>] <span class="ot">&lt;-</span> <span class="st">"&gt;10"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tab</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>   <span class="dv">1</span>   <span class="dv">2</span>   <span class="dv">3</span>   <span class="dv">4</span>   <span class="dv">5</span>   <span class="dv">6</span>   <span class="dv">7</span>   <span class="dv">8</span>   <span class="dv">9</span>  <span class="dv">10</span> <span class="sc">&gt;</span><span class="dv">10</span> </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>   <span class="dv">0</span>   <span class="dv">0</span>   <span class="dv">0</span>   <span class="dv">2</span>   <span class="dv">3</span>   <span class="dv">2</span>   <span class="dv">1</span>   <span class="dv">1</span>   <span class="dv">0</span>   <span class="dv">1</span>   <span class="dv">0</span> </span></code></pre></div>
 <p>To explore another option we return to the variable <code>shuttle$damaged</code>. R has a system by which R objects are categorized into different <em>classes</em>. The effect of a given R function may depend on the class of the object provided to that function. The function <code>class</code> can be used to find out what class an object has.</p>
-<div class="sourceCode" id="cb20"><html><body><pre class="r">&gt; class(shuttle$damaged)
-[1] "integer"</pre></body></html></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(shuttle<span class="sc">$</span>damaged)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"integer"</span></span></code></pre></div>
 <p>R thinks (correctly) that <code>shuttle$damaged</code> is an integer variable. Unfortunately, as far as I am aware, there is no mechanism for us to tell R that this integer variable can take only the values 0, 1, 2, 3, 4, 5, or 6. However, there is a way to do this if we get R to treat <code>shuttle$damaged</code> as a <em>categorical</em> variable. Then we can provide to R information about the possible <em>levels</em> of the categorical variable <code>shuttle$damaged</code>. In R categorical variables are called <em>factors</em>. We use the function <code>factor</code> to create a new variable <code>fac_dam</code> that is (a) a factor, and (b) has levels 0, 1, 2, 3, 4, 5 and 6.</p>
-<div class="sourceCode" id="cb21"><html><body><pre class="r">&gt; fac_dam &lt;- factor(shuttle$damaged, levels = 0:6)
-&gt; class(fac_dam)
-[1] "factor"</pre></body></html></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> fac_dam <span class="ot">&lt;-</span> <span class="fu">factor</span>(shuttle<span class="sc">$</span>damaged, <span class="at">levels =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(fac_dam)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"factor"</span></span></code></pre></div>
 <p>Now when we use <code>table</code> the output reflects automatically the possible values of the variable.</p>
-<div class="sourceCode" id="cb22"><html><body><pre class="r">&gt; O_tab_fac &lt;- table(fac_dam)
-&gt; O_tab_fac
-fac_dam
- 0  1  2  3  4  5  6 
-16  5  1  1  0  0  0 </pre></body></html></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> O_tab_fac <span class="ot">&lt;-</span> <span class="fu">table</span>(fac_dam)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> O_tab_fac</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>fac_dam</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span>  <span class="dv">5</span>  <span class="dv">6</span> </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span>  <span class="dv">5</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span> </span></code></pre></div>
 </div>
 <div id="bar-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#bar-plot" class="anchor"></a>Bar plot</h3>
 <p>The following code reproduces the graphs in Figure 2.8 of the notes.</p>
-<div class="sourceCode" id="cb23"><html><body><pre class="r">&gt; par(mfrow=c(2,2))
-&gt; par(oma=c(0,0,0,0),mar=c(4,4,1,2)+0.1)
-&gt; xlab &lt;- "number of damaged O-rings"
-&gt; ylab &lt;- "frequency"
-&gt; barplot(O_tab, xlab = xlab, ylab = ylab, las = 1)
-&gt; barplot(O_tab, space = 1, xlab = xlab, ylab = ylab, las = 1)
-&gt; barplot(O_tab, space = 1, xlab = xlab, ylab = ylab, las = 1)
-&gt; abline(h=0)
-&gt; yy &lt;- as.numeric(O_tab)
-&gt; xx &lt;- as.numeric(unlist(dimnames(O_tab),use.names=F))
-&gt; plot(xx, yy, pch = c("0","1","2","3"), axes = FALSE, xlab ="", ylab = ylab, ylim = c(0, 16))
-&gt; title(xlab="number of damaged o-rings",line=0.25)
-&gt; axis(2, lty = 1, at = yy, labels = yy, pos = -0.3, las = 1)</pre></body></html></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">oma=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>)<span class="sc">+</span><span class="fl">0.1</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xlab <span class="ot">&lt;-</span> <span class="st">"number of damaged O-rings"</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ylab <span class="ot">&lt;-</span> <span class="st">"frequency"</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">barplot</span>(O_tab, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> ylab, <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">barplot</span>(O_tab, <span class="at">space =</span> <span class="dv">1</span>, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> ylab, <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">barplot</span>(O_tab, <span class="at">space =</span> <span class="dv">1</span>, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> ylab, <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>)</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> yy <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(O_tab)</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xx <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">unlist</span>(<span class="fu">dimnames</span>(O_tab),<span class="at">use.names=</span>F))</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(xx, yy, <span class="at">pch =</span> <span class="fu">c</span>(<span class="st">"0"</span>,<span class="st">"1"</span>,<span class="st">"2"</span>,<span class="st">"3"</span>), <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span><span class="st">""</span>, <span class="at">ylab =</span> ylab, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">16</span>))</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab=</span><span class="st">"number of damaged o-rings"</span>,<span class="at">line=</span><span class="fl">0.25</span>)</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">at =</span> yy, <span class="at">labels =</span> yy, <span class="at">pos =</span> <span class="sc">-</span><span class="fl">0.3</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-22-1.png" width="624"></p>
 <p>If instead we use the <code>O-tab_fac</code> then the zero frequencies for values 4, 5 and 6 are included in the plot.</p>
-<div class="sourceCode" id="cb24"><html><body><pre class="r">&gt; barplot(O_tab_fac, xlab = xlab, ylab = ylab, las = 1)</pre></body></html></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">barplot</span>(O_tab_fac, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> ylab, <span class="at">las =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-23-1.png" width="624"></p>
 </div>
 </div>
@@ -388,28 +388,28 @@ fac_dam
 <h3 class="hasAnchor">
 <a href="#bar-plot-1" class="anchor"></a>Bar plot</h3>
 <p>This code produces the bar plot on the left side of Figure 2.9.</p>
-<div class="sourceCode" id="cb25"><html><body><pre class="r">&gt; blood_types
-  ABO  Rh percentage
-1   O Rh+         37
-2   A Rh+         35
-3   B Rh+          8
-4  AB Rh+          3
-5   O Rh-          7
-6   A Rh-          7
-7   B Rh-          2
-8  AB Rh-          1
-&gt; lab &lt;- paste(blood_types$ABO, substr(blood_types$Rh, 3, 3), sep = "")
-&gt; barplot(blood_types$percentage, space = 1, xlab = "blood group", ylab = "percentage", las = 1, names.arg = lab)
-&gt; abline(h=0)</pre></body></html></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> blood_types</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  ABO  Rh percentage</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>   O Rh<span class="sc">+</span>         <span class="dv">37</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>   A Rh<span class="sc">+</span>         <span class="dv">35</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>   B Rh<span class="sc">+</span>          <span class="dv">8</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>  AB Rh<span class="sc">+</span>          <span class="dv">3</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>   O Rh<span class="sc">-</span>          <span class="dv">7</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>   A Rh<span class="sc">-</span>          <span class="dv">7</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>   B Rh<span class="sc">-</span>          <span class="dv">2</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>  AB Rh<span class="sc">-</span>          <span class="dv">1</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> lab <span class="ot">&lt;-</span> <span class="fu">paste</span>(blood_types<span class="sc">$</span>ABO, <span class="fu">substr</span>(blood_types<span class="sc">$</span>Rh, <span class="dv">3</span>, <span class="dv">3</span>), <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">barplot</span>(blood_types<span class="sc">$</span>percentage, <span class="at">space =</span> <span class="dv">1</span>, <span class="at">xlab =</span> <span class="st">"blood group"</span>, <span class="at">ylab =</span> <span class="st">"percentage"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">names.arg =</span> lab)</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-24-1.png" width="624"></p>
 </div>
 <div id="pie-chart" class="section level3">
 <h3 class="hasAnchor">
 <a href="#pie-chart" class="anchor"></a>Pie chart</h3>
 <p>If you have a desperate need to produce a pie chart then you can do this using the following code.</p>
-<div class="sourceCode" id="cb26"><html><body><pre class="r">&gt; par(mar = c(1, 1, 0, 1))
-&gt; slices &lt;- rep(c("white","grey66","grey33","black"), 2)
-&gt; pie(blood_types$percentage, labels = lab, col = slices)</pre></body></html></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> slices <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"white"</span>,<span class="st">"grey66"</span>,<span class="st">"grey33"</span>,<span class="st">"black"</span>), <span class="dv">2</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pie</span>(blood_types<span class="sc">$</span>percentage, <span class="at">labels =</span> lab, <span class="at">col =</span> slices)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-25-1.png" width="288"></p>
 <p>Then read the text in the <strong>Note</strong> section at <code><a href="https://rdrr.io/r/graphics/pie.html">?pie</a></code> and forget that the function <code>pie</code> exists.</p>
 </div>
@@ -418,45 +418,45 @@ fac_dam
 <h2 class="hasAnchor">
 <a href="#ftse100-data" class="anchor"></a>FTSE100 data</h2>
 <p>The FTSE 100 share index data described in Section 2.5.6 of the notes are available in the data frame <code>ftse</code>.</p>
-<div class="sourceCode" id="cb27"><html><body><pre class="r">&gt; head(ftse)
-           date  price
-1220 1984-04-02 1096.3
-1219 1984-04-09 1129.1
-1218 1984-04-16 1116.2
-1217 1984-04-23 1130.9
-1216 1984-04-30 1134.7
-1215 1984-05-08 1076.1
-&gt; tail(ftse)
-        date  price
-6 2007-07-09 6716.7
-5 2007-07-16 6585.2
-4 2007-07-23 6215.2
-3 2007-07-30 6224.3
-2 2007-08-06 6038.3
-1 2007-08-13 6143.5</pre></body></html></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(ftse)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>           date  price</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1220</span> <span class="dv">1984-04-02</span> <span class="fl">1096.3</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1219</span> <span class="dv">1984-04-09</span> <span class="fl">1129.1</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1218</span> <span class="dv">1984-04-16</span> <span class="fl">1116.2</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1217</span> <span class="dv">1984-04-23</span> <span class="fl">1130.9</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1216</span> <span class="dv">1984-04-30</span> <span class="fl">1134.7</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="dv">1215</span> <span class="dv">1984-05-08</span> <span class="fl">1076.1</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">tail</span>(ftse)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>        date  price</span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">2007-07-09</span> <span class="fl">6716.7</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="dv">2007-07-16</span> <span class="fl">6585.2</span></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="dv">2007-07-23</span> <span class="fl">6215.2</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="dv">2007-07-30</span> <span class="fl">6224.3</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2007-08-06</span> <span class="fl">6038.3</span></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">2007-08-13</span> <span class="fl">6143.5</span></span></code></pre></div>
 <p>Handling dates in R can be tricky. The main issue is to ensure that a time series, and its dates, are stored correctly. One way to achieve this is to use the function <code>ts</code> to create a time series object, specifying the frequency of the data (<code>frequency = 52</code> means weekly because there are, approximately, 52 weeks in a year) and the start data (the 14th week of 1984). This time series object is a the vector of weekly closing prices and two <em>attributes</em> in which the important extra information (metadata) of <code>tsp</code> and <code>class</code> is stored. The attribute <code>tsp</code> contains the start date, end date and frequency of the observations and the attribute <code>class</code> indicates that this is a <code>ts</code> (time series) object.</p>
-<div class="sourceCode" id="cb28"><html><body><pre class="r">&gt; ftse_ts &lt;- ts(ftse$price, frequency = 52, start = c(1984, 14))
-&gt; head(ftse_ts)
-[1] 1096.3 1129.1 1116.2 1130.9 1134.7 1076.1
-&gt; attributes(ftse_ts)
-$tsp
-[1] 1984.250 2007.692   52.000
-
-$class
-[1] "ts"</pre></body></html></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ftse_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(ftse<span class="sc">$</span>price, <span class="at">frequency =</span> <span class="dv">52</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1984</span>, <span class="dv">14</span>))</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(ftse_ts)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1096.3</span> <span class="fl">1129.1</span> <span class="fl">1116.2</span> <span class="fl">1130.9</span> <span class="fl">1134.7</span> <span class="fl">1076.1</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(ftse_ts)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>tsp</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1984.250</span> <span class="fl">2007.692</span>   <span class="fl">52.000</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>class</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ts"</span></span></code></pre></div>
 <div id="time-series-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#time-series-plot" class="anchor"></a>Time series plot</h3>
 <p>The following code produces the time series plot on the left side of Figure 2.10. Here we have used the function <code>as.Date</code> to ensure that R knows that the data to be plotted on the horizontal axis of the plot are dates. In a moment we will make use of the time series object <code>ftse_ts</code>.</p>
-<div class="sourceCode" id="cb29"><html><body><pre class="r">&gt; plot(as.Date(ftse$date), ftse$price, type = "l", ylab = "weekly FTSE 100 share index", xlab = "year")</pre></body></html></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="fu">as.Date</span>(ftse<span class="sc">$</span>date), ftse<span class="sc">$</span>price, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">ylab =</span> <span class="st">"weekly FTSE 100 share index"</span>, <span class="at">xlab =</span> <span class="st">"year"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-28-1.png" width="624"></p>
-<p>The following code produces the plot on the right side of Figure 2.10. The class of <code>ftse_ts</code> is <code>"ts"</code> so R knows that when we use <code><a href="https://rdrr.io/r/base/plot.html">plot(ftse_ts)</a></code> we want a time series plot. The rest of the code just adjusts the appearance of the plot.</p>
-<div class="sourceCode" id="cb30"><html><body><pre class="r">&gt; plot(ftse_ts, ylab = "FTSE 100 (in 1000s)", xlab = "year", las = 1, axes = FALSE)
-&gt; q2 &lt;- c(min(ftse_ts), (2:6) * 1000, max(ftse_ts))
-&gt; axis(2, at = q2, labels = round(q2 / 1000, 1), las = 1)
-&gt; axis(4, at= q2, labels = round(q2 / 1000, 1), las=1)
-&gt; axis(1)
-&gt; abline(h = par("usr")[3])</pre></body></html></div>
+<p>The following code produces the plot on the right side of Figure 2.10. The class of <code>ftse_ts</code> is <code>"ts"</code> so R knows that when we use <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot(ftse_ts)</a></code> we want a time series plot. The rest of the code just adjusts the appearance of the plot.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ftse_ts, <span class="at">ylab =</span> <span class="st">"FTSE 100 (in 1000s)"</span>, <span class="at">xlab =</span> <span class="st">"year"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> q2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(ftse_ts), (<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">*</span> <span class="dv">1000</span>, <span class="fu">max</span>(ftse_ts))</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> q2, <span class="at">labels =</span> <span class="fu">round</span>(q2 <span class="sc">/</span> <span class="dv">1000</span>, <span class="dv">1</span>), <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">4</span>, <span class="at">at=</span> q2, <span class="at">labels =</span> <span class="fu">round</span>(q2 <span class="sc">/</span> <span class="dv">1000</span>, <span class="dv">1</span>), <span class="at">las=</span><span class="dv">1</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>)</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">par</span>(<span class="st">"usr"</span>)[<span class="dv">3</span>])</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-29-1.png" width="624"></p>
 <ol start="10" style="list-style-type: decimal">
 <li><strong>Can you work out what each bit of the code does?</strong></li>
@@ -467,34 +467,34 @@ $class
 <h2 class="hasAnchor">
 <a href="#influenza-data" class="anchor"></a>Influenza data</h2>
 <p>The mystery data plotted in Figure 2.11 of the notes are the numbers of people in the UK visiting their doctor with symptoms of influenza (’flu) during four-weekly time periods over the time period 28th January 1967 to 13th November 2004. [I hope that this doesn’t spoil the surprise for you.]</p>
-<div class="sourceCode" id="cb31"><html><body><pre class="r">&gt; head(flu)
-        date visits
-1 1967-01-28   91.5
-2 1967-02-25   86.8
-3 1967-03-25   62.1
-4 1967-04-22   63.0
-5 1967-05-20   57.7
-6 1967-06-17   53.7
-&gt; tail(flu)
-          date visits
-489 2004-06-26   4.35
-490 2004-07-24   2.76
-491 2004-08-21   6.36
-492 2004-09-18   9.71
-493 2004-10-16  12.28
-494 2004-11-13  18.99</pre></body></html></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(flu)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>        date visits</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">1967-01-28</span>   <span class="fl">91.5</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">1967-02-25</span>   <span class="fl">86.8</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="dv">1967-03-25</span>   <span class="fl">62.1</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="dv">1967-04-22</span>   <span class="fl">63.0</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="dv">1967-05-20</span>   <span class="fl">57.7</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">1967-06-17</span>   <span class="fl">53.7</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">tail</span>(flu)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>          date visits</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="dv">489</span> <span class="dv">2004-06-26</span>   <span class="fl">4.35</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="dv">490</span> <span class="dv">2004-07-24</span>   <span class="fl">2.76</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a><span class="dv">491</span> <span class="dv">2004-08-21</span>   <span class="fl">6.36</span></span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="dv">492</span> <span class="dv">2004-09-18</span>   <span class="fl">9.71</span></span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="dv">493</span> <span class="dv">2004-10-16</span>  <span class="fl">12.28</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="dv">494</span> <span class="dv">2004-11-13</span>  <span class="fl">18.99</span></span></code></pre></div>
 <div id="time-series-plot-1" class="section level3">
 <h3 class="hasAnchor">
 <a href="#time-series-plot-1" class="anchor"></a>Time series plot</h3>
 <p>We create a time series object using <code>ts</code> and produce the plot in Figure 2.11</p>
-<div class="sourceCode" id="cb32"><html><body><pre class="r">&gt; par(mar = c(5, 5, 4, 3) + 0.1, cex.axis = 0.8, cex.lab = 0.75)
-&gt; flu_ts &lt;- ts(flu[,2], frequency = 13, start = c(1967, 4))
-&gt; plot(flu_ts, ylab="number of 'flu consultations (in 1000s)", xlab = "year", las = 1, axes=FALSE)
-&gt; q2 &lt;- c(min(flu_ts),(1:6) * 100, max(flu_ts))
-&gt; axis(2, at = q2, labels = round(q2, 1), las = 1)
-&gt; axis(4, at = q2, labels = round(q2, 1), las = 1)
-&gt; abline(h=0)
-&gt; axis(1,pos=-1)</pre></body></html></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">cex.axis =</span> <span class="fl">0.8</span>, <span class="at">cex.lab =</span> <span class="fl">0.75</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> flu_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(flu[,<span class="dv">2</span>], <span class="at">frequency =</span> <span class="dv">13</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1967</span>, <span class="dv">4</span>))</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(flu_ts, <span class="at">ylab=</span><span class="st">"number of 'flu consultations (in 1000s)"</span>, <span class="at">xlab =</span> <span class="st">"year"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">axes=</span><span class="cn">FALSE</span>)</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> q2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(flu_ts),(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">*</span> <span class="dv">100</span>, <span class="fu">max</span>(flu_ts))</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> q2, <span class="at">labels =</span> <span class="fu">round</span>(q2, <span class="dv">1</span>), <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">4</span>, <span class="at">at =</span> q2, <span class="at">labels =</span> <span class="fu">round</span>(q2, <span class="dv">1</span>), <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>,<span class="at">pos=</span><span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-31-1.png" width="624"></p>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
@@ -518,7 +518,7 @@ $class
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

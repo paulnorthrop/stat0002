@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -83,7 +83,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,13 +97,13 @@
 
       
 
-      </header><script src="stat0002-ch2c-graphs-vignette_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="stat0002-ch2c-graphs-vignette_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Chapter 2: Graphs (More Than One Variable)</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-10-14</h4>
+            <h4 class="date">2021-10-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2c-graphs-vignette.Rmd"><code>vignettes/stat0002-ch2c-graphs-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch2c-graphs-vignette.Rmd</code></div>
@@ -118,130 +118,130 @@
 <h2 class="hasAnchor">
 <a href="#the-oxford-birth-times-data" class="anchor"></a>The Oxford Birth Times data</h2>
 <p>These data are available in the data frame <code>ox_births</code>.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
-&gt; birth_times &lt;- ox_births[, "time"]
-&gt; day &lt;- ox_births[, "day"]</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> birth_times <span class="ot">&lt;-</span> ox_births[, <span class="st">"time"</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> day <span class="ot">&lt;-</span> ox_births[, <span class="st">"day"</span>]</span></code></pre></div>
 <p>To display these data we manipulate them into a matrix that is of the same format as Table 2.1 in the notes. The number of birth times varies between days so we pad the matrix with R’s missing values code <code>NA</code> in order that each column of the matrix has the same number of rows.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; ox_mat &lt;- matrix(NA, ncol = 7, nrow = 16)
-&gt; for (i in 1:7) {
-+   day_i_times &lt;- ox_births$time[which(ox_births$day == i)]
-+   ox_mat[1:length(day_i_times), i] &lt;- sort(day_i_times)
-+   colnames(ox_mat) &lt;- paste("day", 1:7, sep = "")
-+ }  
-&gt; ox_mat
-       day1  day2  day3  day4  day5  day6  day7
- [1,]  2.10  4.00  2.60  1.50  2.50  4.00  2.00
- [2,]  3.40  4.10  3.60  4.70  2.50  4.00  2.70
- [3,]  4.25  5.00  3.60  4.70  3.40  5.25  2.75
- [4,]  5.60  5.50  6.40  7.20  4.20  6.10  3.40
- [5,]  6.40  5.70  6.80  7.25  5.90  6.50  4.20
- [6,]  7.30  6.50  7.50  8.10  6.25  6.90  4.30
- [7,]  8.50  7.25  7.50  8.50  7.30  7.00  4.90
- [8,]  8.75  7.30  8.25  9.20  7.50  8.45  6.25
- [9,]  8.90  7.50  8.50  9.50  7.80  9.25  7.00
-[10,]  9.50  8.20 10.40 10.70  8.30 10.10  9.00
-[11,]  9.75  8.50 10.75 11.50  8.30 10.20  9.25
-[12,] 10.00  9.75 14.25    NA 10.25 12.75 10.70
-[13,] 10.40 11.00 14.50    NA 12.90 14.60    NA
-[14,] 10.40 11.20    NA    NA 14.30    NA    NA
-[15,] 16.00 15.00    NA    NA    NA    NA    NA
-[16,] 19.00 16.50    NA    NA    NA    NA    NA</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">ncol =</span> <span class="dv">7</span>, <span class="at">nrow =</span> <span class="dv">16</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   day_i_times <span class="ot">&lt;-</span> ox_births<span class="sc">$</span>time[<span class="fu">which</span>(ox_births<span class="sc">$</span>day <span class="sc">==</span> i)]</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   ox_mat[<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(day_i_times), i] <span class="ot">&lt;-</span> <span class="fu">sort</span>(day_i_times)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">colnames</span>(ox_mat) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"day"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">sep =</span> <span class="st">""</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }  </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_mat</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>       day1  day2  day3  day4  day5  day6  day7</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>,]  <span class="fl">2.10</span>  <span class="fl">4.00</span>  <span class="fl">2.60</span>  <span class="fl">1.50</span>  <span class="fl">2.50</span>  <span class="fl">4.00</span>  <span class="fl">2.00</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a> [<span class="dv">2</span>,]  <span class="fl">3.40</span>  <span class="fl">4.10</span>  <span class="fl">3.60</span>  <span class="fl">4.70</span>  <span class="fl">2.50</span>  <span class="fl">4.00</span>  <span class="fl">2.70</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a> [<span class="dv">3</span>,]  <span class="fl">4.25</span>  <span class="fl">5.00</span>  <span class="fl">3.60</span>  <span class="fl">4.70</span>  <span class="fl">3.40</span>  <span class="fl">5.25</span>  <span class="fl">2.75</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a> [<span class="dv">4</span>,]  <span class="fl">5.60</span>  <span class="fl">5.50</span>  <span class="fl">6.40</span>  <span class="fl">7.20</span>  <span class="fl">4.20</span>  <span class="fl">6.10</span>  <span class="fl">3.40</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a> [<span class="dv">5</span>,]  <span class="fl">6.40</span>  <span class="fl">5.70</span>  <span class="fl">6.80</span>  <span class="fl">7.25</span>  <span class="fl">5.90</span>  <span class="fl">6.50</span>  <span class="fl">4.20</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a> [<span class="dv">6</span>,]  <span class="fl">7.30</span>  <span class="fl">6.50</span>  <span class="fl">7.50</span>  <span class="fl">8.10</span>  <span class="fl">6.25</span>  <span class="fl">6.90</span>  <span class="fl">4.30</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a> [<span class="dv">7</span>,]  <span class="fl">8.50</span>  <span class="fl">7.25</span>  <span class="fl">7.50</span>  <span class="fl">8.50</span>  <span class="fl">7.30</span>  <span class="fl">7.00</span>  <span class="fl">4.90</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a> [<span class="dv">8</span>,]  <span class="fl">8.75</span>  <span class="fl">7.30</span>  <span class="fl">8.25</span>  <span class="fl">9.20</span>  <span class="fl">7.50</span>  <span class="fl">8.45</span>  <span class="fl">6.25</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a> [<span class="dv">9</span>,]  <span class="fl">8.90</span>  <span class="fl">7.50</span>  <span class="fl">8.50</span>  <span class="fl">9.50</span>  <span class="fl">7.80</span>  <span class="fl">9.25</span>  <span class="fl">7.00</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>[<span class="dv">10</span>,]  <span class="fl">9.50</span>  <span class="fl">8.20</span> <span class="fl">10.40</span> <span class="fl">10.70</span>  <span class="fl">8.30</span> <span class="fl">10.10</span>  <span class="fl">9.00</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>[<span class="dv">11</span>,]  <span class="fl">9.75</span>  <span class="fl">8.50</span> <span class="fl">10.75</span> <span class="fl">11.50</span>  <span class="fl">8.30</span> <span class="fl">10.20</span>  <span class="fl">9.25</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>[<span class="dv">12</span>,] <span class="fl">10.00</span>  <span class="fl">9.75</span> <span class="fl">14.25</span>    <span class="cn">NA</span> <span class="fl">10.25</span> <span class="fl">12.75</span> <span class="fl">10.70</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>,] <span class="fl">10.40</span> <span class="fl">11.00</span> <span class="fl">14.50</span>    <span class="cn">NA</span> <span class="fl">12.90</span> <span class="fl">14.60</span>    <span class="cn">NA</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>[<span class="dv">14</span>,] <span class="fl">10.40</span> <span class="fl">11.20</span>    <span class="cn">NA</span>    <span class="cn">NA</span> <span class="fl">14.30</span>    <span class="cn">NA</span>    <span class="cn">NA</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>[<span class="dv">15</span>,] <span class="fl">16.00</span> <span class="fl">15.00</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>[<span class="dv">16</span>,] <span class="fl">19.00</span> <span class="fl">16.50</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span></span></code></pre></div>
 <p>We have a numeric continuous variable, <code>birth_times</code>, and a categorical variable, <code>day</code>. The following code produces separate boxplots of <code>birth_times</code> for each day of the week.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; par(mar = c(4, 4, 0.5, 1))
-&gt; xlab &lt;- "time (hours)"
-&gt; x_labs &lt;- c(min(birth_times), pretty(birth_times), max(birth_times))
-&gt; # top left
-&gt; box_plot(birth_times ~ day, col = 8, ylab = xlab, pch = 16, xlab = "day")
-&gt; # top right
-&gt; box_plot(birth_times ~ day, col = 8, horizontal = TRUE,  axes = FALSE, xlab = xlab, ylab = "day", pch = 16)
-&gt; axis(1, at = x_labs, labels = x_labs)
-&gt; axis(2, at = 1:7, labels = 1:7, lwd = 0, lty = 0)
-&gt; # bottom left
-&gt; box_plot(birth_times ~ day, axes = FALSE, ylab = xlab, pch = 16, lty = 1, range = 0, boxcol = "white", staplewex = 0, medlty = "blank", medpch = 16, xlab = "day")
-&gt; axis(1, at = 1:7, labels = 1:7, lwd = 0, lty = 0)
-&gt; axis(2, at = x_labs, labels = x_labs)
-&gt; # bottom right
-&gt; box_plot(birth_times ~ day, horizontal = TRUE, axes = FALSE, xlab = xlab, pch = 16, lty = 1, range = 0, boxcol = "white", staplewex = 0, medlty = "blank", medpch = 16)
-&gt; axis(1, at = x_labs, labels = x_labs)
-&gt; axis(2, at = 1:7, labels = 1:7, lwd = 0, lty = 0, las = 1)</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xlab <span class="ot">&lt;-</span> <span class="st">"time (hours)"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x_labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(birth_times), <span class="fu">pretty</span>(birth_times), <span class="fu">max</span>(birth_times))</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># top left</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">box_plot</span>(birth_times <span class="sc">~</span> day, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">ylab =</span> xlab, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span> <span class="st">"day"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># top right</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">box_plot</span>(birth_times <span class="sc">~</span> day, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">horizontal =</span> <span class="cn">TRUE</span>,  <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> <span class="st">"day"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> x_labs, <span class="at">labels =</span> x_labs)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">labels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">lwd =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">0</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># bottom left</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">box_plot</span>(birth_times <span class="sc">~</span> day, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">ylab =</span> xlab, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="dv">0</span>, <span class="at">boxcol =</span> <span class="st">"white"</span>, <span class="at">staplewex =</span> <span class="dv">0</span>, <span class="at">medlty =</span> <span class="st">"blank"</span>, <span class="at">medpch =</span> <span class="dv">16</span>, <span class="at">xlab =</span> <span class="st">"day"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">labels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">lwd =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">0</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> x_labs, <span class="at">labels =</span> x_labs)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># bottom right</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">box_plot</span>(birth_times <span class="sc">~</span> day, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> xlab, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="dv">0</span>, <span class="at">boxcol =</span> <span class="st">"white"</span>, <span class="at">staplewex =</span> <span class="dv">0</span>, <span class="at">medlty =</span> <span class="st">"blank"</span>, <span class="at">medpch =</span> <span class="dv">16</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> x_labs, <span class="at">labels =</span> x_labs)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">labels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">lwd =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">0</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-4-1.png" width="326.4"><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-4-2.png" width="326.4"><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-4-3.png" width="326.4"><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-4-4.png" width="326.4"></p>
 </div>
 <div id="the-2000-us-presidential-election-in-florida" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-2000-us-presidential-election-in-florida" class="anchor"></a>The 2000 US Presidential Election in Florida</h2>
 <p>These data are available in the data frame <code>USelection</code>. See <code><a href="../reference/USelection.html">?USelection</a></code> for details.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; # County identifiers and location
-&gt; head(USelection[, 1:4])
-  co co_names  lat  lon
-1  1  Alachua 29.7 82.4
-2  2    Baker 30.3 82.3
-3  3      Bay 30.2 85.6
-4  4 Bradford 29.9 82.2
-5  5  Brevard 28.3 80.7
-6  6  Broward 26.1 80.5
-&gt; # County demographic variables
-&gt; head(USelection[, 5:12])
-     npop whit blac hisp  o65 hsed coll  inco
-1  198326 74.4 21.8  4.7  9.4 82.7 34.6 19412
-2   20761 82.4 16.8  1.5  7.7 64.1  5.7 14859
-3  146223 84.2 12.4  2.4 11.9 74.7 15.7 17838
-4   24646 76.1 22.9  2.6 11.8 65.0  8.1 13681
-5  460977 88.3  9.2  4.1 16.5 82.3 20.4 19567
-6 1470758 80.3 17.5 10.9 20.3 76.8 18.8 24706
-&gt; # Numbers of votes for candidates
-&gt; head(USelection[, 13:22])
-    bush   gore brow nade harr hage buch mcre phil moor
-1  34124  47365  658 3226    6   42  263    4   20   21
-2   5610   2392   17   53    0    3   73    0    3    3
-3  38637  18850  171  828    5   18  248    3   18   27
-4   5414   3075   28   84    0    2   65    0    2    3
-5 115185  97318  643 4470   11   39  570   11   72   76
-6 177323 386561 1212 7101   50  129  788   34   74  124</pre></body></html></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># County identifiers and location</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">head</span>(USelection[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  co co_names  lat  lon</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="dv">1</span>  Alachua <span class="fl">29.7</span> <span class="fl">82.4</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  <span class="dv">2</span>    Baker <span class="fl">30.3</span> <span class="fl">82.3</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>  <span class="dv">3</span>      Bay <span class="fl">30.2</span> <span class="fl">85.6</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>  <span class="dv">4</span> Bradford <span class="fl">29.9</span> <span class="fl">82.2</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>  <span class="dv">5</span>  Brevard <span class="fl">28.3</span> <span class="fl">80.7</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>  <span class="dv">6</span>  Broward <span class="fl">26.1</span> <span class="fl">80.5</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># County demographic variables</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">head</span>(USelection[, <span class="dv">5</span><span class="sc">:</span><span class="dv">12</span>])</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>     npop whit blac hisp  o65 hsed coll  inco</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="dv">198326</span> <span class="fl">74.4</span> <span class="fl">21.8</span>  <span class="fl">4.7</span>  <span class="fl">9.4</span> <span class="fl">82.7</span> <span class="fl">34.6</span> <span class="dv">19412</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>   <span class="dv">20761</span> <span class="fl">82.4</span> <span class="fl">16.8</span>  <span class="fl">1.5</span>  <span class="fl">7.7</span> <span class="fl">64.1</span>  <span class="fl">5.7</span> <span class="dv">14859</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>  <span class="dv">146223</span> <span class="fl">84.2</span> <span class="fl">12.4</span>  <span class="fl">2.4</span> <span class="fl">11.9</span> <span class="fl">74.7</span> <span class="fl">15.7</span> <span class="dv">17838</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>   <span class="dv">24646</span> <span class="fl">76.1</span> <span class="fl">22.9</span>  <span class="fl">2.6</span> <span class="fl">11.8</span> <span class="fl">65.0</span>  <span class="fl">8.1</span> <span class="dv">13681</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>  <span class="dv">460977</span> <span class="fl">88.3</span>  <span class="fl">9.2</span>  <span class="fl">4.1</span> <span class="fl">16.5</span> <span class="fl">82.3</span> <span class="fl">20.4</span> <span class="dv">19567</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">1470758</span> <span class="fl">80.3</span> <span class="fl">17.5</span> <span class="fl">10.9</span> <span class="fl">20.3</span> <span class="fl">76.8</span> <span class="fl">18.8</span> <span class="dv">24706</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Numbers of votes for candidates</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">head</span>(USelection[, <span class="dv">13</span><span class="sc">:</span><span class="dv">22</span>])</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    bush   gore brow nade harr hage buch mcre phil moor</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  <span class="dv">34124</span>  <span class="dv">47365</span>  <span class="dv">658</span> <span class="dv">3226</span>    <span class="dv">6</span>   <span class="dv">42</span>  <span class="dv">263</span>    <span class="dv">4</span>   <span class="dv">20</span>   <span class="dv">21</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>   <span class="dv">5610</span>   <span class="dv">2392</span>   <span class="dv">17</span>   <span class="dv">53</span>    <span class="dv">0</span>    <span class="dv">3</span>   <span class="dv">73</span>    <span class="dv">0</span>    <span class="dv">3</span>    <span class="dv">3</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>  <span class="dv">38637</span>  <span class="dv">18850</span>  <span class="dv">171</span>  <span class="dv">828</span>    <span class="dv">5</span>   <span class="dv">18</span>  <span class="dv">248</span>    <span class="dv">3</span>   <span class="dv">18</span>   <span class="dv">27</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>   <span class="dv">5414</span>   <span class="dv">3075</span>   <span class="dv">28</span>   <span class="dv">84</span>    <span class="dv">0</span>    <span class="dv">2</span>   <span class="dv">65</span>    <span class="dv">0</span>    <span class="dv">2</span>    <span class="dv">3</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="dv">115185</span>  <span class="dv">97318</span>  <span class="dv">643</span> <span class="dv">4470</span>   <span class="dv">11</span>   <span class="dv">39</span>  <span class="dv">570</span>   <span class="dv">11</span>   <span class="dv">72</span>   <span class="dv">76</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">177323</span> <span class="dv">386561</span> <span class="dv">1212</span> <span class="dv">7101</span>   <span class="dv">50</span>  <span class="dv">129</span>  <span class="dv">788</span>   <span class="dv">34</span>   <span class="dv">74</span>  <span class="dv">124</span></span></code></pre></div>
 <p>For the moment we simply produce some scatter plots. A separate vignette will be devoted to these data.</p>
 <p>A plot to show the locations of the counties.</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; plot(-USelection[, "lon"], USelection[, "lat"], xlab = "longitude (degrees north)", ylab = "latitude (degrees east)", pch = 16)</pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="sc">-</span>USelection[, <span class="st">"lon"</span>], USelection[, <span class="st">"lat"</span>], <span class="at">xlab =</span> <span class="st">"longitude (degrees north)"</span>, <span class="at">ylab =</span> <span class="st">"latitude (degrees east)"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 <ol style="list-style-type: decimal">
 <li><strong>Can you see the outline of the state of Florida?</strong></li>
 </ol>
 <p>A plot of the percentage of the vote for Buchanan against population size.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; pbuch &lt;- 100 * USelection$buch/USelection$tvot
-&gt; is_PB &lt;- USelection[, "co_names"] == "PalmBeach"
-&gt; pch &lt;- 1 + 3 * is_PB
-&gt; pch
- [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-[39] 1 1 1 1 1 1 1 1 1 1 1 4 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-&gt; plot(USelection$npop, pbuch, xlab = "population", ylab = "Buchanan % vote", pch = pch)
-&gt; which_PB &lt;- which(is_PB)
-&gt; text(USelection[which_PB, "npop"], pbuch[which_PB] + 0.1, "Palm Beach", cex = 0.8)</pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> pbuch <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> USelection<span class="sc">$</span>buch<span class="sc">/</span>USelection<span class="sc">$</span>tvot</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> is_PB <span class="ot">&lt;-</span> USelection[, <span class="st">"co_names"</span>] <span class="sc">==</span> <span class="st">"PalmBeach"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> pch <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> is_PB</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> pch</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">39</span>] <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">4</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span> <span class="dv">1</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(USelection<span class="sc">$</span>npop, pbuch, <span class="at">xlab =</span> <span class="st">"population"</span>, <span class="at">ylab =</span> <span class="st">"Buchanan % vote"</span>, <span class="at">pch =</span> pch)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> which_PB <span class="ot">&lt;-</span> <span class="fu">which</span>(is_PB)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">text</span>(USelection[which_PB, <span class="st">"npop"</span>], pbuch[which_PB] <span class="sc">+</span> <span class="fl">0.1</span>, <span class="st">"Palm Beach"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-7-1.png" width="576"></p>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Can you see how the code used to identify Palm Beach on the plot works?</strong></li>
 </ol>
 <p>Pairwise scatter plots of the demographic variables.</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; pairs(USelection[, 5:12])</pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pairs</span>(USelection[, <span class="dv">5</span><span class="sc">:</span><span class="dv">12</span>])</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
 <p>A plot of the square root of the percentage of the vote for Buchanan against population size, in thousands of people. The horizontal axis has been plotted on a log scale.</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; x &lt;- USelection$npop / 1000
-&gt; y &lt;- sqrt(pbuch)
-&gt; ystring &lt;- expression(sqrt("% Buchanan vote"))
-&gt; rm_PB &lt;- which(!is_PB)
-&gt; scatter(x[rm_PB], y[rm_PB], pch = 16, xlab ="Total Population (1000s)", ylab = ystring, log = "x")
-&gt; points(x[which_PB], y[which_PB], pch = "X")
-&gt; text(x[which_PB], y[which_PB] + 0.04, "Palm Beach", cex = 0.8)</pre></body></html></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> USelection<span class="sc">$</span>npop <span class="sc">/</span> <span class="dv">1000</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(pbuch)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ystring <span class="ot">&lt;-</span> <span class="fu">expression</span>(<span class="fu">sqrt</span>(<span class="st">"% Buchanan vote"</span>))</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> rm_PB <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="sc">!</span>is_PB)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">scatter</span>(x[rm_PB], y[rm_PB], <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span><span class="st">"Total Population (1000s)"</span>, <span class="at">ylab =</span> ystring, <span class="at">log =</span> <span class="st">"x"</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">points</span>(x[which_PB], y[which_PB], <span class="at">pch =</span> <span class="st">"X"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">text</span>(x[which_PB], y[which_PB] <span class="sc">+</span> <span class="fl">0.04</span>, <span class="st">"Palm Beach"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
 <ol start="3" style="list-style-type: decimal">
 <li><p><strong>Can you see how the different method to identify Palm Beach works?</strong></p></li>
 <li><p><strong>Can you guess what the numbers on the axes are? See <code>scatter</code> to find out.</strong></p></li>
 </ol>
 <p>Similarly, we use <code>scatter_hist</code> to create a scatter plot in which the distribution of each variable is summarized by a histogram.</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; scatter_hist(x, y, log = "x", pch = 16, xlab ="Total Population (1000s)", ylab = ystring)</pre></body></html></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">scatter_hist</span>(x, y, <span class="at">log =</span> <span class="st">"x"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span><span class="st">"Total Population (1000s)"</span>, <span class="at">ylab =</span> ystring)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-10-1.png" width="576"></p>
 <p>The plot in the lecture slides is produced by specifying particular bins for the histograms.</p>
-<div class="sourceCode" id="cb10"><html><body><pre class="r">&gt; logx &lt;- log(x)
-&gt; xbreaks &lt;- seq(from = min(logx), to = max(logx), len = 25)
-&gt; ybreaks &lt;- seq(from = min(y), to = max(y), len = 25)
-&gt; scatter_hist(x, y, log = "x", pch = 16, xlab ="Total Population (1000s)", ylab = ystring, xbreaks = xbreaks, ybreaks = ybreaks)</pre></body></html></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> logx <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xbreaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(logx), <span class="at">to =</span> <span class="fu">max</span>(logx), <span class="at">len =</span> <span class="dv">25</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ybreaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(y), <span class="at">to =</span> <span class="fu">max</span>(y), <span class="at">len =</span> <span class="dv">25</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">scatter_hist</span>(x, y, <span class="at">log =</span> <span class="st">"x"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span><span class="st">"Total Population (1000s)"</span>, <span class="at">ylab =</span> ystring, <span class="at">xbreaks =</span> xbreaks, <span class="at">ybreaks =</span> ybreaks)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-11-1.png" width="576"></p>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
@@ -264,7 +264,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -40,9 +40,9 @@
 
 
 <meta property="og:title" content="Sampling distribution of the correlation coefficient movie — corr_sim_movie" />
-<meta property="og:description" content="A movie to illustrate how the sampling distribution of the Pearson
-product moment sample correlation coefficient \(r\) depends on the
-sample size \(n\) and on the true correlation \(\rho\)." />
+<meta property="og:description" content="A movie to illustrate how the sampling distribution of the product moment
+sample correlation coefficient \(r\) depends on the sample size \(n\)
+and on the true correlation \(\rho\)." />
 
 
 
@@ -82,7 +82,7 @@ sample size \(n\) and on the true correlation \(\rho\)." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -126,7 +126,7 @@ sample size \(n\) and on the true correlation \(\rho\)." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -149,21 +149,21 @@ sample size \(n\) and on the true correlation \(\rho\)." />
     </div>
 
     <div class="ref-description">
-    <p>A movie to illustrate how the sampling distribution of the Pearson
-product moment sample correlation coefficient \(r\) depends on the
-sample size \(n\) and on the true correlation \(\rho\).</p>
+    <p>A movie to illustrate how the sampling distribution of the product moment
+sample correlation coefficient \(r\) depends on the sample size \(n\)
+and on the true correlation \(\rho\).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>corr_sim_movie</span>(
-  <span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>30</span>,
-  <span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0</span>,
-  <span class='kw'>panel_plot</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>hscale</span> <span class='kw'>=</span> <span class='fl'>NA</span>,
-  <span class='kw'>vscale</span> <span class='kw'>=</span> <span class='no'>hscale</span>,
-  <span class='kw'>delta_n</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>delta_rho</span> <span class='kw'>=</span> <span class='fl'>0.1</span>,
-  <span class='no'>...</span>
-)</pre>
+    <pre class="usage"><span class='fu'>corr_sim_movie</span><span class='op'>(</span>
+  n <span class='op'>=</span> <span class='fl'>30</span>,
+  rho <span class='op'>=</span> <span class='fl'>0</span>,
+  panel_plot <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  hscale <span class='op'>=</span> <span class='cn'>NA</span>,
+  vscale <span class='op'>=</span> <span class='va'>hscale</span>,
+  delta_n <span class='op'>=</span> <span class='fl'>1</span>,
+  delta_rho <span class='op'>=</span> <span class='fl'>0.1</span>,
+  <span class='va'>...</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -231,9 +231,9 @@ rho is increased/decreased after one click of the +/- button.</p></td>
   simulated sample, illustrating the strength of the association between
   the simulated values of the variables.
   A new sample is produced by clicking "simulate another sample.
-  For each simulated sample the sample (Pearson product moment)
-  correlation coefficient \(r\) is calculated and displayed in the
-  title of the top plot.</p>
+  For each simulated sample the sample (product moment) correlation
+  coefficient \(r\) is calculated and displayed in the title of the top
+  plot.</p>
 <p>The values of the sample correlation coefficients are stored and are
   plotted in a histogram in the bottom plot.  A rug displays the individual
   values, with the most recent value coloured red. As we accumulate a large
@@ -255,12 +255,13 @@ rho is increased/decreased after one click of the +/- button.</p></td>
   simulated using the new combination of \(n\) and \(\rho\).</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/smovie/man/movies.html'>movies</a></code>: a user-friendly menu panel.</p>
-<p><code><a href='https://rdrr.io/pkg/smovie/man/smovie.html'>smovie</a></code>: general information about smovie.</p></div>
+    <div class='dont-index'><p><code><a href='https://paulnorthrop.github.io/smovie/reference/movies.html'>movies</a></code>: a user-friendly menu panel.</p>
+<p><code><a href='https://paulnorthrop.github.io/smovie/reference/smovie.html'>smovie</a></code>: general information about smovie.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>corr_sim_movie</span>(<span class='kw'>rho</span> <span class='kw'>=</span> <span class='fl'>0.8</span>)
-<span class='fu'>corr_sim_movie</span>(<span class='kw'>n</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>corr_sim_movie</span><span class='op'>(</span>rho <span class='op'>=</span> <span class='fl'>0.8</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error: the SuppDists package is needed. Please install it.</span></div><div class='input'><span class='fu'>corr_sim_movie</span><span class='op'>(</span>n <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; <span class='error'>Error: the SuppDists package is needed. Please install it.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -276,7 +277,7 @@ rho is increased/decreased after one click of the +/- button.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

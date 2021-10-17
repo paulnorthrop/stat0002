@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot diagnostics a <code>poisson_process</code> object — plot.poisson_process • stat0002</title>
+<title>Plot diagnostics a poisson_process object — plot.poisson_process • stat0002</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Plot diagnostics a <code>poisson_process</code> object — plot.poisson_process" />
+<meta property="og:title" content="Plot diagnostics a poisson_process object — plot.poisson_process" />
 <meta property="og:description" content="plot method for class &quot;poisson_process&quot;." />
 
 
@@ -80,7 +80,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -124,7 +124,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -151,7 +151,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for poisson_process</span>
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>x</span>, <span class='no'>y</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -180,9 +180,11 @@
     <div class='dont-index'><p><code><a href='poisson_process_sim.html'>poisson_process_sim</a></code>.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>sim1</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='poisson_process_sim.html'>poisson_process_sim</a></span>(<span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>hours</span> <span class='kw'>=</span> <span class='fl'>24</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>sim1</span>)</div><div class='img'><img src='plot.poisson_process-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='no'>sim2</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='poisson_process_sim.html'>poisson_process_sim</a></span>(<span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>2</span>, <span class='kw'>n_events</span> <span class='kw'>=</span> <span class='fl'>50</span>)
-<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>sim2</span>, <span class='kw'>pch</span> <span class='kw'>=</span> <span class='fl'>4</span>, <span class='kw'>xlab</span> <span class='kw'>=</span> <span class='st'>"event times"</span>)</div><div class='img'><img src='plot.poisson_process-2.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='va'>sim1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='poisson_process_sim.html'>poisson_process_sim</a></span><span class='op'>(</span>lambda <span class='op'>=</span> <span class='fl'>2</span>, hours <span class='op'>=</span> <span class='fl'>24</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>sim1</span><span class='op'>)</span>
+</div><div class='img'><img src='plot.poisson_process-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='va'>sim2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='poisson_process_sim.html'>poisson_process_sim</a></span><span class='op'>(</span>lambda <span class='op'>=</span> <span class='fl'>2</span>, n_events <span class='op'>=</span> <span class='fl'>50</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>sim2</span>, pch <span class='op'>=</span> <span class='fl'>4</span>, xlab <span class='op'>=</span> <span class='st'>"event times"</span><span class='op'>)</span>
+</div><div class='img'><img src='plot.poisson_process-2.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -198,7 +200,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

@@ -39,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -83,7 +83,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -97,13 +97,13 @@
 
       
 
-      </header><script src="stat0002-ch5b-continous-random-variables-vignette_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="stat0002-ch5b-continous-random-variables-vignette_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Chapter 5: uniform, exponential and normal distributions</h1>
                         <h4 class="author">Paul Northrop</h4>
             
-            <h4 class="date">2020-10-14</h4>
+            <h4 class="date">2021-10-17</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch5b-continous-random-variables-vignette.Rmd"><code>vignettes/stat0002-ch5b-continous-random-variables-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch5b-continous-random-variables-vignette.Rmd</code></div>
@@ -114,112 +114,112 @@
     
 <p>The purposes of this vignette are to direct you to R functions relating to the <strong>continuous</strong> probability distributions considered in Chapter 5 of the STAT0002 notes and to provide code to do some of the things that appear in the lecture slides. We do this using the standard R functions (in the <strong>stats</strong> package) and using the <strong>distributions3</strong> package <span class="citation">(Hayes and Moller-Trane 2019)</span>, which provides a neat way to work with random variables in R. Please see the <a href="stat0002-ch5a-discrete-random-variables-vignette.html">Discrete Random Variables vignette</a> for a brief introduction to these functions.</p>
 <p>We illustrate these functions using the Australian birth times data, which are available in the data frame <code>aussie_births</code>.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r">&gt; library(stat0002)
-Loading required package: rpanel
-Loading required package: tcltk
-Package `rpanel', version 1.1-4: type help(rpanel) for summary information
-&gt; head(aussie_births)
-  time  sex weight
-1    5 girl   3837
-2   64 girl   3334
-3   78  boy   3554
-4  115  boy   3838
-5  177  boy   3625
-6  245 girl   2208</pre></body></html></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Loading required package<span class="sc">:</span> rpanel</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Loading required package<span class="sc">:</span> tcltk</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Package <span class="st">`</span><span class="at">rpanel', version 1.1-5: type help(rpanel) for summary information</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; head(aussie_births)</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">  time  sex weight</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">1    5 girl   3837</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">2   64 girl   3334</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">3   78  boy   3554</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">4  115  boy   3838</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">5  177  boy   3625</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">6  245 girl   2208</span></span></code></pre></div>
 <div id="the-uniform-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-uniform-distribution" class="anchor"></a>The uniform distribution</h2>
 <p>We will not say much about the uniform distribution here. However, it is a very important distribution because the standard uniform distribution, U(0, 1), is use widely to simulate values from probability distributions. See the <a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic Simulation vignette</a> for details.</p>
 <p>First, we show two ways to produce a (pseudo-)random sample from a U(0, 1) distribution. We use the same seed (use <code><a href="https://rdrr.io/r/base/Random.html">?set.seed</a></code> to find out more) to show that these approaches are equivalent. This is because the <code>distributions3</code> package actually uses the function <code>runif</code> in the background.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r">&gt; # Using the runif() function in the stats package
-&gt; set.seed(13112019)
-&gt; n &lt;- 10
-&gt; u1 &lt;- runif(n)
-&gt; u1
- [1] 0.6499195 0.1472341 0.5326011 0.5731850 0.1622124 0.4371483 0.5716510
- [8] 0.3743011 0.2070426 0.9377372
-&gt; # Using the distributions3 package to define a U(0, 1) object U
-&gt; library(distributions3)
-
-Attaching package: 'distributions3'
-The following objects are masked from 'package:stats':
-
-    Gamma, quantile
-The following object is masked from 'package:grDevices':
-
-    pdf
-&gt; set.seed(13112019)
-&gt; U &lt;- Uniform(0, 1)
-&gt; u2 &lt;- random(U, 10)
-&gt; u2
- [1] 0.6499195 0.1472341 0.5326011 0.5731850 0.1622124 0.4371483 0.5716510
- [8] 0.3743011 0.2070426 0.9377372</pre></body></html></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Using the runif() function in the stats package</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">13112019</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u1 <span class="ot">&lt;-</span> <span class="fu">runif</span>(n)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u1</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="fl">0.6499195</span> <span class="fl">0.1472341</span> <span class="fl">0.5326011</span> <span class="fl">0.5731850</span> <span class="fl">0.1622124</span> <span class="fl">0.4371483</span> <span class="fl">0.5716510</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> [<span class="dv">8</span>] <span class="fl">0.3743011</span> <span class="fl">0.2070426</span> <span class="fl">0.9377372</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Using the distributions3 package to define a U(0, 1) object U</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(distributions3)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'distributions3'</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>The following objects are masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    Gamma, quantile</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:grDevices'</span><span class="sc">:</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    pdf</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">13112019</span>)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> U <span class="ot">&lt;-</span> <span class="fu">Uniform</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u2 <span class="ot">&lt;-</span> <span class="fu">random</span>(U, <span class="dv">10</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u2</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="fl">0.6499195</span> <span class="fl">0.1472341</span> <span class="fl">0.5326011</span> <span class="fl">0.5731850</span> <span class="fl">0.1622124</span> <span class="fl">0.4371483</span> <span class="fl">0.5716510</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a> [<span class="dv">8</span>] <span class="fl">0.3743011</span> <span class="fl">0.2070426</span> <span class="fl">0.9377372</span></span></code></pre></div>
 </div>
 <div id="the-exponential-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-exponential-distribution" class="anchor"></a>The exponential distribution</h2>
 <p>The inversion method (see <a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic Simulation vignette</a> for details) means that we can easily transform the simulated values produced by <code>runif</code> in a way that produces a (pseudo-)random sample from an exponential distribution.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r">&gt; lambda &lt;- 2
-&gt; u &lt;- runif(1000)
-&gt; e1 &lt;- -log(u) / lambda
-&gt; hist(e1, prob = TRUE, main = "")</pre></body></html></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> lambda <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> e1 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log</span>(u) <span class="sc">/</span> lambda</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(e1, <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">""</span>)</span></code></pre></div>
 <p><img src="stat0002-ch5b-continous-random-variables-vignette_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We produce a histogram of sample waiting times in the Australian birth times data, with a superimposed exponential density.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r">&gt; # Calculate the sample waiting times, in minutes
-&gt; w &lt;- diff(c(0, aussie_births$time)) 
-&gt; # Estimate lambda (rate of births per minute)
-&gt; lambdahat &lt;- 1 / mean(w)
-&gt; # The estimate of the rate of births per hour
-&gt; lambdahat * 60
-[1] 1.839721
-&gt; # Histogram and superimposed exponential density
-&gt; hist(w, prob = TRUE, breaks = 8, axes = FALSE, col = 8, ylim = c(0, 0.03),
-+      xlab = "time since last birth (minutes)", main = "")
-&gt; axis(1, at = seq(0, 160, 20))
-&gt; axis(2, at = seq(0, 0.03, 0.005))
-&gt; curve(dexp(x, rate = lambdahat), add = TRUE, lwd = 2)</pre></body></html></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Calculate the sample waiting times, in minutes</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> w <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">c</span>(<span class="dv">0</span>, aussie_births<span class="sc">$</span>time)) </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Estimate lambda (rate of births per minute)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> lambdahat <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="fu">mean</span>(w)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The estimate of the rate of births per hour</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> lambdahat <span class="sc">*</span> <span class="dv">60</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1.839721</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Histogram and superimposed exponential density</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">hist</span>(w, <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="at">breaks =</span> <span class="dv">8</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.03</span>),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">xlab =</span> <span class="st">"time since last birth (minutes)"</span>, <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">160</span>, <span class="dv">20</span>))</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">0.03</span>, <span class="fl">0.005</span>))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">curve</span>(<span class="fu">dexp</span>(x, <span class="at">rate =</span> lambdahat), <span class="at">add =</span> <span class="cn">TRUE</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="stat0002-ch5b-continous-random-variables-vignette_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 <div id="the-normal-distribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-normal-distribution" class="anchor"></a>The normal distribution</h2>
 <p>We use the birth weights in the Australian birth times data to illustrate how to perform calculations relating to the normal distribution.</p>
-<div class="sourceCode" id="cb5"><html><body><pre class="r">&gt; # Convert weights from grams to pounds
-&gt; wt &lt;- aussie_births$weight / 453.5
-&gt; # Produce a histogram of the birth weights
-&gt; hist(wt, prob = TRUE, xlab = "weight (pounds)", col = 8, main = "")</pre></body></html></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Convert weights from grams to pounds</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> wt <span class="ot">&lt;-</span> aussie_births<span class="sc">$</span>weight <span class="sc">/</span> <span class="fl">453.5</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Produce a histogram of the birth weights</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">hist</span>(wt, <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="at">xlab =</span> <span class="st">"weight (pounds)"</span>, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">main =</span> <span class="st">""</span>)</span></code></pre></div>
 <p><img src="stat0002-ch5b-continous-random-variables-vignette_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We suppose that the weight <span class="math inline">\(W\)</span> (in pounds) of a randomly chosen baby has a <span class="math inline">\(N(\mu, \sigma^2)\)</span> distribution, even though it seems clear from the histogram that this assumption may be inappropriate.</p>
-<div class="sourceCode" id="cb6"><html><body><pre class="r">&gt; # Estimate the mean, variance and (standard deviation) of W
-&gt; muhat &lt;- mean(wt)
-&gt; sigma2hat &lt;- var(wt)
-&gt; sigmahat &lt;- sd(wt)</pre></body></html></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Estimate the mean, variance and (standard deviation) of W</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> muhat <span class="ot">&lt;-</span> <span class="fu">mean</span>(wt)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sigma2hat <span class="ot">&lt;-</span> <span class="fu">var</span>(wt)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sigmahat <span class="ot">&lt;-</span> <span class="fu">sd</span>(wt)</span></code></pre></div>
 <p>Suppose that <span class="math inline">\(W\)</span> has a normal distribution, with mean equal to <code>muhat</code> and standard deviation equal to <code>sigmahat</code>. In an example in the notes we calculated <span class="math inline">\(P(W &gt; 10)\)</span>, using a tables of c.d.f. of the standard normal distribution. To perform this calculation in R we could do either of the following.</p>
-<div class="sourceCode" id="cb7"><html><body><pre class="r">&gt; pnorm(10, mean = muhat, sd = sigmahat, lower.tail = FALSE)
-[1] 0.008553284
-&gt; W &lt;- Normal(mu = muhat, sigma = sigmahat)
-&gt; 1 - cdf(W, 10)
-[1] 0.008553284</pre></body></html></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pnorm</span>(<span class="dv">10</span>, <span class="at">mean =</span> muhat, <span class="at">sd =</span> sigmahat, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.008553284</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> W <span class="ot">&lt;-</span> <span class="fu">Normal</span>(<span class="at">mu =</span> muhat, <span class="at">sigma =</span> sigmahat)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(W, <span class="dv">10</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.008553284</span></span></code></pre></div>
 <p>The answer that we get is slightly different from the one in the lecture slides, because we rounded a number (to 2.38) before we looked up the value that we needed in the table. Below we confirm that R gives the same answer as the table (to 5 decimal places).</p>
-<div class="sourceCode" id="cb8"><html><body><pre class="r">&gt; pnorm(2.38)
-[1] 0.9913437
-&gt; 1 - pnorm(2.38)
-[1] 0.008656319</pre></body></html></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pnorm</span>(<span class="fl">2.38</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.9913437</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="fl">2.38</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.008656319</span></span></code></pre></div>
 <p>In the coffee example in the lecture slides we needed to calculate the 95% quantile of a standard N(0, 1) normal random variable. We could do this in one of the following ways.</p>
-<div class="sourceCode" id="cb9"><html><body><pre class="r">&gt; qnorm(0.95)
-[1] 1.644854
-&gt; Z &lt;- Normal(0, 1)
-&gt; quantile(Z, 0.95)
-[1] 1.644854</pre></body></html></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1.644854</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Z <span class="ot">&lt;-</span> <span class="fu">Normal</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">quantile</span>(Z, <span class="fl">0.95</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1.644854</span></span></code></pre></div>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
-</script><div id="refs" class="references">
-<div id="ref-distributions3">
-<p>Hayes, A., and R. Moller-Trane. 2019. <em>distributions3: Probability Distributions as S3 Objects</em>. <a href="https://github.com/alexpghayes/distributions3">https://github.com/alexpghayes/distributions3</a>.</p>
+</script><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-distributions3" class="csl-entry">
+Hayes, A., and R. Moller-Trane. 2019. <em><span class="nocase">d</span>istributions3: Probability Distributions as S3 Objects</em>. <a href="https://github.com/alexpghayes/distributions3">https://github.com/alexpghayes/distributions3</a>.
 </div>
 </div>
 </div>
@@ -240,7 +240,7 @@ The following object is masked from 'package:grDevices':
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>

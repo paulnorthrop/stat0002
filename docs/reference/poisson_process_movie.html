@@ -91,7 +91,7 @@ process." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -135,7 +135,7 @@ process." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/paulnorthrop/stat0002/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -172,12 +172,12 @@ whether or not these data seem consistent with arising from a Poisson
 process.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>poisson_process_movie</span>(
-  <span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>hours</span> <span class='kw'>=</span> <span class='fl'>24</span>,
-  <span class='kw'>pos</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.environment.html'>as.environment</a></span>(<span class='no'>pos</span>)
-)</pre>
+    <pre class="usage"><span class='fu'>poisson_process_movie</span><span class='op'>(</span>
+  lambda <span class='op'>=</span> <span class='fl'>1</span>,
+  hours <span class='op'>=</span> <span class='fl'>24</span>,
+  pos <span class='op'>=</span> <span class='fl'>1</span>,
+  envir <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/as.environment.html'>as.environment</a></span><span class='op'>(</span><span class='va'>pos</span><span class='op'>)</span>
+<span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -247,7 +247,10 @@ environment. See <code><a href='https://rdrr.io/r/base/environment.html'>environ
   data supplied by a user.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>poisson_process_movie</span>(<span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>2</span>)</div><div class='img'><img src='poisson_process_movie-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>poisson_process_movie</span>(<span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>10</span>)</div><div class='img'><img src='poisson_process_movie-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>poisson_process_movie</span>(<span class='kw'>lambda</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</div><div class='img'><img src='poisson_process_movie-3.png' alt='' width='700' height='433' /></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>poisson_process_movie</span><span class='op'>(</span>lambda <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
+</div><div class='img'><img src='poisson_process_movie-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>poisson_process_movie</span><span class='op'>(</span>lambda <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>
+</div><div class='img'><img src='poisson_process_movie-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'>poisson_process_movie</span><span class='op'>(</span>lambda <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
+</div><div class='img'><img src='poisson_process_movie-3.png' alt='' width='700' height='433' /></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -263,7 +266,7 @@ environment. See <code><a href='https://rdrr.io/r/base/environment.html'>environ
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
