@@ -32,10 +32,10 @@
 #'   7 scores, then multiply by 3, then multiply by the degree of difficulty.
 #'   That is, we do not trim the 2 smallest and 2 largest values.
 #'
-#'   Similarly, in the \code{dmedian(daley1, trim = 0)} and
-#'   \code{dmode(daley1, trim = 0)} we case we take the sample median or mode,
-#'   respectively, of all 7 scores, then multiply by 3, then multiply by the
-#'   degree of difficulty.
+#'   Similarly, in the \code{dmedian(daley1)} and \code{dmode(daley1)} cases we
+#'   take the sample median or mode, respectively, of all 7 scores, then
+#'   multiply by 3, then multiply by the degree of difficulty. If there is more
+#'   than one sample mode then we use the sample mean of these modes.
 #' @seealso \code{\link{daley1}} for Tokyo 2020 Olympics Diving Men's
 #'   Individual 10m platform final results
 #' @examples
@@ -64,7 +64,7 @@ dmean <- function(x, DD = "DD", scores = paste0("J", 1:7), trim = 2 / 7) {
   y <- x[, scores]
   # Calculate the trimmed row means, multiply by 3 to get the trimmed sums
   # and multiply by the degree of difficulty
-  x[, DD] * apply(y, 1, mean, trim = trim) * 3
+  return(x[, DD] * apply(y, 1, mean, trim = trim) * 3)
 }
 
 # ================================= Median-based ==============================
@@ -74,9 +74,9 @@ dmean <- function(x, DD = "DD", scores = paste0("J", 1:7), trim = 2 / 7) {
 dmedian <- function(x, DD = "DD", scores = paste0("J", 1:7), type = 6) {
   # Extract a matrix of the scores
   y <- x[, scores]
-  # Calculate the trimmed row means, multiply by 3 to get the trimmed sums
-  # and multiply by the degree of difficulty
-  x[, DD] * apply(y, 1, quantile, type = type) * 3
+  # Calculate the row medians, multiply by 3 and multiply by the degree of
+  # difficulty
+  return(x[, DD] * apply(y, 1, quantile, type = type) * 3)
 }
 
 # ================================== Mode-based ===============================
@@ -86,8 +86,15 @@ dmedian <- function(x, DD = "DD", scores = paste0("J", 1:7), type = 6) {
 dmode <- function(x, DD = "DD", scores = paste0("J", 1:7)) {
   # Extract a matrix of the scores
   y <- x[, scores]
-  # Calculate the trimmed row means, multiply by 3 to get the trimmed sums
-  # and multiply by the degree of difficulty
-  x[, DD] * apply(y, 1, mode) * 3
+  # Calculate the ow modes (or the sample mean of these if there is more than
+  # one), multiply by 3 and multiply by the degree of difficulty
+  mode_fn <- function(x) {
+    tab <- table(x)
+    vals <- as.numeric(names(tab))
+    wm <- which.max(tab)
+    y <- vals[tab == tab[wm]]
+    return(mean(y))
+  }
+  return(x[, DD] * apply(y, 1, mode_fn) * 3)
 }
 
