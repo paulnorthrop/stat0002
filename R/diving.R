@@ -3,7 +3,8 @@
 #' Calculation of diving scores
 #'
 #' Functions to implement four ways to calculate the points awarded for a dive
-#' in a diving competition, including the way that is used in practice.
+#' in a diving competition, including the way that is used in the Olympic
+#' Games.
 #'
 #' @param x A numeric matrix or data frame, ideally of the same format as
 #'   \code{\link{daley1}}.

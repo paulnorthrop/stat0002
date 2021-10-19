@@ -3,7 +3,7 @@
 \docType{data}
 \name{daley1}
 \alias{daley1}
-\title{Tokyo 2020 Olympics Diving Men's Individual 10m platform final results}
+\title{Tokyo 2020 Olympics Men's Idividual 10m platform}
 \format{
 A data frame with 60 observations on the following 18 variables.
   Each of the 10 competitors has one row of data for each of their 6 dives.
@@ -44,7 +44,7 @@ daley1
 }
 \description{
 Detailed results from the final of the Men's Individual 10m platform final
-the Tokyo 2020 Olympic Games.
+at the Tokyo 2020 Olympic Games.
 }
 \details{
 \code{DivePoints} is calculated by: removing the 2 smallest and 2

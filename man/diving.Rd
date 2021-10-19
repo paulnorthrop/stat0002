@@ -52,7 +52,8 @@ A numeric vector dive points if \code{replace = FALSE} or \code{x}
 }
 \description{
 Functions to implement four ways to calculate the points awarded for a dive
-in a diving competition, including the way that is used in practice.
+in a diving competition, including the way that is used in the Olympic
+Games.
 }
 \details{
 In the default case, e.g. \code{dmean(daley1)}, the 2 smallest and
