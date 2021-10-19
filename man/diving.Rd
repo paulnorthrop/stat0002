@@ -7,14 +7,15 @@
 \alias{dmode}
 \title{Calculation of diving scores}
 \usage{
-dmean(x, DD = "DD", scores = paste0("J", 1:7), trim = 2/7)
+dmean(x, DD = "DD", scores = paste0("J", 1:7), trim = 2/7, replace = FALSE)
 
-dmedian(x, DD = "DD", scores = paste0("J", 1:7), type = 6)
+dmedian(x, DD = "DD", scores = paste0("J", 1:7), type = 6, replace = FALSE)
 
-dmode(x, DD = "DD", scores = paste0("J", 1:7))
+dmode(x, DD = "DD", scores = paste0("J", 1:7), replace = FALSE)
 }
 \arguments{
-\item{x}{A numeric matrix or data frame.}
+\item{x}{A numeric matrix or data frame, ideally of the same format as
+\code{\link{daley1}}.}
 
 \item{DD}{A character (or numeric) scalar giving the column name (or number)
 of \code{x} that contains the DD (degree of difficulty) values of each
@@ -29,13 +30,29 @@ is set up to work with the data in \code{\link{daley1}}.}
 The default, \code{trim = 2 / 7}, corresponds to the calculation using in
 diving competitions.}
 
+\item{replace}{A logical scalar.  If \code{replace = FALSE} then a vector
+of the dive points is returned. If \code{replace = TRUE} then the
+\code{DivePoints}, \code{DiveRank}, \code{TotalPoints}, \code{OverallRank}
+and \code{PointsBehind} columns are updated in light of the new values of
+the dive points and this data frame is returned.  If any of these named
+columns do not exist then the returned object is the same as the
+\code{replace = FALSE} case.}
+
 \item{type}{Only relevant to \code{divemedian}.  Passed to
 \code{\link[stats]{quantile}}.  The default, \code{type = 6}, corresponds
 to the method that we have studied in STAT0002.}
 }
+\value{
+A numeric vector dive points if \code{replace = FALSE} or \code{x}
+  does not have appropriately named columns.  Otherwise, a dataframe of the
+  same structure as \code{x} in which the columns \code{DivePoints},
+  \code{DiveRank}, \code{TotalPoints}, \code{OverallRank} and
+  \code{PointsBehind} have been updated in light of the new dive points
+  values.
+}
 \description{
-Functions to implement four ways to calculate a score for a dive in a
-diving competitions, including the way that is used in practice.
+Functions to implement four ways to calculate the points awarded for a dive
+in a diving competition, including the way that is used in practice.
 }
 \details{
 In the default case, e.g. \code{dmean(daley1)}, the 2 smallest and
@@ -43,9 +60,9 @@ In the default case, e.g. \code{dmean(daley1)}, the 2 smallest and
   scores is calculated; and the result is multiplied by the dive's
   degree of difficulty.
 
-  Another way to think of this is that we take the
-  sample mean of the 3 middle scores, then multiply by 3, then multiply by
-  the degree of difficulty.
+  Another way to think of this is that we take the sample mean of the 3
+  middle scores, then multiply by 3, then multiply by the degree of
+  difficulty.
 
   In the \code{dmean(daley1, trim = 0)} case we take the sample mean of all
   7 scores, then multiply by 3, then multiply by the degree of difficulty.

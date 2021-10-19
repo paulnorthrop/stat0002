@@ -40,8 +40,8 @@
 
 
 <meta property="og:title" content="Calculation of diving scores — diving" />
-<meta property="og:description" content="Functions to implement four ways to calculate a score for a dive in a
-diving competitions, including the way that is used in practice." />
+<meta property="og:description" content="Functions to implement four ways to calculate the points awarded for a dive
+in a diving competition, including the way that is used in practice." />
 
 
 
@@ -148,11 +148,11 @@ diving competitions, including the way that is used in practice." />
     </div>
 
     <div class="ref-description">
-    <p>Functions to implement four ways to calculate a score for a dive in a
-diving competitions, including the way that is used in practice.</p>
+    <p>Functions to implement four ways to calculate the points awarded for a dive
+in a diving competition, including the way that is used in practice.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dmean</span><span class='op'>(</span><span class='va'>x</span>, DD <span class='op'>=</span> <span class='st'>"DD"</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>, trim <span class='op'>=</span> <span class='fl'>2</span><span class='op'>/</span><span class='fl'>7</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>dmean</span><span class='op'>(</span><span class='va'>x</span>, DD <span class='op'>=</span> <span class='st'>"DD"</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>, trim <span class='op'>=</span> <span class='fl'>2</span><span class='op'>/</span><span class='fl'>7</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
 
 <span class='fu'>dmedian</span><span class='op'>(</span><span class='va'>x</span>, DD <span class='op'>=</span> <span class='st'>"DD"</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='fl'>6</span><span class='op'>)</span>
 
@@ -163,7 +163,8 @@ diving competitions, including the way that is used in practice.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>A numeric matrix or data frame.</p></td>
+      <td><p>A numeric matrix or data frame, ideally of the same format as
+<code><a href='daley1.html'>daley1</a></code>.</p></td>
     </tr>
     <tr>
       <th>DD</th>
@@ -185,6 +186,16 @@ The default, <code>trim = 2 / 7</code>, corresponds to the calculation using in
 diving competitions.</p></td>
     </tr>
     <tr>
+      <th>replace</th>
+      <td><p>A logical scalar.  If <code>replace = FALSE</code> then a vector
+of the dive points is returned. If <code>replace = TRUE</code> then the
+<code>DivePoints</code>, <code>DiveRank</code>, <code>TotalPoints</code>, <code>OverallRank</code>
+and <code>PointsBehind</code> columns are updated in light of the new values of
+the dive points and this data frame is returned.  If any of these named
+columns do not exist then the returned object is the same as the
+<code>replace = FALSE</code> case.</p></td>
+    </tr>
+    <tr>
       <th>type</th>
       <td><p>Only relevant to <code>divemedian</code>.  Passed to
 <code><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></code>.  The default, <code>type = 6</code>, corresponds
@@ -192,15 +203,23 @@ to the method that we have studied in STAT0002.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A numeric vector dive points if <code>replace = FALSE</code> or <code>x</code>
+  does not have appropriately named columns.  Otherwise, a dataframe of the
+  same structure as <code>x</code> in which the columns <code>DivePoints</code>,
+  <code>DiveRank</code>, <code>TotalPoints</code>, <code>OverallRank</code> and
+  <code>PointsBehind</code> have been updated in light of the new dive points
+  values.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>In the default case, e.g. <code>dmean(daley1)</code>, the 2 smallest and
   2 largest scores of the 7 scores are removed; the sum of the 3 remaining
   scores is calculated; and the result is multiplied by the dive's
   degree of difficulty.</p>
-<p>Another way to think of this is that we take the
-  sample mean of the 3 middle scores, then multiply by 3, then multiply by
-  the degree of difficulty.</p>
+<p>Another way to think of this is that we take the sample mean of the 3
+  middle scores, then multiply by 3, then multiply by the degree of
+  difficulty.</p>
 <p>In the <code>dmean(daley1, trim = 0)</code> case we take the sample mean of all
   7 scores, then multiply by 3, then multiply by the degree of difficulty.
   That is, we do not trim the 2 smallest and 2 largest values.</p>

@@ -171,10 +171,16 @@ the Tokyo 2020 Olympic Games.</p>
 <li><p><code>J1-J7:</code> Respective scores from each of the 7 judges.</p></li>
 <li><p><code>DivePoints:</code> Points awarded for the dive, based on the scores
   and the degree of difficulty.</p></li>
-<li><p><code>DiveRank:</code> The rank of the dive in the round in question.</p></li>
+<li><p><code>DiveRank:</code> The rank of the dive in the round in question.  In
+  the raw data there are entries like "=2", resulting from ties.  In
+  <code>daley</code> the "=" sign is removed and the ranks are stored as numeric
+  scalars, e.g. 2.</p></li>
 <li><p><code>TotalPoints:</code> The total point accumulated from all dives
   to this round of the competition.</p></li>
-<li><p><code>OverallRank:</code> The rank of the diver after the current round.</p></li>
+<li><p><code>OverallRank:</code> The rank of the diver after the current round.
+  In the raw data there are entries like "=2", resulting from ties.  In
+  <code>daley</code> the "=" sign is removed and the ranks are stored as numeric
+  scalars, e.g. 2.</p></li>
 <li><p><code>PointsBehind:</code> The number of points that the diver is behind
   the leader after the current round.  If the diver is the leader then this
   is missing (NA).</p></li>
