@@ -369,3 +369,39 @@ NULL
 #'   \href{https://doi.org/10.1371/journal.pone.0202152}{https://doi.org/10.1371/journal.pone.0202152}
 "birds"
 
+# === Tokyo 2020 Olympics Diving Men's Individual 10m platform final results ==
+
+#' Tokyo 2020 Olympics Diving Men's Individual 10m platform final results
+#'
+#' Detailed results from the final of the Men's Individual 10m platform final
+#' the Tokyo 2020 Olympic Games.
+#'
+#' @format A data frame with 60 observations on the following 18 variables.
+#'   Each of the 10 competitors has one row of data for each of their 6 dives.
+#'   For each competitor, the first row relates to the first round of dives
+#'   and the sixth row the last round.
+#' \itemize{
+#' \item{\code{Rank:}}{ Final position (rank) in competition.}
+#' \item{\code{Surname:}}{ Surname / family name.}
+#' \item{\code{FirstName:}}{ first name / given name.}
+#' \item{\code{NOCcode:}}{ Country code.}
+#' \item{\code{DiveNo:}}{ Code for the type of dive performed.}
+#' \item{\code{DD:}}{ Degree of difficulty: the larger the number the more
+#'   difficult the dive.}
+#' \item{\code{J1-J7:}}{ Respective scores from each of the 7 judges.}
+#' \item{\code{DivePoints:}}{ Points awarded for the dive, based on the scores
+#'   and the degree of difficulty.}
+#' \item{\code{DiveRank:}}{ The rank of the dive in the round in question.}
+#' \item{\code{TotalPoints:}}{ The total point accumulated from all dives
+#'   to this round of the competition.}
+#' \item{\code{OverallRank:}}{ The rank of the diver after the current round.}
+#' \item{\code{PointsBehind:}}{ The number of points that the diver is behind
+#'   the leader after the current round.  If the diver is the leader then this
+#'   is missing (NA).}
+#' }
+#' @details \code{DivePoints} is calculated by: removing the 2 smallest and 2
+#'   largest scores from the 7 scores \code{J1-J7}; calculating the sum of the
+#'   3 scores that remain; and multiplying the result by \code{DD}.
+#' @source \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/olympic-schedule-and-results.htm}{Tokyo 2020 Diving Results}, specifically
+#' \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/results-men-s-10m-platform-fnl-000100-.htm}{Men's 10m Platform Results}
+"daley1"

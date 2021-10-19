@@ -19,6 +19,7 @@ reference:
       - "days"
       - "lymphoma"
       - "clouds"
+      - "daley1"
       - "ox_births"
       - "blood_types"
       - "ftse"
@@ -64,6 +65,7 @@ reference:
       - "five_number"
       - "skewness"
       - "boxplot_stats"
+      - "diving"
   - title: Simulation functions
     desc: ~
     contents:
