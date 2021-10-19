@@ -7,14 +7,14 @@
 #' Games.
 #'
 #' @param x A numeric matrix or data frame, ideally of the same format as
-#'   \code{\link{daley1}}.
+#'   \code{\link{daley}}.
 #' @param DD A character (or numeric) scalar giving the column name (or number)
 #'   of \code{x} that contains the DD (degree of difficulty) values of each
 #'   dive.  The default is set up to work with the data in
-#'   \code{\link{daley1}}.
+#'   \code{\link{daley}}.
 #' @param scores A character (or numeric) vector giving the column names (or
 #'   numbers) of \code{x} that contain the 7 scores for each dive.  The default
-#'   is set up to work with the data in \code{\link{daley1}}.
+#'   is set up to work with the data in \code{\link{daley}}.
 #' @param trim Only relevant to \code{divemean}. Passed to \code{\link{mean}}.
 #'   The default, \code{trim = 2 / 7}, corresponds to the calculation using in
 #'   diving competitions.
@@ -28,7 +28,7 @@
 #'   the dive points and this data frame is returned.  If any of these named
 #'   columns do not exist then the returned object is the same as the
 #'   \code{replace = FALSE} case.
-#' @details In the default case, e.g. \code{dmean(daley1)}, the 2 smallest and
+#' @details In the default case, e.g. \code{dmean(daley)}, the 2 smallest and
 #'   2 largest scores of the 7 scores are removed; the sum of the 3 remaining
 #'   scores is calculated; and the result is multiplied by the dive's
 #'   degree of difficulty.
@@ -37,11 +37,11 @@
 #'   middle scores, then multiply by 3, then multiply by the degree of
 #'   difficulty.
 #'
-#'   In the \code{dmean(daley1, trim = 0)} case we take the sample mean of all
+#'   In the \code{dmean(daley, trim = 0)} case we take the sample mean of all
 #'   7 scores, then multiply by 3, then multiply by the degree of difficulty.
 #'   That is, we do not trim the 2 smallest and 2 largest values.
 #'
-#'   Similarly, in the \code{dmedian(daley1)} and \code{dmode(daley1)} cases we
+#'   Similarly, in the \code{dmedian(daley)} and \code{dmode(daley)} cases we
 #'   take the sample median or mode, respectively, of all 7 scores, then
 #'   multiply by 3, then multiply by the degree of difficulty. If there is more
 #'   than one sample mode then we use the sample mean of these modes.
@@ -51,20 +51,20 @@
 #'   \code{DiveRank}, \code{TotalPoints}, \code{OverallRank} and
 #'   \code{PointsBehind} have been updated in light of the new dive points
 #'   values.
-#' @seealso \code{\link{daley1}} for Tokyo 2020 Olympics Diving Men's
+#' @seealso \code{\link{daley}} for Tokyo 2020 Olympics Diving Men's
 #'   Individual 10m platform final results
 #' @examples
 #' # The calculation used in competitions (trimmed sample sums)
-#' dmean(daley1)
+#' dmean(daley)
 #'
 #' # An equivalent calculation without trimming
-#' dmean(daley1, trim = 0)
+#' dmean(daley, trim = 0)
 #'
 #' # An equivalent calculation based on a sample median
-#' dmedian(daley1)
+#' dmedian(daley)
 #'
 #' # An equivalent calculation based on a sample mode
-#' dmode(daley1)
+#' dmode(daley)
 #' @name diving
 NULL
 ## NULL
