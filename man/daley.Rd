@@ -3,7 +3,7 @@
 \docType{data}
 \name{daley}
 \alias{daley}
-\title{Tokyo 2020 Olympics Men's Idividual 10m platform}
+\title{Tokyo 2020 Olympics Men's Individual 10m platform}
 \format{
 A data frame with 60 observations on the following 18 variables.
   Each of the 10 competitors has one row of data for each of their 6 dives.

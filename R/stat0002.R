@@ -371,7 +371,7 @@ NULL
 
 # === Tokyo 2020 Olympics Diving Men's Individual 10m platform final results ==
 
-#' Tokyo 2020 Olympics Men's Idividual 10m platform
+#' Tokyo 2020 Olympics Men's Individual 10m platform
 #'
 #' Detailed results from the final of the Men's Individual 10m platform final
 #' at the Tokyo 2020 Olympic Games.
