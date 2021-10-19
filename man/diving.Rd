@@ -51,10 +51,10 @@ In the default case, e.g. \code{dmean(daley1)}, the 2 smallest and
   7 scores, then multiply by 3, then multiply by the degree of difficulty.
   That is, we do not trim the 2 smallest and 2 largest values.
 
-  Similarly, in the \code{dmedian(daley1, trim = 0)} and
-  \code{dmode(daley1, trim = 0)} we case we take the sample median or mode,
-  respectively, of all 7 scores, then multiply by 3, then multiply by the
-  degree of difficulty.
+  Similarly, in the \code{dmedian(daley1)} and \code{dmode(daley1)} cases we
+  take the sample median or mode, respectively, of all 7 scores, then
+  multiply by 3, then multiply by the degree of difficulty. If there is more
+  than one sample mode then we use the sample mean of these modes.
 }
 \examples{
 # The calculation used in competitions (trimmed sample sums)
