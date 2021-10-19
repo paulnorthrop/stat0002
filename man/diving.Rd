@@ -9,7 +9,7 @@
 \usage{
 dmean(x, DD = "DD", scores = paste0("J", 1:7), trim = 2/7)
 
-dmedian(x, DD = "DD", scores = paste0("J", 1:7), quantile = 6)
+dmedian(x, DD = "DD", scores = paste0("J", 1:7), type = 6)
 
 dmode(x, DD = "DD", scores = paste0("J", 1:7))
 }

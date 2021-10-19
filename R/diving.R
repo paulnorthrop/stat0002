@@ -71,7 +71,7 @@ dmean <- function(x, DD = "DD", scores = paste0("J", 1:7), trim = 2 / 7) {
 
 #' @rdname diving
 #' @export
-dmedian <- function(x, DD = "DD", scores = paste0("J", 1:7), quantile = 6) {
+dmedian <- function(x, DD = "DD", scores = paste0("J", 1:7), type = 6) {
   # Extract a matrix of the scores
   y <- x[, scores]
   # Calculate the trimmed row means, multiply by 3 to get the trimmed sums
