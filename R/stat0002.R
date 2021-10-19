@@ -371,10 +371,10 @@ NULL
 
 # === Tokyo 2020 Olympics Diving Men's Individual 10m platform final results ==
 
-#' Tokyo 2020 Olympics Diving Men's Individual 10m platform final results
+#' Tokyo 2020 Olympics Men's Idividual 10m platform
 #'
 #' Detailed results from the final of the Men's Individual 10m platform final
-#' the Tokyo 2020 Olympic Games.
+#' at the Tokyo 2020 Olympic Games.
 #'
 #' @format A data frame with 60 observations on the following 18 variables.
 #'   Each of the 10 competitors has one row of data for each of their 6 dives.
