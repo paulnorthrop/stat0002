@@ -249,7 +249,9 @@ tables <- function(x, type = 1, diverRanks = 1) {
     cols <- c("Name", "DD", paste0("J", 1:7), whichColName)
     rows <- which(x[, "Rank"] %in% diverRanks)
     res <- x[rows, cols]
-    names(res)[names(res) == "DivePoints"] <- attributes(x)$statistic
+    if (!is.null(attributes(x)$statistic)) {
+      names(res)[names(res) == "DivePoints"] <- attributes(x)$statistic
+    }
     # Remove instances of "Points", to save space
     names(res) <- sub("Points", "", names(res))
   } else if (type == 2) {
