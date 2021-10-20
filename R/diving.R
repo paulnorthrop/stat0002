@@ -243,6 +243,7 @@ tables <- function(x, type = 1, diverRanks = 1) {
     theRound <- rep(1:nper, times = nd)
     theDiver <- rep(1:nd, each = nper)
     res <- x[theRound == 6, c("Rank", "Name", "NOCcode", "TotalPoints")]
+    res <- res[diverRanks, ]
     colnames(res)[3] <- "Country"
   } else if (type == 1) {
     cols <- c("Name", "DD", paste0("J", 1:7), whichColName)
@@ -303,5 +304,6 @@ tables <- function(x, type = 1, diverRanks = 1) {
     }
     res <- res[diverRanks, ]
   }
+  rownames(res) <- NULL
   return(res)
 }
