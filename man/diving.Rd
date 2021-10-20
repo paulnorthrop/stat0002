@@ -62,6 +62,8 @@ competition.}
 
 \item{type}{Determines the form of a data frame returned as a summary table.
 \itemize{
+  \item {\code{type = 0}: Rank, Name, NOCcode (Country), TotalPoints at the
+    end of the competition.}
   \item {\code{type = 1}: DD, J1-J7 and dive points (those already in
     \code{x}).}
   \item {\code{type = 2}: like \code{type = 1} but gives dive points, and

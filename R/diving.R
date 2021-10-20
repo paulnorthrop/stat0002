@@ -34,6 +34,8 @@
 #'   competition.
 #' @param type Determines the form of a data frame returned as a summary table.
 #' \itemize{
+#'   \item {\code{type = 0}: Rank, Name, NOCcode (Country), TotalPoints at the
+#'     end of the competition.}
 #'   \item {\code{type = 1}: DD, J1-J7 and dive points (those already in
 #'     \code{x}).}
 #'   \item {\code{type = 2}: like \code{type = 1} but gives dive points, and
@@ -147,19 +149,6 @@ reorder_fn <- function(x) {
   return(x[newOrder,])
 }
 
-positions <- function(x, positions = 1:3) {
-  x[x[, "Rank"] %in% positions, ]
-}
-
-overall <- function(x, which = c("points", "mean", "median", "mode")) {
-  p <- dmean(x)
-  mn <- dmean(x, trim = 0)
-  mdn <- dmedian(x)
-  md <- dmode(x)
-  cbind(points = p, mean = mn, median = mdn, mode = md)
-}
-
-
 # =========================== (Trimmed) median-based ==========================
 
 #' @rdname diving
@@ -238,6 +227,7 @@ dmode <- function(x, DD = "DD", scores = paste0("J", 1:7), replace = TRUE,
 #' @export
 tables <- function(x, type = 1, diverRanks = 1) {
   # Types
+  # 0: Rank, Name, NOCcode, TotalPoints at the end of the competition
   # 1: DD, J1-J7 and dive points (those already in x) for a subset of divers
   # 2: like type 1 but give DivePoints, MeanPoints, MedianPoints, ModePoints
   # 3: like type 2 but give the total points, ordered by DivePoints
@@ -245,7 +235,16 @@ tables <- function(x, type = 1, diverRanks = 1) {
   theNames <- c("DivePoints", "MeanPoints", "MedianPoints", "ModePoints")
   whichCol <- which(colnames(x) %in% theNames)
   whichColName <- colnames(x)[whichCol]
-  if (type == 1) {
+  if (type == 0) {
+    n <- nrow(x)
+    fullName <- x[, "Name"]
+    nd <- length(unique(fullName))
+    nper <- n / nd
+    theRound <- rep(1:nper, times = nd)
+    theDiver <- rep(1:nd, each = nper)
+    res <- x[theRound == 6, c("Rank", "Name", "NOCcode", "TotalPoints")]
+    colnames(res)[3] <- "Country"
+  } else if (type == 1) {
     cols <- c("Name", "DD", paste0("J", 1:7), whichColName)
     rows <- which(x[, "Rank"] %in% diverRanks)
     res <- x[rows, cols]
