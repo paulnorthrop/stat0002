@@ -272,7 +272,7 @@ tables <- function(x, type = 1, diverRanks = 1) {
     # Remove instances of "Points", to save space
     names(res) <- sub("Points", "", names(res))
     # Round numeric values to 2 d.p.
-    res <- cbind(res[, 1], round(res[, -1], 2))
+    res <- cbind("Name" = res[, 1], round(res[, -1], 2))
   } else if (type == 3 || type == 4) {
     # Calculate the new points, using replace = TRUE and ordering on DivePoints
     p <- dmean(x, reorder = TRUE)
