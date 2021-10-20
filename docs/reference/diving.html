@@ -154,11 +154,27 @@ in a diving competition, including the way that is used in the Olympic
 Games.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>dmean</span><span class='op'>(</span><span class='va'>x</span>, DD <span class='op'>=</span> <span class='st'>"DD"</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>, trim <span class='op'>=</span> <span class='fl'>2</span><span class='op'>/</span><span class='fl'>7</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>dmean</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  DD <span class='op'>=</span> <span class='st'>"DD"</span>,
+  scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>,
+  trim <span class='op'>=</span> <span class='fl'>2</span><span class='op'>/</span><span class='fl'>7</span>,
+  replace <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  reorder <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
 
-<span class='fu'>dmedian</span><span class='op'>(</span><span class='va'>x</span>, DD <span class='op'>=</span> <span class='st'>"DD"</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>, type <span class='op'>=</span> <span class='fl'>6</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+<span class='fu'>dmedian</span><span class='op'>(</span>
+  <span class='va'>x</span>,
+  DD <span class='op'>=</span> <span class='st'>"DD"</span>,
+  scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>,
+  type <span class='op'>=</span> <span class='fl'>6</span>,
+  replace <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  reorder <span class='op'>=</span> <span class='cn'>TRUE</span>
+<span class='op'>)</span>
 
-<span class='fu'>dmode</span><span class='op'>(</span><span class='va'>x</span>, DD <span class='op'>=</span> <span class='st'>"DD"</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></pre>
+<span class='fu'>dmode</span><span class='op'>(</span><span class='va'>x</span>, DD <span class='op'>=</span> <span class='st'>"DD"</span>, scores <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"J"</span>, <span class='fl'>1</span><span class='op'>:</span><span class='fl'>7</span><span class='op'>)</span>, replace <span class='op'>=</span> <span class='cn'>TRUE</span>, reorder <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+
+<span class='fu'>tables</span><span class='op'>(</span><span class='va'>x</span>, type <span class='op'>=</span> <span class='fl'>1</span>, diverRanks <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -198,10 +214,29 @@ columns do not exist then the returned object is the same as the
 <code>replace = FALSE</code> case.</p></td>
     </tr>
     <tr>
+      <th>reorder</th>
+      <td><p>A logical scalar.  If <code>replace = TRUE</code> then
+<code>reorder</code> determines whether the order of the divers is changed
+to reflect the new values of <code>TotalPoints</code> at the end of the
+competition.</p></td>
+    </tr>
+    <tr>
       <th>type</th>
-      <td><p>Only relevant to <code>divemedian</code>.  Passed to
-<code><a href='https://rdrr.io/r/stats/quantile.html'>quantile</a></code>.  The default, <code>type = 6</code>, corresponds
-to the method that we have studied in STAT0002.</p></td>
+      <td><p>Determines the form of a data frame returned as a summary table.</p><ul>
+<li><p><code>type = 1</code>: DD, J1-J7 and dive points (those already in
+    <code>x</code>).</p></li>
+<li><p><code>type = 2</code>: like <code>type = 1</code> but gives dive points, and
+    points based on the mean, median and mode.</p></li>
+<li><p><code>type = 3</code>: like <code>type = 2</code> but gives only the total
+    points accumulated over the competition, ordered by dive points.</p></li>
+<li><p><code>type = 4</code>: like <code>type = 3</code> but totals are replaced by
+    ranks.</p></li>
+</ul></td>
+    </tr>
+    <tr>
+      <th>diverRanks</th>
+      <td><p>The ranks of the divers that should be included in a
+table. For example, <code>diverRanks</code> gives the medalists.</p></td>
     </tr>
     </table>
 
@@ -236,17 +271,56 @@ to the method that we have studied in STAT0002.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># The calculation used in competitions (trimmed sample sums)</span>
-<span class='fu'>dmean</span><span class='op'>(</span><span class='va'>daley</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in dmean(daley): object 'daley' not found</span></div><div class='input'>
+<span class='fu'>dmean</span><span class='op'>(</span><span class='va'>daley</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 102.00  81.60  97.20  97.20 101.75 102.60  90.10  94.50  89.25  91.20
+#&gt; [11] 102.60 112.75  98.60  91.20  91.80  80.50  94.35  91.80  75.20  91.80
+#&gt; [21]  85.75  81.00  94.35  86.40  68.80  91.80  91.80  73.80  83.25  86.40
+#&gt; [31]  83.20  79.20  88.20  56.10  75.00  80.00  72.00  86.40  75.85  86.40
+#&gt; [41]  35.70  75.60  57.60  61.20  74.25  76.50  72.00  88.80  68.80  72.60
+#&gt; [51]  39.60  88.80  69.70  68.40  60.80  79.20  46.20  79.55  56.10  72.00
+#&gt; [61]  67.20  59.40  48.60  69.70  66.60  72.15  67.20  59.40  59.50  42.50
+#&gt; [71]  72.15  81.00
+#&gt; attr(,"statistic")
+#&gt; [1] "DivePoints"</div><div class='input'>
 <span class='co'># An equivalent calculation without trimming</span>
-<span class='fu'>dmean</span><span class='op'>(</span><span class='va'>daley</span>, trim <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in dmean(daley, trim = 0): object 'daley' not found</span></div><div class='input'>
+<span class='fu'>dmean</span><span class='op'>(</span><span class='va'>daley</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span>, trim <span class='op'>=</span> <span class='fl'>0</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 100.54286  82.28571  96.42857  97.20000 102.27857 104.14286  88.88571
+#&gt;  [8]  93.00000  89.25000  92.01429 103.37143 113.33571  97.62857  91.20000
+#&gt; [15]  91.80000  81.00000  95.93571  91.80000  74.74286  90.34286  85.50000
+#&gt; [22]  79.45714  94.35000  86.40000  69.25714  93.25714  92.57143  74.05714
+#&gt; [29]  82.45714  84.08571  84.34286  78.49286  88.71429  56.10000  75.85714
+#&gt; [36]  79.54286  71.31429  87.17143  74.52857  85.62857  37.15714  74.82857
+#&gt; [43]  58.28571  61.71429  74.25000  76.50000  73.28571  91.17857  69.94286
+#&gt; [50]  72.12857  42.42857  89.59286  68.48571  68.65714  60.34286  79.90714
+#&gt; [57]  45.96429  80.07857  56.10000  71.31429  67.88571  60.94286  49.37143
+#&gt; [64]  67.02857  66.34286  73.73571  67.20000  59.40000  59.25000  43.71429
+#&gt; [71]  72.94286  79.45714
+#&gt; attr(,"statistic")
+#&gt; [1] "MeanPoints"</div><div class='input'>
 <span class='co'># An equivalent calculation based on a sample median</span>
-<span class='fu'>dmedian</span><span class='op'>(</span><span class='va'>daley</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in dmedian(daley): object 'daley' not found</span></div><div class='input'>
+<span class='fu'>dmedian</span><span class='op'>(</span><span class='va'>daley</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 102.00  81.60  97.20  97.20  99.90 102.60  91.80  94.50  89.25  91.20
+#&gt; [11] 102.60 110.70  96.90  91.20  91.80  78.75  94.35  91.80  76.80  91.80
+#&gt; [21]  84.00  81.00  94.35  86.40  67.20  91.80  91.80  75.60  83.25  86.40
+#&gt; [31]  81.60  79.20  86.40  56.10  76.50  81.60  72.00  86.40  77.70  86.40
+#&gt; [41]  35.70  75.60  57.60  59.40  74.25  76.50  70.20  88.80  67.20  74.25
+#&gt; [51]  39.60  88.80  71.40  70.20  62.40  79.20  44.55  77.70  56.10  72.00
+#&gt; [61]  67.20  59.40  48.60  71.40  64.80  72.15  67.20  59.40  57.75  40.80
+#&gt; [71]  72.15  81.00
+#&gt; attr(,"statistic")
+#&gt; [1] "MedianPoints"</div><div class='input'>
 <span class='co'># An equivalent calculation based on a sample mode</span>
-<span class='fu'>dmode</span><span class='op'>(</span><span class='va'>daley</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in dmode(daley): object 'daley' not found</span></div></pre>
+<span class='fu'>dmode</span><span class='op'>(</span><span class='va'>daley</span>, replace <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;  [1] 102.000  81.600  97.200  97.200  99.900 102.600  91.800  94.500  89.250
+#&gt; [10]  91.200 102.600 110.700  99.450  91.200  91.800  78.750  94.350  91.800
+#&gt; [19]  76.800  91.800  86.625  81.000  94.350  86.400  67.200  91.800  91.800
+#&gt; [28]  75.600  83.250  86.400  81.600  79.200  86.400  56.100  72.000  81.600
+#&gt; [37]  72.000  86.400  77.700  86.400  35.700  75.600  57.600  59.400  74.250
+#&gt; [46]  76.500  70.200  88.800  67.200  74.250  39.600  88.800  71.400  67.500
+#&gt; [55]  62.400  79.200  47.025  77.700  56.100  72.000  67.200  59.400  48.600
+#&gt; [64]  71.400  67.500  72.150  67.200  59.400  60.375  40.800  72.150  81.000
+#&gt; attr(,"statistic")
+#&gt; [1] "ModePoints"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

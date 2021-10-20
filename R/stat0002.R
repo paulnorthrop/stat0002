@@ -376,14 +376,13 @@ NULL
 #' Detailed results from the final of the Men's Individual 10m platform final
 #' at the Tokyo 2020 Olympic Games.
 #'
-#' @format A data frame with 60 observations on the following 18 variables.
+#' @format A data frame with 60 observations on the following 17 variables.
 #'   Each of the 10 competitors has one row of data for each of their 6 dives.
 #'   For each competitor, the first row relates to the first round of dives
 #'   and the sixth row the last round.
 #' \itemize{
 #' \item{\code{Rank:}}{ Final position (rank) in competition.}
-#' \item{\code{Surname:}}{ Surname / family name.}
-#' \item{\code{FirstName:}}{ first name / given name.}
+#' \item{\code{Name:}}{ Full name.}
 #' \item{\code{NOCcode:}}{ Country code.}
 #' \item{\code{DiveNo:}}{ Code for the type of dive performed.}
 #' \item{\code{DD:}}{ Degree of difficulty: the larger the number the more

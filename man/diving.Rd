@@ -5,13 +5,30 @@
 \alias{dmean}
 \alias{dmedian}
 \alias{dmode}
+\alias{tables}
 \title{Calculation of diving scores}
 \usage{
-dmean(x, DD = "DD", scores = paste0("J", 1:7), trim = 2/7, replace = FALSE)
+dmean(
+  x,
+  DD = "DD",
+  scores = paste0("J", 1:7),
+  trim = 2/7,
+  replace = TRUE,
+  reorder = TRUE
+)
 
-dmedian(x, DD = "DD", scores = paste0("J", 1:7), type = 6, replace = FALSE)
+dmedian(
+  x,
+  DD = "DD",
+  scores = paste0("J", 1:7),
+  type = 6,
+  replace = TRUE,
+  reorder = TRUE
+)
 
-dmode(x, DD = "DD", scores = paste0("J", 1:7), replace = FALSE)
+dmode(x, DD = "DD", scores = paste0("J", 1:7), replace = TRUE, reorder = TRUE)
+
+tables(x, type = 1, diverRanks = 1)
 }
 \arguments{
 \item{x}{A numeric matrix or data frame, ideally of the same format as
@@ -38,9 +55,25 @@ the dive points and this data frame is returned.  If any of these named
 columns do not exist then the returned object is the same as the
 \code{replace = FALSE} case.}
 
-\item{type}{Only relevant to \code{divemedian}.  Passed to
-\code{\link[stats]{quantile}}.  The default, \code{type = 6}, corresponds
-to the method that we have studied in STAT0002.}
+\item{reorder}{A logical scalar.  If \code{replace = TRUE} then
+\code{reorder} determines whether the order of the divers is changed
+to reflect the new values of \code{TotalPoints} at the end of the
+competition.}
+
+\item{type}{Determines the form of a data frame returned as a summary table.
+\itemize{
+  \item {\code{type = 1}: DD, J1-J7 and dive points (those already in
+    \code{x}).}
+  \item {\code{type = 2}: like \code{type = 1} but gives dive points, and
+    points based on the mean, median and mode.}
+  \item {\code{type = 3}: like \code{type = 2} but gives only the total
+    points accumulated over the competition, ordered by dive points.}
+  \item {\code{type = 4}: like \code{type = 3} but totals are replaced by
+    ranks.}
+}}
+
+\item{diverRanks}{The ranks of the divers that should be included in a
+table. For example, \code{diverRanks} gives the medalists.}
 }
 \value{
 A numeric vector dive points if \code{replace = FALSE} or \code{x}
@@ -76,16 +109,16 @@ In the default case, e.g. \code{dmean(daley)}, the 2 smallest and
 }
 \examples{
 # The calculation used in competitions (trimmed sample sums)
-dmean(daley)
+dmean(daley, replace = FALSE)
 
 # An equivalent calculation without trimming
-dmean(daley, trim = 0)
+dmean(daley, replace = FALSE, trim = 0)
 
 # An equivalent calculation based on a sample median
-dmedian(daley)
+dmedian(daley, replace = FALSE)
 
 # An equivalent calculation based on a sample mode
-dmode(daley)
+dmode(daley, replace = FALSE)
 }
 \seealso{
 \code{\link{daley}} for Tokyo 2020 Olympics Diving Men's
