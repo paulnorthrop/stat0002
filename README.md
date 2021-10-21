@@ -35,8 +35,14 @@ installed.
 
 ### Installation of `stat0002`
 
-Copy and paste **ONE** of the following into the R Console and press
-return. Choose the option that is relevant to your computer.
+Copy and paste the following into the R console and press return.
+
+``` r
+install.packages(c("distributions3", "plotrix", "rpanel", "rust", "smovie", "SuppDists", "tkrplot"))
+```
+
+Then copy and paste **ONE** of the following into the R Console and
+press return. Choose the option that is relevant to your computer.
 
 #### Windows
 
