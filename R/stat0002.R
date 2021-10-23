@@ -408,5 +408,5 @@ NULL
 #'   largest scores from the 7 scores \code{J1-J7}; calculating the sum of the
 #'   3 scores that remain; and multiplying the result by \code{DD}.
 #' @source \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/olympic-schedule-and-results.htm}{Tokyo 2020 Diving Results}, specifically
-#' \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/results-men-s-10m-platform-fnl-000100-.htm}{Men's 10m Platform Results}
+#' \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/results-men-s-10m-platform-fnl-000100-.htm}{Men's 10m Platform Results}.
 "daley"
