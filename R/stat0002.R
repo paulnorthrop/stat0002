@@ -410,3 +410,33 @@ NULL
 #' @source \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/olympic-schedule-and-results.htm}{Tokyo 2020 Diving Results}, specifically
 #' \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/results-men-s-10m-platform-fnl-000100-.htm}{Men's 10m Platform Results}.
 "daley"
+
+# =========================== Kerrich's coin data =============================
+
+#' Kerrich's coin data
+#'
+#' A summary of the 10,000 coin throws conducted by Jon Kerrich.
+#'
+#' @format A data frame with 35 observations on 2 variables:
+#' \itemize{
+#'   \item{\code{throws:}}{ the number of throws conducted.}
+#'   \item{\code{heads:}}{ the corresponding cumulative number of heads
+#'     obtained.}
+#' }
+#' @details These data are considered in
+#' \href{https://paulnorthrop.github.io/stat0002book/probability.html#relative-frequency-definition-of-probability}{Section 3.2}
+#'   of the STAT0002 notes.
+#' @references Kerrich, J. E. (1946). An Experimental Introduction to the Theory
+#'   of Probability. E. Munksgaard.
+#' @examples
+#' # This code produces the plot in Figure 3.1 of the STAT0002 notes
+#' plot(kerrich$throws, kerrich$heads / kerrich$throws,
+#'      ylab = "proportion of heads",
+#'      xlab = "number of throws (logarithmic scale)", lwd = 2, type = "l",
+#'      log = "x", ylim = c(0,1), axes = FALSE)
+#' abline(h = 0.5, lty = 2)
+#' axis(1, labels = as.character(c(3, 10, 30, 100, 300, 1000, 3000, 10000)),
+#'      at=c(3, 10, 30, 100, 300, 1000, 3000, 10000))
+#' axis(2, labels = c(0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0),
+#'      at=c(0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0))
+"kerrich"
