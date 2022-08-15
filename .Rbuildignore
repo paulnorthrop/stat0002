@@ -16,3 +16,4 @@
 ^days\.Rdata$
 ^build\.R$
 ^install$
+^\.github$
