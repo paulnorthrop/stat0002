@@ -53,7 +53,8 @@
 #'   \item {\link[=ftse]{FTSE 100 Share Index}}
 #'   \item {\link[=world_bank]{World Bank Development Indicators}}
 #'   \item {\link[=flu]{Influenza data}}
-#'   \item {\link[=UCBAdmissions]{Student Admissions at UC Berkeley}}
+#'   \item {\link[=kerrich]{Kerrich's coin data}}
+#'   \item {\link[=berkeley]{Student Admissions at UC Berkeley}}
 #'   \item {\link[=USelection]{The 2000 U.S. Presidential Election}}
 #'   \item {\link[=aussie_births]{Australian Birth Times Data}}
 #'   \item {\link[=hubble]{Nebulae data from Hubble (1929)}}
@@ -413,7 +414,7 @@ NULL
 
 # =========================== Kerrich's coin data =============================
 
-#' Kerrich's coin data
+#' Kerrich's oin Data
 #'
 #' A summary of the 10,000 coin throws conducted by Jon Kerrich.
 #'
@@ -440,3 +441,11 @@ NULL
 #' axis(2, labels = c(0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0),
 #'      at=c(0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0))
 "kerrich"
+
+#' Student Admisions at UCL Berkeley
+#'
+#' Aggregate data on applicants to graduate school at Berkeley for the six
+#' largest departments in 1973 classified by admission and sex.
+#' @details This is a copy of the \code{\link[datasets]{UCBAdmissions}} data
+#'   provided in the \code{\link[datasets:datasets-package]{datasets}} package.
+"berkeley"
