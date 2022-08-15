@@ -71,6 +71,8 @@ If you have any questions about this package please ask them via the
   \item {\link[=aussie_births]{Australian Birth Times Data}}
   \item {\link[=hubble]{Nebulae data from Hubble (1929)}}
   \item {\link[=birds]{Between-species dominance in birds}}
+  \item {\link[=daley]{Tokyo 2020 Olympics Men's Individual 10m platform
+    results}}
 }
 }
 
