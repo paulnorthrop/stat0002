@@ -37,6 +37,7 @@
 #'   \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2b-graphs-vignette.html}{Chapter 2: Graphs (One Variable)}}
 #'   \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2c-graphs-vignette.html}{Chapter 2: Graphs (More Than One Variable)}}
 #'   \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2d-box-cox-transformation-vignette.html}{Chapter 2: Transformation Of Variable}}
+#'   \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch3-probability-vignette.html}{Chapter 3: Probability}}
 #'   \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch5a-discrete-random-variables-vignette.html}{Chapter 5: binomial, geometric and Poisson distributions}}
 #'   \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch5b-continuous-random-variables-vignette.html}{Chapter 5: uniform, exponential and normal distributions}}
 #' }
