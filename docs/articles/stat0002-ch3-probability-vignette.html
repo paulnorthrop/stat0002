@@ -117,9 +117,122 @@ Northrop</h4>
 <h2 id="kerrichs-coin-data">Kerrich’s coin data<a class="anchor" aria-label="anchor" href="#kerrichs-coin-data"></a>
 </h2>
 <p>A summary of these data are available in the data frame
-<code>kerrich</code>. Use <code><a href="../reference/kerrich.html">?kerrich</a></code> to find out about these
-data.</p>
+<code>kerrich</code>. Use <code><a href="../reference/kerrich.html">?kerrich</a></code> for more
+information.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># This code produces the plot in Figure 3.1 of the STAT0002 notes</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(kerrich<span class="sc">$</span>throws, kerrich<span class="sc">$</span>heads <span class="sc">/</span> kerrich<span class="sc">$</span>throws,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">ylab =</span> <span class="st">"proportion of heads"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">xlab =</span> <span class="st">"number of throws (logarithmic scale)"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">"l"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">log =</span> <span class="st">"x"</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h =</span> <span class="fl">0.5</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">labels =</span> <span class="fu">as.character</span>(<span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>)),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">at=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="dv">30</span>, <span class="dv">100</span>, <span class="dv">300</span>, <span class="dv">1000</span>, <span class="dv">3000</span>, <span class="dv">10000</span>))</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">0.8</span>, <span class="fl">1.0</span>),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">at=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">0.8</span>, <span class="fl">1.0</span>))</span></code></pre></div>
+<p><img src="stat0002-ch3-probability-vignette_files/figure-html/kerrichplot-1.png" width="672" style="display: block; margin: auto;"></p>
+<p>We could extract from the data frame <code>kerrich</code> the number
+of trials (the 10,000 throws of the coin) and the number of heads. From
+this we can calculate an estimate of the probability <span class="math inline">\(P(H)\)</span> that the outcome of a trial is a
+head.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> trials <span class="ot">&lt;-</span> kerrich[<span class="fu">nrow</span>(kerrich), <span class="st">"throws"</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> heads <span class="ot">&lt;-</span> kerrich[<span class="fu">nrow</span>(kerrich), <span class="st">"heads"</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">c</span>(heads, trials)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="dv">5067</span> <span class="dv">10000</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> phat <span class="ot">&lt;-</span> heads <span class="sc">/</span> trials</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> phat</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.5067</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="graduate-admissions-at-berkeley">Graduate Admissions at Berkeley<a class="anchor" aria-label="anchor" href="#graduate-admissions-at-berkeley"></a>
+</h2>
+<p>The object <code>berkeley</code> is a 3-dimensional array that
+contains information about applicants to graduate school at UC Berkeley
+in 1973 for the six largest departments. Use <code><a href="https://rdrr.io/r/datasets/UCBAdmissions.html" class="external-link">?UCBAdmissions</a></code>
+for more information. The 3 dimensions of the array correspond to the
+gender of the applicant (dimension named <code>Gender</code>), whether
+or not they were admitted (named <code>Admit</code>) and a letter code
+for the department to which they applied (named <code>Dept</code>). A
+given entry in <code>berkeley</code> gives the total number of
+applicants in the correponding (<code>Admit</code>, <code>Gender</code>,
+<code>Dept</code>) category. In Chapter 3 we consider only the
+dimensions <code>Admit</code> and <code>Gender</code>.</p>
+<p>The following code collapses the 3-dimensional array to a
+2-dimensional array by summing the frequencies over all the six
+departments, which gives the central part of Table 3.3 in the notes.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># 2-way table: sex and outcome</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> sex_outcome <span class="ot">&lt;-</span> <span class="fu">apply</span>(berkeley, <span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">FUN =</span> sum)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">colnames</span>(sex_outcome) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"R"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rownames</span>(sex_outcome) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sex_outcome</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>      Admit</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>Gender    A    R</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>     M <span class="dv">1198</span> <span class="dv">1493</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>     F  <span class="dv">557</span> <span class="dv">1278</span></span></code></pre></div>
+<p>Now we add the column and row totals.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Add column totals</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> sex_outcome <span class="ot">&lt;-</span> <span class="fu">rbind</span>(sex_outcome, <span class="at">total =</span> <span class="fu">colSums</span>(sex_outcome))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Add row totals</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> sex_outcome <span class="ot">&lt;-</span> <span class="fu">cbind</span>(sex_outcome, <span class="at">total =</span> <span class="fu">rowSums</span>(sex_outcome))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sex_outcome</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>         A    R total</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>M     <span class="dv">1198</span> <span class="dv">1493</span>  <span class="dv">2691</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>F      <span class="dv">557</span> <span class="dv">1278</span>  <span class="dv">1835</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>total <span class="dv">1755</span> <span class="dv">2771</span>  <span class="dv">4526</span></span></code></pre></div>
+<p>We can divide by <span class="math inline">\(n\)</span> (4526) to
+produce Table 3.5 of the notes.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Convert frequencies to probabilities</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> pso <span class="ot">&lt;-</span> sex_outcome<span class="sc">/</span> sex_outcome[<span class="dv">3</span>, <span class="dv">3</span>]</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(pso, <span class="dv">3</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>          A     R total</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>M     <span class="fl">0.265</span> <span class="fl">0.330</span> <span class="fl">0.595</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>F     <span class="fl">0.123</span> <span class="fl">0.282</span> <span class="fl">0.405</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>total <span class="fl">0.388</span> <span class="fl">0.612</span> <span class="fl">1.000</span></span></code></pre></div>
+<p>Notice that <code>sex_outcome[3, 3]</code> extracts the [3, 3]
+element of the matrix <code>sex_outcome</code>, that is, 4526.</p>
+<p><strong>Can you use R to perform some of the calculations that are
+performed in Section 3.4 and/or 3.5 of the notes?</strong></p>
+</div>
+<div class="section level2">
+<h2 id="blood-types-data">Blood types data<a class="anchor" aria-label="anchor" href="#blood-types-data"></a>
+</h2>
+<p>A summary of these data are available in the data frame
+<code>blood_types</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> blood_types</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  ABO  Rh percentage</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>   O Rh<span class="sc">+</span>         <span class="dv">37</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>   A Rh<span class="sc">+</span>         <span class="dv">35</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>   B Rh<span class="sc">+</span>          <span class="dv">8</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>  AB Rh<span class="sc">+</span>          <span class="dv">3</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>   O Rh<span class="sc">-</span>          <span class="dv">7</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>   A Rh<span class="sc">-</span>          <span class="dv">7</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>   B Rh<span class="sc">-</span>          <span class="dv">2</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>  AB Rh<span class="sc">-</span>          <span class="dv">1</span></span></code></pre></div>
+<p>One way to estimate the probabilities given on which Table 3.13 is
+based is to use the <code>aggregate</code> function.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(percentage <span class="sc">~</span> Rh, <span class="at">data =</span> blood_types, <span class="at">FUN =</span> sum) </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>   Rh percentage</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> Rh<span class="sc">-</span>         <span class="dv">17</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> Rh<span class="sc">+</span>         <span class="dv">83</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(percentage <span class="sc">~</span> ABO, <span class="at">data =</span> blood_types, <span class="at">FUN =</span> sum)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  ABO percentage</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>   A         <span class="dv">42</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  AB          <span class="dv">4</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>   B         <span class="dv">10</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>   O         <span class="dv">44</span></span></code></pre></div>
+<p>To divide by 100 to convert the frequencies to estimates of
+probability we could do the following.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> propn <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">sum</span>(x) <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(percentage <span class="sc">~</span> Rh, <span class="at">data =</span> blood_types, <span class="at">FUN =</span> propn) </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>   Rh percentage</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> Rh<span class="sc">-</span>       <span class="fl">0.17</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> Rh<span class="sc">+</span>       <span class="fl">0.83</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">aggregate</span>(percentage <span class="sc">~</span> ABO, <span class="at">data =</span> blood_types, <span class="at">FUN =</span> propn)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  ABO percentage</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>   A       <span class="fl">0.42</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  AB       <span class="fl">0.04</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>   B       <span class="fl">0.10</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>   O       <span class="fl">0.44</span></span></code></pre></div>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script>
