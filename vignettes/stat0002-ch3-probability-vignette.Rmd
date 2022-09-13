@@ -1,0 +1,35 @@
+---
+title: "Chapter 3: Probability"
+author: "Paul Northrop"
+date: ""
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Chapter 3: Probability}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: stat0002.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE)
+#devtools::load_all()
+```
+
+This vignette provides R code reproduce some of the content of Chapter 3 of the STAT0002 notes.
+
+The R code used in this vignette are available: [probability-vignette.R](stat0002-ch3-probability-vignette.R).
+
+## Kerrich's coin data
+
+A summary of these data are available in the data frame `kerrich`.  Use `?kerrich` to find out about these data.
+
+```{r, message = FALSE}
+library(stat0002)
+```
+
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
+</script>

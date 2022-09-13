@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,16 +40,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -72,6 +68,9 @@
       <a href="../articles/stat0002-ch2d-box-cox-transformation-vignette.html">Chapter 2: Transformation Of Variable</a>
     </li>
     <li>
+      <a href="../articles/stat0002-ch3-probability-vignette.html">Chapter 3: Probability</a>
+    </li>
+    <li>
       <a href="../articles/stat0002-ch5a-discrete-random-variables-vignette.html">Chapter 5: binomial, geometric and Poisson distributions</a>
     </li>
     <li>
@@ -82,7 +81,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -97,31 +96,42 @@
 
       
 
-      </header><script src="stat0002-ch2c-graphs-vignette_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Chapter 2: Graphs (More Than One Variable)</h1>
-                        <h4 class="author">Paul Northrop</h4>
+                        <h4 data-toc-skip class="author">Paul
+Northrop</h4>
             
-            <h4 class="date">2021-10-23</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2c-graphs-vignette.Rmd"><code>vignettes/stat0002-ch2c-graphs-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/HEAD/vignettes/stat0002-ch2c-graphs-vignette.Rmd" class="external-link"><code>vignettes/stat0002-ch2c-graphs-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch2c-graphs-vignette.Rmd</code></div>
 
     </div>
 
     
     
-<p>The main purpose of this vignette is to provide R code to produce graphs that involve more than one variable. We consider two general situations: (i) plotting the values of a continuous variable for different values of a categorical variable (see <a href="#the-oxford-birth-times-data">The Oxford Birth Times data</a>) and (ii) scatter plots of one variable against another (see <a href="#the-2000-us-presidential-election-data">The 2000 US Presidential Election data</a>). See also the <a href="stat0002-ch2b-graphs-vignette.html">Chapter 2: Graphs (one variable)</a>.</p>
+<p>The main purpose of this vignette is to provide R code to produce
+graphs that involve more than one variable. We consider two general
+situations: (i) plotting the values of a continuous variable for
+different values of a categorical variable (see <a href="#the-oxford-birth-times-data">The Oxford Birth Times data</a>) and
+(ii) scatter plots of one variable against another (see <a href="#the-2000-us-presidential-election-data">The 2000 US Presidential
+Election data</a>). See also the <a href="stat0002-ch2b-graphs-vignette.html">Chapter 2: Graphs (one
+variable)</a>.</p>
 <p>The R code used in this vignette are available: <a href="stat0002-ch2b-graphs-vignette.R">stat0002-ch2b-graphs-vignette.R</a>.</p>
-<div id="the-oxford-birth-times-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-oxford-birth-times-data" class="anchor"></a>The Oxford Birth Times data</h2>
-<p>These data are available in the data frame <code>ox_births</code>.</p>
+<div class="section level2">
+<h2 id="the-oxford-birth-times-data">The Oxford Birth Times data<a class="anchor" aria-label="anchor" href="#the-oxford-birth-times-data"></a>
+</h2>
+<p>These data are available in the data frame
+<code>ox_births</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> birth_times <span class="ot">&lt;-</span> ox_births[, <span class="st">"time"</span>]</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> day <span class="ot">&lt;-</span> ox_births[, <span class="st">"day"</span>]</span></code></pre></div>
-<p>To display these data we manipulate them into a matrix that is of the same format as Table 2.1 in the notes. The number of birth times varies between days so we pad the matrix with R’s missing values code <code>NA</code> in order that each column of the matrix has the same number of rows.</p>
+<p>To display these data we manipulate them into a matrix that is of the
+same format as Table 2.1 in the notes. The number of birth times varies
+between days so we pad the matrix with R’s missing values code
+<code>NA</code> in order that each column of the matrix has the same
+number of rows.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, <span class="at">ncol =</span> <span class="dv">7</span>, <span class="at">nrow =</span> <span class="dv">16</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>) {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   day_i_times <span class="ot">&lt;-</span> ox_births<span class="sc">$</span>time[<span class="fu">which</span>(ox_births<span class="sc">$</span>day <span class="sc">==</span> i)]</span>
@@ -146,7 +156,10 @@
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>[<span class="dv">14</span>,] <span class="fl">10.40</span> <span class="fl">11.20</span>    <span class="cn">NA</span>    <span class="cn">NA</span> <span class="fl">14.30</span>    <span class="cn">NA</span>    <span class="cn">NA</span></span>
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>[<span class="dv">15</span>,] <span class="fl">16.00</span> <span class="fl">15.00</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>[<span class="dv">16</span>,] <span class="fl">19.00</span> <span class="fl">16.50</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span>    <span class="cn">NA</span></span></code></pre></div>
-<p>We have a numeric continuous variable, <code>birth_times</code>, and a categorical variable, <code>day</code>. The following code produces separate boxplots of <code>birth_times</code> for each day of the week.</p>
+<p>We have a numeric continuous variable, <code>birth_times</code>, and
+a categorical variable, <code>day</code>. The following code produces
+separate boxplots of <code>birth_times</code> for each day of the
+week.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xlab <span class="ot">&lt;-</span> <span class="st">"time (hours)"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x_labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(birth_times), <span class="fu">pretty</span>(birth_times), <span class="fu">max</span>(birth_times))</span>
@@ -166,10 +179,11 @@
 <span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">labels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>, <span class="at">lwd =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">0</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-4-1.png" width="326.4"><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-4-2.png" width="326.4"><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-4-3.png" width="326.4"><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-4-4.png" width="326.4"></p>
 </div>
-<div id="the-2000-us-presidential-election-in-florida" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-2000-us-presidential-election-in-florida" class="anchor"></a>The 2000 US Presidential Election in Florida</h2>
-<p>These data are available in the data frame <code>USelection</code>. See <code><a href="../reference/USelection.html">?USelection</a></code> for details.</p>
+<div class="section level2">
+<h2 id="the-2000-us-presidential-election-in-florida">The 2000 US Presidential Election in Florida<a class="anchor" aria-label="anchor" href="#the-2000-us-presidential-election-in-florida"></a>
+</h2>
+<p>These data are available in the data frame <code>USelection</code>.
+See <code><a href="../reference/USelection.html">?USelection</a></code> for details.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># County identifiers and location</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">head</span>(USelection[, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  co co_names  lat  lon</span>
@@ -197,14 +211,17 @@
 <span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>   <span class="dv">5414</span>   <span class="dv">3075</span>   <span class="dv">28</span>   <span class="dv">84</span>    <span class="dv">0</span>    <span class="dv">2</span>   <span class="dv">65</span>    <span class="dv">0</span>    <span class="dv">2</span>    <span class="dv">3</span></span>
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="dv">115185</span>  <span class="dv">97318</span>  <span class="dv">643</span> <span class="dv">4470</span>   <span class="dv">11</span>   <span class="dv">39</span>  <span class="dv">570</span>   <span class="dv">11</span>   <span class="dv">72</span>   <span class="dv">76</span></span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">177323</span> <span class="dv">386561</span> <span class="dv">1212</span> <span class="dv">7101</span>   <span class="dv">50</span>  <span class="dv">129</span>  <span class="dv">788</span>   <span class="dv">34</span>   <span class="dv">74</span>  <span class="dv">124</span></span></code></pre></div>
-<p>For the moment we simply produce some scatter plots. A separate vignette will be devoted to these data.</p>
+<p>For the moment we simply produce some scatter plots. A separate
+vignette will be devoted to these data.</p>
 <p>A plot to show the locations of the counties.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="sc">-</span>USelection[, <span class="st">"lon"</span>], USelection[, <span class="st">"lat"</span>], <span class="at">xlab =</span> <span class="st">"longitude (degrees north)"</span>, <span class="at">ylab =</span> <span class="st">"latitude (degrees east)"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-6-1.png" width="576"></p>
 <ol style="list-style-type: decimal">
-<li><strong>Can you see the outline of the state of Florida?</strong></li>
+<li><strong>Can you see the outline of the state of
+Florida?</strong></li>
 </ol>
-<p>A plot of the percentage of the vote for Buchanan against population size.</p>
+<p>A plot of the percentage of the vote for Buchanan against population
+size.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> pbuch <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> USelection<span class="sc">$</span>buch<span class="sc">/</span>USelection<span class="sc">$</span>tvot</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> is_PB <span class="ot">&lt;-</span> USelection[, <span class="st">"co_names"</span>] <span class="sc">==</span> <span class="st">"PalmBeach"</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> pch <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> is_PB</span>
@@ -216,12 +233,15 @@
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">text</span>(USelection[which_PB, <span class="st">"npop"</span>], pbuch[which_PB] <span class="sc">+</span> <span class="fl">0.1</span>, <span class="st">"Palm Beach"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-7-1.png" width="576"></p>
 <ol start="2" style="list-style-type: decimal">
-<li><strong>Can you see how the code used to identify Palm Beach on the plot works?</strong></li>
+<li><strong>Can you see how the code used to identify Palm Beach on the
+plot works?</strong></li>
 </ol>
 <p>Pairwise scatter plots of the demographic variables.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pairs</span>(USelection[, <span class="dv">5</span><span class="sc">:</span><span class="dv">12</span>])</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-8-1.png" width="672"></p>
-<p>A plot of the square root of the percentage of the vote for Buchanan against population size, in thousands of people. The horizontal axis has been plotted on a log scale.</p>
+<p>A plot of the square root of the percentage of the vote for Buchanan
+against population size, in thousands of people. The horizontal axis has
+been plotted on a log scale.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> USelection<span class="sc">$</span>npop <span class="sc">/</span> <span class="dv">1000</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(pbuch)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ystring <span class="ot">&lt;-</span> <span class="fu">expression</span>(<span class="fu">sqrt</span>(<span class="st">"% Buchanan vote"</span>))</span>
@@ -231,13 +251,18 @@
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">text</span>(x[which_PB], y[which_PB] <span class="sc">+</span> <span class="fl">0.04</span>, <span class="st">"Palm Beach"</span>, <span class="at">cex =</span> <span class="fl">0.8</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-9-1.png" width="672"></p>
 <ol start="3" style="list-style-type: decimal">
-<li><p><strong>Can you see how the different method to identify Palm Beach works?</strong></p></li>
-<li><p><strong>Can you guess what the numbers on the axes are? See <code>scatter</code> to find out.</strong></p></li>
+<li><p><strong>Can you see how the different method to identify Palm
+Beach works?</strong></p></li>
+<li><p><strong>Can you guess what the numbers on the axes are? See
+<code>scatter</code> to find out.</strong></p></li>
 </ol>
-<p>Similarly, we use <code>scatter_hist</code> to create a scatter plot in which the distribution of each variable is summarized by a histogram.</p>
+<p>Similarly, we use <code>scatter_hist</code> to create a scatter plot
+in which the distribution of each variable is summarized by a
+histogram.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">scatter_hist</span>(x, y, <span class="at">log =</span> <span class="st">"x"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span><span class="st">"Total Population (1000s)"</span>, <span class="at">ylab =</span> ystring)</span></code></pre></div>
 <p><img src="stat0002-ch2c-graphs-vignette_files/figure-html/unnamed-chunk-10-1.png" width="576"></p>
-<p>The plot in the lecture slides is produced by specifying particular bins for the histograms.</p>
+<p>The plot in the lecture slides is produced by specifying particular
+bins for the histograms.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> logx <span class="ot">&lt;-</span> <span class="fu">log</span>(x)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xbreaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(logx), <span class="at">to =</span> <span class="fu">max</span>(logx), <span class="at">len =</span> <span class="dv">25</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ybreaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">min</span>(y), <span class="at">to =</span> <span class="fu">max</span>(y), <span class="at">len =</span> <span class="dv">25</span>)</span>
@@ -260,11 +285,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Paul J. Northrop.</p>
+  <p></p>
+<p>Developed by Paul J. Northrop.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -272,6 +299,8 @@
 
   
 
+
+  
 
   </body>
 </html>

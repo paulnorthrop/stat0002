@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,16 +40,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -72,6 +68,9 @@
       <a href="../articles/stat0002-ch2d-box-cox-transformation-vignette.html">Chapter 2: Transformation Of Variable</a>
     </li>
     <li>
+      <a href="../articles/stat0002-ch3-probability-vignette.html">Chapter 3: Probability</a>
+    </li>
+    <li>
       <a href="../articles/stat0002-ch5a-discrete-random-variables-vignette.html">Chapter 5: binomial, geometric and Poisson distributions</a>
     </li>
     <li>
@@ -82,7 +81,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -97,43 +96,69 @@
 
       
 
-      </header><script src="stat0002-ch1a-shuttle-vignette_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Chapter 1: The Challenger Space Shuttle Disaster</h1>
-                        <h4 class="author">Paul Northrop</h4>
+      <h1 data-toc-skip>Chapter 1: The Challenger Space Shuttle
+Disaster</h1>
+                        <h4 data-toc-skip class="author">Paul
+Northrop</h4>
             
-            <h4 class="date">2021-10-23</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch1a-shuttle-vignette.Rmd"><code>vignettes/stat0002-ch1a-shuttle-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/HEAD/vignettes/stat0002-ch1a-shuttle-vignette.Rmd" class="external-link"><code>vignettes/stat0002-ch1a-shuttle-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch1a-shuttle-vignette.Rmd</code></div>
 
     </div>
 
     
     
-<div id="preliminaries" class="section level2">
-<h2 class="hasAnchor">
-<a href="#preliminaries" class="anchor"></a>Preliminaries</h2>
-<p>This vignette contains ideas and techniques that are not covered until later in STAT0002 and others (stochastic simulation and logistic regression) that are not part of the STAT0002 syllabus. Therefore, you should not worry too much about these details: just try to get a sense of how the R code works. The questions and comments below are there to prompt you to think about things.</p>
-<p>For information about R see the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8581">STAT0004 Moodle page</a> (if you are taking STAT1006) or the <a href="https://moodle.ucl.ac.uk/course/view.php?id=10773">Introduction to R Moodle page</a> (if you are not taking STAT1006, e.g. Natural Sciences students).</p>
-<p>The R code used in this vignette are available: <a href="stat0002-ch1a-shuttle-vignette.R">shuttle-vignette.R</a>. The functions <code>shuttle_sim</code> and <code>shuttle_sim_plot</code> can be viewed by typing the name of the function at R command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code>.</p>
+<div class="section level2">
+<h2 id="preliminaries">Preliminaries<a class="anchor" aria-label="anchor" href="#preliminaries"></a>
+</h2>
+<p>This vignette contains ideas and techniques that are not covered
+until later in STAT0002 and others (stochastic simulation and logistic
+regression) that are not part of the STAT0002 syllabus. Therefore, you
+should not worry too much about these details: just try to get a sense
+of how the R code works. The questions and comments below are there to
+prompt you to think about things.</p>
+<p>For information about R see the <a href="https://moodle.ucl.ac.uk/course/view.php?id=8581" class="external-link">STAT0004 Moodle
+page</a> (if you are taking STAT1006) or the <a href="https://moodle.ucl.ac.uk/course/view.php?id=10773" class="external-link">Introduction to
+R Moodle page</a> (if you are not taking STAT1006, e.g. Natural Sciences
+students).</p>
+<p>The R code used in this vignette are available: <a href="stat0002-ch1a-shuttle-vignette.R">shuttle-vignette.R</a>. The
+functions <code>shuttle_sim</code> and <code>shuttle_sim_plot</code> can
+be viewed by typing the name of the function at R command prompt
+<code>&gt;</code>.</p>
 </div>
-<div id="the-challenger-space-shuttle-disaster" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-challenger-space-shuttle-disaster" class="anchor"></a>The Challenger Space Shuttle Disaster</h2>
-<p>In the first lecture we discussed the Challenger Space Shuttle Disaster. In this vignette we are concerned mainly with the R code, so there is very little discussion of the problem, the data or statistical ideas.</p>
-<p>In this vignette we consider how R can be used to analyse data related to this disaster. See <span class="citation">Dalal, Fowlkes, and Hoadley (1989)</span> for more information about these data and analyses to estimate the probability of a catastrophic failure of the Challenger space shuttle under the launch conditions on 28th January 1986. This paper is used as a worked example for the STAT0002 Meet your Professor ICA.</p>
-<p>In the following R commands follow the command prompt <code><a href="https://rdrr.io/r/base/Comparison.html">&gt;</a></code> and <code>#</code> is used to create a comment, that is, to prevent R from trying to execute text that contains comments rather than a command.</p>
+<div class="section level2">
+<h2 id="the-challenger-space-shuttle-disaster">The Challenger Space Shuttle Disaster<a class="anchor" aria-label="anchor" href="#the-challenger-space-shuttle-disaster"></a>
+</h2>
+<p>In the first lecture we discussed the Challenger Space Shuttle
+Disaster. In this vignette we are concerned mainly with the R code, so
+there is very little discussion of the problem, the data or statistical
+ideas.</p>
+<p>In this vignette we consider how R can be used to analyse data
+related to this disaster. See <span class="citation">Dalal, Fowlkes, and
+Hoadley (1989)</span> for more information about these data and analyses
+to estimate the probability of a catastrophic failure of the Challenger
+space shuttle under the launch conditions on 28th January 1986. This
+paper is used as a worked example for the STAT0002 Meet your Professor
+ICA.</p>
+<p>In the following R commands follow the command prompt
+<code>&gt;</code> and <code>#</code> is used to create a comment, that
+is, to prevent R from trying to execute text that contains comments
+rather than a command.</p>
 <p>First we load the <code>stat0002</code> package.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Loading required package<span class="sc">:</span> rpanel</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Loading required package<span class="sc">:</span> tcltk</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Package <span class="st">`</span><span class="at">rpanel', version 1.1-5: type help(rpanel) for summary information</span></span></code></pre></div>
-<div id="the-o-ring-data" class="section level3">
-<h3 class="hasAnchor">
-<a href="#the-o-ring-data" class="anchor"></a>The O-ring data</h3>
-<p>The data are available in a <strong>data frame</strong> called <code>shuttle</code>. A data frame is what R calls a table of data. Use <code><a href="../reference/shuttle.html">?shuttle</a></code> to find out about these data.</p>
+<div class="section level3">
+<h3 id="the-o-ring-data">The O-ring data<a class="anchor" aria-label="anchor" href="#the-o-ring-data"></a>
+</h3>
+<p>The data are available in a <strong>data frame</strong> called
+<code>shuttle</code>. A data frame is what R calls a table of data. Use
+<code><a href="../reference/shuttle.html">?shuttle</a></code> to find out about these data.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Print the data to the screen </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> shuttle</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   flight       date damaged temperature pressure</span>
@@ -174,7 +199,8 @@
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>      <span class="dv">5</span> <span class="dv">04</span><span class="sc">/</span><span class="dv">04</span><span class="sc">/</span><span class="dv">1983</span>       <span class="dv">0</span>          <span class="dv">67</span>       <span class="dv">50</span></span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>      <span class="dv">6</span> <span class="dv">18</span><span class="sc">/</span><span class="dv">06</span><span class="sc">/</span><span class="dv">1983</span>       <span class="dv">0</span>          <span class="dv">72</span>       <span class="dv">50</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
-<li><strong>Can you guess which R function prints only the last 6 lines of the data?</strong></li>
+<li><strong>Can you guess which R function prints only the last 6 lines
+of the data?</strong></li>
 </ol>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Tabulate the number of O-rings with thermal distress</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">table</span>(shuttle[, <span class="st">"damaged"</span>])</span>
@@ -183,8 +209,11 @@
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span>  <span class="dv">5</span>  <span class="dv">1</span>  <span class="dv">1</span> </span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Repeat and assign the output to the vector o_ring_table </span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> o_ring_table <span class="ot">&lt;-</span> <span class="fu">table</span>(shuttle[, <span class="dv">3</span>])</span></code></pre></div>
-<p><strong>Note the different way to get the column that we want.</strong></p>
-<p>We produce a bar plot of the numbers of distressed O-rings and a scatter plot of temperature against pressure. See also the vignette <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs (more than one variable)</a>.</p>
+<p><strong>Note the different way to get the column that we
+want.</strong></p>
+<p>We produce a bar plot of the numbers of distressed O-rings and a
+scatter plot of temperature against pressure. See also the vignette <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs (more than
+one variable)</a>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">barplot</span>(o_ring_table, <span class="at">xlab =</span> <span class="st">"number of distressed O-rings"</span>, <span class="at">ylab =</span> <span class="st">"frequency"</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attach</span>(shuttle)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>The following object is masked from package<span class="sc">:</span>datasets<span class="sc">:</span></span>
@@ -193,15 +222,28 @@
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(pressure, temperature)</span></code></pre></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-7-1.png" width="700"><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-7-2.png" width="700"></p>
 <ol start="3" style="list-style-type: decimal">
-<li><strong>Can you see what <code><a href="https://rdrr.io/r/base/attach.html">attach(shuttle)</a></code> enabled us to do? Type <code><a href="https://rdrr.io/r/base/attach.html">?attach</a></code> to find out what the <code><a href="https://rdrr.io/r/base/attach.html">attach()</a></code> function does.</strong></li>
+<li><strong>Can you see what <code>attach(shuttle)</code> enabled us to
+do? Type <code><a href="https://rdrr.io/r/base/attach.html" class="external-link">?attach</a></code> to find out what the <code><a href="https://rdrr.io/r/base/attach.html" class="external-link">attach()</a></code>
+function does.</strong></li>
 </ol>
-<p><strong>Did you also note the warning message? This means that there exists another variable called <code>pressure</code>, in the R package called <code>datasets</code>. [Type <code><a href="https://rdrr.io/r/base/library.html">library(help = "datasets")</a></code> to see all the datasets available in the <code>datasets</code> package.] Using <code><a href="https://rdrr.io/r/base/attach.html">attach(shuttle)</a></code> means that if we ask R for the variable <code>pressure</code> then R gives us <code>shuttle[, "pressure"]</code>. Otherwise <code>pressure</code> would give us the data in the <code>datasets</code> package. This highlights the fact that if we use <code><a href="https://rdrr.io/r/base/attach.html">attach()</a></code> then we need to be careful.</strong></p>
+<p><strong>Did you also note the warning message? This means that there
+exists another variable called <code>pressure</code>, in the R package
+called <code>datasets</code>. [Type
+<code><a href="https://rdrr.io/r/base/library.html" class="external-link">library(help = "datasets")</a></code> to see all the datasets
+available in the <code>datasets</code> package.] Using
+<code>attach(shuttle)</code> means that if we ask R for the variable
+<code>pressure</code> then R gives us
+<code>shuttle[, "pressure"]</code>. Otherwise <code>pressure</code>
+would give us the data in the <code>datasets</code> package. This
+highlights the fact that if we use <code><a href="https://rdrr.io/r/base/attach.html" class="external-link">attach()</a></code> then we need to
+be careful.</strong></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The opposite of the function attach() is the function detach()</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">detach</span>(shuttle)</span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pairs</span>(shuttle[, <span class="dv">3</span><span class="sc">:</span><span class="dv">5</span>])</span></code></pre></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-9-1.png" width="576"></p>
 <ol start="4" style="list-style-type: decimal">
-<li><strong>Can you work out what the <code>3:5</code> bit is used for and what the <code><a href="https://rdrr.io/r/graphics/pairs.html">pairs()</a></code> function does?</strong></li>
+<li><strong>Can you work out what the <code>3:5</code> bit is used for
+and what the <code><a href="https://rdrr.io/r/graphics/pairs.html" class="external-link">pairs()</a></code> function does?</strong></li>
 </ol>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Remove the zeros from the O-ring damage data</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> not_zero <span class="ot">&lt;-</span> shuttle<span class="sc">$</span>damaged <span class="sc">&gt;</span> <span class="dv">0</span></span>
@@ -209,7 +251,8 @@
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="cn">FALSE</span>  <span class="cn">TRUE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span>  <span class="cn">TRUE</span>  <span class="cn">TRUE</span> <span class="cn">FALSE</span></span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>] <span class="cn">FALSE</span>  <span class="cn">TRUE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span>    <span class="cn">NA</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
-<li><strong>Can you see what the vector <code>not_zero</code> contains?</strong></li>
+<li><strong>Can you see what the vector <code>not_zero</code>
+contains?</strong></li>
 </ol>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xlim <span class="ot">&lt;-</span> <span class="fu">range</span>(shuttle<span class="sc">$</span>temperature)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xlim</span>
@@ -222,26 +265,62 @@
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> <span class="st">"temperature / deg F"</span>, <span class="at">ylab =</span> <span class="st">"number of distressed O-rings"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-11-1.png" width="326.4"><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-11-2.png" width="326.4"></p>
 <ol start="6" style="list-style-type: decimal">
-<li><p><strong>Can you see/guess what the functions <code>range</code> and <code>title</code> and the function arguments <code>xlim</code>, <code>ann</code>, <code>xlab</code> and <code>ylab</code> do?</strong></p></li>
-<li><p><strong>Did you see yet another way to refer to the variable <code>temperature</code> in the <code>shuttle</code> dataset?</strong></p></li>
+<li><p><strong>Can you see/guess what the functions <code>range</code>
+and <code>title</code> and the function arguments <code>xlim</code>,
+<code>ann</code>, <code>xlab</code> and <code>ylab</code>
+do?</strong></p></li>
+<li><p><strong>Did you see yet another way to refer to the variable
+<code>temperature</code> in the <code>shuttle</code>
+dataset?</strong></p></li>
 </ol>
 </div>
-<div id="relating-the-probability-of-o-ring-damage-to-temperature" class="section level3">
-<h3 class="hasAnchor">
-<a href="#relating-the-probability-of-o-ring-damage-to-temperature" class="anchor"></a>Relating the probability of O-ring damage to temperature</h3>
-<p>This section involves a statistical model, a <em>logistic regression model</em>, that is not part of the STAT0002 syllabus, so don’t worry too much about the details that follow. However, this section involves things that we <em>will</em> study later in STAT0002, namely <em>independence</em>, the <em>binomial distribution</em> and (the general concept of) <em>regression</em>. We fit the model using a general fitting method called <em>maximum likelihood estimation</em>. This method is not formally part of the STAT0002 syllabus, but we will look at it very briefly later in the course.</p>
-<p>Consider the six O-rings on the space shuttle. We suppose that on a launch at temperature <span class="math inline">\(t\)</span> degrees F:</p>
+<div class="section level3">
+<h3 id="relating-the-probability-of-o-ring-damage-to-temperature">Relating the probability of O-ring damage to temperature<a class="anchor" aria-label="anchor" href="#relating-the-probability-of-o-ring-damage-to-temperature"></a>
+</h3>
+<p>This section involves a statistical model, a <em>logistic regression
+model</em>, that is not part of the STAT0002 syllabus, so don’t worry
+too much about the details that follow. However, this section involves
+things that we <em>will</em> study later in STAT0002, namely
+<em>independence</em>, the <em>binomial distribution</em> and (the
+general concept of) <em>regression</em>. We fit the model using a
+general fitting method called <em>maximum likelihood estimation</em>.
+This method is not formally part of the STAT0002 syllabus, but we will
+look at it very briefly later in the course.</p>
+<p>Consider the six O-rings on the space shuttle. We suppose that on a
+launch at temperature <span class="math inline">\(t\)</span> degrees
+F:</p>
 <ul>
 <li>each O-ring has a probability <span class="math inline">\(p(t)\)</span> of suffering thermal distress;</li>
-<li>whether or not a given O-ring suffers thermal distress is not affected by whether or not other O-rings suffer thermal distress, that is, the O-rings are independent of each other in this respect.</li>
+<li>whether or not a given O-ring suffers thermal distress is not
+affected by whether or not other O-rings suffer thermal distress, that
+is, the O-rings are independent of each other in this respect.</li>
 </ul>
-<p>Under these assumptions the number of O-rings that suffer thermal distress has a binomial distribution with parameters <span class="math inline">\(6\)</span> and <span class="math inline">\(p(t)\)</span>. We will study this distribution in Chapter 5 of the STAT0002 notes. We have reason to believe that <span class="math inline">\(p(t)\)</span> depends on <span class="math inline">\(t\)</span>, that is, the probability that an O-ring suffers thermal distress is different for different launch temperatures. A simple model that is used in this kind of situation is a <em>linear logistic regression model</em>, in which <span class="math display">\[ \ln \left(\frac{p(t)}{1-p(t)}\right) = \alpha + \beta t, \]</span> for some unknown constants <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. That is, the <em>logit</em> <span class="math inline">\(\log[p(t) / (1-p(t))]\)</span> of <span class="math inline">\(p(t)\)</span> is assumed to be a linear function of <span class="math inline">\(t\)</span>. Inverting this equation gives <span class="math display">\[ p(t) = \frac{e^{\alpha + \beta t}}{1 + e^{\alpha + \beta t}}. \]</span></p>
+<p>Under these assumptions the number of O-rings that suffer thermal
+distress has a binomial distribution with parameters <span class="math inline">\(6\)</span> and <span class="math inline">\(p(t)\)</span>. We will study this distribution in
+Chapter 5 of the STAT0002 notes. We have reason to believe that <span class="math inline">\(p(t)\)</span> depends on <span class="math inline">\(t\)</span>, that is, the probability that an
+O-ring suffers thermal distress is different for different launch
+temperatures. A simple model that is used in this kind of situation is a
+<em>linear logistic regression model</em>, in which <span class="math display">\[ \ln \left(\frac{p(t)}{1-p(t)}\right) = \alpha +
+\beta t, \]</span> for some unknown constants <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. That is, the <em>logit</em> <span class="math inline">\(\log[p(t) / (1-p(t))]\)</span> of <span class="math inline">\(p(t)\)</span> is assumed to be a linear function
+of <span class="math inline">\(t\)</span>. Inverting this equation gives
+<span class="math display">\[ p(t) = \frac{e^{\alpha + \beta t}}{1 +
+e^{\alpha + \beta t}}. \]</span></p>
 <ol start="8" style="list-style-type: decimal">
-<li><p><strong>Why would it not make sense to suppose that <span class="math inline">\(p(t)\)</span> is a linear function of <span class="math inline">\(t\)</span>? [Bear in mind that <span class="math inline">\(p(t)\)</span> is a probability and therefore can be no smaller than 0 and no larger than 1.]</strong></p></li>
-<li><p><strong>How does <span class="math inline">\(p(t)\)</span> behave as <span class="math inline">\(t\)</span> becomes very small, and as <span class="math inline">\(t\)</span> becomes very large, and how does this depend on the value of <span class="math inline">\(\beta\)</span>?</strong></p></li>
+<li><p><strong>Why would it not make sense to suppose that <span class="math inline">\(p(t)\)</span> is a linear function of <span class="math inline">\(t\)</span>? [Bear in mind that <span class="math inline">\(p(t)\)</span> is a probability and therefore can
+be no smaller than 0 and no larger than 1.]</strong></p></li>
+<li><p><strong>How does <span class="math inline">\(p(t)\)</span> behave
+as <span class="math inline">\(t\)</span> becomes very small, and as
+<span class="math inline">\(t\)</span> becomes very large, and how does
+this depend on the value of <span class="math inline">\(\beta\)</span>?</strong></p></li>
 <li><p><strong>What happens in the special case where <span class="math inline">\(\beta = 0\)</span>?</strong></p></li>
 </ol>
-<p>A linear logistic regression model is a special case of a Generalized Linear Model. The function <code><a href="https://rdrr.io/r/stats/glm.html">glm()</a></code> can be used to fit this type of model, using <em>maximum likelihood estimation</em> to estimate the unknown parameters (or <em>coefficients</em>) <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. First we create <em>response</em> data <code>y</code> (numbers of O-rings with and without thermal distress) and the <em>explanatory</em> data <code>x</code> (the launch temperatures).</p>
+<p>A linear logistic regression model is a special case of a Generalized
+Linear Model. The function <code><a href="https://rdrr.io/r/stats/glm.html" class="external-link">glm()</a></code> can be used to fit this
+type of model, using <em>maximum likelihood estimation</em> to estimate
+the unknown parameters (or <em>coefficients</em>) <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>. First we create <em>response</em>
+data <code>y</code> (numbers of O-rings with and without thermal
+distress) and the <em>explanatory</em> data <code>x</code> (the launch
+temperatures).</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Create a matrix y containing 2 columns:</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#   column 1: number of O-rings WITH thermal distress</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#   column 2: number of O-rings WITHOUT thermal distress</span></span>
@@ -286,19 +365,26 @@
 <span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>Number of Fisher Scoring iterations<span class="sc">:</span> <span class="dv">5</span></span>
 <span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> alpha_hat <span class="ot">&lt;-</span> shuttle_fit<span class="sc">$</span>coefficients[<span class="dv">1</span>]</span>
 <span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> beta_hat <span class="ot">&lt;-</span> shuttle_fit<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span></code></pre></div>
-<p>We calculate the <em>fitted</em>, or <em>estimated</em> probability <span class="math inline">\(p(t)\)</span> over a range of temperatures that includes 31 degrees F, and stored these numbers in a vector called <code>fitted_probs</code>.</p>
+<p>We calculate the <em>fitted</em>, or <em>estimated</em> probability
+<span class="math inline">\(p(t)\)</span> over a range of temperatures
+that includes 31 degrees F, and stored these numbers in a vector called
+<code>fitted_probs</code>.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> temp <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">30</span>, <span class="at">to =</span> <span class="dv">85</span>, <span class="at">by =</span> <span class="fl">0.1</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> linear_predictor <span class="ot">&lt;-</span> alpha_hat <span class="sc">+</span> beta_hat <span class="sc">*</span> temp</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> fitted_curve <span class="ot">&lt;-</span> <span class="fu">exp</span>(linear_predictor) <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(linear_predictor))</span></code></pre></div>
 <ol start="11" style="list-style-type: decimal">
-<li><strong>Can you guess what the function <code>seq</code> does? Use <code><a href="https://rdrr.io/r/base/seq.html">?seq</a></code> to find out.</strong></li>
+<li><strong>Can you guess what the function <code>seq</code> does? Use
+<code><a href="https://rdrr.io/r/base/seq.html" class="external-link">?seq</a></code> to find out.</strong></li>
 </ol>
-<p>We plot the <em>proportions</em> of distressed O-rings against temperature with the fitted logistic probability curve <span class="math inline">\(p(t)\)</span> superimposed. The second plot is the same as the plot in the lecture slides.</p>
+<p>We plot the <em>proportions</em> of distressed O-rings against
+temperature with the fitted logistic probability curve <span class="math inline">\(p(t)\)</span> superimposed. The second plot is the
+same as the plot in the lecture slides.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(shuttle<span class="sc">$</span>temperature, shuttle<span class="sc">$</span>damaged <span class="sc">/</span> <span class="dv">6</span>, <span class="at">ann =</span> <span class="cn">FALSE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> <span class="st">"temperature / deg F"</span>, <span class="at">ylab =</span> <span class="st">"proportion of distressed O-rings"</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(temp, fitted_curve)</span></code></pre></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-15-1.png" width="576"></p>
-<p>Now we produce a better plot, one that is similar to the plot that appears in the lecture slides.</p>
+<p>Now we produce a better plot, one that is similar to the plot that
+appears in the lecture slides.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> repeated_data <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">duplicated</span>(shuttle[, <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>]))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> shuttle[repeated_data, ]</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   flight       date damaged temperature pressure</span>
@@ -317,16 +403,51 @@
 <span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">31</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-16-1.png" width="576"></p>
 <ol start="12" style="list-style-type: decimal">
-<li><strong>Can you see how the second plot is different from the first plot and identify the bits of the R code that do this? To find our about the many options for changing the appearance of a plot use <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code>.</strong></li>
+<li><strong>Can you see how the second plot is different from the first
+plot and identify the bits of the R code that do this? To find our about
+the many options for changing the appearance of a plot use
+<code><a href="https://rdrr.io/r/graphics/par.html" class="external-link">?par</a></code>.</strong></li>
 </ol>
 </div>
-<div id="using-stochastic-simulation-to-assess-uncertainty" class="section level3">
-<h3 class="hasAnchor">
-<a href="#using-stochastic-simulation-to-assess-uncertainty" class="anchor"></a>Using stochastic simulation to assess uncertainty</h3>
-<p>The smooth curve superimposed on the plot immediately above cannot be thought of as “the truth”: it is merely an estimate <span class="math inline">\(\hat{p}(t)\)</span>, based on a single dataset and some simple modelling assumptions, of how the probability <span class="math inline">\(p(t)\)</span> of O-ring distress might depend on launch temperature <span class="math inline">\(t\)</span>. If the launches were repeated, under exactly the same conditions that produced the original data, then we would (with high probability) obtain a different dataset and hence a different fitted smooth curve. That is, different experiments produce different datasets, which leads to different estimated curves and therefore <em>uncertainty</em> about <span class="math inline">\(p(t)\)</span>.</p>
-<p>In reality we are not able to repeat the launches and so we have only one dataset, producing one estimated curve. However, we should appreciate that this dataset (and its estimated curve) is one example taken from a <em>population</em> of datasets (and their respective estimated curves) could be obtained. The size of our uncertainty based on this one dataset is related to how variable is this population of estimated curves. If the estimated curves are very similar then it may not matter which of them we get from our real dataset, because our findings will be similar for all datasets. However, if the estimated curves are very different then our findings will vary a lot depending on which dataset we have obtained.</p>
-<p>Although we cannot repeat the launches we can get an idea of how much uncertainty there is about <span class="math inline">\(p(t)\)</span> for given values of <span class="math inline">\(t\)</span> by simulating fake datasets from the model fitted to the real data. This involves getting a computer to `decide’ whether or not a given O-ring suffers thermal distress during a launch at temperature <span class="math inline">\(t\)</span>, in a random manner such that the probability of distress equals <span class="math inline">\(\hat{p}(t)\)</span>. For more details about how we can use a computer to generate <em>pseudo-random numbers</em> (numbers that are close enough to being random for our purposes) see the vignette <a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic simulation</a>.</p>
-<p>The function <code>shuttle_sim</code> simulates fake O-ring thermal distress data for Challenger Space Shuttle launches at different launch temperatures. The following code simulates 10 fake datasets of size 23, using the real launch temperatures.</p>
+<div class="section level3">
+<h3 id="using-stochastic-simulation-to-assess-uncertainty">Using stochastic simulation to assess uncertainty<a class="anchor" aria-label="anchor" href="#using-stochastic-simulation-to-assess-uncertainty"></a>
+</h3>
+<p>The smooth curve superimposed on the plot immediately above cannot be
+thought of as “the truth”: it is merely an estimate <span class="math inline">\(\hat{p}(t)\)</span>, based on a single dataset and
+some simple modelling assumptions, of how the probability <span class="math inline">\(p(t)\)</span> of O-ring distress might depend on
+launch temperature <span class="math inline">\(t\)</span>. If the
+launches were repeated, under exactly the same conditions that produced
+the original data, then we would (with high probability) obtain a
+different dataset and hence a different fitted smooth curve. That is,
+different experiments produce different datasets, which leads to
+different estimated curves and therefore <em>uncertainty</em> about
+<span class="math inline">\(p(t)\)</span>.</p>
+<p>In reality we are not able to repeat the launches and so we have only
+one dataset, producing one estimated curve. However, we should
+appreciate that this dataset (and its estimated curve) is one example
+taken from a <em>population</em> of datasets (and their respective
+estimated curves) could be obtained. The size of our uncertainty based
+on this one dataset is related to how variable is this population of
+estimated curves. If the estimated curves are very similar then it may
+not matter which of them we get from our real dataset, because our
+findings will be similar for all datasets. However, if the estimated
+curves are very different then our findings will vary a lot depending on
+which dataset we have obtained.</p>
+<p>Although we cannot repeat the launches we can get an idea of how much
+uncertainty there is about <span class="math inline">\(p(t)\)</span> for
+given values of <span class="math inline">\(t\)</span> by simulating
+fake datasets from the model fitted to the real data. This involves
+getting a computer to `decide’ whether or not a given O-ring suffers
+thermal distress during a launch at temperature <span class="math inline">\(t\)</span>, in a random manner such that the
+probability of distress equals <span class="math inline">\(\hat{p}(t)\)</span>. For more details about how we
+can use a computer to generate <em>pseudo-random numbers</em> (numbers
+that are close enough to being random for our purposes) see the vignette
+<a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic
+simulation</a>.</p>
+<p>The function <code>shuttle_sim</code> simulates fake O-ring thermal
+distress data for Challenger Space Shuttle launches at different launch
+temperatures. The following code simulates 10 fake datasets of size 23,
+using the real launch temperatures.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Simulate 10 fake datasets of size 23, using the real temperatures.</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> res <span class="ot">&lt;-</span> <span class="fu">shuttle_sim</span>(<span class="at">n_sim =</span> <span class="dv">10</span>)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> res</span>
@@ -354,7 +475,9 @@
 <span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="dv">21</span>    <span class="dv">75</span>    <span class="dv">2</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">0</span>     <span class="dv">0</span></span>
 <span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a><span class="dv">22</span>    <span class="dv">76</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">1</span>    <span class="dv">0</span>    <span class="dv">1</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">0</span>    <span class="dv">1</span>    <span class="dv">0</span>     <span class="dv">0</span></span>
 <span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a><span class="dv">23</span>    <span class="dv">58</span>    <span class="dv">1</span>    <span class="dv">2</span>    <span class="dv">2</span>    <span class="dv">0</span>    <span class="dv">1</span>    <span class="dv">2</span>    <span class="dv">2</span>    <span class="dv">2</span>    <span class="dv">2</span>    <span class="dv">0</span>     <span class="dv">2</span></span></code></pre></div>
-<p>This function can also be used to simulate the number of distressed O-rings under the scenario that we launch the space shuttle many times at a single temperature. Here we do this 1000 times at 31 degrees F.</p>
+<p>This function can also be used to simulate the number of distressed
+O-rings under the scenario that we launch the space shuttle many times
+at a single temperature. Here we do this 1000 times at 31 degrees F.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Simulate the number of distressed O-rings for 1000 launches at 31 deg F.</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> res <span class="ot">&lt;-</span> <span class="fu">shuttle_sim</span>(<span class="at">n_sim =</span> <span class="dv">1000</span>, <span class="at">temperature =</span> <span class="dv">31</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> res[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>]</span>
@@ -365,17 +488,29 @@
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>res</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>     <span class="dv">3</span>     <span class="dv">4</span>     <span class="dv">5</span>     <span class="dv">6</span> </span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>   <span class="dv">15</span>   <span class="dv">204</span>  <span class="dv">1703</span>  <span class="dv">7336</span> <span class="dv">13742</span> </span></code></pre></div>
-<p>The function <code>shuttle_sim_plot</code> plots multiple linear logistic curves. Each curve is the result of simulating a fake dataset from the linear logistic model fitted to the real data and then estimating the linear logistic curve using the fake dataset. The following plot also contains the real data and a (blue) curve showing the curve fitted to the real data.</p>
+<p>The function <code>shuttle_sim_plot</code> plots multiple linear
+logistic curves. Each curve is the result of simulating a fake dataset
+from the linear logistic model fitted to the real data and then
+estimating the linear logistic curve using the fake dataset. The
+following plot also contains the real data and a (blue) curve showing
+the curve fitted to the real data.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">shuttle_sim_plot</span>(<span class="at">n_sim =</span> <span class="dv">50</span>, <span class="at">col =</span> <span class="st">"grey"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-20-1.png" width="672"></p>
-<p>Given that we are simulating data using a computer we could consider a scenario where 10 launches are carried out at each temperature in the real dataset, i.e. the simulated datasets now have size 23 x 10 = 230, rather than 23. This plot shows how the estimated curves would vary between different simulated datasets.</p>
+<p>Given that we are simulating data using a computer we could consider
+a scenario where 10 launches are carried out at each temperature in the
+real dataset, i.e. the simulated datasets now have size 23 x 10 = 230,
+rather than 23. This plot shows how the estimated curves would vary
+between different simulated datasets.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">shuttle_sim_plot</span>(<span class="at">n_sim =</span> <span class="dv">50</span>, <span class="at">n_reps =</span> <span class="dv">10</span>, <span class="at">plot_real_data =</span> <span class="cn">FALSE</span>, <span class="at">lty =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-21-1.png" width="672"></p>
-<p>Now we consider the case where the simulated datasets each have size 2300.</p>
+<p>Now we consider the case where the simulated datasets each have size
+2300.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">shuttle_sim_plot</span>(<span class="at">n_sim =</span> <span class="dv">50</span>, <span class="at">n_reps =</span> <span class="dv">100</span>, <span class="at">plot_real_data =</span> <span class="cn">FALSE</span>, <span class="at">lty =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-22-1.png" width="672"></p>
-<p>See also the function <code>shuttle_movie</code> for an animated version of <code>shuttle_sim_plot</code>.</p>
-<p>Finally, we produce a plot that is (almost) the same as Figure 1.6 in the notes.</p>
+<p>See also the function <code>shuttle_movie</code> for an animated
+version of <code>shuttle_sim_plot</code>.</p>
+<p>Finally, we produce a plot that is (almost) the same as Figure 1.6 in
+the notes.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">shuttle_sim_plot</span>(<span class="at">n_sim =</span> <span class="dv">1000</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>Warning<span class="sc">:</span> glm.fit<span class="sc">:</span> algorithm did not converge</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Warning<span class="sc">:</span> glm.fit<span class="sc">:</span> fitted probabilities numerically <span class="dv">0</span> or <span class="dv">1</span> occurred</span>
@@ -383,14 +518,17 @@
 <p><img src="stat0002-ch1a-shuttle-vignette_files/figure-html/unnamed-chunk-23-1.png" width="672"></p>
 </div>
 </div>
-<div id="references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-shuttle" class="csl-entry">
-Dalal, S. R., E. B. Fowlkes, and B. Hoadley. 1989. <span>“Risk Analysis of the Space Shuttle: Pre-Challenger Prediction of Failure.”</span> <em>Journal of the American Statistical Association</em> 84 (408): 945–57. <a href="http://dx.doi.org/10.1080/01621459.1989.10478858">http://dx.doi.org/10.1080/01621459.1989.10478858</a>.
+Dalal, S. R., E. B. Fowlkes, and B. Hoadley. 1989. <span>“Risk Analysis
+of the Space Shuttle: Pre-Challenger Prediction of Failure.”</span>
+<em>Journal of the American Statistical Association</em> 84 (408):
+945–57. <a href="http://dx.doi.org/10.1080/01621459.1989.10478858" class="external-link">http://dx.doi.org/10.1080/01621459.1989.10478858</a>.
 </div>
 </div>
 </div>
@@ -407,11 +545,13 @@ Dalal, S. R., E. B. Fowlkes, and B. Hoadley. 1989. <span>“Risk Analysis of the
 
 
       <footer><div class="copyright">
-  <p>Developed by Paul J. Northrop.</p>
+  <p></p>
+<p>Developed by Paul J. Northrop.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -419,6 +559,8 @@ Dalal, S. R., E. B. Fowlkes, and B. Hoadley. 1989. <span>“Risk Analysis of the
 
   
 
+
+  
 
   </body>
 </html>

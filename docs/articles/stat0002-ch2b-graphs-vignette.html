@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,16 +40,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -72,6 +68,9 @@
       <a href="../articles/stat0002-ch2d-box-cox-transformation-vignette.html">Chapter 2: Transformation Of Variable</a>
     </li>
     <li>
+      <a href="../articles/stat0002-ch3-probability-vignette.html">Chapter 3: Probability</a>
+    </li>
+    <li>
       <a href="../articles/stat0002-ch5a-discrete-random-variables-vignette.html">Chapter 5: binomial, geometric and Poisson distributions</a>
     </li>
     <li>
@@ -82,7 +81,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -97,27 +96,31 @@
 
       
 
-      </header><script src="stat0002-ch2b-graphs-vignette_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Chapter 2: Graphs (One Variable)</h1>
-                        <h4 class="author">Paul Northrop</h4>
+                        <h4 data-toc-skip class="author">Paul
+Northrop</h4>
             
-            <h4 class="date">2021-10-23</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch2b-graphs-vignette.Rmd"><code>vignettes/stat0002-ch2b-graphs-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/HEAD/vignettes/stat0002-ch2b-graphs-vignette.Rmd" class="external-link"><code>vignettes/stat0002-ch2b-graphs-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch2b-graphs-vignette.Rmd</code></div>
 
     </div>
 
     
     
-<p>The main purpose of this vignette is to provide R code to produce graphs that feature in Chapter 2 of the STAT0002 notes. All these graphs involve one variable only. See also the <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs (more than one variable)</a>.</p>
+<p>The main purpose of this vignette is to provide R code to produce
+graphs that feature in Chapter 2 of the STAT0002 notes. All these graphs
+involve one variable only. See also the <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs (more than
+one variable)</a>.</p>
 <p>The R code used in this vignette are available: <a href="stat0002-ch2b-graphs-vignette.R">graphs-vignette.R</a>.</p>
-<div id="the-oxford-birth-times-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-oxford-birth-times-data" class="anchor"></a>The Oxford Birth Times data</h2>
-<p>These data are available in the data frame <code>ox_births</code>.</p>
+<div class="section level2">
+<h2 id="the-oxford-birth-times-data">The Oxford Birth Times data<a class="anchor" aria-label="anchor" href="#the-oxford-birth-times-data"></a>
+</h2>
+<p>These data are available in the data frame
+<code>ox_births</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> birth_times <span class="ot">&lt;-</span> ox_births[, <span class="st">"time"</span>]</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sort</span>(birth_times)</span>
@@ -129,11 +132,13 @@
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">61</span>]  <span class="fl">8.50</span>  <span class="fl">8.50</span>  <span class="fl">8.75</span>  <span class="fl">8.90</span>  <span class="fl">9.00</span>  <span class="fl">9.20</span>  <span class="fl">9.25</span>  <span class="fl">9.25</span>  <span class="fl">9.50</span>  <span class="fl">9.50</span>  <span class="fl">9.75</span>  <span class="fl">9.75</span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>[<span class="dv">73</span>] <span class="fl">10.00</span> <span class="fl">10.10</span> <span class="fl">10.20</span> <span class="fl">10.25</span> <span class="fl">10.40</span> <span class="fl">10.40</span> <span class="fl">10.40</span> <span class="fl">10.70</span> <span class="fl">10.70</span> <span class="fl">10.75</span> <span class="fl">11.00</span> <span class="fl">11.20</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>[<span class="dv">85</span>] <span class="fl">11.50</span> <span class="fl">12.75</span> <span class="fl">12.90</span> <span class="fl">14.25</span> <span class="fl">14.30</span> <span class="fl">14.50</span> <span class="fl">14.60</span> <span class="fl">15.00</span> <span class="fl">16.00</span> <span class="fl">16.50</span> <span class="fl">19.00</span></span></code></pre></div>
-<div id="empirical-cumulative-distribution-function" class="section level3">
-<h3 class="hasAnchor">
-<a href="#empirical-cumulative-distribution-function" class="anchor"></a>Empirical cumulative distribution function</h3>
+<div class="section level3">
+<h3 id="empirical-cumulative-distribution-function">Empirical cumulative distribution function<a class="anchor" aria-label="anchor" href="#empirical-cumulative-distribution-function"></a>
+</h3>
 <ol style="list-style-type: decimal">
-<li><strong>Can you work out from the output below what the function <code>ecdf</code> does? Use <code><a href="https://rdrr.io/r/stats/ecdf.html">?ecdf</a></code> to check our answer.</strong></li>
+<li><strong>Can you work out from the output below what the function
+<code>ecdf</code> does? Use <code><a href="https://rdrr.io/r/stats/ecdf.html" class="external-link">?ecdf</a></code> to check our
+answer.</strong></li>
 </ol>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_ecdf <span class="ot">&lt;-</span> <span class="fu">ecdf</span>(birth_times)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ox_ecdf</span>(<span class="dv">1</span>)</span>
@@ -150,39 +155,65 @@
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ox_ecdf</span>(<span class="dv">100</span>)</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
-<p>The <code>plot</code> method for an object returned by <code>ecdf</code> produces a plot much like (the hollow circles in) Figure 2.3 in the STAT0002 notes.</p>
-<p>We will label a lot of axes with “time (hours).” To make our lives a little easier we create a character variable called <code>xlab</code>.</p>
+<p>The <code>plot</code> method for an object returned by
+<code>ecdf</code> produces a plot much like (the hollow circles in)
+Figure 2.3 in the STAT0002 notes.</p>
+<p>We will label a lot of axes with “time (hours)”. To make our lives a
+little easier we create a character variable called
+<code>xlab</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xlab <span class="ot">&lt;-</span> <span class="st">"time (hours)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ox_ecdf, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> <span class="st">"cumulative relative frequency"</span>, <span class="at">pch =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-5-1.png" width="576"></p>
 <ol start="2" style="list-style-type: decimal">
-<li><strong>It should be obvious what the arguments <code>xlab</code> and <code>ylab</code> do. What do you think that <code>main = ""</code> and <code>pch = 1</code> do? Use <code><a href="https://rdrr.io/r/graphics/title.html">?title</a></code> and <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code> (respectively) to find out more. <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code> lists lots of arguments that can be used to adjust a graph.</strong></li>
+<li><strong>It should be obvious what the arguments <code>xlab</code>
+and <code>ylab</code> do. What do you think that <code>main = ""</code>
+and <code>pch = 1</code> do? Use <code><a href="https://rdrr.io/r/graphics/title.html" class="external-link">?title</a></code> and
+<code><a href="https://rdrr.io/r/graphics/par.html" class="external-link">?par</a></code> (respectively) to find out more. <code><a href="https://rdrr.io/r/graphics/par.html" class="external-link">?par</a></code>
+lists lots of arguments that can be used to adjust a
+graph.</strong></li>
 </ol>
 </div>
-<div id="histogram" class="section level3">
-<h3 class="hasAnchor">
-<a href="#histogram" class="anchor"></a>Histogram</h3>
-<p>The following code produces histograms that feature in the STAT0002 notes. Note that in the first plot the <code>probability = TRUE</code> (or <code>prob = TRUE</code> for short) argument is important: it ensures that the total area of the rectangles of the histogram is equal to 1. In the second plot it isn’t necessary to include <code>prob = TRUE</code> because if the bin widths are unequal then (sensibly) <code>hist</code> uses <code>prob = TRUE</code>.</p>
+<div class="section level3">
+<h3 id="histogram">Histogram<a class="anchor" aria-label="anchor" href="#histogram"></a>
+</h3>
+<p>The following code produces histograms that feature in the STAT0002
+notes. Note that in the first plot the <code>probability = TRUE</code>
+(or <code>prob = TRUE</code> for short) argument is important: it
+ensures that the total area of the rectangles of the histogram is equal
+to 1. In the second plot it isn’t necessary to include
+<code>prob = TRUE</code> because if the bin widths are unequal then
+(sensibly) <code>hist</code> uses <code>prob = TRUE</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(birth_times, <span class="at">prob =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> xlab)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> br <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">12</span>, <span class="at">by =</span> <span class="dv">2</span>), <span class="dv">20</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(birth_times, <span class="at">breaks =</span> br, <span class="at">col =</span> <span class="dv">8</span>, <span class="at">main =</span> <span class="st">""</span>, <span class="at">xlab =</span> xlab)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-6-1.png" width="624"><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-6-2.png" width="624"></p>
 <ol start="3" style="list-style-type: decimal">
-<li><strong>Can you see what the argument <code>breaks</code> does? … and the function and <code>seq</code>?</strong></li>
+<li><strong>Can you see what the argument <code>breaks</code> does? …
+and the function and <code>seq</code>?</strong></li>
 </ol>
-<p>The <code>hist</code> function returns an object (a <em>list</em> of several objects in fact) containing the information used to construct the plot. If we assign this to an R object, <code>ox_tab</code> say, then we can look at this information and perhaps use it. The <code>ls</code> function tells us the names of the objects in this list. Use <code><a href="https://rdrr.io/r/graphics/hist.html">?hist</a></code> to find out what these objects are.</p>
+<p>The <code>hist</code> function returns an object (a <em>list</em> of
+several objects in fact) containing the information used to construct
+the plot. If we assign this to an R object, <code>ox_tab</code> say,
+then we can look at this information and perhaps use it. The
+<code>ls</code> function tells us the names of the objects in this list.
+Use <code><a href="https://rdrr.io/r/graphics/hist.html" class="external-link">?hist</a></code> to find out what these objects are.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ox_tab <span class="ot">&lt;-</span> <span class="fu">hist</span>(birth_times, <span class="at">plot =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">ls</span>(ox_tab)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"breaks"</span>   <span class="st">"counts"</span>   <span class="st">"density"</span>  <span class="st">"equidist"</span> <span class="st">"mids"</span>     <span class="st">"xname"</span>   </span></code></pre></div>
-<p>We use the information in <code>ox_tab</code> to reproduce the plot in Figure 2.2 of the notes.</p>
+<p>We use the information in <code>ox_tab</code> to reproduce the plot
+in Figure 2.2 of the notes.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> cum_rel_freq <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">c</span>(<span class="dv">0</span>, ox_tab<span class="sc">$</span>counts)) <span class="sc">/</span> <span class="fu">length</span>(birth_times)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ox_tab<span class="sc">$</span>breaks, cum_rel_freq, <span class="at">type =</span> <span class="st">"b"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">ylab =</span> <span class="st">"cumulative relative frequency"</span>, <span class="at">xlab =</span> xlab)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">1</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-8-1.png" width="624"></p>
 <ol start="4" style="list-style-type: decimal">
-<li><strong>What do you think the function <code>cumsum</code> does?</strong></li>
+<li><strong>What do you think the function <code>cumsum</code>
+does?</strong></li>
 </ol>
-<p>The following code produces histogram-like alternative plots. As you can see we can do many things to change the appearance of plots. Use <code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code> to see a list of the graphical parameters that we can use.</p>
+<p>The following code produces histogram-like alternative plots. As you
+can see we can do many things to change the appearance of plots. Use
+<code><a href="https://rdrr.io/r/graphics/par.html" class="external-link">?par</a></code> to see a list of the graphical parameters that we can
+use.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># adjust plot margins, produce a 2 by 2 array of plots (fill row 1 then row 2)</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># no vertical axis</span></span>
@@ -204,9 +235,9 @@
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">polygon</span>(ox_tab<span class="sc">$</span>mids, ox_tab<span class="sc">$</span>density, <span class="at">col =</span> <span class="dv">8</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-9-1.png" width="624"></p>
 </div>
-<div id="stem-and-leaf-plot" class="section level3">
-<h3 class="hasAnchor">
-<a href="#stem-and-leaf-plot" class="anchor"></a>Stem-and-leaf plot</h3>
+<div class="section level3">
+<h3 id="stem-and-leaf-plot">Stem-and-leaf plot<a class="anchor" aria-label="anchor" href="#stem-and-leaf-plot"></a>
+</h3>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The default plot</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">stem</span>(birth_times)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -248,13 +279,16 @@
 <span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  <span class="dv">18</span> <span class="sc">|</span> </span>
 <span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>  <span class="dv">19</span> <span class="sc">|</span> <span class="dv">0</span></span></code></pre></div>
 <ol start="5" style="list-style-type: decimal">
-<li><strong>Use <code><a href="https://rdrr.io/r/graphics/stem.html">?stem</a></code> to see what <code>scale</code> does.</strong></li>
+<li><strong>Use <code><a href="https://rdrr.io/r/graphics/stem.html" class="external-link">?stem</a></code> to see what <code>scale</code>
+does.</strong></li>
 </ol>
 </div>
-<div id="dotplot" class="section level3">
-<h3 class="hasAnchor">
-<a href="#dotplot" class="anchor"></a>Dotplot</h3>
-<p>It is surprisingly difficult to produce a nice-looking dotplot using standard R functions. One possibility is to use <code>stripchart</code>. The code below also produces the plots Figure 2.5 in the notes.</p>
+<div class="section level3">
+<h3 id="dotplot">Dotplot<a class="anchor" aria-label="anchor" href="#dotplot"></a>
+</h3>
+<p>It is surprisingly difficult to produce a nice-looking dotplot using
+standard R functions. One possibility is to use <code>stripchart</code>.
+The code below also produces the plots Figure 2.5 in the notes.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">stripchart</span>(birth_times, <span class="at">method =</span> <span class="st">"stack"</span>, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">at =</span> <span class="dv">0</span>, <span class="at">offset =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> xlab)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-11-1.png" width="624"></p>
@@ -265,28 +299,56 @@
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> x_labs)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-11-2.png" width="624"></p>
 <ol start="6" style="list-style-type: decimal">
-<li><strong>Find out what the functions <code>pretty</code> and <code>axis</code> do.</strong></li>
+<li><strong>Find out what the functions <code>pretty</code> and
+<code>axis</code> do.</strong></li>
 </ol>
 </div>
-<div id="boxplot" class="section level3">
-<h3 class="hasAnchor">
-<a href="#boxplot" class="anchor"></a>Boxplot</h3>
-<p>The function that produces a boxplot (or <em>box-and-whisker</em> plot) is called <code>boxplot</code>. Inside <code>boxplot</code> the estimation of the quartiles, on which the box part of the plot is based, uses the default value of the argument <code>type</code> (i.e. <code>type = 7</code>) in a call to <code>quantile</code>. In order that we can change the value of <code>type</code> if we wish <code>stat0002</code> contains a function <code>box_plot</code>, which is a copy of <code>boxplot</code> with the extra argument <code>type</code> added. In <code>box_plot</code> the default is <code>type = 6</code>, which corresponds to the particular way of estimating quartiles that is described in the STAT0002 lecture notes and slides. See the <a href="stat0002-ch2a-descriptive-statistics-vignette.html">Descriptive Statistics</a> vignette for more information about <code>quantile</code> and the argument <code>type</code>. In many cases we will not need to worry about the choice of the value of <code>type</code>. Unless the dataset is small the value of <code>type</code> will not have enough of an effect on the appearance of the boxplot to matter. This is certainly the case for the <code>birth_times</code> data.</p>
+<div class="section level3">
+<h3 id="boxplot">Boxplot<a class="anchor" aria-label="anchor" href="#boxplot"></a>
+</h3>
+<p>The function that produces a boxplot (or <em>box-and-whisker</em>
+plot) is called <code>boxplot</code>. Inside <code>boxplot</code> the
+estimation of the quartiles, on which the box part of the plot is based,
+uses the default value of the argument <code>type</code>
+(i.e. <code>type = 7</code>) in a call to <code>quantile</code>. In
+order that we can change the value of <code>type</code> if we wish
+<code>stat0002</code> contains a function <code>box_plot</code>, which
+is a copy of <code>boxplot</code> with the extra argument
+<code>type</code> added. In <code>box_plot</code> the default is
+<code>type = 6</code>, which corresponds to the particular way of
+estimating quartiles that is described in the STAT0002 lecture notes and
+slides. See the <a href="stat0002-ch2a-descriptive-statistics-vignette.html">Descriptive
+Statistics</a> vignette for more information about <code>quantile</code>
+and the argument <code>type</code>. In many cases we will not need to
+worry about the choice of the value of <code>type</code>. Unless the
+dataset is small the value of <code>type</code> will not have enough of
+an effect on the appearance of the boxplot to matter. This is certainly
+the case for the <code>birth_times</code> data.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># type = 6</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> b1 <span class="ot">&lt;-</span> <span class="fu">box_plot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"type = 6"</span>, <span class="at">xlab =</span> xlab)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-12-1.png" width="624"></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># type = 7</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> b2 <span class="ot">&lt;-</span> <span class="fu">boxplot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">"type = 7"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-12-2.png" width="624"></p>
-<p>We know from the <a href="stat0002-ch2a-descriptive-statistics-vignette.html">Descriptive Statistics</a> vignette that only the estimates of the lower quartile differ between the <code>type = 6</code> and <code>type = 7</code> cases. We can check this using the objects <code>b1</code> and <code>b2</code> returned above.</p>
+<p>We know from the <a href="stat0002-ch2a-descriptive-statistics-vignette.html">Descriptive
+Statistics</a> vignette that only the estimates of the lower quartile
+differ between the <code>type = 6</code> and <code>type = 7</code>
+cases. We can check this using the objects <code>b1</code> and
+<code>b2</code> returned above.</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">as.vector</span>(b1<span class="sc">$</span>stats)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">1.50</span>  <span class="fl">4.90</span>  <span class="fl">7.50</span>  <span class="fl">9.75</span> <span class="fl">16.50</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">as.vector</span>(b2<span class="sc">$</span>stats)</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">1.50</span>  <span class="fl">4.95</span>  <span class="fl">7.50</span>  <span class="fl">9.75</span> <span class="fl">16.50</span></span></code></pre></div>
 <ol start="7" style="list-style-type: decimal">
-<li><strong>Can you work out from the output and graphs above what <code>boxplot</code> returns in the list component <code>stats</code>? Check your answer using <code><a href="https://rdrr.io/r/graphics/boxplot.html">?boxplot</a></code>. How could we obtain the values of any data points that lie outside the whiskers?</strong></li>
+<li><strong>Can you work out from the output and graphs above what
+<code>boxplot</code> returns in the list component <code>stats</code>?
+Check your answer using <code><a href="https://rdrr.io/r/graphics/boxplot.html" class="external-link">?boxplot</a></code>. How could we obtain the
+values of any data points that lie outside the whiskers?</strong></li>
 </ol>
-<p>If we read the documentation of <code>boxplot</code> carefully (see <code><a href="https://rdrr.io/r/graphics/boxplot.html">?boxplot</a></code> and <code><a href="https://rdrr.io/r/graphics/bxp.html">?bxp</a></code>) we can have a lot of control over the graph that it produces. The following code produces the plots in Figure 2.7 of the STAT0002 notes.</p>
+<p>If we read the documentation of <code>boxplot</code> carefully (see
+<code><a href="https://rdrr.io/r/graphics/boxplot.html" class="external-link">?boxplot</a></code> and <code><a href="https://rdrr.io/r/graphics/bxp.html" class="external-link">?bxp</a></code>) we can have a lot of
+control over the graph that it produces. The following code produces the
+plots in Figure 2.7 of the STAT0002 notes.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">1</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x_labs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(birth_times), <span class="fu">pretty</span>(birth_times), <span class="fu">max</span>(birth_times))</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># top left</span></span>
@@ -301,13 +363,26 @@
 <span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">boxplot</span>(birth_times, <span class="at">horizontal =</span> <span class="cn">TRUE</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">xlab =</span> xlab, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">range =</span> <span class="dv">0</span>, <span class="at">boxcol =</span> <span class="st">"white"</span>, <span class="at">staplewex =</span> <span class="dv">0</span>, <span class="at">medlty =</span> <span class="st">"blank"</span>, <span class="at">medpch =</span> <span class="dv">16</span>)</span>
 <span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> x_labs, <span class="at">labels =</span> x_labs)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-14-1.png" width="326.4"><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-14-2.png" width="326.4"><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-14-3.png" width="326.4"><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-14-4.png" width="326.4"></p>
-<p>In the <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs (more than one variable)</a> vignette we consider both variables in the <code>ox_births</code> data frame, i.e. the numeric continuous variable <code>time</code> and the categorical variable <code>day</code>, producing separate boxplots of <code>time</code> for each day of the week.</p>
+<p>In the <a href="stat0002-ch2c-graphs-vignette.html">Chapter 2: Graphs
+(more than one variable)</a> vignette we consider both variables in the
+<code>ox_births</code> data frame, i.e. the numeric continuous variable
+<code>time</code> and the categorical variable <code>day</code>,
+producing separate boxplots of <code>time</code> for each day of the
+week.</p>
 </div>
 </div>
-<div id="the-challenger-o-ring-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-challenger-o-ring-data" class="anchor"></a>The Challenger O-ring data</h2>
-<p>We return to the data that feature in the <a href="stat0002-ch1a-shuttle-vignette.html">Challenger Space Shuttle disaster</a> vignette. The column  in the data frame  contains the observed numbers of O-rings that suffer thermal distress. This is a <em>numerical discrete</em> variable. In fact we can be more precise than this, it is an <em>integer</em> variable. One way to summarize these data graphically is using a bar plot. In order to produce the bar plot we first need to tabulate the data, using the function<code>table</code> to calculate the frequencies of the numbers of distressed O-rings.</p>
+<div class="section level2">
+<h2 id="the-challenger-o-ring-data">The Challenger O-ring data<a class="anchor" aria-label="anchor" href="#the-challenger-o-ring-data"></a>
+</h2>
+<p>We return to the data that feature in the <a href="stat0002-ch1a-shuttle-vignette.html">Challenger Space Shuttle
+disaster</a> vignette. The column in the data frame contains the
+observed numbers of O-rings that suffer thermal distress. This is a
+<em>numerical discrete</em> variable. In fact we can be more precise
+than this, it is an <em>integer</em> variable. One way to summarize
+these data graphically is using a bar plot. In order to produce the bar
+plot we first need to tabulate the data, using the
+function<code>table</code> to calculate the frequencies of the numbers
+of distressed O-rings.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> shuttle<span class="sc">$</span>damaged</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>]  <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">3</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">2</span>  <span class="dv">0</span>  <span class="dv">1</span> <span class="cn">NA</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> O_tab <span class="ot">&lt;-</span> <span class="fu">table</span>(shuttle<span class="sc">$</span>damaged)</span>
@@ -315,52 +390,88 @@
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span> </span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span>  <span class="dv">5</span>  <span class="dv">1</span>  <span class="dv">1</span> </span></code></pre></div>
-<p>This table is OK but it does not include the zero frequencies for the categories 4, 5 and 6.</p>
+<p>This table is OK but it does not include the zero frequencies for the
+categories 4, 5 and 6.</p>
 <ol start="8" style="list-style-type: decimal">
-<li><strong>Why can we not expect the output from <code>table</code> not include the categories 4, 5 and 6?</strong></li>
+<li><strong>Why can we not expect the output from <code>table</code> not
+include the categories 4, 5 and 6?</strong></li>
 </ol>
-<div id="a-digression-table-and-classes-of-r-objects" class="section level3">
-<h3 class="hasAnchor">
-<a href="#a-digression-table-and-classes-of-r-objects" class="anchor"></a>A digression: <code>table</code> and classes of R objects</h3>
-<p>An answer to question 8. is “R can’t possibly know which values the variable <code>shuttle$damaged</code> could have.” It is obvious to us, because we know what these data mean and that a space shuttle has 6 O-rings, but R’s <code>table</code> function cannot infer this from the data alone. In this example it probably doesn’t matter that some of the zero frequencies are missing. However, consider the following example. We simulate 10 values from a Poisson distribution with a mean of 5. For an introduction to simulation see the <a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic simulation</a> vignette. These data are not real, but imagine that they are the respective numbers of earthquakes that occur in a particular area in the years 2008 to 2017.</p>
+<div class="section level3">
+<h3 id="a-digression-table-and-classes-of-r-objects">A digression: <code>table</code> and classes of R objects<a class="anchor" aria-label="anchor" href="#a-digression-table-and-classes-of-r-objects"></a>
+</h3>
+<p>An answer to question 8. is “R can’t possibly know which values the
+variable <code>shuttle$damaged</code> could have”. It is obvious to us,
+because we know what these data mean and that a space shuttle has 6
+O-rings, but R’s <code>table</code> function cannot infer this from the
+data alone. In this example it probably doesn’t matter that some of the
+zero frequencies are missing. However, consider the following example.
+We simulate 10 values from a Poisson distribution with a mean of 5. For
+an introduction to simulation see the <a href="stat0002-ch1b-stochastic-simulation-vignette.html">Stochastic
+simulation</a> vignette. These data are not real, but imagine that they
+are the respective numbers of earthquakes that occur in a particular
+area in the years 2008 to 2017.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">47</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="dv">10</span>, <span class="dv">5</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(x)</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>x</span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a> <span class="dv">4</span>  <span class="dv">5</span>  <span class="dv">6</span>  <span class="dv">7</span>  <span class="dv">8</span> <span class="dv">10</span> </span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a> <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">2</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">1</span> </span></code></pre></div>
-<p>We know that these data non-negative integers. R does not know this and has included columns in the table only for non-zero frequencies, i.e. for the values 4, 5, 6, 7, 8 and 10. At the very least we might want the zero frequencies for the values 0, 1, 2, 3 and 9 to be included, and perhaps also something to indicate that there are no values greater than 10. One possibility is the following. It is not particularly elegant but it is quite effective.</p>
+<p>We know that these data non-negative integers. R does not know this
+and has included columns in the table only for non-zero frequencies,
+i.e. for the values 4, 5, 6, 7, 8 and 10. At the very least we might
+want the zero frequencies for the values 0, 1, 2, 3 and 9 to be
+included, and perhaps also something to indicate that there are no
+values greater than 10. One possibility is the following. It is not
+particularly elegant but it is quite effective.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">table</span>(<span class="fu">c</span>(x, <span class="dv">0</span><span class="sc">:</span><span class="dv">11</span>)) <span class="sc">-</span> <span class="dv">1</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span>  <span class="dv">5</span>  <span class="dv">6</span>  <span class="dv">7</span>  <span class="dv">8</span>  <span class="dv">9</span> <span class="dv">10</span> <span class="dv">11</span> </span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">2</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">0</span> </span></code></pre></div>
 <ol start="9" style="list-style-type: decimal">
-<li><strong>Can you work out what this code does? It might help to look at <code><a href="https://rdrr.io/r/base/c.html">?c</a></code>.</strong></li>
+<li><strong>Can you work out what this code does? It might help to look
+at <code><a href="https://rdrr.io/r/base/c.html" class="external-link">?c</a></code>.</strong></li>
 </ol>
-<p>If we are really fussy then we could change the name of the final heading in the table.</p>
+<p>If we are really fussy then we could change the name of the final
+heading in the table.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tab <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">c</span>(x, <span class="dv">0</span><span class="sc">:</span><span class="dv">11</span>)) <span class="sc">-</span> <span class="dv">1</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">names</span>(tab)[<span class="dv">12</span>] <span class="ot">&lt;-</span> <span class="st">"&gt;10"</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tab</span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>   <span class="dv">1</span>   <span class="dv">2</span>   <span class="dv">3</span>   <span class="dv">4</span>   <span class="dv">5</span>   <span class="dv">6</span>   <span class="dv">7</span>   <span class="dv">8</span>   <span class="dv">9</span>  <span class="dv">10</span> <span class="sc">&gt;</span><span class="dv">10</span> </span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">0</span>   <span class="dv">0</span>   <span class="dv">0</span>   <span class="dv">0</span>   <span class="dv">2</span>   <span class="dv">3</span>   <span class="dv">2</span>   <span class="dv">1</span>   <span class="dv">1</span>   <span class="dv">0</span>   <span class="dv">1</span>   <span class="dv">0</span> </span></code></pre></div>
-<p>To explore another option we return to the variable <code>shuttle$damaged</code>. R has a system by which R objects are categorized into different <em>classes</em>. The effect of a given R function may depend on the class of the object provided to that function. The function <code>class</code> can be used to find out what class an object has.</p>
+<p>To explore another option we return to the variable
+<code>shuttle$damaged</code>. R has a system by which R objects are
+categorized into different <em>classes</em>. The effect of a given R
+function may depend on the class of the object provided to that
+function. The function <code>class</code> can be used to find out what
+class an object has.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(shuttle<span class="sc">$</span>damaged)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"integer"</span></span></code></pre></div>
-<p>R thinks (correctly) that <code>shuttle$damaged</code> is an integer variable. Unfortunately, as far as I am aware, there is no mechanism for us to tell R that this integer variable can take only the values 0, 1, 2, 3, 4, 5, or 6. However, there is a way to do this if we get R to treat <code>shuttle$damaged</code> as a <em>categorical</em> variable. Then we can provide to R information about the possible <em>levels</em> of the categorical variable <code>shuttle$damaged</code>. In R categorical variables are called <em>factors</em>. We use the function <code>factor</code> to create a new variable <code>fac_dam</code> that is (a) a factor, and (b) has levels 0, 1, 2, 3, 4, 5 and 6.</p>
+<p>R thinks (correctly) that <code>shuttle$damaged</code> is an integer
+variable. Unfortunately, as far as I am aware, there is no mechanism for
+us to tell R that this integer variable can take only the values 0, 1,
+2, 3, 4, 5, or 6. However, there is a way to do this if we get R to
+treat <code>shuttle$damaged</code> as a <em>categorical</em> variable.
+Then we can provide to R information about the possible <em>levels</em>
+of the categorical variable <code>shuttle$damaged</code>. In R
+categorical variables are called <em>factors</em>. We use the function
+<code>factor</code> to create a new variable <code>fac_dam</code> that
+is (a) a factor, and (b) has levels 0, 1, 2, 3, 4, 5 and 6.</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> fac_dam <span class="ot">&lt;-</span> <span class="fu">factor</span>(shuttle<span class="sc">$</span>damaged, <span class="at">levels =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">6</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(fac_dam)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"factor"</span></span></code></pre></div>
-<p>Now when we use <code>table</code> the output reflects automatically the possible values of the variable.</p>
+<p>Now when we use <code>table</code> the output reflects automatically
+the possible values of the variable.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> O_tab_fac <span class="ot">&lt;-</span> <span class="fu">table</span>(fac_dam)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> O_tab_fac</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>fac_dam</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a> <span class="dv">0</span>  <span class="dv">1</span>  <span class="dv">2</span>  <span class="dv">3</span>  <span class="dv">4</span>  <span class="dv">5</span>  <span class="dv">6</span> </span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span>  <span class="dv">5</span>  <span class="dv">1</span>  <span class="dv">1</span>  <span class="dv">0</span>  <span class="dv">0</span>  <span class="dv">0</span> </span></code></pre></div>
 </div>
-<div id="bar-plot" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bar-plot" class="anchor"></a>Bar plot</h3>
-<p>The following code reproduces the graphs in Figure 2.8 of the notes.</p>
+<div class="section level3">
+<h3 id="bar-plot">Bar plot<a class="anchor" aria-label="anchor" href="#bar-plot"></a>
+</h3>
+<p>The following code reproduces the graphs in Figure 2.8 of the
+notes.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">oma=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>),<span class="at">mar=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">2</span>)<span class="sc">+</span><span class="fl">0.1</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> xlab <span class="ot">&lt;-</span> <span class="st">"number of damaged O-rings"</span></span>
@@ -375,18 +486,20 @@
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab=</span><span class="st">"number of damaged o-rings"</span>,<span class="at">line=</span><span class="fl">0.25</span>)</span>
 <span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">1</span>, <span class="at">at =</span> yy, <span class="at">labels =</span> yy, <span class="at">pos =</span> <span class="sc">-</span><span class="fl">0.3</span>, <span class="at">las =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-22-1.png" width="624"></p>
-<p>If instead we use the <code>O-tab_fac</code> then the zero frequencies for values 4, 5 and 6 are included in the plot.</p>
+<p>If instead we use the <code>O-tab_fac</code> then the zero
+frequencies for values 4, 5 and 6 are included in the plot.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">barplot</span>(O_tab_fac, <span class="at">xlab =</span> xlab, <span class="at">ylab =</span> ylab, <span class="at">las =</span> <span class="dv">1</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-23-1.png" width="624"></p>
 </div>
 </div>
-<div id="blood-groups" class="section level2">
-<h2 class="hasAnchor">
-<a href="#blood-groups" class="anchor"></a>Blood groups</h2>
-<p>The data in Table 2.8 of the notes are available in the data frame <code>blood_types</code>.</p>
-<div id="bar-plot-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#bar-plot-1" class="anchor"></a>Bar plot</h3>
+<div class="section level2">
+<h2 id="blood-groups">Blood groups<a class="anchor" aria-label="anchor" href="#blood-groups"></a>
+</h2>
+<p>The data in Table 2.8 of the notes are available in the data frame
+<code>blood_types</code>.</p>
+<div class="section level3">
+<h3 id="bar-plot-1">Bar plot<a class="anchor" aria-label="anchor" href="#bar-plot-1"></a>
+</h3>
 <p>This code produces the bar plot on the left side of Figure 2.9.</p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> blood_types</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  ABO  Rh percentage</span>
@@ -403,21 +516,25 @@
 <span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h=</span><span class="dv">0</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-24-1.png" width="624"></p>
 </div>
-<div id="pie-chart" class="section level3">
-<h3 class="hasAnchor">
-<a href="#pie-chart" class="anchor"></a>Pie chart</h3>
-<p>If you have a desperate need to produce a pie chart then you can do this using the following code.</p>
+<div class="section level3">
+<h3 id="pie-chart">Pie chart<a class="anchor" aria-label="anchor" href="#pie-chart"></a>
+</h3>
+<p>If you have a desperate need to produce a pie chart then you can do
+this using the following code.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> slices <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"white"</span>,<span class="st">"grey66"</span>,<span class="st">"grey33"</span>,<span class="st">"black"</span>), <span class="dv">2</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pie</span>(blood_types<span class="sc">$</span>percentage, <span class="at">labels =</span> lab, <span class="at">col =</span> slices)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-25-1.png" width="288"></p>
-<p>Then read the text in the <strong>Note</strong> section at <code><a href="https://rdrr.io/r/graphics/pie.html">?pie</a></code> and forget that the function <code>pie</code> exists.</p>
+<p>Then read the text in the <strong>Note</strong> section at
+<code><a href="https://rdrr.io/r/graphics/pie.html" class="external-link">?pie</a></code> and forget that the function <code>pie</code>
+exists.</p>
 </div>
 </div>
-<div id="ftse100-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ftse100-data" class="anchor"></a>FTSE100 data</h2>
-<p>The FTSE 100 share index data described in Section 2.5.6 of the notes are available in the data frame <code>ftse</code>.</p>
+<div class="section level2">
+<h2 id="ftse100-data">FTSE100 data<a class="anchor" aria-label="anchor" href="#ftse100-data"></a>
+</h2>
+<p>The FTSE 100 share index data described in Section 2.5.6 of the notes
+are available in the data frame <code>ftse</code>.</p>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(ftse)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>           date  price</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1220</span> <span class="dv">1984-04-02</span> <span class="fl">1096.3</span></span>
@@ -434,7 +551,18 @@
 <span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="dv">2007-07-30</span> <span class="fl">6224.3</span></span>
 <span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2007-08-06</span> <span class="fl">6038.3</span></span>
 <span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">2007-08-13</span> <span class="fl">6143.5</span></span></code></pre></div>
-<p>Handling dates in R can be tricky. The main issue is to ensure that a time series, and its dates, are stored correctly. One way to achieve this is to use the function <code>ts</code> to create a time series object, specifying the frequency of the data (<code>frequency = 52</code> means weekly because there are, approximately, 52 weeks in a year) and the start data (the 14th week of 1984). This time series object is a the vector of weekly closing prices and two <em>attributes</em> in which the important extra information (metadata) of <code>tsp</code> and <code>class</code> is stored. The attribute <code>tsp</code> contains the start date, end date and frequency of the observations and the attribute <code>class</code> indicates that this is a <code>ts</code> (time series) object.</p>
+<p>Handling dates in R can be tricky. The main issue is to ensure that a
+time series, and its dates, are stored correctly. One way to achieve
+this is to use the function <code>ts</code> to create a time series
+object, specifying the frequency of the data
+(<code>frequency = 52</code> means weekly because there are,
+approximately, 52 weeks in a year) and the start data (the 14th week of
+1984). This time series object is a the vector of weekly closing prices
+and two <em>attributes</em> in which the important extra information
+(metadata) of <code>tsp</code> and <code>class</code> is stored. The
+attribute <code>tsp</code> contains the start date, end date and
+frequency of the observations and the attribute <code>class</code>
+indicates that this is a <code>ts</code> (time series) object.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ftse_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(ftse<span class="sc">$</span>price, <span class="at">frequency =</span> <span class="dv">52</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1984</span>, <span class="dv">14</span>))</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(ftse_ts)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1096.3</span> <span class="fl">1129.1</span> <span class="fl">1116.2</span> <span class="fl">1130.9</span> <span class="fl">1134.7</span> <span class="fl">1076.1</span></span>
@@ -444,13 +572,20 @@
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>class</span>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ts"</span></span></code></pre></div>
-<div id="time-series-plot" class="section level3">
-<h3 class="hasAnchor">
-<a href="#time-series-plot" class="anchor"></a>Time series plot</h3>
-<p>The following code produces the time series plot on the left side of Figure 2.10. Here we have used the function <code>as.Date</code> to ensure that R knows that the data to be plotted on the horizontal axis of the plot are dates. In a moment we will make use of the time series object <code>ftse_ts</code>.</p>
+<div class="section level3">
+<h3 id="time-series-plot">Time series plot<a class="anchor" aria-label="anchor" href="#time-series-plot"></a>
+</h3>
+<p>The following code produces the time series plot on the left side of
+Figure 2.10. Here we have used the function <code>as.Date</code> to
+ensure that R knows that the data to be plotted on the horizontal axis
+of the plot are dates. In a moment we will make use of the time series
+object <code>ftse_ts</code>.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="fu">as.Date</span>(ftse<span class="sc">$</span>date), ftse<span class="sc">$</span>price, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">ylab =</span> <span class="st">"weekly FTSE 100 share index"</span>, <span class="at">xlab =</span> <span class="st">"year"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-28-1.png" width="624"></p>
-<p>The following code produces the plot on the right side of Figure 2.10. The class of <code>ftse_ts</code> is <code>"ts"</code> so R knows that when we use <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot(ftse_ts)</a></code> we want a time series plot. The rest of the code just adjusts the appearance of the plot.</p>
+<p>The following code produces the plot on the right side of Figure
+2.10. The class of <code>ftse_ts</code> is <code>"ts"</code> so R knows
+that when we use <code>plot(ftse_ts)</code> we want a time series plot.
+The rest of the code just adjusts the appearance of the plot.</p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ftse_ts, <span class="at">ylab =</span> <span class="st">"FTSE 100 (in 1000s)"</span>, <span class="at">xlab =</span> <span class="st">"year"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> q2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">min</span>(ftse_ts), (<span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>) <span class="sc">*</span> <span class="dv">1000</span>, <span class="fu">max</span>(ftse_ts))</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> q2, <span class="at">labels =</span> <span class="fu">round</span>(q2 <span class="sc">/</span> <span class="dv">1000</span>, <span class="dv">1</span>), <span class="at">las =</span> <span class="dv">1</span>)</span>
@@ -459,14 +594,19 @@
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h =</span> <span class="fu">par</span>(<span class="st">"usr"</span>)[<span class="dv">3</span>])</span></code></pre></div>
 <p><img src="stat0002-ch2b-graphs-vignette_files/figure-html/unnamed-chunk-29-1.png" width="624"></p>
 <ol start="10" style="list-style-type: decimal">
-<li><strong>Can you work out what each bit of the code does?</strong></li>
+<li><strong>Can you work out what each bit of the code
+does?</strong></li>
 </ol>
 </div>
 </div>
-<div id="influenza-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#influenza-data" class="anchor"></a>Influenza data</h2>
-<p>The mystery data plotted in Figure 2.11 of the notes are the numbers of people in the UK visiting their doctor with symptoms of influenza (’flu) during four-weekly time periods over the time period 28th January 1967 to 13th November 2004. [I hope that this doesn’t spoil the surprise for you.]</p>
+<div class="section level2">
+<h2 id="influenza-data">Influenza data<a class="anchor" aria-label="anchor" href="#influenza-data"></a>
+</h2>
+<p>The mystery data plotted in Figure 2.11 of the notes are the numbers
+of people in the UK visiting their doctor with symptoms of influenza
+(’flu) during four-weekly time periods over the time period 28th January
+1967 to 13th November 2004. [I hope that this doesn’t spoil the surprise
+for you.]</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(flu)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>        date visits</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">1967-01-28</span>   <span class="fl">91.5</span></span>
@@ -483,10 +623,11 @@
 <span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a><span class="dv">492</span> <span class="dv">2004-09-18</span>   <span class="fl">9.71</span></span>
 <span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="dv">493</span> <span class="dv">2004-10-16</span>  <span class="fl">12.28</span></span>
 <span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="dv">494</span> <span class="dv">2004-11-13</span>  <span class="fl">18.99</span></span></code></pre></div>
-<div id="time-series-plot-1" class="section level3">
-<h3 class="hasAnchor">
-<a href="#time-series-plot-1" class="anchor"></a>Time series plot</h3>
-<p>We create a time series object using <code>ts</code> and produce the plot in Figure 2.11</p>
+<div class="section level3">
+<h3 id="time-series-plot-1">Time series plot<a class="anchor" aria-label="anchor" href="#time-series-plot-1"></a>
+</h3>
+<p>We create a time series object using <code>ts</code> and produce the
+plot in Figure 2.11</p>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">3</span>) <span class="sc">+</span> <span class="fl">0.1</span>, <span class="at">cex.axis =</span> <span class="fl">0.8</span>, <span class="at">cex.lab =</span> <span class="fl">0.75</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> flu_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(flu[,<span class="dv">2</span>], <span class="at">frequency =</span> <span class="dv">13</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1967</span>, <span class="dv">4</span>))</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(flu_ts, <span class="at">ylab=</span><span class="st">"number of 'flu consultations (in 1000s)"</span>, <span class="at">xlab =</span> <span class="st">"year"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">axes=</span><span class="cn">FALSE</span>)</span>
@@ -514,11 +655,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Paul J. Northrop.</p>
+  <p></p>
+<p>Developed by Paul J. Northrop.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -526,6 +669,8 @@
 
   
 
+
+  
 
   </body>
 </html>

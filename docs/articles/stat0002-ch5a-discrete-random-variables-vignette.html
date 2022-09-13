@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -38,16 +40,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -72,6 +68,9 @@
       <a href="../articles/stat0002-ch2d-box-cox-transformation-vignette.html">Chapter 2: Transformation Of Variable</a>
     </li>
     <li>
+      <a href="../articles/stat0002-ch3-probability-vignette.html">Chapter 3: Probability</a>
+    </li>
+    <li>
       <a href="../articles/stat0002-ch5a-discrete-random-variables-vignette.html">Chapter 5: binomial, geometric and Poisson distributions</a>
     </li>
     <li>
@@ -82,7 +81,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -97,23 +96,33 @@
 
       
 
-      </header><script src="stat0002-ch5a-discrete-random-variables-vignette_files/header-attrs-2.11/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Chapter 5: binomial, geometric and Poisson distributions</h1>
-                        <h4 class="author">Paul Northrop</h4>
+      <h1 data-toc-skip>Chapter 5: binomial, geometric and Poisson
+distributions</h1>
+                        <h4 data-toc-skip class="author">Paul
+Northrop</h4>
             
-            <h4 class="date">2021-10-23</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/master/vignettes/stat0002-ch5a-discrete-random-variables-vignette.Rmd"><code>vignettes/stat0002-ch5a-discrete-random-variables-vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/paulnorthrop/stat0002/blob/HEAD/vignettes/stat0002-ch5a-discrete-random-variables-vignette.Rmd" class="external-link"><code>vignettes/stat0002-ch5a-discrete-random-variables-vignette.Rmd</code></a></small>
       <div class="hidden name"><code>stat0002-ch5a-discrete-random-variables-vignette.Rmd</code></div>
 
     </div>
 
     
     
-<p>The purposes of this vignette are to direct you to R functions relating to the <strong>discrete</strong> probability distributions considered in Chapter 5 of the STAT0002 notes and to provide code to do some of the things that appear in the lecture slides. First, we do this using the standard R functions (in the <strong>stats</strong> package). Then we repeat some of the calculations using the <strong>distributions3</strong> package <span class="citation">(Hayes and Moller-Trane 2019)</span>, which provides a neat way to work with random variables in R.</p>
-<p>We illustrate these functions using the Australian birth times data, which are available in the data frame <code>aussie_births</code>.</p>
+<p>The purposes of this vignette are to direct you to R functions
+relating to the <strong>discrete</strong> probability distributions
+considered in Chapter 5 of the STAT0002 notes and to provide code to do
+some of the things that appear in the lecture slides. First, we do this
+using the standard R functions (in the <strong>stats</strong> package).
+Then we repeat some of the calculations using the
+<strong>distributions3</strong> package <span class="citation">(Hayes
+and Moller-Trane 2019)</span>, which provides a neat way to work with
+random variables in R.</p>
+<p>We illustrate these functions using the Australian birth times data,
+which are available in the data frame <code>aussie_births</code>.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Loading required package<span class="sc">:</span> rpanel</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Loading required package<span class="sc">:</span> tcltk</span>
@@ -126,17 +135,36 @@
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">4  115  boy   3838</span></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">5  177  boy   3625</span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">6  245 girl   2208</span></span></code></pre></div>
-<p>The <strong>stats</strong> package contains functions to evaluate the probability mass function (p.m.f.), cumulative distribution function (c.d.f.) and quantile function (which could also be called the inverse c.d.f.) of many discrete probability distributions, including the binomial, geometric and Poisson. It also contains functions to simulate random variates from these distributions. For a general description of these functions use <code><a href="https://rdrr.io/r/stats/Distributions.html">?Distributions</a></code>. These functions are named in the following way, where <code>xxx</code> is the name (perhaps abbreviated) of the distribution in question: <code>dxxx</code> (p.m.f), <code>pxxx</code> (c.d.f), <code>qxxx</code> (quantile function) and <code>rxxx</code> (random variate generation).</p>
-<div id="the-binomial-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-binomial-distribution" class="anchor"></a>The binomial distribution</h2>
-<p>Following the STAT0002 notes, let us suppose that (before we observe the data) the number <span class="math inline">\(Y\)</span> of boy babies is a random variable with a binomial(44, <span class="math inline">\(p\)</span>) distribution, where <span class="math inline">\(p\)</span> is the probability that a randomly chosen birth produces a boy. We use the data to estimate <span class="math inline">\(p\)</span>.</p>
+<p>The <strong>stats</strong> package contains functions to evaluate the
+probability mass function (p.m.f.), cumulative distribution function
+(c.d.f.) and quantile function (which could also be called the inverse
+c.d.f.) of many discrete probability distributions, including the
+binomial, geometric and Poisson. It also contains functions to simulate
+random variates from these distributions. For a general description of
+these functions use <code><a href="https://rdrr.io/r/stats/Distributions.html" class="external-link">?Distributions</a></code>. These functions are
+named in the following way, where <code>xxx</code> is the name (perhaps
+abbreviated) of the distribution in question: <code>dxxx</code> (p.m.f),
+<code>pxxx</code> (c.d.f), <code>qxxx</code> (quantile function) and
+<code>rxxx</code> (random variate generation).</p>
+<div class="section level2">
+<h2 id="the-binomial-distribution">The binomial distribution<a class="anchor" aria-label="anchor" href="#the-binomial-distribution"></a>
+</h2>
+<p>Following the STAT0002 notes, let us suppose that (before we observe
+the data) the number <span class="math inline">\(Y\)</span> of boy
+babies is a random variable with a binomial(44, <span class="math inline">\(p\)</span>) distribution, where <span class="math inline">\(p\)</span> is the probability that a randomly
+chosen birth produces a boy. We use the data to estimate <span class="math inline">\(p\)</span>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> nboys <span class="ot">&lt;-</span> <span class="fu">sum</span>(aussie_births[, <span class="st">"sex"</span>] <span class="sc">==</span> <span class="st">"boy"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ngirls <span class="ot">&lt;-</span> <span class="fu">sum</span>(aussie_births[, <span class="st">"sex"</span>] <span class="sc">==</span> <span class="st">"girl"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> phat <span class="ot">&lt;-</span> nboys <span class="sc">/</span> (nboys <span class="sc">+</span> ngirls)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> phat</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.5909091</span></span></code></pre></div>
-<p>The function <code>dbinom</code> evaluates the p.m.f. of a binomial distribution. See <code><a href="https://rdrr.io/r/stats/Binomial.html">?Binomial</a></code> for information about this function and <code>pbinom</code>, <code>qbinom</code> and <code>rbinom</code>. The following code produces a plot that is similar to the ones we looked at in a lecture. You could vary <code>p</code>, perhaps setting it to be equal to <code>phat</code>, and see the effect on the p.m.f. of the binomial distribution.</p>
+<p>The function <code>dbinom</code> evaluates the p.m.f. of a binomial
+distribution. See <code><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">?Binomial</a></code> for information about this
+function and <code>pbinom</code>, <code>qbinom</code> and
+<code>rbinom</code>. The following code produces a plot that is similar
+to the ones we looked at in a lecture. You could vary <code>p</code>,
+perhaps setting it to be equal to <code>phat</code>, and see the effect
+on the p.m.f. of the binomial distribution.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Plot the binomial(44, 1/2) p.m.f. </span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> n <span class="ot">&lt;-</span> nboys <span class="sc">+</span> ngirls</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> p <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span>
@@ -144,7 +172,12 @@
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Note that dbinom calculates the probabilities all values in the vector y</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(y, <span class="fu">dbinom</span>(y, n, p), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(Y = y)"</span>, <span class="at">xlab =</span> <span class="st">"y"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch5a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></p>
-<p>For the purposes of illustrating how the functions <code>pbinom</code>, <code>qbinom</code> and <code>rbinom</code> work, let us suppose that <span class="math inline">\(p = 1/2\)</span>. We used the values of the following probabilities during a lecture, when we considered how surprised we might to observe a number of boys 4 or more from the expected value of 22 under the hypothesis that <span class="math inline">\(p = 1/2\)</span>.</p>
+<p>For the purposes of illustrating how the functions
+<code>pbinom</code>, <code>qbinom</code> and <code>rbinom</code> work,
+let us suppose that <span class="math inline">\(p = 1/2\)</span>. We
+used the values of the following probabilities during a lecture, when we
+considered how surprised we might to observe a number of boys 4 or more
+from the expected value of 22 under the hypothesis that <span class="math inline">\(p = 1/2\)</span>.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Calculate P(Y &gt;= 26) = P(Y &gt; 25) and P(Y &lt;= 18)</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pbinom</span>(<span class="dv">25</span>, <span class="at">size =</span> n, <span class="at">prob =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span>
@@ -156,7 +189,8 @@
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A check (look at the definition of the median in the notes)</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pbinom</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.4401979</span> <span class="fl">0.5598021</span> <span class="fl">0.6742061</span></span></code></pre></div>
-<p>The following code simulates 100 values from a Binomial(44, 1/2) distribution.</p>
+<p>The following code simulates 100 values from a Binomial(44, 1/2)
+distribution.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ysim <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="dv">44</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ysim</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>] <span class="dv">22</span> <span class="dv">26</span> <span class="dv">22</span> <span class="dv">18</span> <span class="dv">22</span> <span class="dv">30</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">20</span> <span class="dv">21</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">22</span> <span class="dv">24</span> <span class="dv">19</span> <span class="dv">20</span> <span class="dv">26</span> <span class="dv">22</span> <span class="dv">24</span> <span class="dv">17</span> <span class="dv">23</span> <span class="dv">20</span> <span class="dv">16</span> <span class="dv">24</span> <span class="dv">26</span></span>
@@ -166,16 +200,21 @@
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(ysim)</span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">16.00</span>   <span class="fl">21.00</span>   <span class="fl">22.50</span>   <span class="fl">22.61</span>   <span class="fl">24.00</span>   <span class="fl">30.00</span> </span></code></pre></div>
-<div id="the-distributions3-package" class="section level3">
-<h3 class="hasAnchor">
-<a href="#the-distributions3-package" class="anchor"></a>The distributions3 package</h3>
-<p>In September 2019 the <strong>distributions3</strong> package <span class="citation">(Hayes and Moller-Trane 2019)</span> was released. A neat feature of this package is that it enables us to create an R object that corresponds to a particular random variable. Then we are able easily to use some simple R functions to perform calculations with this random variable. The way that this works is perhaps more intuitive than the way in which we use functions like <code><a href="https://rdrr.io/r/stats/Binomial.html">dbinom()</a></code> above.</p>
+<div class="section level3">
+<h3 id="the-distributions3-package">The distributions3 package<a class="anchor" aria-label="anchor" href="#the-distributions3-package"></a>
+</h3>
+<p>In September 2019 the <strong>distributions3</strong> package <span class="citation">(Hayes and Moller-Trane 2019)</span> was released. A
+neat feature of this package is that it enables us to create an R object
+that corresponds to a particular random variable. Then we are able
+easily to use some simple R functions to perform calculations with this
+random variable. The way that this works is perhaps more intuitive than
+the way in which we use functions like <code><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">dbinom()</a></code> above.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(distributions3)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'distributions3'</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>The following objects are masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    Gamma, quantile</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    Gamma</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:grDevices'</span><span class="sc">:</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    pdf</span>
@@ -186,8 +225,9 @@
 <span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Create an R object that is, effectively, a binomial(n, 1/2) random variable</span></span>
 <span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> Y <span class="ot">&lt;-</span> <span class="fu">Binomial</span>(n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
 <span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Y</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>Binomial <span class="fu">distribution</span> (<span class="at">size =</span> <span class="dv">44</span>, <span class="at">p =</span> <span class="fl">0.5</span>)</span></code></pre></div>
-<p>We reproduce the plot and repeat the calculation of the probabilities.</p>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Binomial distribution (size = 44, p = 0.5)"</span></span></code></pre></div>
+<p>We reproduce the plot and repeat the calculation of the
+probabilities.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Reproduce the plot.  </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span>n, <span class="fu">pmf</span>(Y, <span class="dv">0</span><span class="sc">:</span>n), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(X = x)"</span>, <span class="at">xlab =</span> <span class="st">"x"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch5a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
@@ -195,14 +235,22 @@
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cdf</span>(Y, <span class="dv">18</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span></code></pre></div>
-<p>Now we use the <strong>distributions</strong> package to performs some of the calculations that were involved in producing the lecture slides associated with the geometric and Poisson distributions.</p>
+<p>Now we use the <strong>distributions</strong> package to performs
+some of the calculations that were involved in producing the lecture
+slides associated with the geometric and Poisson distributions.</p>
 </div>
 </div>
-<div id="the-geometric-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-geometric-distribution" class="anchor"></a>The geometric distribution</h2>
-<p>We recreate the table in the lecture slides, of the observed frequencies and proportions and the corresponding estimated expected values under a geometric distribution fitted to the data.</p>
-<p>R’s <code>dgeom</code> function, and the function <code>Geometric</code> in the <strong>distributions</strong> package, are is based on the number of failures before the first success, not the number of trials. Therefore, we subtract 1 below when we call the function <code>dgeom</code>.</p>
+<div class="section level2">
+<h2 id="the-geometric-distribution">The geometric distribution<a class="anchor" aria-label="anchor" href="#the-geometric-distribution"></a>
+</h2>
+<p>We recreate the table in the lecture slides, of the observed
+frequencies and proportions and the corresponding estimated expected
+values under a geometric distribution fitted to the data.</p>
+<p>R’s <code>dgeom</code> function, and the function
+<code>Geometric</code> in the <strong>distributions</strong> package,
+are is based on the number of failures before the first success, not the
+number of trials. Therefore, we subtract 1 below when we call the
+function <code>dgeom</code>.</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Observed, adding a zero for greater than or equal to 6</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> geom <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">which</span>(aussie_births<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"boy"</span>)))</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> max_w <span class="ot">&lt;-</span> <span class="fu">max</span>(geom)</span>
@@ -228,10 +276,11 @@
 <span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="dv">4</span>        <span class="dv">0</span>    <span class="fl">1.052</span>    <span class="fl">0.000</span>    <span class="fl">0.040</span></span>
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="dv">5</span>        <span class="dv">1</span>    <span class="fl">0.430</span>    <span class="fl">0.038</span>    <span class="fl">0.017</span></span>
 <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">6</span>        <span class="dv">0</span>    <span class="fl">0.298</span>    <span class="fl">0.000</span>    <span class="fl">0.011</span></span></code></pre></div>
-<p>Alternatively, We could also use the <strong>distributions3</strong> package to calculate the probabilities that we require.</p>
+<p>Alternatively, We could also use the <strong>distributions3</strong>
+package to calculate the probabilities that we require.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> W <span class="ot">&lt;-</span> <span class="fu">Geometric</span>(phat)</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> W</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>Geometric <span class="fu">distribution</span> (<span class="at">p =</span> <span class="fl">0.590909090909091</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Geometric distribution (p = 0.5909)"</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># P(W = w), for w = 1, ..., 5 (note the -1)</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pmf</span>(W, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.59090909</span> <span class="fl">0.24173554</span> <span class="fl">0.09889181</span> <span class="fl">0.04045574</span> <span class="fl">0.01655008</span></span>
@@ -239,14 +288,18 @@
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(W, <span class="dv">5</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.01145774</span></span></code></pre></div>
 </div>
-<div id="the-poisson-distribution" class="section level2">
-<h2 class="hasAnchor">
-<a href="#the-poisson-distribution" class="anchor"></a>The Poisson distribution</h2>
-<p>Here we use the <strong>distributions</strong> package to produce a plot of the p.m.f. of the Poisson(<span class="math inline">\(\hat{\lambda}\)</span>) distribution, where <span class="math inline">\(\hat{\lambda}\)</span> is equal to the sample mean of the numbers of babies born in each of the 24 hourly periods. We also calculate the probabilities involved in the table of observed and estimated expected frequencies given in the lecture.</p>
+<div class="section level2">
+<h2 id="the-poisson-distribution">The Poisson distribution<a class="anchor" aria-label="anchor" href="#the-poisson-distribution"></a>
+</h2>
+<p>Here we use the <strong>distributions</strong> package to produce a
+plot of the p.m.f. of the Poisson(<span class="math inline">\(\hat{\lambda}\)</span>) distribution, where <span class="math inline">\(\hat{\lambda}\)</span> is equal to the sample mean
+of the numbers of babies born in each of the 24 hourly periods. We also
+calculate the probabilities involved in the table of observed and
+estimated expected frequencies given in the lecture.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> lambdahat <span class="ot">&lt;-</span> <span class="dv">44</span> <span class="sc">/</span> <span class="dv">24</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> N <span class="ot">&lt;-</span> <span class="fu">Poisson</span>(lambdahat)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> N</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>Poisson <span class="fu">distribution</span> (<span class="at">lambda =</span> <span class="fl">1.83333333333333</span>)</span></code></pre></div>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Poisson distribution (lambda = 1.833)"</span></span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">pmf</span>(N, <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(N = n)"</span>, <span class="at">xlab =</span> <span class="st">"n"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch5a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
@@ -256,14 +309,15 @@
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(N, <span class="dv">4</span>)</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.03886592</span></span></code></pre></div>
 </div>
-<div id="references" class="section level2">
-<h2 class="hasAnchor">
-<a href="#references" class="anchor"></a>References</h2>
+<div class="section level2">
+<h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+</h2>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-distributions3" class="csl-entry">
-Hayes, A., and R. Moller-Trane. 2019. <em><span class="nocase">d</span>istributions3: Probability Distributions as S3 Objects</em>. <a href="https://github.com/alexpghayes/distributions3">https://github.com/alexpghayes/distributions3</a>.
+Hayes, A., and R. Moller-Trane. 2019. <em><span class="nocase">d</span>istributions3: Probability Distributions as S3
+Objects</em>. <a href="https://github.com/alexpghayes/distributions3" class="external-link">https://github.com/alexpghayes/distributions3</a>.
 </div>
 </div>
 </div>
@@ -280,11 +334,13 @@ Hayes, A., and R. Moller-Trane. 2019. <em><span class="nocase">d</span>istributi
 
 
       <footer><div class="copyright">
-  <p>Developed by Paul J. Northrop.</p>
+  <p></p>
+<p>Developed by Paul J. Northrop.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -292,6 +348,8 @@ Hayes, A., and R. Moller-Trane. 2019. <em><span class="nocase">d</span>istributi
 
   
 
+
+  
 
   </body>
 </html>

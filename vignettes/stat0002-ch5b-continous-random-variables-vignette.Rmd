@@ -1,7 +1,7 @@
 ---
 title: "Chapter 5: uniform, exponential and normal distributions"
 author: "Paul Northrop"
-date: "`r Sys.Date()`"
+date: ""
 output: 
   rmarkdown::html_vignette:
     toc: true

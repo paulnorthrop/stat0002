@@ -22,6 +22,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -41,16 +43,10 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 <li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
-<li>
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -75,6 +71,9 @@
       <a href="articles/stat0002-ch2d-box-cox-transformation-vignette.html">Chapter 2: Transformation Of Variable</a>
     </li>
     <li>
+      <a href="articles/stat0002-ch3-probability-vignette.html">Chapter 3: Probability</a>
+    </li>
+    <li>
       <a href="articles/stat0002-ch5a-discrete-random-variables-vignette.html">Chapter 5: binomial, geometric and Poisson distributions</a>
     </li>
     <li>
@@ -85,7 +84,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/paulnorthrop/stat0002/">
+  <a href="https://github.com/paulnorthrop/stat0002/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -104,61 +103,60 @@
   <div class="contents col-md-9">
 
 
-<div id="stat0002-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#stat0002-" class="anchor"></a>stat0002 <img src="standalone.png" align="right">
+<div class="section level1">
+<div class="page-header"><h1 id="stat0002-">stat0002 <img src="standalone.png" align="right"><a class="anchor" aria-label="anchor" href="#stat0002-"></a>
 </h1></div>
-<div id="introduction-to-probability-and-statistics" class="section level2">
-<h2 class="hasAnchor">
-<a href="#introduction-to-probability-and-statistics" class="anchor"></a>Introduction to Probability and Statistics</h2>
-<div id="what-does-stat0002-do" class="section level3">
-<h3 class="hasAnchor">
-<a href="#what-does-stat0002-do" class="anchor"></a>What does stat0002 do?</h3>
+<div class="section level2">
+<h2 id="introduction-to-probability-and-statistics">Introduction to Probability and Statistics<a class="anchor" aria-label="anchor" href="#introduction-to-probability-and-statistics"></a>
+</h2>
+<div class="section level3">
+<h3 id="what-does-stat0002-do">What does stat0002 do?<a class="anchor" aria-label="anchor" href="#what-does-stat0002-do"></a>
+</h3>
 <p>The <code>stat0002</code> package provides R code, datasets and vignettes (tutorials demonstrating how to use R code) to help students taking STAT0002 Introduction to Probability and Statistics at University College London (UCL) to understand the course material and to see how R can be used to perform some of the analyses in the course.</p>
 </div>
-<div id="software-required" class="section level3">
-<h3 class="hasAnchor">
-<a href="#software-required" class="anchor"></a>Software required</h3>
-<p>If you need to install R then you can get it from <a href="https://cran.r-project.org/">CRAN</a>.</p>
-<p>I recommend that you use RStudio (a <strong>free</strong> user-friendly front-end to R). Install it from the <a href="https://www.rstudio.com/products/rstudio/download/">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer for your operating system.</p>
-<p>If you use a <strong>Mac</strong> then the movies (interactive plots) in <code>stat0002</code> will not work unless you have <a href="https://www.xquartz.org/">XQuartz</a> installed.</p>
+<div class="section level3">
+<h3 id="software-required">Software required<a class="anchor" aria-label="anchor" href="#software-required"></a>
+</h3>
+<p>If you need to install R then you can get it from <a href="https://cran.r-project.org/" class="external-link">CRAN</a>.</p>
+<p>I recommend that you use RStudio (a <strong>free</strong> user-friendly front-end to R). Install it from the <a href="https://www.rstudio.com/products/rstudio/download/" class="external-link">Download RStudio page</a>. Find <strong>All Installers</strong> near the bottom of the page and choose the installer for your operating system.</p>
+<p>If you use a <strong>Mac</strong> then the movies (interactive plots) in <code>stat0002</code> will not work unless you have <a href="https://www.xquartz.org/" class="external-link">XQuartz</a> installed.</p>
 </div>
-<div id="installation-of-stat0002" class="section level3">
-<h3 class="hasAnchor">
-<a href="#installation-of-stat0002" class="anchor"></a>Installation of <code>stat0002</code>
+<div class="section level3">
+<h3 id="installation-of-stat0002">Installation of <code>stat0002</code>
+<a class="anchor" aria-label="anchor" href="#installation-of-stat0002"></a>
 </h3>
 <p>Copy and paste the following into the R console and press return.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"distributions3"</span>, <span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"SuppDists"</span>, <span class="st">"tkrplot"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"distributions3"</span>, <span class="st">"plotrix"</span>, <span class="st">"rpanel"</span>, <span class="st">"rust"</span>, <span class="st">"smovie"</span>, <span class="st">"SuppDists"</span>, <span class="st">"tkrplot"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p>Then copy and paste <strong>ONE</strong> of the following into the R Console and press return. Choose the option that is relevant to your computer.</p>
-<div id="windows" class="section level4">
-<h4 class="hasAnchor">
-<a href="#windows" class="anchor"></a>Windows</h4>
+<div class="section level4">
+<h4 id="windows">Windows<a class="anchor" aria-label="anchor" href="#windows"></a>
+</h4>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.zip"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.zip"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="apple-mac" class="section level4">
-<h4 class="hasAnchor">
-<a href="#apple-mac" class="anchor"></a>Apple Mac</h4>
+<div class="section level4">
+<h4 id="apple-mac">Apple Mac<a class="anchor" aria-label="anchor" href="#apple-mac"></a>
+</h4>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tgz"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tgz"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div id="linux" class="section level4">
-<h4 class="hasAnchor">
-<a href="#linux" class="anchor"></a>Linux</h4>
+<div class="section level4">
+<h4 id="linux">Linux<a class="anchor" aria-label="anchor" href="#linux"></a>
+</h4>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tar.gz"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tar.gz"</span>, repos <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
-<div id="getting-started" class="section level3">
-<h3 class="hasAnchor">
-<a href="#getting-started" class="anchor"></a>Getting started</h3>
+<div class="section level3">
+<h3 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+</h3>
 <p>Then type</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://paulnorthrop.github.io/stat0002/">stat0002</a></span><span class="op">)</span>
-<span class="op">?</span><span class="va">stat0002</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://paulnorthrop.github.io/stat0002/" class="external-link">stat0002</a></span><span class="op">)</span></span>
+<span><span class="op">?</span><span class="va">stat0002</span></span></code></pre></div>
 <p>to open the main help page, which contains links to vignettes, datasets and movies. The Index at the bottom links to help files for functions. If <code><a href="reference/stat0002.html">?stat0002</a></code> doesn’t work then close RStudio, reopen it and try again.</p>
-<p>However, perhaps the most convenient source of this information is the <a href="https://paulnorthrop.github.io/stat0002/">stat0002 home page on GitHub</a>, which has help files under <strong>Reference</strong> and vignettes under <strong>Articles</strong>.</p>
+<p>However, perhaps the most convenient source of this information is the <a href="https://paulnorthrop.github.io/stat0002/" class="external-link">stat0002 home page on GitHub</a>, which has help files under <strong>Reference</strong> and vignettes under <strong>Articles</strong>.</p>
 <p>You will find that some vignettes contain ideas that we have not yet covered in lectures. If you want to try to understand these ideas before we cover them then please use the links to further information that have been provided.</p>
 </div>
 </div>
@@ -168,44 +166,54 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/paulnorthrop/stat0002/">https://​github.com/​paulnorthrop/​stat0002/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/paulnorthrop/stat0002/issues">https://​github.com/​paulnorthrop/​stat0002/​issues</a>
-</li>
+<li><a href="https://github.com/paulnorthrop/stat0002/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/paulnorthrop/stat0002/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>GPL (&gt;= 2)</li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing stat0002</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Paul J. Northrop <br><small class="roles"> Author, maintainer, copyright holder </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://travis-ci.org/paulnorthrop/stat0002"><img src="https://travis-ci.org/paulnorthrop/stat0002.svg?branch=master" alt="Travis-CI Build Status"></a></li>
-<li><a href="https://ci.appveyor.com/project/paulnorthrop/stat0002"><img src="https://ci.appveyor.com/api/projects/status/github/paulnorthrop/stat0002?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
+<li><a href="https://ci.appveyor.com/project/paulnorthrop/stat0002" class="external-link"><img src="https://ci.appveyor.com/api/projects/status/github/paulnorthrop/stat0002?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Paul J. Northrop.</p>
+  <p></p>
+<p>Developed by Paul J. Northrop.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>
@@ -213,6 +221,8 @@
 
   
 
+
+  
 
   </body>
 </html>

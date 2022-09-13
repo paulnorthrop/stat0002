@@ -1,5 +1,5 @@
-pandoc: 2.14.0.3
-pkgdown: 1.6.1
+pandoc: '2.18'
+pkgdown: 2.0.6
 pkgdown_sha: ~
 articles:
   stat0002-ch1a-shuttle-vignette: stat0002-ch1a-shuttle-vignette.html
@@ -8,7 +8,8 @@ articles:
   stat0002-ch2b-graphs-vignette: stat0002-ch2b-graphs-vignette.html
   stat0002-ch2c-graphs-vignette: stat0002-ch2c-graphs-vignette.html
   stat0002-ch2d-box-cox-transformation-vignette: stat0002-ch2d-box-cox-transformation-vignette.html
+  stat0002-ch3-probability-vignette: stat0002-ch3-probability-vignette.html
   stat0002-ch5a-discrete-random-variables-vignette: stat0002-ch5a-discrete-random-variables-vignette.html
   stat0002-ch5b-continous-random-variables-vignette: stat0002-ch5b-continous-random-variables-vignette.html
-last_built: 2021-10-23T13:48Z
+last_built: 2022-09-13T15:56Z
 

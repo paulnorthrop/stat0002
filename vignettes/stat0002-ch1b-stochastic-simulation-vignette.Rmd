@@ -1,7 +1,7 @@
 ---
 title: "Chapter 1: Stochastic Simulation"
 author: "Paul Northrop"
-date: "`r Sys.Date()`"
+date: ""
 output: 
   rmarkdown::html_vignette:
     toc: true

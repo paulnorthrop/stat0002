@@ -25,6 +25,8 @@ reference:
       - "ftse"
       - "world_bank"
       - "flu"
+      - "kerrich"
+      - "berkeley"
       - "USelection"
       - "aussie_births"
       - "hubble"
@@ -75,3 +77,8 @@ reference:
       - "rbinomial"
       - "poisson_process_sim"
       - "plot.poisson_process"
+  - title: Bayes' theorem
+    desc: ~
+    contents:
+      - "screening_test"
+      - "print.screening_test"

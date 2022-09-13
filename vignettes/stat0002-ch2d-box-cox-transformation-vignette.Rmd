@@ -1,7 +1,7 @@
 ---
 title: "Chapter 2: Transformation Of Variable"
 author: "Paul Northrop"
-date: "`r Sys.Date()`"
+date: ""
 output: 
   rmarkdown::html_vignette:
     toc: true

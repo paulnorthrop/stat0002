@@ -15,7 +15,7 @@ Depends:
 License: GPL (>= 2)
 LazyData: TRUE
 Encoding: UTF-8
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 Imports: distributions3,
     graphics,
     grDevices,

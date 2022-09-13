@@ -34,21 +34,21 @@ see many functions like this.  To find out what a function called \code{name} do
 use either \code{?name} or \code{help(name)}.
 
 If you have any questions about this package please ask them via the
-\href{https://moodle.ucl.ac.uk/mod/hsuforum/view.php?id=866683}{STAT0002 Moodle Discussion Forum}.
+stat0002 R package Moodle Forum.
 }
 
 \section{Vignettes (tutorials demonstrating how to use R code)}{
 
 
 \itemize{
-  \item {\href{../doc/stat0002-ch1a-shuttle-vignette.html}{Chapter 1: Challenger Space Shuttle Disaster}}
-  \item {\href{../doc/stat0002-ch1b-stochastic-simulation-vignette.html}{Chapter 1: Stochastic Simulation}}
-  \item {\href{../doc/stat0002-ch2a-descriptive-statistics-vignette.html}{Chapter 2: Descriptive Statistics}}
-  \item {\href{../doc/stat0002-ch2b-graphs-vignette.html}{Chapter 2: Graphs (One Variable)}}
-  \item {\href{../doc/stat0002-ch2c-graphs-vignette.html}{Chapter 2: Graphs (More Than One Variable)}}
-  \item {\href{../doc/stat0002-ch2d-box-cox-transformation-vignette.html}{Chapter 2: Transformation Of Variable}}
-  \item {\href{../doc/stat0002-ch5a-discrete-random-variables.html}{Chapter 5: binomial, geometric and Poisson distributions}}
-  \item {\href{../doc/stat0002-ch5b-continuous-random-variables.html}{Chapter 5: uniform, exponential and normal distributions}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch1a-shuttle-vignette.html}{Chapter 1: Challenger Space Shuttle Disaster}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch1b-stochastic-simulation-vignette.html}{Chapter 1: Stochastic Simulation}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2a-descriptive-statistics-vignette.html}{Chapter 2: Descriptive Statistics}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2b-graphs-vignette.html}{Chapter 2: Graphs (One Variable)}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2c-graphs-vignette.html}{Chapter 2: Graphs (More Than One Variable)}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2d-box-cox-transformation-vignette.html}{Chapter 2: Transformation Of Variable}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch5a-discrete-random-variables-vignette.html}{Chapter 5: binomial, geometric and Poisson distributions}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch5b-continuous-random-variables-vignette.html}{Chapter 5: uniform, exponential and normal distributions}}
 }
 }
 
