@@ -21,8 +21,7 @@ Stochastic simulation uses computer-generated *pseudo-random numbers* to mimic a
 
 In this vignette we concentrate on using R to perform stochastic simulation.  If you want to know more then good sources of information are @Morgan and @Jasra.
 
-The R code used in this vignette are available: [stochastic-simulation-vignette.R](stat0002-ch1b-stochastic-simulation-vignette.R).
- The function `rbinomial` can be viewed by typing `rbinomial` at R command prompt `>`.
+The function `rbinomial` can be viewed by typing `rbinomial` at R command prompt `>`.
 
 ## Pseudo-random numbers in (0,1)
 

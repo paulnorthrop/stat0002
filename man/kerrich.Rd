@@ -3,7 +3,7 @@
 \docType{data}
 \name{kerrich}
 \alias{kerrich}
-\title{Kerrich's oin Data}
+\title{Kerrich's coin Data}
 \format{
 A data frame with 35 observations on 2 variables:
 \itemize{

@@ -19,8 +19,6 @@ knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE)
 
 The main purpose of this vignette is to provide R code to produce graphs that feature in Chapter 2 of the STAT0002 notes.  All these graphs involve one variable only. See also the [Chapter 2: Graphs (more than one variable)](stat0002-ch2c-graphs-vignette.html).
 
-The R code used in this vignette are available: [graphs-vignette.R](stat0002-ch2b-graphs-vignette.R).
-
 ## The Oxford Birth Times data 
 
 These data are available in the data frame `ox_births`.

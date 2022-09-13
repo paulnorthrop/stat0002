@@ -23,7 +23,7 @@ This vignette contains ideas and techniques that are not covered until later in 
 
 For information about R see the [STAT0004 Moodle page](https://moodle.ucl.ac.uk/course/view.php?id=8581) (if you are taking STAT1006) or the [Introduction to R Moodle page](https://moodle.ucl.ac.uk/course/view.php?id=10773) (if you are not taking STAT1006, e.g. Natural Sciences students).
 
-The R code used in this vignette are available: [shuttle-vignette.R](stat0002-ch1a-shuttle-vignette.R).  The functions `shuttle_sim` and `shuttle_sim_plot` can be viewed by typing the name of the function at R command prompt `>`.
+The functions `shuttle_sim` and `shuttle_sim_plot` can be viewed by typing the name of the function at R command prompt `>`.
 
 ## The Challenger Space Shuttle Disaster
 

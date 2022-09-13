@@ -416,7 +416,7 @@ NULL
 
 # =========================== Kerrich's coin data =============================
 
-#' Kerrich's oin Data
+#' Kerrich's coin Data
 #'
 #' A summary of the 10,000 coin throws conducted by Jon Kerrich.
 #'

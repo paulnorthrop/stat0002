@@ -17,9 +17,7 @@ knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE)
 #devtools::load_all()
 ```
 
-This vignette provides R code reproduce some of the content of Chapter 3 of the STAT0002 notes.
-
-The R code used in this vignette are available: [probability-vignette.R](stat0002-ch3-probability-vignette.R).
+This vignette provides R code reproduce some of the content of [Chapter 3 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/probability.html).
 
 ## Kerrich's coin data
 
