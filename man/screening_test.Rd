@@ -15,8 +15,8 @@ interest.}
 
 \item{sensitivity}{A numeric scalar.  The conditional probability that a
 person who has the disease tests positive.  If \eqn{+} is the event that
-the randomly chosen person test positive then the sensitivity is
-\eqn{P(+ | D)}.}
+the randomly chosen person tests positive then the sensitivity is
+\eqn{P(+ \mid D)}.}
 
 \item{specificity}{A numeric scalar.  The conditional probability that a
 person who does not have the disease tests negative.  If \eqn{-} is the
@@ -28,7 +28,7 @@ A list containing the following components
 \itemize{
 \item \code{pp} The probability \eqn{P(+)} that the person will test positive.
 \item \code{ppv} The positive predictive value. The conditional probability
-\eqn{P(D | +)} if the person tests positive then they has the disease.
+\eqn{P(D \mid +)} if the person tests positive then they has the disease.
 \item \code{npv} The negative predictive value. The conditional probability
 \eqn{P({\rm not}D \mid -)}{P(notD | -)} if the person tests negative
 then they do not have the disease.
@@ -44,9 +44,9 @@ person has the disease given that they test positive; the person does not
 have the disease given that they test negative.
 }
 \details{
-The probabilities are calculated using the \strong{law of total
+The required probabilities are calculated using the \strong{law of total
 probability}
-\deqn{P(+) = P(+ \mid D) P(D) + P(+ \mid {\rm not}D) P(D)}{%
+\deqn{P(+) = P(+ \mid D) P(D) + P(+ \mid {\rm not}D) P({\rm not}D)}{%
     P(+) = P(+ | D) P(D) + P(+ | notD) P(notD)}
 and \strong{Bayes' theorem}
 \deqn{P(D \mid +) = \frac{P(+ \mid D) P(D)}{P(+)}}{%
@@ -55,5 +55,5 @@ and \strong{Bayes' theorem}
     P(notD | -) = P(- | notD) P(notD) / P(-).}
 }
 \examples{
-screening_test(0.1, 0.9, 0.9)
+screening_test(prior = 0.1, sensitivity = 0.9, specificity = 0.9)
 }
