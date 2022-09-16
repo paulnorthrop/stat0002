@@ -1,12 +1,12 @@
 ---
-title: "Chapter 5: binomial, geometric and Poisson distributions"
+title: "Chapter 6: binomial, geometric and Poisson distributions"
 author: "Paul Northrop"
 date: ""
 output: 
   rmarkdown::html_vignette:
     toc: true
 vignette: >
-  %\VignetteIndexEntry{Chapter 5: binomial, geometric and Poisson distributions}
+  %\VignetteIndexEntry{Chapter 6: binomial, geometric and Poisson distributions}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: stat0002.bib
