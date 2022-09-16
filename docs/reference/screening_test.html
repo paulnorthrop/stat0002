@@ -57,6 +57,9 @@ have the disease given that they test negative."><!-- mathjax --><script src="ht
       <a href="../articles/stat0002-ch3-probability-vignette.html">Chapter 3: Probability</a>
     </li>
     <li>
+      <a href="../articles/stat0002-ch4-more-probability-vignette.html">Chapter 4: More Probability</a>
+    </li>
+    <li>
       <a href="../articles/stat0002-ch6a-discrete-random-variables-vignette.html">Chapter 6: binomial, geometric and Poisson distributions</a>
     </li>
     <li>
@@ -108,8 +111,8 @@ interest.</p></dd>
 <dt>sensitivity</dt>
 <dd><p>A numeric scalar.  The conditional probability that a
 person who has the disease tests positive.  If \(+\) is the event that
-the randomly chosen person test positive then the sensitivity is
-\(P(+ | D)\).</p></dd>
+the randomly chosen person tests positive then the sensitivity is
+\(P(+ \mid D)\).</p></dd>
 
 
 <dt>specificity</dt>
@@ -125,7 +128,7 @@ is \(P(- \mid {\rm not}D)\).</p></dd>
 
 <p>A list containing the following components</p><ul><li><p><code>pp</code> The probability \(P(+)\) that the person will test positive.</p></li>
 <li><p><code>ppv</code> The positive predictive value. The conditional probability
-\(P(D | +)\) if the person tests positive then they has the disease.</p></li>
+\(P(D \mid +)\) if the person tests positive then they has the disease.</p></li>
 <li><p><code>npv</code> The negative predictive value. The conditional probability
 \(P({\rm not}D \mid -)\) if the person tests negative
 then they do not have the disease.</p></li>
@@ -134,9 +137,9 @@ then they do not have the disease.</p></li>
 </ul></div>
     <div id="details">
     <h2>Details</h2>
-    <p>The probabilities are calculated using the <strong>law of total
+    <p>The required probabilities are calculated using the <strong>law of total
 probability</strong>
-$$P(+) = P(+ \mid D) P(D) + P(+ \mid {\rm not}D) P(D)$$
+$$P(+) = P(+ \mid D) P(D) + P(+ \mid {\rm not}D) P({\rm not}D)$$
 and <strong>Bayes' theorem</strong>
 $$P(D \mid +) = \frac{P(+ \mid D) P(D)}{P(+)}$$
 $$P({\rm not}D \mid -) = \frac{P(- \mid {\rm not}D) P({\rm not}D)}{P(-)}.$$</p>
@@ -144,7 +147,7 @@ $$P({\rm not}D \mid -) = \frac{P(- \mid {\rm not}D) P({\rm not}D)}{P(-)}.$$</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">screening_test</span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.9</span>, <span class="fl">0.9</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">screening_test</span><span class="op">(</span>prior <span class="op">=</span> <span class="fl">0.1</span>, sensitivity <span class="op">=</span> <span class="fl">0.9</span>, specificity <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Prevalence, sensitivity, specificity:</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>        P(D)     P(+ | D)  P(- | notD)  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>         0.1          0.9          0.9  </span>
