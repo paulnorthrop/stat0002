@@ -1,0 +1,177 @@
+---
+title: "Chapter 5: Random Variables"
+author: "Paul Northrop"
+date: ""
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Chapter 5: Random Variables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: stat0002.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
+                      fig.width = 7, fig.height = 5, fig.align = 'center')
+#devtools::load_all()
+```
+
+This vignette provides some R code that is related to some of the content of [Chapter 5 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/rvs.html), namely to random variables and their properties.
+
+## Discrete random variables
+
+We look at two example discrete random variables and consider how to find their respective modes, medians and means.
+
+### An example with finite support
+
+Consider the random variable $X$ with support $\{ 0, 1, 2 \}$ and p.m.f. satisfying
+
+\[ P(X=0)=\frac16 \qquad  P(X=1)=\frac12 \qquad P(X=2)=\frac13. \]  
+
+The following code produces plots of the p.m.f. and c.d.f. of $X$, fiddling with the basic plots to produce a slightly prettier ones.
+
+```{r}
+# Plot the p.m.f.
+x <- 0:2
+px <- c(1/6, 1/2, 1/3)
+plot(x, px, type = "h", axes = FALSE, ylab = "P(X = x)", xlab = "x",
+     ylim = c(0, 1/2), lwd = 4, cex.lab = 1.5, cex.axis = 1.5, las = 1)
+axis(1, at = 0:2, lwd = 2)
+axis(2, at = c(0, sort(px)), labels = c("0", "1/6", "1/3", "1/2"), lwd = 2)
+```
+
+```{r}
+# Plot c.d.f.
+x0 <- c(-0.5, 0, 0, 1, 1, 2, 2)
+y0 <- c(0, 0, 1/6, 1/6, 2/3, 2/3, 1)
+x1 <- c(0, 0, 1, 1, 2, 2, 2.5)
+y1 <- c(0, 1/6, 1/6, 2/3, 2/3, 1, 1)
+plot(c(x0, x1), c(y0, y1), axes = FALSE, ylab = "", xlab = "x", las = 1, type = "n", cex.lab = 1.5, 
+     cex.axis = 1.5, lwd = 4)
+segments(x0, y0, x1, y1, lty = rep(1, 7), lwd = 2, pch = 0)
+axis(1, at = 0:2, labels = 0:2, pos = 0, lwd = 2)
+axis(2, at = cumsum(c(0, px)), labels = c("0", "1/6", "2/3", "1"), las = 1, lwd = 2)
+title(ylab = expression("P(X"<="x)"), cex.lab = 1.5, line = 2.5)
+# Add lines to indicate the median of X
+axis(2, at = 1 / 2, labels = "1/2", las = 1, lwd = 2)
+segments(-0.5, 1 / 2, 1, 1 / 2, lty = 2)
+segments(1, 0, 1, 1 / 2, lty = 2)
+```
+
+The plot of the p.m.f. shows that the mode of $X$ is 1 and the plot of the c.d.f. that the median of $X$ is 1. This random variable has finite support.  Therefore, its mean $\text{E}(X)$ exists.  We could calculate $\text{E}(X)$ using the following code.
+
+```{r}
+sum(x * px)
+```
+
+### An example with infinite support
+
+Consider the function
+$$ p(x) = P(X = x) = \frac{6}{\pi^2} \frac{1}{x^2}, \quad \mbox{ for } x = 1, 2, 3,\, ....$$
+
+This is a valid p.m.f. of a discrete random variable $X$, because
+
+1. $p(x) \geq 0$ for $x = 1, 2, 3,\, ...$
+2. $\sum_{x=1}^{\infty} p(x) = 1$ ([Basel problem](https://en.wikipedia.org/wiki/Basel_problem))
+
+To illustrate 2. look at the following output and plot.
+
+```{r}
+m <- 100
+x <- 1:m
+px <- (6 / pi ^ 2) / x ^ 2
+mat <- cbind(c(0, x), cumsum(c(0, px)))
+plot(mat[, 1], mat[, 2], pch = 20, ann  = FALSE)
+title(xlab = "x", ylab = expression(P(X <= x)))
+abline(h = 1, lty = 2)
+tail(mat)
+```
+
+**Can you find the median, mode and mean of $X$?**
+
+You will have trouble finding the mean because $S = \sum_{x=1}^{\infty} x p(x)$ does not converge.  Suppose that we try to approximate the value of this sum using $\hat{S}(m) = \sum_{x=1}^{m} x p(x)$ for some large value $m$.  The following code plots the $\hat{S}(m)$ against $m$ for $m = 1,..., 100$.
+
+```{r, eval = FALSE, echo = FALSE}
+title(ylab = expression(sum(x * ~p(x), x = "x=1", m)), line = 1.75)
+```
+
+```{r}
+m <- 100
+x <- 1:m
+px <- (6 / pi ^ 2) / x ^ 2
+s <- cumsum(x * px)
+plot(x, s, pch = 20, ann = FALSE)
+title(xlab = "m")
+title(ylab = expression(hat(S)(m)), line = 2.25)
+```
+
+Does it look like $\hat{S}(m)$ is converging as $m \rightarrow \infty$? You could try some larger values of $m$ to investigate.  You could also examine $\sum_{x=1}^{\infty} x p(x)$ algebraically.  Does it involve an example series that you have seen before? Is this series convergent or divergent?
+
+## Continuous random variables
+
+We look at a continuous random variable that may be used to model the Oxford birth times data and consider how to calculate the mode, median and mean of this random variable.
+
+### A simple model for the Oxford birth times
+
+The plot in the bottom of [Figure 5.2](https://paulnorthrop.github.io/stat0002book/rvs.html#fig:oxshady) of the notes is of the p.d.f. of a gamma distribution with parameters chosen so that the shape of the p.d.f. is similar to that of the histogram of the times in the Oxford Birth Times dataset.  To find out about the gamma distribution type `?GammaDist`.  The following code finds values of the shape parameter $\alpha$ and scale parameter $\sigma$ for which the mean and variance of the gamma distribution are equal, respectively, to the sample mean and sample variance of the Oxford birth times data.  
+
+**Can you see how this works?**
+
+```{r, message = FALSE}
+library(stat0002)
+tbar <- mean(ox_births$time)
+vart <- var(ox_births$time)
+# Sample mean and variance
+c(tbar, vart)
+scale_par <- vart / tbar
+shape_par <- tbar / scale_par
+# Estimates of gamma shape and scale parameters
+c(shape_par, scale_par)
+```
+
+We produce a basic plot of the gamma distribution that we have fitted to these data, to check that it has done what we expected. If $\alpha$ is greater than 1 then the mode of a gamma($\alpha, \sigma$) distribution is at $(\alpha - 1) \sigma$. We add a vertical line at the mode to check this.
+
+```{r}
+# Produce the plot
+curve(dgamma(x, shape = shape_par, scale = scale_par), 0, 20, ylab = "p.d.f.", xlab = "time (hours)")
+gmode <- (shape_par - 1) * scale_par
+# Indicate the mode
+segments(gmode, 0, gmode, dgamma(gmode, shape = shape_par, scale = scale_par), lty =2)
+```
+
+It can be shown algebraically that the gamma p.d.f. integrates to 1.  (This must be true otherwise it is not a p.d.f..) R has a function called `integrate` that performs numerical integration to estimate the value of an integral.  The code below uses `integrate` to check that this gamma p.d.f. integrates to 1 over $(0, \infty)$.
+
+```{r}
+# Check that the p.d.f. integrates to 1
+integrate(dgamma, 0, Inf, shape = shape_par, scale = scale_par)
+```
+
+We could also use `integrate` to check that our fitted gamma distribution has the mean that we expect. Note that the `...` in the definition of the function `integrand` that calculates the integrand can be used to pass the arguments `shape` and/or `scale` to the function `dgamma` that calculates the p.d.f. of a gamma distribution.
+
+```{r}
+# Check that the gamma mean is equal to the sample mean, tbar, of the data
+integrand <- function(x, ...) x * dgamma(x, ...)
+integrate(integrand, 0, Inf, shape = shape_par, scale = scale_par)
+tbar
+```
+
+The `qgamma` function can be used to calculate quantiles of a given gamma distribution.  Suppose that we wish to calculate the median (the $50\%$ quantile) of our fitted gamma distribution.  The following code does this.  It also shows that we can calculate more than one quantile at a time.
+
+```{r}
+tmedian <- qgamma(1 / 2, shape = shape_par, scale = scale_par)
+tmedian
+qgamma(c(0.05, 0.5, 0.95), shape = shape_par, scale = scale_par)
+```
+
+We could use `integrate` to check that `qgamma` has returned the correct median.
+
+```{r}
+# Check that the median is correct
+integrate(dgamma, 0, tmedian, shape = shape_par, scale = scale_par)
+```
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
+</script>
