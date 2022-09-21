@@ -12,7 +12,9 @@ R can be used to perform some of the analyses in the course.
 This package can also be used to complement STAT0004 Introduction to
 Practical Statistics, enabling students to become more familiar with R
 code by seeing it in action and playing with it themselves.
-A useful source of information is the
+}
+\details{
+The most useful source of information is the
 \href{https://paulnorthrop.github.io/stat0002/}{stat0002 home page on GitHub}.
 }
 \section{Please note}{
@@ -111,15 +113,4 @@ See \code{\link[smovie]{movies}} for more details.
 
 \seealso{
 \code{\link{stat0002movies}}: general information about the movies.
-
-The \href{https://moodle.ucl.ac.uk/course/view.php?id=8579&section=0}{STAT0002 Moodle page}
-  for: various forms of feedback, a discussion forum, lecturecast recordings,
-  course notes, exercises, quizzes, short videos, past exam papers and revision
-  lecture material, real investigations.
-
-The \href{https://moodle.ucl.ac.uk/course/view.php?id=8581}{STAT0004 Moodle page}
-  (for students taking STAT0004).
-
-The \href{https://moodle.ucl.ac.uk/course/view.php?id=10773}{Introduction to R Moodle page}
-  (for students not taking STAT0004, e.g. Natural Sciences students).
 }

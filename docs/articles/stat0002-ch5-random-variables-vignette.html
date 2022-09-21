@@ -82,6 +82,9 @@
     <li>
       <a href="../articles/stat0002-ch6b-continous-random-variables-vignette.html">Chapter 6: uniform, exponential and normal distributions</a>
     </li>
+    <li>
+      <a href="../articles/stat0002-ch7-statistical-inference-vignette.html">Chapter 7: Statistical Inference</a>
+    </li>
   </ul>
 </li>
       </ul>
@@ -261,18 +264,53 @@ distribution is at <span class="math inline">\((\alpha - 1)
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Produce the plot</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">curve</span>(<span class="fu">dgamma</span>(x, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par), <span class="dv">0</span>, <span class="dv">20</span>, <span class="at">ylab =</span> <span class="st">"p.d.f."</span>, <span class="at">xlab =</span> <span class="st">"time (hours)"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> gmode <span class="ot">&lt;-</span> (shape_par <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> scale_par</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Indicate the mode</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">segments</span>(gmode, <span class="dv">0</span>, gmode, <span class="fu">dgamma</span>(gmode, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par), <span class="at">lty =</span><span class="dv">2</span>)</span></code></pre></div>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> gmode</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">6.074698</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Indicate the mode</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">segments</span>(gmode, <span class="dv">0</span>, gmode, <span class="fu">dgamma</span>(gmode, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par), <span class="at">lty =</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="stat0002-ch5-random-variables-vignette_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></p>
+</div>
+<div class="section level3">
+<h3 id="a-digression-about-numerical-optimisation">A digression about numerical optimisation<a class="anchor" aria-label="anchor" href="#a-digression-about-numerical-optimisation"></a>
+</h3>
+<p>If we did not know how to find the mode using the values of <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\sigma\)</span> then we could try to find it
+numerically by searching for the point at which the p.d.f. is maximised.
+For functions like this it is common to seek to maximise the
+<strong>log</strong> of the p.d.f.. In practice, optimisation
+algorithms, like the function <code>optim</code> used below, are often
+set up to <strong>minimise</strong> a function by default. Here we set
+the control option <code>fnscale</code> to <code>-1</code> to multiply
+the target function by <span class="math inline">\(-1\)</span>, turning
+our maximisation problem into a minimisation problem.</p>
+<p>Note the use of <code>...</code> to pass the values of
+<code>shape</code>, <code>scale</code> and <code>log</code> to the
+function <code>fn</code>. Also, <code>method = "L-BFGS-B"</code> chooses
+an optimisation method that allows us to set bounds on the solution and
+<code>lower = 0</code> gives the information that we know that the mode
+cannot be less than zero.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A function to calculate the (log of the) gamma p.d.f.</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> fn <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) <span class="fu">dgamma</span>(x, ...)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> find_mode <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="dv">1</span>, fn, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par, <span class="at">log =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                    <span class="at">method =</span> <span class="st">"L-BFGS-B"</span>, <span class="at">lower =</span> <span class="dv">0</span>, <span class="at">control =</span> <span class="fu">list</span>(<span class="at">fnscale =</span> <span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Approximate value of the mode</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> find_mode<span class="sc">$</span>par</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">6.074697</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Value of the p.d.f. at this value</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">exp</span>(find_mode<span class="sc">$</span>value)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1232569</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="a-digression-about-numerical-integration">A digression about numerical integration<a class="anchor" aria-label="anchor" href="#a-digression-about-numerical-integration"></a>
+</h3>
 <p>It can be shown algebraically that the gamma p.d.f. integrates to 1.
 (This must be true otherwise it is not a p.d.f..) R has a function
 called <code>integrate</code> that performs numerical integration to
 estimate the value of an integral. The code below uses
 <code>integrate</code> to check that this gamma p.d.f. integrates to 1
 over <span class="math inline">\((0, \infty)\)</span>.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Check that the p.d.f. integrates to 1</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">integrate</span>(dgamma, <span class="dv">0</span>, <span class="cn">Inf</span>, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> with absolute error <span class="sc">&lt;</span> <span class="fl">1.1e-08</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Check that the p.d.f. integrates to 1</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">integrate</span>(dgamma, <span class="dv">0</span>, <span class="cn">Inf</span>, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> with absolute error <span class="sc">&lt;</span> <span class="fl">1.1e-08</span></span></code></pre></div>
 <p>We could also use <code>integrate</code> to check that our fitted
 gamma distribution has the mean that we expect. Note that the
 <code>...</code> in the definition of the function
@@ -280,27 +318,31 @@ gamma distribution has the mean that we expect. Note that the
 the arguments <code>shape</code> and/or <code>scale</code> to the
 function <code>dgamma</code> that calculates the p.d.f. of a gamma
 distribution.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Check that the gamma mean is equal to the sample mean, tbar, of the data</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> integrand <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) x <span class="sc">*</span> <span class="fu">dgamma</span>(x, ...)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">integrate</span>(integrand, <span class="dv">0</span>, <span class="cn">Inf</span>, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fl">7.723158</span> with absolute error <span class="sc">&lt;</span> <span class="fl">3e-07</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tbar</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">7.723158</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Check that the gamma mean is equal to the sample mean, tbar, of the data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> integrand <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) x <span class="sc">*</span> <span class="fu">dgamma</span>(x, ...)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">integrate</span>(integrand, <span class="dv">0</span>, <span class="cn">Inf</span>, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fl">7.723158</span> with absolute error <span class="sc">&lt;</span> <span class="fl">3e-07</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tbar</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">7.723158</span></span></code></pre></div>
 <p>The <code>qgamma</code> function can be used to calculate quantiles
 of a given gamma distribution. Suppose that we wish to calculate the
 median (the <span class="math inline">\(50\%\)</span> quantile) of our
 fitted gamma distribution. The following code does this. It also shows
 that we can calculate more than one quantile at a time.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tmedian <span class="ot">&lt;-</span> <span class="fu">qgamma</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tmedian</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">7.181169</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">qgamma</span>(<span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.95</span>), <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">2.926326</span>  <span class="fl">7.181169</span> <span class="fl">14.370700</span></span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tmedian <span class="ot">&lt;-</span> <span class="fu">qgamma</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> tmedian</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">7.181169</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">qgamma</span>(<span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.5</span>, <span class="fl">0.95</span>), <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">2.926326</span>  <span class="fl">7.181169</span> <span class="fl">14.370700</span></span></code></pre></div>
 <p>We could use <code>integrate</code> to check that <code>qgamma</code>
-has returned the correct median.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Check that the median is correct</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">integrate</span>(dgamma, <span class="dv">0</span>, tmedian, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fl">0.5</span> with absolute error <span class="sc">&lt;</span> <span class="fl">1.1e-08</span></span></code></pre></div>
+has returned the correct median, or use the function
+<code>pgamma</code>, which calculates the c.d.f. of a gamma random
+variable.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Two ways to check that the median is correct</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">integrate</span>(dgamma, <span class="dv">0</span>, tmedian, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fl">0.5</span> with absolute error <span class="sc">&lt;</span> <span class="fl">1.1e-08</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pgamma</span>(tmedian, <span class="at">shape =</span> shape_par, <span class="at">scale =</span> scale_par)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.5</span></span></code></pre></div>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script>

@@ -15,7 +15,6 @@ bibliography: stat0002.bib
 ```{r, include = FALSE}
 knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
                       fig.width = 7, fig.height = 5, fig.align = 'center')
-#devtools::load_all()
 ```
 
 This vignette provides R code to reproduce some of the content of [Chapter 3 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/probability.html).

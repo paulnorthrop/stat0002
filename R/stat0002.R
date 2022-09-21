@@ -7,7 +7,8 @@
 #' This package can also be used to complement STAT0004 Introduction to
 #' Practical Statistics, enabling students to become more familiar with R
 #' code by seeing it in action and playing with it themselves.
-#' A useful source of information is the
+#'
+#' The most useful source of information is the
 #' \href{https://paulnorthrop.github.io/stat0002/}{stat0002 home page on GitHub}.
 #'
 #' @section Please note:
@@ -94,14 +95,6 @@
 #'   \item {\link[=corr_sim_movie]{Sampling distribution of the correlation coefficient}}
 #' }
 #' @seealso \code{\link{stat0002movies}}: general information about the movies.
-#' @seealso The \href{https://moodle.ucl.ac.uk/course/view.php?id=8579&section=0}{STAT0002 Moodle page}
-#'   for: various forms of feedback, a discussion forum, lecturecast recordings,
-#'   course notes, exercises, quizzes, short videos, past exam papers and revision
-#'   lecture material, real investigations.
-#' @seealso The \href{https://moodle.ucl.ac.uk/course/view.php?id=8581}{STAT0004 Moodle page}
-#'   (for students taking STAT0004).
-#' @seealso The \href{https://moodle.ucl.ac.uk/course/view.php?id=10773}{Introduction to R Moodle page}
-#'   (for students not taking STAT0004, e.g. Natural Sciences students).
 #' @docType package
 #' @name stat0002
 #' @importFrom stats runif
@@ -417,7 +410,7 @@ NULL
 
 # =========================== Kerrich's coin data =============================
 
-#' Kerrich's coin Data
+#' Kerrich's coin data
 #'
 #' A summary of the 10,000 coin throws conducted by Jon Kerrich.
 #'
