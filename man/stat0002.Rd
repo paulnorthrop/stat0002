@@ -16,7 +16,34 @@ code by seeing it in action and playing with it themselves.
 \details{
 The most useful source of information is the
 \href{https://paulnorthrop.github.io/stat0002/}{stat0002 home page on GitHub}.
+The \href{https://paulnorthrop.github.io/stat0002/reference/index.html}{Reference}
+page provides information about example datasets, movies (interactive plots),
+and functions for performing tasks like creating plot, calculating summary
+statistics and simulating data.
+
+The tab labelled \strong{Articles} (or use the
+\href{https://paulnorthrop.github.io/stat0002/articles/}{Articles link}) contains
+several tutorials demonstrating how to use R to create some of the content
+of the \href{https://paulnorthrop.github.io/stat0002book/}{STAT0002 notes}
+and related tasks.
+
+Some of the movies are made available via the
+\code{\link[smovie]{smovie}} package.  You can access a menu for the
+movies in smovie using \code{library(smovie)} and then \code{movies()}.
+See \code{\link[smovie]{movies}} for more details.
 }
+\section{Summary of the main resources}{
+
+\itemize{
+  \item {\href{https://paulnorthrop.github.io/stat0002/articles/}{Tutorials}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/reference/index.html#example-data}{Example data}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/reference/index.html#movies}{Movies}. See also \link[=stat0002movies]{movies}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/reference/index.html#plots}{Plots}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/reference/index.html#summary-statistics}{Summary statistics}}
+  \item {\href{https://paulnorthrop.github.io/stat0002/reference/index.html#simulation-functions}{Simulation functions}}
+}
+}
+
 \section{Please note}{
 
 \strong{The main source of information about the material in STAT0002 is
@@ -29,8 +56,8 @@ is recommended as a supplement to the STAT0002 syllabus.}
 \section{How to learn about R}{
 
 The best way to learn how to use a computer program is to play with code and
-see what it does.  R is based on \emph{functions} that look like \code{name()}, where
-\code{name} is the name of the function and where various \emph{arguments} are inserted
+see what it does.  R is based on \strong{functions} that look like \code{name()}, where
+\code{name} is the name of the function and where various \strong{arguments} are inserted
 inside the brackets \code{()}.  In the R code provided with this package you will
 see many functions like this.  To find out what a function called \code{name} does
 use either \code{?name} or \code{help(name)}.
@@ -39,78 +66,3 @@ If you have any questions about this package please ask them via the
 stat0002 R package Moodle Forum.
 }
 
-\section{Vignettes (tutorials demonstrating how to use R code)}{
-
-
-\itemize{
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch1a-shuttle-vignette.html}{Chapter 1: Challenger Space Shuttle Disaster}}
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch1b-stochastic-simulation-vignette.html}{Chapter 1: Stochastic Simulation}}
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2a-descriptive-statistics-vignette.html}{Chapter 2: Descriptive Statistics}}
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2b-graphs-vignette.html}{Chapter 2: Graphs (One Variable)}}
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2c-graphs-vignette.html}{Chapter 2: Graphs (More Than One Variable)}}
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2d-box-cox-transformation-vignette.html}{Chapter 2: Transformation Of Variable}}
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch3-probability-vignette.html}{Chapter 3: Probability}}
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch5a-discrete-random-variables-vignette.html}{Chapter 5: binomial, geometric and Poisson distributions}}
-  \item {\href{https://paulnorthrop.github.io/stat0002/articles/stat0002-ch5b-continuous-random-variables-vignette.html}{Chapter 5: uniform, exponential and normal distributions}}
-}
-}
-
-\section{Datasets}{
-
-
-\itemize{
-  \item {\link[=shuttle]{Challenger Space Shuttle Disaster}}
-  \item {\link[=days]{Mystery data (in Exercises 1)}}
-  \item {\link[=lymphoma]{T-cell count data}}
-  \item {\link[=clouds]{Cloud-seeding data}}
-  \item {\link[=ox_births]{Oxford Birth Times}}
-  \item {\link[=blood_types]{Blood Types}}
-  \item {\link[=ftse]{FTSE 100 Share Index}}
-  \item {\link[=world_bank]{World Bank Development Indicators}}
-  \item {\link[=flu]{Influenza data}}
-  \item {\link[=kerrich]{Kerrich's coin data}}
-  \item {\link[=berkeley]{Student Admissions at UC Berkeley}}
-  \item {\link[=USelection]{The 2000 U.S. Presidential Election}}
-  \item {\link[=aussie_births]{Australian Birth Times Data}}
-  \item {\link[=hubble]{Nebulae data from Hubble (1929)}}
-  \item {\link[=birds]{Between-species dominance in birds}}
-  \item {\link[=daley]{Tokyo 2020 Olympics Men's Individual 10m platform
-    results}}
-}
-}
-
-\section{\link[=stat0002movies]{Movies}}{
-
-
-Some of the following movies are made available via the
-\code{\link[smovie]{smovie}} package.  You can access a menu for the
-movies in smovie using \code{library(smovie)} and then \code{movies()}.
-See \code{\link[smovie]{movies}} for more details.
-
-\itemize{
-  \item {\link[=shuttle_movie]{Challenger Space Shuttle Disaster}}
-  \item {\link[=scatterplot_movie]{US election: straightening scatter
-    plots}}
-  \item {\link[=world_bank_movie]{World Bank Development Indicators}}
-  \item {\link[=ox_births_movie]{Oxford Birth Times Simulation}}
-  \item {\link[=binomial_pmf_movie]{Binomial p.m.f.}}
-  \item {\link[=poisson_process_movie]{Poisson process}}
-  \item {\link[=poisson_process_check]{Graphical checking of Poisson process properties}}
-  \item {\link[=normal_pdf_movie]{Normal probability density function}}
-  \item {\link[=normal_areas_movie]{Normal central probability areas}}
-  \item {\link[=qq_plot_movie]{Construction of a (normal) QQ plot}}
-  \item {\link[=normal_sampling_distns_movie]{Normal sampling distributions}}
-  \item {\link[=clt_normal_movie]{Central Limit Theorem: normal data}}
-  \item {\link[=clt_exponential_movie]{Central Limit Theorem: exponential data}}
-  \item {\link[=mean_vs_median_normal_movie]{Mean vs median for a normal random sample}}
-  \item {\link[=mean_vs_median_t_movie]{Mean vs median for a Student's t random sample}}
-  \item {\link[=two_by_two_movie]{Test for lack of association in a 2 by 2 contingency table}}
-  \item {\link[=lin_reg_movie]{Simple linear regression using least squares estimation}}
-  \item {\link[=lev_inf_movie]{Leverage and influence in simple linear regression}}
-  \item {\link[=corr_sim_movie]{Sampling distribution of the correlation coefficient}}
-}
-}
-
-\seealso{
-\code{\link{stat0002movies}}: general information about the movies.
-}
