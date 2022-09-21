@@ -15,7 +15,6 @@ bibliography: stat0002.bib
 ```{r, include = FALSE}
 knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
                       fig.width = 7, fig.height = 5, fig.align = 'center')
-#devtools::load_all()
 ```
 
 This vignette provides some R code that is related to some of the content of [Chapter 5 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/rvs.html), namely to random variables and their properties.
@@ -137,9 +136,29 @@ We produce a basic plot of the gamma distribution that we have fitted to these d
 # Produce the plot
 curve(dgamma(x, shape = shape_par, scale = scale_par), 0, 20, ylab = "p.d.f.", xlab = "time (hours)")
 gmode <- (shape_par - 1) * scale_par
+gmode
 # Indicate the mode
 segments(gmode, 0, gmode, dgamma(gmode, shape = shape_par, scale = scale_par), lty =2)
 ```
+
+### A digression about numerical optimisation
+
+If we did not know how to find the mode using the values of $\alpha$ and $\sigma$ then we could try to find it numerically by searching for the point at which the p.d.f. is maximised. For functions like this it is common to seek to maximise the **log** of the p.d.f.. In practice, optimisation algorithms, like the function `optim` used below, are often set up to **minimise** a function by default.  Here we set the control option `fnscale` to `-1` to multiply the target function by $-1$, turning our maximisation problem into a minimisation problem.  
+
+Note the use of `...` to pass the values of `shape`, `scale` and `log` to the function `fn`. Also, `method = "L-BFGS-B"` chooses an optimisation method that allows us to set bounds on the solution and `lower = 0` gives the information that we know that the mode cannot be less than zero.
+
+```{r}
+# A function to calculate the (log of the) gamma p.d.f.
+fn <- function(x, ...) dgamma(x, ...)
+find_mode <- optim(1, fn, shape = shape_par, scale = scale_par, log = TRUE, 
+                   method = "L-BFGS-B", lower = 0, control = list(fnscale = -1))
+# Approximate value of the mode
+find_mode$par
+# Value of the p.d.f. at this value
+exp(find_mode$value)
+```
+
+### A digression about numerical integration
 
 It can be shown algebraically that the gamma p.d.f. integrates to 1.  (This must be true otherwise it is not a p.d.f..) R has a function called `integrate` that performs numerical integration to estimate the value of an integral.  The code below uses `integrate` to check that this gamma p.d.f. integrates to 1 over $(0, \infty)$.
 
@@ -165,11 +184,12 @@ tmedian
 qgamma(c(0.05, 0.5, 0.95), shape = shape_par, scale = scale_par)
 ```
 
-We could use `integrate` to check that `qgamma` has returned the correct median.
+We could use `integrate` to check that `qgamma` has returned the correct median, or use the function `pgamma`, which calculates the c.d.f. of a gamma random variable.
 
 ```{r}
-# Check that the median is correct
+# Two ways to check that the median is correct
 integrate(dgamma, 0, tmedian, shape = shape_par, scale = scale_par)
+pgamma(tmedian, shape = shape_par, scale = scale_par)
 ```
 
 <script type="text/x-mathjax-config">
