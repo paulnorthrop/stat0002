@@ -276,3 +276,91 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
   graphics::barplot(yhist$count, axes = FALSE, space = 0, horiz = TRUE)
   invisible()
 }
+
+
+# ================================== qqexp ====================================
+
+#' Expnential Quantile-Quantile plots
+#'
+#' Produces a QQ plot to compare ordered sample data to corresponding
+#' quantiles of an exponential distribution fitted to these data.
+#'
+#' @details The rate parameter \eqn{\lambda} of the exponential distribution
+#'   is estimated using \code{1 / mean(y)}.  The ordered sample data are
+#'   plotted against quantiles of this fitted exponential distribution.
+#'   Specifically, the \eqn{i}th smallest sample observation is plotted
+#'   against the \eqn{100 i / (n + 1)\%} theoretical exponential quantile,
+#'   where \eqn{n} is the sample size. The plot is constrained to be square.
+#' @param y Sample data
+#' @param ... Optional \code{\link[graphics:par]{graphical parameters}}
+#'   passed to \code{\link[graphics:plot.default]{plot}}, such as \code{pch},
+#'   \code{lty} and \code{lwd}, to control the appearance of the plot.
+#' @param main A character scalar. The title (if any) to give the plot.
+#' @param line Determines whether or not a line of equality is superimposed on
+#'   the plot.  If a line is required then must be a list, which can contain
+#'   \code{\link[graphics:par]{graphical parameters}}
+#'   passed to \code{\link[graphics]{abline}}, such as \code{col}, \code{lty}
+#'   and \code{lwd} to control the appearance of the line. If \code{line} is
+#'   not a list, for example, \code{line = 0}, then no line is superimposed.
+#' @param envelopes Determines whether or not simulation envelopes should be
+#'   added to the plot.  If \code{envelopes = FALSE} then no envelopes are
+#'   added. If \code{envelopes} is a positive integer (a common choice is 19)
+#'   then simulation envelopes based on this many simulated datasets are added.
+#'   The limits of of the envelopes are indicated using short horizontal lines.
+#' @return Nothing, just the plot.
+#' @seealso \code{\link[stats]{qqnorm}} for a normal QQ plot.
+#' @examples
+#' # Australian Birth Times
+#' # Calculate the waiting times until each birth
+#' waits <- diff(c(0, aussie_births[, "time"]))
+#' qqexp(waits, pch = 16, line = list(lty = 2, col = "blue", lwd = 2))
+#' @export
+qqexp <- function(y, ..., main = "Exponential QQ plot",
+                  line = list(col = "black", lty = 1, lwd = 1),
+                  envelopes = FALSE) {
+  # save default, for resetting...
+  old_par <- graphics::par(pty = "s", no.readonly = TRUE)
+  on.exit(graphics::par(old_par))
+  # Extract any arguments supplied in ....
+  user_args <- list(...)
+  # Sample size
+  n <- length(y)
+  # Estimate lambda
+  lambdahat <- 1 / mean(y)
+  # Exponential quantiles
+  exp_quantiles <- stats::qexp((1:n) / (n + 1), rate = lambdahat)
+  # If envelopes are required then perform the simulation
+  if (is.numeric(envelopes)) {
+    if (!is.positiveinteger(envelopes)) {
+      stop("''envelopes'' must be a positive integer")
+    }
+    # Create a n by envelopes matrix of simulated values
+    sim_values <- matrix(stats::rexp(envelopes * n, rate = lambdahat),
+                         ncol = envelopes, nrow = n)
+    # Sort each column, i.e., each of the envelopes datasets
+    sorted_sim_values <- apply(sim_values, 2, sort)
+    # Find the minimum and maximum values for each row
+    lower <- apply(sorted_sim_values, 1, min)
+    upper <- apply(sorted_sim_values, 1, max)
+  }
+  # Produce the plot: ordered data vs exponential quantiles
+  my_plot_fn <- function(x, y, ..., xlab, ylab, xlim, ylim) {
+    graphics::plot(x, y, ..., xlab = xlab, ylab = ylab, xlim = xlim,
+                   ylim = ylim)
+    # Add a line of equality
+    if (is.list(line)) {
+      for_abline <- c(line, a = 0, b = 1)
+      do.call(graphics::abline, for_abline)
+    }
+  }
+  xlab <- paste0("Theoretical exponential quantiles")
+  ylab <- "Sample quantiles"
+  max_value <- max(exp_quantiles, y, upper)
+  axis_range <- c(0, max_value)
+  my_plot_fn(x = exp_quantiles, y = sort(y), ..., xlab = xlab, ylab = ylab,
+             xlim = axis_range, ylim = axis_range)
+  graphics::points(x = exp_quantiles, y = lower, pch = "_")
+  graphics::points(x = exp_quantiles, y = upper, pch = "_")
+  title(main = main)
+  invisible()
+}
