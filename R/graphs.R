@@ -329,6 +329,7 @@ qqexp <- function(y, ..., main = "Exponential QQ plot",
   lambdahat <- 1 / mean(y)
   # Exponential quantiles
   exp_quantiles <- stats::qexp((1:n) / (n + 1), rate = lambdahat)
+  add_env <- FALSE
   # If envelopes are required then perform the simulation
   if (is.numeric(envelopes)) {
     if (!is.positiveinteger(envelopes)) {
@@ -342,6 +343,9 @@ qqexp <- function(y, ..., main = "Exponential QQ plot",
     # Find the minimum and maximum values for each row
     lower <- apply(sorted_sim_values, 1, min)
     upper <- apply(sorted_sim_values, 1, max)
+    add_env <- TRUE
+  } else {
+    upper <- NULL
   }
   # Produce the plot: ordered data vs exponential quantiles
   my_plot_fn <- function(x, y, ..., xlab, ylab, xlim, ylim) {
@@ -359,8 +363,11 @@ qqexp <- function(y, ..., main = "Exponential QQ plot",
   axis_range <- c(0, max_value)
   my_plot_fn(x = exp_quantiles, y = sort(y), ..., xlab = xlab, ylab = ylab,
              xlim = axis_range, ylim = axis_range)
-  graphics::points(x = exp_quantiles, y = lower, pch = "_")
-  graphics::points(x = exp_quantiles, y = upper, pch = "_")
+  # Add simulation envelopes (if required)
+  if (add_env) {
+    graphics::points(x = exp_quantiles, y = lower, pch = "_")
+    graphics::points(x = exp_quantiles, y = upper, pch = "_")
+  }
   title(main = main)
   invisible()
 }
