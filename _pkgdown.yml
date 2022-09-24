@@ -61,6 +61,7 @@ reference:
       - "scatter"
       - "scatter_hist"
       - "boxcox_plot"
+      - "qqexp"
   - title: Summary statistics
     desc: ~
     contents:

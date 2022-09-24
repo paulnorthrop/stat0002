@@ -46,6 +46,9 @@
     <loc>/articles/stat0002-ch6b-continous-random-variables-vignette.html</loc>
   </url>
   <url>
+    <loc>/articles/stat0002-ch6c-qq-plots-vignette.html</loc>
+  </url>
+  <url>
     <loc>/articles/stat0002-ch7-statistical-inference-vignette.html</loc>
   </url>
   <url>
@@ -169,6 +172,9 @@
     <loc>/reference/print.screening_test.html</loc>
   </url>
   <url>
+    <loc>/reference/qqexp.html</loc>
+  </url>
+  <url>
     <loc>/reference/qq_plot_movie.html</loc>
   </url>
   <url>
@@ -203,6 +209,9 @@
   </url>
   <url>
     <loc>/reference/skewness.html</loc>
+  </url>
+  <url>
+    <loc>/reference/stat0002-internal.html</loc>
   </url>
   <url>
     <loc>/reference/stat0002.html</loc>
