@@ -6,20 +6,15 @@
 \usage{
 qqexp(
   y,
-  ...,
   statistic = c("mean", "median"),
   type = 6,
-  main = "Exponential QQ plot",
+  ...,
   line = list(col = "black", lty = 1, lwd = 1),
   envelopes = FALSE
 )
 }
 \arguments{
 \item{y}{Sample data}
-
-\item{...}{Optional \code{\link[graphics:par]{graphical parameters}}
-passed to \code{\link[graphics:plot.default]{plot}}, such as \code{pch},
-\code{lty} and \code{lwd}, to control the appearance of the plot.}
 
 \item{statistic}{A character scalar. Selects the summary statistic used to
 estimate \eqn{\lambda}, either the sample mean or sample median.}
@@ -29,7 +24,13 @@ this is passed to \code{\link[stats]{quantile}} to select the type of
 sample quantile used to estimate the sample median. The default,
 \code{type = 6}, selects the estimator defined in the STAT002 notes.}
 
-\item{main}{A character scalar. The title (if any) to give the plot.}
+\item{...}{Optional arguments to be passed to
+\code{\link[graphics:plot.default]{plot}} such as \code{xlab},
+\code{ylab}, \code{main} and/or
+\code{\link[graphics:par]{graphical parameters}} such as \code{pch},
+\code{lty} and \code{lwd}, to control the appearance of the main plot.
+To change the appearance of the line of equality use the argument
+\code{line}.}
 
 \item{line}{Determines whether or not a line of equality is superimposed on
 the plot.  If a line is required then must be a list, which can contain
@@ -64,15 +65,22 @@ The rate parameter \eqn{\lambda} of the exponential distribution
   is superimposed on the plot.
 }
 \examples{
-# Australian Birth Times
+## Australian Birth Times Data
+
 # Calculate the waiting times until each birth
 waits <- diff(c(0, aussie_births[, "time"]))
-# Estimate lambda using the sample mean
+
+# Estimating lambda using the sample mean
 qqexp(waits)
-# Estimate lambda using the sample mean
-qqexp(waits, statistic = "median")
+
 # Change the appearance of the points and line
 qqexp(waits, pch = 16, line = list(lty = 2, col = "blue", lwd = 2))
+
+# Add simulation envelopes
+qqexp(waits, envelopes = 19)
+
+# Estimating lambda using the sample median
+qqexp(waits, statistic = "median", envelopes = 19)
 }
 \seealso{
 \code{\link[stats]{qqnorm}} to produce a normal QQ plot.

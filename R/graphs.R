@@ -286,16 +286,19 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 #' quantiles of an exponential distribution fitted to these data.
 #'
 #' @param y Sample data
-#' @param ... Optional \code{\link[graphics:par]{graphical parameters}}
-#'   passed to \code{\link[graphics:plot.default]{plot}}, such as \code{pch},
-#'   \code{lty} and \code{lwd}, to control the appearance of the plot.
 #' @param statistic A character scalar. Selects the summary statistic used to
 #'   estimate \eqn{\lambda}, either the sample mean or sample median.
 #' @param type An integer scalar. If \code{statistic = "median"} then
 #'   this is passed to \code{\link[stats]{quantile}} to select the type of
 #'   sample quantile used to estimate the sample median. The default,
 #'   \code{type = 6}, selects the estimator defined in the STAT002 notes.
-#' @param main A character scalar. The title (if any) to give the plot.
+#' @param ... Optional arguments to be passed to
+#'   \code{\link[graphics:plot.default]{plot}} such as \code{xlab},
+#'   \code{ylab}, \code{main} and/or
+#'   \code{\link[graphics:par]{graphical parameters}} such as \code{pch},
+#'   \code{lty} and \code{lwd}, to control the appearance of the main plot.
+#'   To change the appearance of the line of equality use the argument
+#'   \code{line}.
 #' @param line Determines whether or not a line of equality is superimposed on
 #'   the plot.  If a line is required then must be a list, which can contain
 #'   \code{\link[graphics:par]{graphical parameters}}
@@ -320,18 +323,24 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 #' @return The estimate of \eqn{\lambda}.
 #' @seealso \code{\link[stats]{qqnorm}} to produce a normal QQ plot.
 #' @examples
-#' # Australian Birth Times
+#' ## Australian Birth Times Data
+#'
 #' # Calculate the waiting times until each birth
 #' waits <- diff(c(0, aussie_births[, "time"]))
-#' # Estimate lambda using the sample mean
+#'
+#' # Estimating lambda using the sample mean
 #' qqexp(waits)
-#' # Estimate lambda using the sample mean
-#' qqexp(waits, statistic = "median")
+#'
 #' # Change the appearance of the points and line
 #' qqexp(waits, pch = 16, line = list(lty = 2, col = "blue", lwd = 2))
+#'
+#' # Add simulation envelopes
+#' qqexp(waits, envelopes = 19)
+#'
+#' # Estimating lambda using the sample median
+#' qqexp(waits, statistic = "median", envelopes = 19)
 #' @export
-qqexp <- function(y, ..., statistic = c("mean", "median"), type = 6,
-                  main = "Exponential QQ plot",
+qqexp <- function(y, statistic = c("mean", "median"), type = 6, ...,
                   line = list(col = "black", lty = 1, lwd = 1),
                   envelopes = FALSE) {
   # save default, for resetting...
@@ -368,27 +377,27 @@ qqexp <- function(y, ..., statistic = c("mean", "median"), type = 6,
     upper <- NULL
   }
   # Produce the plot: ordered data vs exponential quantiles
-  my_plot_fn <- function(x, y, ..., xlab, ylab, xlim, ylim) {
+  my_plot_fn <- function(x, y, ..., xlab = my_xlab, ylab = my_ylab,
+                         xlim = axis_range, ylim = axis_range,
+                         main = "Exponential QQ plot") {
     graphics::plot(x, y, ..., xlab = xlab, ylab = ylab, xlim = xlim,
-                   ylim = ylim)
+                   ylim = ylim, main = main)
     # Add a line of equality
     if (is.list(line)) {
       for_abline <- c(line, a = 0, b = 1)
       do.call(graphics::abline, for_abline)
     }
   }
-  xlab <- paste0("Theoretical exponential quantiles")
-  ylab <- "Sample quantiles"
+  my_xlab <- paste0("Theoretical exponential quantiles")
+  my_ylab <- "Sample quantiles"
   max_value <- max(exp_quantiles, y, upper)
   axis_range <- c(0, max_value)
-  my_plot_fn(x = exp_quantiles, y = sort(y), ..., xlab = xlab, ylab = ylab,
-             xlim = axis_range, ylim = axis_range)
+  my_plot_fn(x = exp_quantiles, y = sort(y), ...)
   # Add simulation envelopes (if required)
   if (add_env) {
     graphics::points(x = exp_quantiles, y = lower, pch = "_")
     graphics::points(x = exp_quantiles, y = upper, pch = "_")
   }
-  title(main = main)
   # Return the estimate of lambda
   names(lambdahat) <- "estimate of lambda"
   return(lambdahat)
