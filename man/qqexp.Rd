@@ -7,6 +7,8 @@
 qqexp(
   y,
   ...,
+  statistic = c("mean", "median"),
+  type = 6,
   main = "Exponential QQ plot",
   line = list(col = "black", lty = 1, lwd = 1),
   envelopes = FALSE
@@ -18,6 +20,14 @@ qqexp(
 \item{...}{Optional \code{\link[graphics:par]{graphical parameters}}
 passed to \code{\link[graphics:plot.default]{plot}}, such as \code{pch},
 \code{lty} and \code{lwd}, to control the appearance of the plot.}
+
+\item{statistic}{A character scalar. Selects the summary statistic used to
+estimate \eqn{\lambda}, either the sample mean or sample median.}
+
+\item{type}{An integer scalar. If \code{statistic = "median"} then
+this is passed to \code{\link[stats]{quantile}} to select the type of
+sample quantile used to estimate the sample median. The default,
+\code{type = 6}, selects the estimator defined in the STAT002 notes.}
 
 \item{main}{A character scalar. The title (if any) to give the plot.}
 
@@ -35,7 +45,7 @@ then simulation envelopes based on this many simulated datasets are added.
 The limits of of the envelopes are indicated using short horizontal lines.}
 }
 \value{
-Nothing, just the plot.
+The estimate of \eqn{\lambda}.
 }
 \description{
 Produces a QQ plot to compare ordered sample data to corresponding
@@ -43,18 +53,27 @@ quantiles of an exponential distribution fitted to these data.
 }
 \details{
 The rate parameter \eqn{\lambda} of the exponential distribution
-  is estimated using \code{1 / mean(y)}.  The ordered sample data are
-  plotted against quantiles of this fitted exponential distribution.
-  Specifically, the \eqn{i}th smallest sample observation is plotted
-  against the \eqn{100 i / (n + 1)\%} theoretical exponential quantile,
-  where \eqn{n} is the sample size. The plot is constrained to be square.
+  is estimated using \code{1/mean(y, na.rm = TRUE)} if
+  \code{statistic = "mean"} and
+  \code{log(2)/quantile(y, probs = 0.5, na.rm = TRUE)} if
+  \code{statistic = "median"}.  The ordered sample data are plotted against
+  quantiles of this fitted exponential distribution. Specifically, the
+  \eqn{i}th smallest sample observation is plotted against the
+  \eqn{100 i / (n + 1)\%} theoretical exponential quantile, where \eqn{n} is
+  the sample size. The plot is constrained to be square. A line of equality
+  is superimposed on the plot.
 }
 \examples{
 # Australian Birth Times
 # Calculate the waiting times until each birth
 waits <- diff(c(0, aussie_births[, "time"]))
+# Estimate lambda using the sample mean
+qqexp(waits)
+# Estimate lambda using the sample mean
+qqexp(waits, statistic = "median")
+# Change the appearance of the points and line
 qqexp(waits, pch = 16, line = list(lty = 2, col = "blue", lwd = 2))
 }
 \seealso{
-\code{\link[stats]{qqnorm}} for a normal QQ plot.
+\code{\link[stats]{qqnorm}} to produce a normal QQ plot.
 }

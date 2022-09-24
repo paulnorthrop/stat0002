@@ -285,16 +285,16 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 #' Produces a QQ plot to compare ordered sample data to corresponding
 #' quantiles of an exponential distribution fitted to these data.
 #'
-#' @details The rate parameter \eqn{\lambda} of the exponential distribution
-#'   is estimated using \code{1 / mean(y)}.  The ordered sample data are
-#'   plotted against quantiles of this fitted exponential distribution.
-#'   Specifically, the \eqn{i}th smallest sample observation is plotted
-#'   against the \eqn{100 i / (n + 1)\%} theoretical exponential quantile,
-#'   where \eqn{n} is the sample size. The plot is constrained to be square.
 #' @param y Sample data
 #' @param ... Optional \code{\link[graphics:par]{graphical parameters}}
 #'   passed to \code{\link[graphics:plot.default]{plot}}, such as \code{pch},
 #'   \code{lty} and \code{lwd}, to control the appearance of the plot.
+#' @param statistic A character scalar. Selects the summary statistic used to
+#'   estimate \eqn{\lambda}, either the sample mean or sample median.
+#' @param type An integer scalar. If \code{statistic = "median"} then
+#'   this is passed to \code{\link[stats]{quantile}} to select the type of
+#'   sample quantile used to estimate the sample median. The default,
+#'   \code{type = 6}, selects the estimator defined in the STAT002 notes.
 #' @param main A character scalar. The title (if any) to give the plot.
 #' @param line Determines whether or not a line of equality is superimposed on
 #'   the plot.  If a line is required then must be a list, which can contain
@@ -307,26 +307,46 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 #'   added. If \code{envelopes} is a positive integer (a common choice is 19)
 #'   then simulation envelopes based on this many simulated datasets are added.
 #'   The limits of of the envelopes are indicated using short horizontal lines.
-#' @return Nothing, just the plot.
-#' @seealso \code{\link[stats]{qqnorm}} for a normal QQ plot.
+#' @details The rate parameter \eqn{\lambda} of the exponential distribution
+#'   is estimated using \code{1/mean(y, na.rm = TRUE)} if
+#'   \code{statistic = "mean"} and
+#'   \code{log(2)/quantile(y, probs = 0.5, na.rm = TRUE)} if
+#'   \code{statistic = "median"}.  The ordered sample data are plotted against
+#'   quantiles of this fitted exponential distribution. Specifically, the
+#'   \eqn{i}th smallest sample observation is plotted against the
+#'   \eqn{100 i / (n + 1)\%} theoretical exponential quantile, where \eqn{n} is
+#'   the sample size. The plot is constrained to be square. A line of equality
+#'   is superimposed on the plot.
+#' @return The estimate of \eqn{\lambda}.
+#' @seealso \code{\link[stats]{qqnorm}} to produce a normal QQ plot.
 #' @examples
 #' # Australian Birth Times
 #' # Calculate the waiting times until each birth
 #' waits <- diff(c(0, aussie_births[, "time"]))
+#' # Estimate lambda using the sample mean
+#' qqexp(waits)
+#' # Estimate lambda using the sample mean
+#' qqexp(waits, statistic = "median")
+#' # Change the appearance of the points and line
 #' qqexp(waits, pch = 16, line = list(lty = 2, col = "blue", lwd = 2))
 #' @export
-qqexp <- function(y, ..., main = "Exponential QQ plot",
+qqexp <- function(y, ..., statistic = c("mean", "median"), type = 6,
+                  main = "Exponential QQ plot",
                   line = list(col = "black", lty = 1, lwd = 1),
                   envelopes = FALSE) {
   # save default, for resetting...
   old_par <- graphics::par(pty = "s", no.readonly = TRUE)
   on.exit(graphics::par(old_par))
-  # Extract any arguments supplied in ....
-  user_args <- list(...)
+  # Check that a suitable summary statistic has been specified
+  statistic <- match.arg(statistic)
   # Sample size
   n <- length(y)
-  # Estimate lambda
-  lambdahat <- 1 / mean(y)
+  # Estimate lambda, using the required statistic
+  if (statistic == "mean") {
+    lambdahat <- 1 / mean(y, na.rm = TRUE)
+  } else {
+    lambdahat <- log(2) / stats::quantile(y, probs = 0.5, na.rm = TRUE)
+  }
   # Exponential quantiles
   exp_quantiles <- stats::qexp((1:n) / (n + 1), rate = lambdahat)
   add_env <- FALSE
@@ -369,5 +389,7 @@ qqexp <- function(y, ..., main = "Exponential QQ plot",
     graphics::points(x = exp_quantiles, y = upper, pch = "_")
   }
   title(main = main)
-  invisible()
+  # Return the estimate of lambda
+  names(lambdahat) <- "estimate of lambda"
+  return(lambdahat)
 }
