@@ -8,9 +8,9 @@ qqexp(
   y,
   statistic = c("mean", "median"),
   type = 6,
+  envelopes = FALSE,
   ...,
-  line = list(col = "black", lty = 1, lwd = 1),
-  envelopes = FALSE
+  line = list(col = "black", lty = 1, lwd = 1)
 )
 }
 \arguments{
@@ -23,6 +23,12 @@ estimate \eqn{\lambda}, either the sample mean or sample median.}
 this is passed to \code{\link[stats]{quantile}} to select the type of
 sample quantile used to estimate the sample median. The default,
 \code{type = 6}, selects the estimator defined in the STAT002 notes.}
+
+\item{envelopes}{Determines whether or not simulation envelopes should be
+added to the plot.  If \code{envelopes = FALSE} then no envelopes are
+added. If \code{envelopes} is a positive integer (a common choice is 19)
+then simulation envelopes based on this many simulated datasets are added.
+The limits of of the envelopes are indicated using short horizontal lines.}
 
 \item{...}{Optional arguments to be passed to
 \code{\link[graphics:plot.default]{plot}} such as \code{xlab},
@@ -38,12 +44,6 @@ the plot.  If a line is required then must be a list, which can contain
 passed to \code{\link[graphics]{abline}}, such as \code{col}, \code{lty}
 and \code{lwd} to control the appearance of the line. If \code{line} is
 not a list, for example, \code{line = 0}, then no line is superimposed.}
-
-\item{envelopes}{Determines whether or not simulation envelopes should be
-added to the plot.  If \code{envelopes = FALSE} then no envelopes are
-added. If \code{envelopes} is a positive integer (a common choice is 19)
-then simulation envelopes based on this many simulated datasets are added.
-The limits of of the envelopes are indicated using short horizontal lines.}
 }
 \value{
 The estimate of \eqn{\lambda}.

@@ -292,6 +292,11 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 #'   this is passed to \code{\link[stats]{quantile}} to select the type of
 #'   sample quantile used to estimate the sample median. The default,
 #'   \code{type = 6}, selects the estimator defined in the STAT002 notes.
+#' @param envelopes Determines whether or not simulation envelopes should be
+#'   added to the plot.  If \code{envelopes = FALSE} then no envelopes are
+#'   added. If \code{envelopes} is a positive integer (a common choice is 19)
+#'   then simulation envelopes based on this many simulated datasets are added.
+#'   The limits of of the envelopes are indicated using short horizontal lines.
 #' @param ... Optional arguments to be passed to
 #'   \code{\link[graphics:plot.default]{plot}} such as \code{xlab},
 #'   \code{ylab}, \code{main} and/or
@@ -305,11 +310,6 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 #'   passed to \code{\link[graphics]{abline}}, such as \code{col}, \code{lty}
 #'   and \code{lwd} to control the appearance of the line. If \code{line} is
 #'   not a list, for example, \code{line = 0}, then no line is superimposed.
-#' @param envelopes Determines whether or not simulation envelopes should be
-#'   added to the plot.  If \code{envelopes = FALSE} then no envelopes are
-#'   added. If \code{envelopes} is a positive integer (a common choice is 19)
-#'   then simulation envelopes based on this many simulated datasets are added.
-#'   The limits of of the envelopes are indicated using short horizontal lines.
 #' @details The rate parameter \eqn{\lambda} of the exponential distribution
 #'   is estimated using \code{1/mean(y, na.rm = TRUE)} if
 #'   \code{statistic = "mean"} and
@@ -340,9 +340,9 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 #' # Estimating lambda using the sample median
 #' qqexp(waits, statistic = "median", envelopes = 19)
 #' @export
-qqexp <- function(y, statistic = c("mean", "median"), type = 6, ...,
-                  line = list(col = "black", lty = 1, lwd = 1),
-                  envelopes = FALSE) {
+qqexp <- function(y, statistic = c("mean", "median"), type = 6,
+                  envelopes = FALSE, ...,
+                  line = list(col = "black", lty = 1, lwd = 1)) {
   # save default, for resetting...
   old_par <- graphics::par(pty = "s", no.readonly = TRUE)
   on.exit(graphics::par(old_par))
