@@ -2,7 +2,7 @@
 % Please edit documentation in R/graphs.R
 \name{qqexp}
 \alias{qqexp}
-\title{Expnential Quantile-Quantile plots}
+\title{Exponential Quantile-Quantile plots}
 \usage{
 qqexp(
   y,

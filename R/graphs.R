@@ -280,7 +280,7 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 
 # ================================== qqexp ====================================
 
-#' Expnential Quantile-Quantile plots
+#' Exponential Quantile-Quantile plots
 #'
 #' Produces a QQ plot to compare ordered sample data to corresponding
 #' quantiles of an exponential distribution fitted to these data.
@@ -343,7 +343,7 @@ scatter_hist <- function(x, y, xbreaks = NULL, ybreaks = NULL, ...) {
 qqexp <- function(y, statistic = c("mean", "median"), type = 6,
                   envelopes = FALSE, ...,
                   line = list(col = "black", lty = 1, lwd = 1)) {
-  # save default, for resetting...
+  # Save default, for resetting...
   old_par <- graphics::par(pty = "s", no.readonly = TRUE)
   on.exit(graphics::par(old_par))
   # Check that a suitable summary statistic has been specified
