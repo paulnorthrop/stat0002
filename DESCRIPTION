@@ -20,7 +20,7 @@ Imports: distributions3,
     grDevices,
     MASS,
     plotrix,
-    rpanel (>= 1.1-5),
+    rpanel (>= 1.1-3),
     rust,
     smovie,
     stats
