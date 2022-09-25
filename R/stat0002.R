@@ -62,7 +62,6 @@
 #' @importFrom distributions3 cdf
 #' @importFrom rust ru
 #' @importFrom smovie movies
-#' @import rpanel
 #' @aliases stat0002
 NULL
 
