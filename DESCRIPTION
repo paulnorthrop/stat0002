@@ -20,11 +20,14 @@ Imports: distributions3,
     grDevices,
     MASS,
     plotrix,
+    rpanel,
     rust,
+    smovie,
     stats
 Suggests: knitr,
     rmarkdown,
-    SuppDists
+    SuppDists,
+    tkrplot
 VignetteBuilder: knitr
 URL: https://paulnorthrop.github.io/stat0002/,
      https://github.com/paulnorthrop/stat0002
