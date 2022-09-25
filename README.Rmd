@@ -20,8 +20,7 @@ knitr::opts_chunk$set(
 
 ### What does stat0002 do?
 
-The `stat0002` package provides R code, datasets, 'movies' (interactive plots) and articles (tutorials demonstrating how to use R code) to help students taking STAT0002 Introduction to Probability and Statistics at University College London (UCL) to understand the course material and to see how R can be used to perform some of the 
-analyses in the course.
+The `stat0002` package provides R code, datasets, articles (tutorials demonstrating how to use R code) and 'movies' (interactive plots) to help students taking STAT0002 Introduction to Probability and Statistics at University College London (UCL) to understand the course material and to see how R can be used to perform some of the analyses in the course.
 
 Currently, it is not compulsory for you to use R when studying for STAT0002. However, it is strongly recommended that you use R and make use of the content of the `stat0002` package.  Being able to use a statistical computing package like R is essential for performing statistical analyses and many students taking STAT0002 will need to use R in other modules.
 
@@ -33,7 +32,9 @@ I recommend that you use RStudio (a **free** user-friendly front-end to R).  Ins
 [Download RStudio page](https://www.rstudio.com/products/rstudio/download/). 
 Find **All Installers** near the bottom of the page and choose the installer for your operating system.
 
-If you use a **Mac** then the movies (interactive plots) in `stat0002` will not work unless you have [XQuartz](https://www.xquartz.org/) installed.
+### Apple Mac users
+
+If you use a **Mac** then the movies (interactive plots) in `stat0002` will not work unless you have [XQuartz](https://www.xquartz.org/) installed. For boring technical reasons, the Apple Mac version available below may be missing the functions to produce the movies. However, some of the movies are available from the [smovie](https://paulnorthrop.github.io/smovie/) package.
 
 ### Installation of `stat0002`
 
