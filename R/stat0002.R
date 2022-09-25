@@ -62,6 +62,8 @@
 #' @importFrom distributions3 cdf
 #' @importFrom rust ru
 #' @importFrom smovie movies
+#' @importFrom MASS boxcox
+#' @importFrom grDevices nclass.Sturges
 #' @aliases stat0002
 NULL
 
@@ -90,8 +92,7 @@ NULL
 #'   of Failure. \emph{Journal of the American Statistical Association},
 #'   \strong{84}(408), 945-957.
 #'   \url{http://dx.doi.org/10.1080/01621459.1989.10478858}
-#' @seealso \code{\link{shuttle_sim}}, \code{\link{shuttle_sim_plot}},
-#'   \code{\link{shuttle_movie}}
+#' @seealso \code{\link{shuttle_sim}}, \code{\link{shuttle_sim_plot}}
 "shuttle"
 
 #' Oxford Birth Times

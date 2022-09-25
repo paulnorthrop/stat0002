@@ -36,7 +36,6 @@ launch conditions on 28th January 1986 is used as a worked example
 for the STAT0002 Meet your Professor ICA.
 }
 \seealso{
-\code{\link{shuttle_sim}}, \code{\link{shuttle_sim_plot}},
-  \code{\link{shuttle_movie}}
+\code{\link{shuttle_sim}}, \code{\link{shuttle_sim_plot}}
 }
 \keyword{datasets}

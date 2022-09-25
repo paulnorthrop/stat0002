@@ -30,78 +30,9 @@ object \code{name}.
 }
 \section{Examples}{
 
-See the examples given for the individual movies listed below.
+See the examples given for the individual movies detailed in the
+\href{https://paulnorthrop.github.io/stat0002/reference/index.html#movies}{Movies}
+section of the Reference part of the
+\href{https://paulnorthrop.github.io/stat0002/index.html}{stat0002 home page on GitHub}
 }
 
-\seealso{
-\code{\link{shuttle_movie}}: illustrates uncertainty in the
-  linear logistic regression curves fitted to the real space shuttle data.
-
-\code{\link{scatterplot_movie}}: straightening scatter plots
-  using variable transformation (US 2000 Presidential Election).
-
-\code{\link{world_bank_movie}}: explores graphically relationships
-  between four annual World Bank Development Indicators and how this changes
-  over time.
-
-\code{\link{ox_births_movie}}: shows how the shape of a histogram
-  of simulated data tends to become smoother as the sample size increases.
-
-\code{\link{binomial_pmf_movie}}: shows how the probability mass
-  function (p.m.f.) of a binomial random variable depends on its two
-  parameters.
-
-\code{\link{poisson_process_movie}}: illustrates the link between
-  the Poisson process and the Poisson distribution for the number of events
-  that occur during a time interval of fixed length.
-
-\code{\link{poisson_process_check}}: uses the plots in
-  \code{\link{poisson_process_movie}} to perform informal graphical checks
-  of whether the arrival times of a sequence of events is consistent
-  with arising from a Poisson process.
-
-\code{\link{normal_pdf_movie}}: shows the effect of the
-  mean and variance parameters of a normal distribution on its p.d.f..
-
-\code{\link{normal_areas_movie}}: shows how the probability that
-a standard normal random variable lies within plus or minus a multiple of
-its standard deviation varies with the value of the multiple.
-
-\code{\link{qq_plot_movie}}: shows how a (normal) QQ plot is
-  constructed, using a small example dataset.
-
-\code{\link{normal_sampling_distns_movie}}: shows how the
-  sampling distributions of the sample mean and sample variance based
-  on a random sample from a normal distribution depend on the size
-  \eqn{n} of the sample.
-
-\code{\link{clt_normal_movie}}: illustrates the ideas of a
-  sampling distribution of a random variable and the central limit
-  theorem (CLT), using normally distributed data.
-
-\code{\link{clt_exponential_movie}}: illustrates the ideas of a
-  sampling distribution of a random variable and the central limit
-  theorem (CLT), using exponentially distributed data..
-
-\code{\link{mean_vs_median_normal_movie}}: compares the
-  sampling distributions of the sample mean and sample median based
-  on a random sample of size \eqn{n} from a standard normal distribution.
-
-\code{\link{mean_vs_median_t_movie}}: compares the
-  sampling distributions of the sample mean and sample median based
-  on a random sample of size \eqn{n} from a Student's t distribution.
-
-\code{\link{two_by_two_movie}}: studies the distribution
-  of the Pearson chi-squared test statistic used to test for lack of
-  association in a 2 by 2 contingency table.
-
-\code{\link{lin_reg_movie}}: visualizes the fitting of a
-  regression line using least squares.
-
-\code{\link{lev_inf_movie}}: examine the influence of a
-  single outlying observation on a least squares regression line.
-
-\code{\link{corr_sim_movie}}: illustrates the sampling
-  distribution of the (Pearson product moment) sample correlation
-  coefficient.
-}
