@@ -28,9 +28,11 @@ of the \href{https://paulnorthrop.github.io/stat0002book/}{STAT0002 notes}
 and related tasks.
 
 Some of the movies are made available via the
-\code{\link[smovie]{smovie}} package.  You can access a menu for the
-movies in smovie using \code{library(smovie)} and then \code{movies()}.
-See \code{\link[smovie]{movies}} for more details.
+\href{https://paulnorthrop.github.io/smovie/}{smovie} package.  You can
+access a menu for the movies in smovie using \code{library(smovie)} and then
+\code{movies()}. See
+\href{https://paulnorthrop.github.io/smovie/reference/movies.html}{movies}
+for more details.
 }
 \section{Summary of the main resources}{
 

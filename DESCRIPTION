@@ -21,7 +21,6 @@ Imports: distributions3,
     MASS,
     plotrix,
     rust,
-    smovie,
     stats
 Suggests: knitr,
     rmarkdown,

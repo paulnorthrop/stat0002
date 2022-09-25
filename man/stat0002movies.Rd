@@ -11,9 +11,11 @@ These movies are animations used to illustrate key ideas in STAT0002.
 }
 \details{
 Some of the following movies are made available via the
-\code{\link[smovie]{smovie}} package.  You can access a menu for the
-movies in smovie using \code{library(smovie)} and then \code{movies()}.
-See \code{\link[smovie]{movies}} for more details.
+\href{https://paulnorthrop.github.io/smovie/}{smovie} package.  You can
+access a menu for the movies in smovie using \code{library(smovie)} and then
+\code{movies()}. See
+\href{https://paulnorthrop.github.io/smovie/reference/movies.html}{movies}
+for more details.
 
 When one of these functions is called R opens up a small
 \emph{parameter window} containing clickable buttons that can be
