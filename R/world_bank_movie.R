@@ -35,6 +35,7 @@
 #' @examples
 #' # Produce the movie.  You may ignore the warning message that is produced.
 #' # (I think the cause may be that some countries have a lot of missing data.)
+#' library(rpanel)
 #' rp.bubbleplot(log(gdp_per_capita), log(co2_per_capita), 1960:2014,
 #'               size = population_size, col = life_expectancy,
 #'               interpolate = TRUE, hscale = 1.5, vscale = 1.5)

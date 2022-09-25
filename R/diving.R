@@ -105,26 +105,27 @@ replace_fn <- function(x, divePoints) {
   theRound <- rep(1:nper, times = nd)
   theDiver <- rep(1:nd, each = nper)
   # Row i contains the cumulative points (TotalPoints) diver i
-  temp <- aggregate(x[, "DivePoints"], by = list(theDiver), FUN = cumsum)[, -1]
+  temp <- stats::aggregate(x[, "DivePoints"], by = list(theDiver),
+                           FUN = cumsum)[, -1]
   # TotalPoints
   x[, "TotalPoints"] <- c(t(temp))
   # DiveRank
   # We negate x[, "DivePoints] because we want the larger values to have the
   # lower rank
   # Column i contain the DiveRanks for diver number i
-  temp <- aggregate(-x[, "DivePoints"], by = list(theRound),
-                    FUN = rank, ties.method = "min")[, -1]
+  temp <- stats::aggregate(-x[, "DivePoints"], by = list(theRound), FUN = rank,
+                           ties.method = "min")[, -1]
   x[, "DiveRank"] <- c(temp)
   # OverallRank
   # Column i contain the OverallRanks for diver number i
-  temp <- aggregate(-x[, "TotalPoints"], by = list(theRound),
-                    FUN = rank, ties.method = "min")[, -1]
+  temp <- stats::aggregate(-x[, "TotalPoints"], by = list(theRound),
+                           FUN = rank, ties.method = "min")[, -1]
   x[, "OverallRank"] <- c(temp)
   # PointsBehind
   # Find the maximum current total by round
   # temp is a vector of length nper (number of rounds)
-  temp <- aggregate(x[, "TotalPoints"], by = list(theRound),
-                    FUN = max)[, -1]
+  temp <- stats::aggregate(x[, "TotalPoints"], by = list(theRound),
+                           FUN = max)[, -1]
   temp <- rep_len(temp, length.out = n)
   diffs <- temp - x[, "TotalPoints"]
   diffs[diffs == 0 ] <- NA
@@ -143,7 +144,7 @@ reorder_fn <- function(x) {
   theDiver <- rep(1:nd, each = nper)
   # Find the largest TotalPoints value for each diver
   tp <- x[, "TotalPoints"]
-  dtp <- aggregate(tp, by = list(theDiver), FUN = max)[, -1]
+  dtp <- stats::aggregate(tp, by = list(theDiver), FUN = max)[, -1]
   newOrder <- rank(-dtp)
   newOrder <- nper * (rep(newOrder, each = nper) - 1) + 1:6
   return(x[newOrder,])
@@ -184,7 +185,7 @@ dmedian <- function(x, DD = "DD", scores = paste0("J", 1:7), type = 6,
   y <- x[, scores]
   # Calculate the row medians, multiply by 3 and multiply by the degree of
   # difficulty
-  res <- x[, DD] * apply(y, 1, quantile, probs = 0.5, type = type) * 3
+  res <- x[, DD] * apply(y, 1, stats::quantile, probs = 0.5, type = type) * 3
   if (replace) {
     res <- replace_fn(x, res)
     if (reorder) {
@@ -289,7 +290,7 @@ tables <- function(x, type = 1, diverRanks = 1) {
     # Find the largest TotalPoints value for each diver
     findTotal <- function(xx) {
       tp <- xx[, "TotalPoints"]
-      dtp <- aggregate(tp, by = list(theDiver), FUN = max)[, -1]
+      dtp <- stats::aggregate(tp, by = list(theDiver), FUN = max)[, -1]
     }
     pTotal <- findTotal(p)
     mnTotal <- findTotal(mn)
