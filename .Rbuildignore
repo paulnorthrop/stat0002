@@ -17,4 +17,4 @@
 ^build\.R$
 ^install$
 ^\.github$
-^*_movies\.R$
+^.*_movies\.R$
