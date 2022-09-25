@@ -64,6 +64,7 @@
 #' @importFrom smovie movies
 #' @importFrom MASS boxcox
 #' @importFrom grDevices nclass.Sturges
+#' @importFrom plotrix addtable2plot
 #' @aliases stat0002
 NULL
 
