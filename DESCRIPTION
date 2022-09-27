@@ -20,12 +20,12 @@ Imports: distributions3,
     grDevices,
     MASS,
     plotrix,
-    rpanel,
     rust,
-    smovie,
     stats
 Suggests: knitr,
     rmarkdown,
+    rpanel,
+    smovie,
     SuppDists,
     tkrplot
 VignetteBuilder: knitr
