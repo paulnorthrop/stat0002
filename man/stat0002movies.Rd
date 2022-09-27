@@ -10,15 +10,11 @@ Nothing is returned, only the animation is produced.
 These movies are animations used to illustrate key ideas in STAT0002.
 }
 \details{
-Some of the following movies are made available via the
-\href{https://paulnorthrop.github.io/smovie/}{smovie} package.  You can
-access a menu for the movies in smovie using \code{library(smovie)} and then
-\code{movies()}. See
-\href{https://paulnorthrop.github.io/smovie/reference/movies.html}{movies}
-for more details.
+For a list of movies see
+\href{https://paulnorthrop.github.io/stat0002/reference/index.html#movies}{Movies}.
 
 When one of these functions is called R opens up a small
-\emph{parameter window} containing clickable buttons that can be
+\strong{parameter window} containing clickable buttons that can be
 used to change parameters underlying the plot. For the effects of
 these buttons see the documentation of the individual functions below.
 
@@ -29,6 +25,12 @@ Some movies create objects in the global environment, that is, objects
 that will be listed when \code{ls()} is used.  \code{rm} can be used to remove
 these objects if desired.  For example \code{rm(name)} can be used to remove
 object \code{name}.
+
+The \href{https://paulnorthrop.github.io/smovie/}{smovie} package provides
+a more user-friendly menu from which you can access some of these movies.
+Use \code{library(smovie)} and then \code{movies()}. See
+\href{https://paulnorthrop.github.io/smovie/reference/movies.html}{movies}
+for more details.
 }
 \section{Examples}{
 
