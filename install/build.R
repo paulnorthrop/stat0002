@@ -28,6 +28,7 @@ file.remove("../stat0002_1.0.0.zip")
 # tar -xvjf results.tar.bz2 in unix shell
 # Move to directory big-sur-arm64/bin.4.2 (or similar)
 # Copy back stat0002_1.0.0.tgz (or similar)
+# Rename to stat0002.tgz
 
 ##### Not needed any more  ...
 
