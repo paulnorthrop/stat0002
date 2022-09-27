@@ -32,7 +32,12 @@ Nothing is returned, only the animation is produced.
 \description{
 A movie to show how the probability density function (p.d.f.) of the normal
 distribution varies as the mean and/or variance of the distribution
-are changed.
+are changed. For more continuous distributions, including the exponential
+and uniform distributions, use \code{smovie::movies()} and click on the
+\strong{Continuous} menu.
+This is based on the \code{\link[smovie]{continuous}} function.
+(If you have not installed the \code{smovie} package then use
+\code{install.packages("smovie")} to install it.)
 }
 \details{
 The values of the mean and/or variance can be changed using the

@@ -3,7 +3,12 @@
 #' Binomial p.m.f. movie
 #'
 #' A movie to illustrate how the probability mass function (p.m.f.) of a
-#' binomial (n, p) random variable depends on n and p.
+#' binomial (n, p) random variable depends on n and p. For more discrete
+#' distributions, including the geometric and Poisson distributions, use
+#' \code{smovie::movies()} and click on the \strong{Discrete} menu.
+#' This is based on the \code{\link[smovie]{discrete}} function.
+#' (If you have not installed the \code{smovie} package then use
+#' \code{install.packages("smovie")} to install it.)
 #'
 #' @param starting_n A numeric scalar.  The value of n for the first graph.
 #' @param starting_p A numeric scalar.  The value of p for the first graph.

@@ -35,7 +35,12 @@ Nothing is returned, only the animation is produced.
 }
 \description{
 A movie to illustrate how the probability mass function (p.m.f.) of a
-binomial (n, p) random variable depends on n and p.
+binomial (n, p) random variable depends on n and p. For more discrete
+distributions, including the geometric and Poisson distributions, use
+\code{smovie::movies()} and click on the \strong{Discrete} menu.
+This is based on the \code{\link[smovie]{discrete}} function.
+(If you have not installed the \code{smovie} package then use
+\code{install.packages("smovie")} to install it.)
 }
 \details{
 The probability mass function of a binomial random variable with
