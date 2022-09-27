@@ -30,10 +30,6 @@
 #'   of fake space shuttle data (from a linear logistic regression model)
 #'   and plotting these data, respectively.
 #' @examples
-#' # Load package rpanel
-#' # [Use install.packages("rpanel") if necessary]
-#' library(rpanel)
-#'
 #' # Movie based on datasets of size 23
 #' shuttle_movie()
 #'
@@ -41,6 +37,15 @@
 #' shuttle_movie(n_reps = 10)
 #' @export
 shuttle_movie <- function(n_reps = 1, pos = 1, envir = as.environment(pos)) {
+  # Check for tcltk but do not throw an error.
+  # This is part of a hack to enable a mac build using CRAN's macOS builder
+  if (!requireNamespace("tcltk", quietly = TRUE)) {
+    cat("Package \"tcltk\" must be installed to use this function. \n")
+    cat("You are probably using an Apple Mac. \n")
+    cat("Reinstall R using a *default*, not custom, installation. \n")
+    cat("See https://cran.r-project.org/bin/macosx/. \n")
+    return(invisible())
+  }
   n_sim <- 0
   # Set up vectors in which to store estimates from the logistic regression.
   asim <- NULL

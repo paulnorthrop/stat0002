@@ -28,6 +28,15 @@
 #' ox_births_movie()
 #' @export
 ox_births_movie <- function(starting_n = 100, delta_n = 1000) {
+  # Check for tcltk but do not throw an error.
+  # This is part of a hack to enable a mac build using CRAN's macOS builder
+  if (!requireNamespace("tcltk", quietly = TRUE)) {
+    cat("Package \"tcltk\" must be installed to use this function. \n")
+    cat("You are probably using an Apple Mac. \n")
+    cat("Reinstall R using a *default*, not custom, installation. \n")
+    cat("See https://cran.r-project.org/bin/macosx/. \n")
+    return(invisible())
+  }
   # Fit a gamma distribution to the birth times
   x <- stat0002::ox_births[, "time"]
   fit_gamma <- stats::glm(x ~ 1, family = stats::Gamma(link = "identity"))

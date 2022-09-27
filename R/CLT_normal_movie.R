@@ -58,6 +58,15 @@
 #' @export
 clt_normal_movie <- function(n = 30, mu = 0, sigma = 1, xlab = "x", pos = 1,
                              envir = as.environment(pos)) {
+  # Check for tcltk but do not throw an error.
+  # This is part of a hack to enable a mac build using CRAN's macOS builder
+  if (!requireNamespace("tcltk", quietly = TRUE)) {
+    cat("Package \"tcltk\" must be installed to use this function. \n")
+    cat("You are probably using an Apple Mac. \n")
+    cat("Reinstall R using a *default*, not custom, installation. \n")
+    cat("See https://cran.r-project.org/bin/macosx/. \n")
+    return(invisible())
+  }
   # Assign variables to an environment so that they can be accessed inside
   # clt_normal_movie_plot()
   old_n <- 0

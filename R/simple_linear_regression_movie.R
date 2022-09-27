@@ -43,6 +43,15 @@
 #'               ylab = "distance (megaparsecs)")
 #' @export
 lin_reg_movie <- function(data, delta_alpha = 0.1, delta_beta = 0.0001, ...) {
+  # Check for tcltk but do not throw an error.
+  # This is part of a hack to enable a mac build using CRAN's macOS builder
+  if (!requireNamespace("tcltk", quietly = TRUE)) {
+    cat("Package \"tcltk\" must be installed to use this function. \n")
+    cat("You are probably using an Apple Mac. \n")
+    cat("Reinstall R using a *default*, not custom, installation. \n")
+    cat("See https://cran.r-project.org/bin/macosx/. \n")
+    return(invisible())
+  }
   if (!is.data.frame(data) & !is.matrix(data)) {
     stop("data must be a data frame or a matrix")
   }

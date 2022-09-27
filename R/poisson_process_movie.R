@@ -70,6 +70,15 @@
 #' @export
 poisson_process_movie <- function(lambda = 1, hours = 24, pos = 1,
                                   envir = as.environment(pos)) {
+  # Check for tcltk but do not throw an error.
+  # This is part of a hack to enable a mac build using CRAN's macOS builder
+  if (!requireNamespace("tcltk", quietly = TRUE)) {
+    cat("Package \"tcltk\" must be installed to use this function. \n")
+    cat("You are probably using an Apple Mac. \n")
+    cat("Reinstall R using a *default*, not custom, installation. \n")
+    cat("See https://cran.r-project.org/bin/macosx/. \n")
+    return(invisible())
+  }
   if (lambda <= 0) {
     stop("lambda must be positive")
   }

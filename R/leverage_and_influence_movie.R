@@ -44,6 +44,15 @@
 #' @export
 lev_inf_movie <- function(association = c("positive", "negative", "none"),
                           n = 25) {
+  # Check for tcltk but do not throw an error.
+  # This is part of a hack to enable a mac build using CRAN's macOS builder
+  if (!requireNamespace("tcltk", quietly = TRUE)) {
+    cat("Package \"tcltk\" must be installed to use this function. \n")
+    cat("You are probably using an Apple Mac. \n")
+    cat("Reinstall R using a *default*, not custom, installation. \n")
+    cat("See https://cran.r-project.org/bin/macosx/. \n")
+    return(invisible())
+  }
   association <- match.arg(association)
   if (association == "positive") {
     set.seed(40)
