@@ -38,10 +38,6 @@ fitted to this dataset.
 Clicking - removes the mostly recently added dataset.
 }
 \examples{
-# Load package rpanel
-# [Use install.packages("rpanel") if necessary]
-library(rpanel)
-
 # Movie based on datasets of size 23
 shuttle_movie()
 
