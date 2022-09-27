@@ -237,12 +237,9 @@ distribution; draws a histogram of these data with the log-normal p.d.f.
 superimposed; and then produces a similar plot after transforming using
 a log transformation (<code>lambda = 0</code>).</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>Loading required package<span class="sc">:</span> rpanel</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>Loading required package<span class="sc">:</span> tcltk</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>Package <span class="st">`</span><span class="at">rpanel', version 1.1-5: type help(rpanel) for summary information</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; x &lt;- rlnorm(100)</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; boxcox_plot(x, density_fn = dlnorm, main = "data and true density function")</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; boxcox_plot(x, density_fn = dlnorm, lambda = 0, main = "after transformation")</span></span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">rlnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">boxcox_plot</span>(x, <span class="at">density_fn =</span> dlnorm, <span class="at">main =</span> <span class="st">"data and true density function"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">boxcox_plot</span>(x, <span class="at">density_fn =</span> dlnorm, <span class="at">lambda =</span> <span class="dv">0</span>, <span class="at">main =</span> <span class="st">"after transformation"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-3-1.png" width="326.4"><img src="stat0002-ch2d-box-cox-transformation-vignette_files/figure-html/unnamed-chunk-3-2.png" width="326.4"></p>
 <ol style="list-style-type: decimal">
 <li><strong>I suggest that you try different values of
