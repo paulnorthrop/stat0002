@@ -58,7 +58,6 @@
 #' stat0002 R package Moodle Forum.
 #'
 #' @docType package
-#' @name stat0002
 #' @importFrom stats runif
 #' @importFrom graphics plot
 #' @importFrom distributions3 cdf
@@ -66,8 +65,8 @@
 #' @importFrom MASS boxcox
 #' @importFrom grDevices nclass.Sturges
 #' @importFrom plotrix addtable2plot
-#' @aliases stat0002
-NULL
+#' @aliases stat0002-package
+"_PACKAGE"
 
 #' Challenger Space Shuttle Disaster Dataset
 #'
