@@ -66,6 +66,7 @@
 #' @importFrom grDevices nclass.Sturges
 #' @importFrom plotrix addtable2plot
 #' @aliases stat0002-package
+#' @aliases stat0002
 "_PACKAGE"
 
 #' Challenger Space Shuttle Disaster Dataset
