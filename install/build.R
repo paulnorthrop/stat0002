@@ -11,8 +11,10 @@ devtools::build(manual = TRUE)
 devtools::build("../stat0002_1.0.0.tar.gz", binary=TRUE)
 
 # Now move the files to the install directory
-file.copy(from = "../stat0002_1.0.0.tar.gz", to = "install", overwrite = TRUE)
-file.copy(from = "../stat0002_1.0.0.zip", to = "install", overwrite = TRUE)
+file.copy(from = "../stat0002_1.0.0.tar.gz", to = "install/stat0002.tar.gz",
+          overwrite = TRUE)
+file.copy(from = "../stat0002_1.0.0.zip", to = "install/stat0002.zip",
+          overwrite = TRUE)
 # Remove the originals
 file.remove("../stat0002_1.0.0.tar.gz")
 file.remove("../stat0002_1.0.0.zip")
