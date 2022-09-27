@@ -5,7 +5,11 @@
 #' A movie to illustrate the ideas of a sampling distribution of a random
 #' variable and the central limit theorem (CLT).  In this case (based on
 #' random samples from a normal distribution) the CLT provides an exact
-#' result.
+#' result. This movie can also be opened using \code{smovie::movies()} and
+#' selecting \strong{normal} from the \strong{CLT} menu.
+#' This is based on the \code{\link[smovie]{lev_inf}} function.
+#' (If you have not installed the \code{smovie} package then use
+#' \code{install.packages("smovie")} to install it.)
 #'
 #' @param n An integer scalar.  The size of the samples drawn from a
 #'   normal distribution.

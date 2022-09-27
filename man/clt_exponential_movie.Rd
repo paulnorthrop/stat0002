@@ -35,7 +35,12 @@ Nothing is returned, only the animation is produced.
 \description{
 A movie to illustrate the idea of a sampling distribution and the central
 limit theorem (CLT) in a situation where data are simulated randomly
-from an exponential distribution.
+from an exponential distribution. This movie can also be opened using
+\code{smovie::movies()} and selecting \strong{exponential} from the
+\strong{CLT} menu.
+This is based on the \code{\link[smovie]{lev_inf}} function.
+(If you have not installed the \code{smovie} package then use
+\code{install.packages("smovie")} to install it.)
 }
 \details{
 Loosely speaking, a consequence of the

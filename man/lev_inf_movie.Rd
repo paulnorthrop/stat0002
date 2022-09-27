@@ -20,7 +20,12 @@ Nothing is returned, only the animation is produced.
 }
 \description{
 A movie to examine the influence of a single outlying observation on a
-least squares regression line.
+least squares regression line. This movie can also be opened using
+\code{smovie::movies()} and selecting \strong{Leverage and influence} from
+the \strong{Regression} menu.
+This is based on the \code{\link[smovie]{lev_inf}} function.
+(If you have not installed the \code{smovie} package then use
+\code{install.packages("smovie")} to install it.)
 }
 \details{
 \code{n} pairs of observations are simulated with the property

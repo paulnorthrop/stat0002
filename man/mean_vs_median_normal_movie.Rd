@@ -31,7 +31,12 @@ Nothing is returned, only the animation is produced.
 \description{
 A movie to compare the sampling distributions of the sample mean
 and sample median based on a random sample of size \eqn{n} from a
-standard normal distribution.
+standard normal distribution. This movie can also be opened using
+\code{smovie::movies()} and selecting \strong{Mean vs median, normal} from
+the \strong{Sampling distributions} menu.
+This is based on the \code{\link[smovie]{lev_inf}} function.
+(If you have not installed the \code{smovie} package then use
+\code{install.packages("smovie")} to install it.)
 }
 \details{
 The movie is based on simulating repeatedly samples of size
