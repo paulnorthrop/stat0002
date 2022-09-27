@@ -44,10 +44,10 @@ on a linear logistic regression model fitted to the real data from the 23
 The data are simulated from a linear logistic regression model
   fitted to the real (pre-disaster) O-ring distress and launch
   temperature data.  For a given launch temperature \eqn{t} this model
-  provides an estimate, \eqn{phat(t)} say, of the probability that an
+  provides an estimate, \eqn{\hat{p}(t)} say, of the probability that an
   O-ring suffers thermal distress.  Then the number of the 6 O-rings
   that suffers from thermal distress is simulated from a
-  binomial(6, \eqn{phat(t)}) distribution, under an assumption that
+  binomial(6, \eqn{\hat{p}(t)}) distribution, under an assumption that
   the fates of the O-rings are independent.  This is repeated for each of
   the launch temperatures in \code{temperatures}.
   For further details see the

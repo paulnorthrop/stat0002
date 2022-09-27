@@ -31,7 +31,7 @@ If \code{n_events} is supplied then exactly \code{n_events} are
   simulated and \code{hours} has no effect.  If \code{n_events} is not
   supplied then events are simulated over the time interval
   (0, \code{hours}).  If no events occur in (0, \code{hours}) then
-  the value -1 is returned.
+  the value \eqn{-1} is returned.
 }
 \examples{
 sim1 <- poisson_process_sim(lambda = 2, hours = 24)

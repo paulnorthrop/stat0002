@@ -14,7 +14,7 @@
 #'   simulated and \code{hours} has no effect.  If \code{n_events} is not
 #'   supplied then events are simulated over the time interval
 #'   (0, \code{hours}).  If no events occur in (0, \code{hours}) then
-#'   the value -1 is returned.
+#'   the value \eqn{-1} is returned.
 #' @return A numeric vector containing the (ordered, smallest to largest)
 #'   times at which the events occur.  The returned object has class
 #'   "poisson_process".

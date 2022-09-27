@@ -71,11 +71,10 @@ five_number <- function(x, type = 6, na.rm = FALSE) {
 #'   \deqn{[ (q_U - m) - (m - qL) ] / (q_U - q_L).}
 #'
 #' \emph{Standardized sample skewness}.
-#' Denote a vector of data by \eqn{(x_1, ..., x_n)} and let \eqn{xbar} and
+#' Denote a vector of data by \eqn{(x_1, ..., x_n)} and let \eqn{\bar{x}} and
 #' \eqn{s} be the sample mean and sample standard deviation respectively.
 #' The standardized sample skewness is given by
-#' \deqn{(1 / n) \sum (x_i - xbar) ^ 3 / s ^ 3,}
-#' where the summation \eqn{\sum} is over \eqn{i = 1, ..., n}.
+#' \deqn{(1 / n) \sum_{i=1}^n (x_i - \bar{x}) ^ 3 / s ^ 3.}
 #'
 #' @return A numeric scalar (if the input was a vector) or vector (if the input
 #'   was a matrix).
