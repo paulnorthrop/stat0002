@@ -5,9 +5,7 @@ create_datasets
 vignettes/stat0002-ch1b-stochastic-simulation-vignette-no-rust.Rmd
 doc
 Meta
-build.R
 /doc/
 /Meta/
-install/build.R
 install/results.tar.bz2
 install/OLD_BUILDS
