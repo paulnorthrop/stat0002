@@ -26,22 +26,15 @@ R in other modules.
 ### Software required
 
 If you need to install R then you can get it from
-[CRAN](https://cran.r-project.org/).
+[CRAN](https://cran.r-project.org/). Choose your computer’s operating
+system: Windows, macOS or Linux. Do not change the default installation
+settings.
 
 I recommend that you use RStudio (a **free** user-friendly front-end to
 R). Install it from the [Download RStudio
 page](https://www.rstudio.com/products/rstudio/download/). Find **All
 Installers** near the bottom of the page and choose the installer for
 your operating system.
-
-### Apple Mac users
-
-If you use a **Mac** then the movies (interactive plots) in `stat0002`
-will not work unless you have [XQuartz](https://www.xquartz.org/)
-installed. For boring technical reasons, the Apple Mac version available
-below may be missing the functions to produce the movies. However, some
-of the movies are available from the
-[smovie](https://paulnorthrop.github.io/smovie/) package.
 
 ### Installation of `stat0002`
 
@@ -60,7 +53,7 @@ press return. Choose the option that is relevant to your computer.
 install.packages("https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.zip", repos = NULL)
 ```
 
-#### Apple Mac
+#### Apple MacOS
 
 ``` r
 install.packages("https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tgz", repos = NULL)
@@ -104,7 +97,7 @@ under **Reference** and tutorials under **Articles** (direct link:
 -   Look at the code in some of the R functions. For example, if you
     type `scatter` in the R console and press return then you will see
     the content of the function `scatter`. Use `?scatter` to find out
-    what the function does and look at the code tosee how it does it.
+    what the function does and look at the code to see how it does it.
 
 You will find that some tutorials contain ideas that we have not yet
 covered in lectures and occasionally things that are beyond the scope of
