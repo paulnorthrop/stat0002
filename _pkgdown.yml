@@ -31,29 +31,6 @@ reference:
       - "aussie_births"
       - "hubble"
       - "birds"
-  - title: Movies
-    desc: ~
-    contents:
-      - "stat0002movies"
-      - "shuttle_movie"
-      - "scatterplot_movie"
-      - "world_bank_movie"
-      - "ox_births_movie"
-      - "binomial_pmf_movie"
-      - "poisson_process_movie"
-      - "poisson_process_check"
-      - "normal_pdf_movie"
-      - "normal_areas_movie"
-      - "qq_plot_movie"
-      - "normal_sampling_distns_movie"
-      - "clt_normal_movie"
-      - "clt_exponential_movie"
-      - "mean_vs_median_normal_movie"
-      - "mean_vs_median_t_movie"
-      - "two_by_two_movie"
-      - "lin_reg_movie"
-      - "lev_inf_movie"
-      - "corr_sim_movie"
   - title: Plots
     desc: ~
     contents:
@@ -83,3 +60,26 @@ reference:
     contents:
       - "screening_test"
       - "print.screening_test"
+  - title: Movies
+    desc: ~
+    contents:
+      - "stat0002movies"
+      - "shuttle_movie"
+      - "scatterplot_movie"
+      - "world_bank_movie"
+      - "ox_births_movie"
+      - "binomial_pmf_movie"
+      - "poisson_process_movie"
+      - "poisson_process_check"
+      - "normal_pdf_movie"
+      - "normal_areas_movie"
+      - "qq_plot_movie"
+      - "normal_sampling_distns_movie"
+      - "clt_normal_movie"
+      - "clt_exponential_movie"
+      - "mean_vs_median_normal_movie"
+      - "mean_vs_median_t_movie"
+      - "two_by_two_movie"
+      - "lin_reg_movie"
+      - "lev_inf_movie"
+      - "corr_sim_movie"
