@@ -17,7 +17,7 @@ knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
                       fig.width = 7, fig.height = 5, fig.align = 'center')
 ```
 
-This vignette provides some R code that is related to some of the content of [Chapter 7 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/inferene.html), namely to Statistical Inference.
+This vignette provides some R code that is related to some of the content of [Chapter 7 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/inference.html), namely to Statistical Inference.
 
 ## Coin-tossing example
 
