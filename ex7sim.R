@@ -20,9 +20,8 @@ ex7sim <- function(n = 10, nsim = 10000, theta = 4) {
   return(estimates)
 }
 
-# Call the function ex7sim() provided in the to do the simulation
-# Set a random number seed so that everyone simulated the same values
-# The seed is the deadline for submitting Exercises 7: 1/12/2022
+# Set a random number seed (Exercises 7 deadline: 1/12/2022)
+# Call ex7sim() to do the simulation
 set.seed(1122022)
 simvals <- ex7sim()
 
