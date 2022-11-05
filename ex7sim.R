@@ -4,12 +4,13 @@
 # 3. returns a 2-column matrix, where column 1 contains nsim observed values of
 #    T1 and column 2 contains nsim observed values of T2
 ex7sim <- function(n = 10, nsim = 10000, theta = 4) {
+  # A function to perform the simulation once
   estfn <- function() {
     # Simulate a sample of size n from a U(0, theta) distribution
     simdata <- runif(n = n, max = theta)
     # Calculate the estimates
-    t1 <- 2 * mean(runif(n = n, max = theta))
-    t2 <- ((n + 1) / n) * max(runif(n = n, max = theta))
+    t1 <- 2 * mean(simdata)
+    t2 <- ((n + 1) / n) * max(simdata)
     return(c(t1, t2))
   }
   # Repeat the simulation nsim times 
