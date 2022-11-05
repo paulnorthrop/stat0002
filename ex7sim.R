@@ -21,6 +21,9 @@ ex7sim <- function(n = 10, nsim = 10000, theta = 4) {
 }
 
 # Call the function ex7sim() provided in the to do the simulation
+# Set a random number seed so that everyone simulated the same values
+# The seed is the deadline for submitting Exercises 7: 1/12/2022
+set.seed(1122022)
 simvals <- ex7sim()
 
 # Look at the first 5 rows of simvals
