@@ -177,6 +177,39 @@ axis(1, at = x_labs, labels = x_labs)
 
 In the [Chapter 2: Graphs (more than one variable)](stat0002-ch2c-graphs-vignette.html) vignette we consider both variables in the `ox_births` data frame, i.e. the numeric continuous variable `time` and the categorical variable `day`, producing separate boxplots of `time` for each day of the week.
 
+#### Boxplots and extreme observations
+
+The purposes of the whiskers of a boxplot are to 
+
+* provide a measure of spread to supplement the inter-quartile range and range,
+* highlight those observations that are extreme,in the sense that they are small or large relative to the observations that lie close to the centre of the distribution.
+
+The whiskers should **not** be used as an automatic way to detect outliers. Consider a numerical experiment where we simulate repeatedly random normal samples of size $n$.
+
+```{r, echo = FALSE}
+set.seed(6112022)
+```
+
+```{r boxplotsim}
+# A function to
+# 1. simulate a sample of size n from a (standard) normal distribution
+# 2. calculate the boxplot statistics
+# 3. return TRUE if there are no values outside the whiskers, TRUE otherwise
+nextreme <- function(n) {
+  y <- boxplot.stats(rnorm(n))
+  return(length(y$out) >= 1)
+}
+# Find the proportion of datasets for which there are values outside the whiskers
+# n = 100
+y <- replicate(n = 10000, nextreme(n = 100))
+mean(y)
+# n = 1000
+y <- replicate(n = 10000, nextreme(n = 1000))
+mean(y)
+```
+
+For $n=100$ more than $50\%$ of datasets have at least one observation outside the whiskers and for $n=1000$ this rises to above $99\%$. We **know** that there are no outliers here.  The observations that lie outside the whiskers of the boxplots are expected to be there.
+
 ## The Challenger O-ring data
 
 We return to the data that feature in the [Challenger Space Shuttle disaster](stat0002-ch1a-shuttle-vignette.html) vignette.  The column \code{damaged} in the data frame \code{shuttle} contains the observed numbers of O-rings that suffer thermal distress.  This is a *numerical discrete* variable. In fact we can be more precise than this, it is an *integer* variable. One way to summarize these data graphically is using a bar plot. In order to produce the bar plot we first need to tabulate the data, using the function` table` to calculate the frequencies of the numbers of distressed O-rings.
