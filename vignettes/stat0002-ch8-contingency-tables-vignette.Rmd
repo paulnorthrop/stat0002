@@ -1,0 +1,153 @@
+---
+title: "Chapter 8: Contingency tables"
+author: "Paul Northrop"
+date: ""
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Chapter 8: Contingency tables}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: stat0002.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
+                      fig.width = 7, fig.height = 5, fig.align = 'center')
+```
+
+This vignette provides some R code that is related to some of the content of [Chapter 8 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/contingency.html#contingency), namely to Contingency tables.  It contains some technical information about classes of R objects and the way in which this affects what R does when we call functions to operate on an object. If this interests you then great, but otherwise, focus on what the code below does rather than exactly how it works.
+
+## Graduate Admissions at Berkeley
+
+We return to data that we considered briefly in the 
+[Chapter 3: Probability](https://paulnorthrop.github.io/stat0002/articles/stat0002-ch3-probability-vignette.html) article. The object `berkeley` is a 3-dimensional array that contains information about applicants to graduate school at UC Berkeley in 1973 for the six largest departments. Use `?UCBAdmissions` for more information. The 3 dimensions of the array correspond to the gender of the applicant (dimension named `Gender`), whether or not they were admitted (named `Admit`) and a letter code for the department to which they applied (named `Dept`).  A given entry in `berkeley` gives the total number of applicants in the corresponding (`Admit`, `Gender`, `Dept`) category. 
+In Chapter 3, we viewed these data are relating to a population containing the 4526 people who applied to graduate school at Berkeley in 1973 and did not seek to generalise beyond this population. In other words, we treated the relative frequencies in the various categories as known probabilities.  Now, we view these data as a sample of data that may help us to make inferences about the application at Berkeley in general. In particular, we will explore associations between the categorical variables (`Admit`, `Gender`, `Dept`), or perhaps just two of these variables.  Note that R refers to categorical variables as **factors**.
+
+```{r, message = FALSE}
+library(stat0002)
+```
+
+## The data
+
+The `berkeley` dataset is a $2 \times 2 \times 6$ contingency table.  For each of the 6 departments involved there is a $2 \times 2$ table for variables `Admit` and `Gender`.
+
+```{r}
+# Find the dimensions of the data
+dim(berkeley)
+# What type of R object is berkeley?
+class(berkeley)
+# Print the data
+berkeley
+```
+
+### Classes of R objects
+
+Many objects in R have a `class` attribute that that contains a (character) vector of names, perhaps just one name, that describes what type of object it is.  This is useful because for some types of object have standard `methods` are provided, to perform common tasks like printing, summarising and plotting. In the code above, instead of typing `berkeley` we could have typed `print(berkeley)`. When we do this R searches for an appropriate way to print to the Console the object `berkeley`, which has class `"table"`.  R looks for, and finds, a function `print.table` to use to do this printing.  We will come back to this later, for example when we consider producing plots of contingency table data.
+
+## 2-way tables
+
+We need to **collapse** the 3-way table to a 2-way table by ignoring the values of one of the 3 categorical variables.  One way to do this is to use the `xtabs` function in the `stats` package, which comes as standard when you install R.  To use `xtabs` we need first to modify the structure of the data from a table to a data frame. The we can use a convenient formula interface of the general structure `Y ~ x1 + x2` where `y` is the (response) variable of main interest and `x1` and `x2` are (explanatory) variables that may explain variation in `Y`.
+
+```{r genderadmit}
+df <- as.data.frame(berkeley)
+df
+ga <- xtabs(Freq ~ Gender + Admit, df)
+ga
+```
+
+Functions are available for calculating the totals are proportions that appear in [Section 8.1](https://paulnorthrop.github.io/stat0002book/contingency.html#way2) of the notes and in the [Berkeley example](https://paulnorthrop.github.io/stat0002book/probability.html#example-graduate-admissions-at-berkeley-continued) in Chapter 3 of the notes.
+
+```{r}
+# Total number of applicants
+marginSums(ga)
+# Number of males and females
+marginSums(ga, "Gender")
+# Number of accepted and rejected applicants
+marginSums(ga, "Admit")
+# Add the marginal totals to the table
+addmargins(ga)
+# Calculate proportions (relative frequencies)
+proportions(ga)
+# Row proportions (sum to 1 across the rows)
+proportions(ga, "Gender")
+# Column proportions (sum to 1 down the columns)
+proportions(ga, "Admit")
+```
+
+What class does `ga` have?
+
+```{r}
+class(ga)
+```
+
+## A mosaic plot
+
+The object `ga` has 2 things in its vector class names: "xtabs" and "table".  This means that we have available to us any methods functions that have been created for use on objects of class "xtabs" or class "table".  If, for example, we use the code `plot(ga)` then, because "xtabs" appears first in the vector of class names, R looks first for a function called `plot.xtabs`.  If it does not find a function with this name then it looks for `plot.table`.  If it find neither then it uses the function `plot.default`. The function `plot.default` definitely exists, but because it has not been designed for a specific input object then it might not work. In this case, there is no function `plot.xtabs` but there is a function `plot.table`. If the table has at least 2 factors then this call the function `mosaicplot` in the `graphics` package, which also comes as standard when you install R.. Let's see what happens if we do this. 
+
+```{r}
+plot(ga, main = "Observed frequencies", color = TRUE)
+```
+
+A **mosaic** plot is produced. On the `Gender` scale the widths of the rectangles are proportional to the frequencies of the categories `Male` and `Female`.  Similarly, on the `Admit` scale the widths of the rectangles are proportional to the frequencies of the categories `Admitted` and `Rejected`. We can see that more applicants are rejected than accepted and that the proportion of males that are accepted is greater than the proportion of females that are accepted.
+
+If we would like a plot with the same layout as  [Figure 8.1](https://paulnorthrop.github.io/stat0002book/contingency.html#fig:berk2way) of the notes then we can transpose `ga` to reverse the order of the variables before plotting. 
+
+```{r}
+plot(t(ga), main = "Observed frequencies", color = TRUE)
+```
+
+### Calculating estimated expected frequencies
+
+We estimate expected frequencies under the assumption that the variable `Gender` and `Admit` are independent. We could use R to calculate these for ourselves, using the `outer` function below. Alternatively, can use the function `chisq.test` in the `stats` package.  We will come back to this function later, but for the moment we only want the values of the estimated expected frequencies.  We also produce a mosaic plot of the estimated expected frequencies
+
+```{r}
+efreq <- outer(marginSums(ga, "Gender"), marginSums(ga, "Admit")) / marginSums(ga)
+efreq
+# Check using chisq.test
+efreq <- chisq.test(ga)$expected
+efreq
+# Trick R into using plot.table
+class(efreq) <- "table"
+# Plot estimated expected frequencies
+plot(t(efreq), main = "Estimated expected frequencies", color = TRUE)
+```
+
+As we expect, the relative sizes of the estimated expected frequencies for `Admitted` and `Rejected` are the same for males and females.
+
+### Plotting residuals
+
+The `assocplot` function in the `graphics` package produces a plot that summarises how the (Pearson) residuals vary between the combinations of the categories. The vertical extent of a rectangle is proportional to the corresponding Pearson residual and the width is proportional to the square root of the expected frequency.  Therefore, the area of a box is proportional to the raw residual, that is, this difference between the observed and estimated expected frequency. 
+
+```{r}
+assocplot(ga)
+```
+
+Comparing the rectangles with the horizontal dashed line, we see that more men are admitted than is expected if `Gender` and `Admit` are independent. 
+
+## 3-ways tables
+
+```{r}
+summary(berkeley)
+plot(berkeley)
+```
+
+### The `vcd` package
+
+The `vcd` package (@vcd) provides various functions to summarise, visualise and make inferences using categorical data.  Its functions `mosaic` and `assoc` produce plots that are equivalent to those produced by `plot.table` and `assocplot` above. 
+
+```{r, warning = FALSE, message = FALSE}
+library(vcd)
+assoc(ga)
+res <- ga - efreq
+res
+assoc(ga, residuals = res)
+```
+
+
+## References
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
+</script>
