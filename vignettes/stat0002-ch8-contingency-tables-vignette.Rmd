@@ -15,6 +15,11 @@ bibliography: stat0002.bib
 ```{r, include = FALSE}
 knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
                       fig.width = 7, fig.height = 5, fig.align = 'center')
+
+required <- c("vcd")
+
+if (!all(unlist(lapply(required, function(pkg) requireNamespace(pkg, quietly = TRUE)))))
+  knitr::opts_chunk$set(eval = FALSE)
 ```
 
 This vignette provides some R code that is related to some of the content of [Chapter 8 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/contingency.html#contingency), namely to Contingency tables.  It contains some technical information about classes of R objects and the way in which this affects what R does when we call functions to operate on an object. If this interests you then great, but otherwise, focus on what the code below does rather than exactly how it works.
@@ -135,14 +140,10 @@ plot(berkeley)
 
 ### The `vcd` package
 
-The `vcd` package (@vcd) provides various functions to summarise, visualise and make inferences using categorical data.  Its functions `mosaic` and `assoc` produce plots that are equivalent to those produced by `plot.table` and `assocplot` above. 
+The `vcd` package (@vcd) provides various functions to summarise, visualise and make inferences using categorical data.  Its functions `mosaic` and `assoc` produce plots that are equivalent to those produced by `plot.table` and `assocplot` above.
 
 ```{r, warning = FALSE, message = FALSE}
 library(vcd)
-assoc(ga)
-res <- ga - efreq
-res
-assoc(ga, residuals = res)
 ```
 
 

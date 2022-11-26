@@ -27,7 +27,8 @@ Suggests: knitr,
     rpanel,
     smovie,
     SuppDists,
-    tkrplot
+    tkrplot,
+    vcd
 VignetteBuilder: knitr
 URL: https://paulnorthrop.github.io/stat0002/,
      https://github.com/paulnorthrop/stat0002
