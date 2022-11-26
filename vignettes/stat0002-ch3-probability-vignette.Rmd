@@ -52,7 +52,7 @@ phat
 
 ## Graduate Admissions at Berkeley
 
-The object `berkeley` is a 3-dimensional array that contains information about applicants to graduate school at UC Berkeley in 1973 for the six largest departments. Use `?UCBAdmissions` for more information. The 3 dimensions of the array correspond to the gender of the applicant (dimension named `Gender`), whether or not they were admitted (named `Admit`) and a letter code for the department to which they applied (named `Dept`).  A given entry in `berkeley` gives the total number of applicants in the correponding (`Admit`, `Gender`, `Dept`) category. In Chapter 3 we consider only the dimensions `Admit` and `Gender`.  
+The object `berkeley` is a 3-dimensional array that contains information about applicants to graduate school at UC Berkeley in 1973 for the six largest departments. Use `?UCBAdmissions` for more information. The 3 dimensions of the array correspond to the gender of the applicant (dimension named `Gender`), whether or not they were admitted (named `Admit`) and a letter code for the department to which they applied (named `Dept`).  A given entry in `berkeley` gives the total number of applicants in the corresponding (`Admit`, `Gender`, `Dept`) category. In Chapter 3 we consider only the dimensions `Admit` and `Gender`.  
 
 The following code collapses the 3-dimensional array to a 2-dimensional array by summing the frequencies over all the six departments, which gives the central part of Table 3.3 in the notes. 
 
