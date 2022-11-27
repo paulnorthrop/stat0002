@@ -466,15 +466,34 @@ how the (Pearson) residuals vary between the combinations of the
 categories. The vertical extent of a rectangle is proportional to the
 corresponding Pearson residual and the width is proportional to the
 square root of the expected frequency. Therefore, the area of a box is
-proportional to the (raw) residual, that is, this difference between the
-observed and estimated expected frequency. Look at the definitions of
-these residuals in <a href="https://paulnorthrop.github.io/stat0002book/contingency.html#indep" class="external-link">Section
+proportional to the corresponding (raw) residual, that is, this
+difference between the observed and estimated expected frequency. Look
+at the definitions of these residuals in <a href="https://paulnorthrop.github.io/stat0002book/contingency.html#indep" class="external-link">Section
 8.1.1</a> to see how this works.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assocplot</span>(ga, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"grey"</span>))</span></code></pre></div>
 <p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>Comparing the rectangles with the horizontal dashed line, we see that
 more men are admitted than is expected if <code>Gender</code> and
 <code>Admit</code> are independent.</p>
+</div>
+<div class="section level3">
+<h3 id="testing-association">Testing association<a class="anchor" aria-label="anchor" href="#testing-association"></a>
+</h3>
+<p>The function <code>chisq.test</code> in the <code>stats</code>
+package can be used to perform the chi-squared outlined at the end of <a href="https://paulnorthrop.github.io/stat0002book/contingency.html#indep" class="external-link">Section
+8.1.1</a> of the notes. We specify <code>correct = FALSE</code> to
+produce the same result given in the notes, that is, we do not use the
+<a href="https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity" class="external-link">Yates’s
+correction for continuity</a>.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">chisq.test</span>(ga, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    Pearson<span class="st">'s Chi-squared test</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">data:  ga</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="st">X-squared = 92.205, df = 1, p-value &lt; 2.2e-16</span></span></code></pre></div>
+<p>The value of the test statistic <span class="math inline">\(92.205\)</span> is very much larger than expected
+under the hypothesis that <code>Gender</code> and <code>Admit</code> are
+independent. Therefore, we would reject hypothesis.</p>
 </div>
 <div class="section level3">
 <h3 id="the-vcd-package">The <code>vcd</code> package<a class="anchor" aria-label="anchor" href="#the-vcd-package"></a>
@@ -487,79 +506,75 @@ equivalent to those produced by <code>plot.table</code> and
 <code>assocplot</code> above. It deals more easily with some aspects of
 tables of dimension greater than 2 than the functions in base R and
 offers some more features.</p>
-<p>One extra feature of the function <code>assoc</code> is the ability
-to shade the rectangles in an association plot to reflect the size of a
-residual. In the following we fill the rectangles with a colour that
-reflects the size and sign of the corresponding standardised Pearson
-residual. If the variables <code>Gender</code> and <code>Admit</code>
-are independent then these residuals should look approximately as if
-they have been sampled from a standard normal distribution. Therefore,
-values that are greater than 2 in magnitude are unusual - they have an
-approximate probability of <span class="math inline">\(5%\)</span>
-occurring - and values that are greater than 4 in magnitude are very
-surprising.</p>
+<p>One extra feature of the functions <code>mosaic</code> and
+<code>assoc</code> is the ability to shade the rectangles in an
+association plot with colours that reflect the size of a residual. This
+can draw our attention to cells of the contingency table with large
+residuals and help us to spot patterns. By default, these functions base
+the shading on the values of the Pearson residuals. This reflects the
+contributions to the test statistic in the chi-squared test.</p>
+<p>We might also like the option to shade based on the values of the
+standardised Pearson residuals. If the variables <code>Gender</code> and
+<code>Admit</code> are independent then these residuals should look
+approximately as if they have been sampled from a standard normal
+distribution. Therefore, values that are greater than 2 in magnitude are
+unusual - they have an approximate probability of <span class="math inline">\(5%\)</span> occurring - and values that are
+greater than 4 in magnitude are very surprising. We do this in the code
+below by providing the values of the standardised Pearson residuals to
+the functions in the <code>vcd</code> package, using the argument
+<code>residuals</code>. For the mosaic plot this just effects the
+numbers on the colour key. For the association plots using the
+standardisation of the Pearson residuals changes the vertical extents of
+the rectangles in the plots, so now the area of a rectangle is not
+proportional its residual. In this <span class="math inline">\(2 \times
+2\)</span> case where all standardised Pearson residuals have the same
+magnitude all these vertical extents are equal.</p>
 <p>For a technical reason, to do with wanting to change the label on the
 legend of the plot using <code>residuals_type</code>, we call the
 <code>vcd</code> function <code>strucplot</code>, which is the plotting
 function underlying the function <code>assoc</code>. The function
 <code>mosaic</code> also allows us to colour the parts of a moasic plot
 based on the values of residuals.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(vcd)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Extract the standardised Pearson residuals</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ga)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Raw residuals</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>observeded <span class="sc">-</span> x2test<span class="sc">$</span>expected</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Pearson residuals</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>residuals</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        Admit</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">4.784093</span> <span class="sc">-</span><span class="fl">3.807325</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">5.793466</span>  <span class="fl">4.610614</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Standardised Pearson residuals</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>stdres</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        Admit</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">9.602358</span> <span class="sc">-</span><span class="fl">9.602358</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">9.602358</span>  <span class="fl">9.602358</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with standardised Pearson shading</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">strucplot</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>, <span class="at">core =</span> struc_assoc)</span></code></pre></div>
-<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Likewise for a mosaic plot</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">mosaic</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>)</span></code></pre></div>
-<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-12-2.png" width="672" style="display: block; margin: auto;"></p>
-<p>Both these plots indicate that the (effectively one) standardised
-Pearson residual has a magnitude (<span class="math inline">\(9.6\)</span>) that is very much larger than we
-expect if <code>Gender</code> and <code>Admit</code> are independent. In
-larger contingency tables, with more cells (combinations of the factors)
-and/or more than 2 dimensions, we can use colouring like this to draw
-our attention to patterns in the data and departures from
-independence.</p>
-</div>
-<div class="section level3">
-<h3 id="testing-association">Testing association<a class="anchor" aria-label="anchor" href="#testing-association"></a>
-</h3>
-<p>The function <code>chisq.test</code> in the <code>stats</code>
-package can be used to perform the chi-squared outlined at the end of <a href="https://paulnorthrop.github.io/stat0002book/contingency.html#indep" class="external-link">Section
-8.1.1</a> of the notes. We specify <code>correct = FALSE</code> to
-produce the same result given in the notes, that is, we do not use the
-<a href="https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity" class="external-link">Yates’s
-correction for continuity</a>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">chisq.test</span>(ga, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    Pearson<span class="st">'s Chi-squared test</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="st">data:  ga</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="st">X-squared = 92.205, df = 1, p-value &lt; 2.2e-16</span></span></code></pre></div>
-<p>The value of the test statistic <span class="math inline">\(92.205\)</span> is very much larger than expected
-under the hypothesis that <code>Gender</code> and <code>Admit</code> are
-independent. Therefore, we would reject hypothesis.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(vcd)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Extract the standardised Pearson residuals</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ga)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Raw residuals</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>observeded <span class="sc">-</span> x2test<span class="sc">$</span>expected</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Pearson residuals</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>residuals</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">4.784093</span> <span class="sc">-</span><span class="fl">3.807325</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">5.793466</span>  <span class="fl">4.610614</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Standardised Pearson residuals</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>stdres</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">9.602358</span> <span class="sc">-</span><span class="fl">9.602358</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">9.602358</span>  <span class="fl">9.602358</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with Pearson residual shading</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">assoc</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with standardised Pearson residual shading</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">strucplot</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>, <span class="at">core =</span> struc_assoc)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-13-2.png" width="672" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Mosaic plot with standardised Pearson residual shading</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">mosaic</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-13-3.png" width="672" style="display: block; margin: auto;"></p>
+<p>These plots indicate that the (effectively one) standardised Pearson
+residual has a magnitude (<span class="math inline">\(9.6\)</span>) that
+is very much larger than we expect if <code>Gender</code> and
+<code>Admit</code> are independent. In larger contingency tables, with
+more cells (combinations of the factors) and/or more than 2 dimensions,
+we can use colouring like this to draw our attention to patterns in the
+data and departures from independence.</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="ways-tables">3-ways tables<a class="anchor" aria-label="anchor" href="#ways-tables"></a>
+<h2 id="way-tables-1">3-way tables<a class="anchor" aria-label="anchor" href="#way-tables-1"></a>
 </h2>
 <p>If we have 3 (or more) variables then there are many possible
 associations that we could examine. See <a href="https://paulnorthrop.github.io/stat0002book/contingency.html#way3" class="external-link">Section
@@ -568,10 +583,10 @@ associations that we could examine. See <a href="https://paulnorthrop.github.io/
 <code>berkeley</code> dataset. To avoid cluttering the plot with text,
 we create a new object <code>x</code> in which the levels of
 <code>Admit</code> have been abbreviated.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> berkeley</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(b)<span class="sc">$</span>Admit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"R"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(b)<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(b, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">sort =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">color =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> berkeley</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(b)<span class="sc">$</span>Admit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"R"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(b)<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(b, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">sort =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">color =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>))</span></code></pre></div>
 <p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>This plot tells us quite a lot. If we look individually at the parts
 of the plot relating to departments B to F then we find that
@@ -588,15 +603,15 @@ the males.</p>
 <code>Gender</code>, <code>Admit</code> and <code>Dept</code> are
 independent when we have already concluded that <code>Gender</code> and
 <code>Admit</code> are not independent. However, we perform a
-chi-squared test in any case, this time, using the generic function
+chi-squared test in any case, this time using the generic function
 <code>summary</code>. For an object of class <code>table</code> this
 function calls <code>chisq.test</code> to perform the test and also
 includes a very basic summary of the table in the output.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(berkeley, <span class="at">correction =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Number of cases <span class="cf">in</span> table<span class="sc">:</span> <span class="dv">4526</span> </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>Number of factors<span class="sc">:</span> <span class="dv">3</span> </span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>Test <span class="cf">for</span> independence of all factors<span class="sc">:</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    Chisq <span class="ot">=</span> <span class="fl">2000.3</span>, df <span class="ot">=</span> <span class="dv">16</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(berkeley, <span class="at">correction =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Number of cases <span class="cf">in</span> table<span class="sc">:</span> <span class="dv">4526</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Number of factors<span class="sc">:</span> <span class="dv">3</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Test <span class="cf">for</span> independence of all factors<span class="sc">:</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    Chisq <span class="ot">=</span> <span class="fl">2000.3</span>, df <span class="ot">=</span> <span class="dv">16</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="dv">0</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="marginal-independence">Marginal independence<a class="anchor" aria-label="anchor" href="#marginal-independence"></a>
@@ -606,18 +621,18 @@ includes a very basic summary of the table in the output.</p>
 <code>Dept</code>. We create our own function <code>assoc2</code> that
 takes the contingency table <code>tab</code> and standardised residuals
 <code>residuals</code> as arguments, so that we can shorten the code
-needed to create an association plot coloured based on standardised
-Pearson residuals.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> assoc2 <span class="ot">&lt;-</span> <span class="cf">function</span>(tab, residuals, ...) {</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">strucplot</span>(tab, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> residuals, </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>             <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>, <span class="at">core =</span> struc_assoc, ...)</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
+needed to create an association plot with rectangles shaded based on the
+standardised Pearson residuals.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> assoc2 <span class="ot">&lt;-</span> <span class="cf">function</span>(tab, residuals, ...) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">strucplot</span>(tab, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> residuals, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>             <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>, <span class="at">core =</span> struc_assoc, ...)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
 <div class="section level4">
 <h4 id="gender-and-department">Gender and department<a class="anchor" aria-label="anchor" href="#gender-and-department"></a>
 </h4>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> gd <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Gender <span class="sc">+</span> Dept, berkdf)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(gd, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assoc2</span>(gd, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> gd <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Gender <span class="sc">+</span> Dept, berkdf)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(gd, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assoc2</span>(gd, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres)</span></code></pre></div>
 <p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>There are some strong differences in the preferences of females and
 males concerning the departments to which they apply. Males prefer
@@ -627,9 +642,9 @@ departments C and E.</p>
 <div class="section level4">
 <h4 id="admittance-and-department">Admittance and department<a class="anchor" aria-label="anchor" href="#admittance-and-department"></a>
 </h4>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ad <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Dept, berkdf)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ad, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assoc2</span>(ad, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ad <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Dept, berkdf)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ad, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assoc2</span>(ad, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres)</span></code></pre></div>
 <p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>This plot suggests that the probability of admittance is much greater
 in departments A and B, which are the departments to which males like to
@@ -647,22 +662,32 @@ than males: the males were more likely to apply to the departments that
 had the higher probability of admittance.</p>
 <p>Now we explore how successful females and males are at being admitted
 to Berkeley within each of the departments A to F, that is, we condition
-on the variable <code>Dept</code>. We create a function to produce an
-association plot for a given input department <code>dept</code> and then
-produce a plot for departments A to F.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A function to produce an association plot within a given department</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> deptplot <span class="ot">&lt;-</span> <span class="cf">function</span>(dept) {</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   temp <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Gender, berkdf, </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">subset =</span> berkdf[, <span class="st">"Dept"</span>] <span class="sc">==</span> dept)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(temp, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">assoc2</span>(temp, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Dept "</span>, dept))</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> toStopPrint <span class="ot">&lt;-</span> <span class="fu">lapply</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], deptplot)</span></code></pre></div>
-<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-20-1.png" width="47.5%"><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-20-2.png" width="47.5%"><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-20-3.png" width="47.5%"><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-20-4.png" width="47.5%"><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-20-5.png" width="47.5%"><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-20-6.png" width="47.5%"></p>
+on the variable <code>Dept</code>. We use the <code>vcd</code> function
+<code>cotabplot</code> to to produce an association plot for each of the
+departments A to F. The shading of the rectangles is based on the
+Pearson residuals.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cotabplot</span>(<span class="sc">~</span> Admit <span class="sc">+</span> Gender <span class="sc">|</span> Dept, <span class="at">data =</span> berkeley, <span class="at">layout =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">shade =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">panel =</span> cotab_assoc)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We see that only in department A is there a substantial difference
 between the admittance probability of females and males, with the
-females doing better than the males.</p>
+females doing better than the males. Finally, we focus on department A
+and change the shading so that it is based on the standardised Pearson
+residuals, mainly to see that their common magnitude is <span class="math inline">\(4.15\)</span>.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A function to produce an association plot within a given department</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> deptplot <span class="ot">&lt;-</span> <span class="cf">function</span>(dept) {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   temp <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Gender, berkdf, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">subset =</span> berkdf[, <span class="st">"Dept"</span>] <span class="sc">==</span> dept)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(temp, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">assoc2</span>(temp, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Dept "</span>, dept))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">return</span>(x2test<span class="sc">$</span>stdres)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">deptplot</span>(<span class="st">"A"</span>)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;"></p>
+<pre><code>          Gender
+Admit           Male    Female
+  Admitted -4.153073  4.153073
+  Rejected  4.153073 -4.153073</code></pre>
 </div>
 </div>
 <div class="section level2">

@@ -143,7 +143,7 @@ As we expect, the relative sizes of the estimated expected frequencies for `Admi
 
 ### Plotting residuals
 
-The `assocplot` function in the `graphics` package produces an **association plot** that summarises how the (Pearson) residuals vary between the combinations of the categories. The vertical extent of a rectangle is proportional to the corresponding Pearson residual and the width is proportional to the square root of the expected frequency.  Therefore, the area of a box is proportional to the (raw) residual, that is, this difference between the observed and estimated expected frequency. Look at the definitions of these residuals in [Section 8.1.1](https://paulnorthrop.github.io/stat0002book/contingency.html#indep) to see how this works.
+The `assocplot` function in the `graphics` package produces an **association plot** that summarises how the (Pearson) residuals vary between the combinations of the categories. The vertical extent of a rectangle is proportional to the corresponding Pearson residual and the width is proportional to the square root of the expected frequency.  Therefore, the area of a box is proportional to the corresponding (raw) residual, that is, this difference between the observed and estimated expected frequency. Look at the definitions of these residuals in [Section 8.1.1](https://paulnorthrop.github.io/stat0002book/contingency.html#indep) to see how this works.
 
 ```{r}
 assocplot(ga, col = c("black", "grey"))
@@ -151,11 +151,23 @@ assocplot(ga, col = c("black", "grey"))
 
 Comparing the rectangles with the horizontal dashed line, we see that more men are admitted than is expected if `Gender` and `Admit` are independent. 
 
+### Testing association
+
+The function `chisq.test` in the `stats` package can be used to perform the chi-squared outlined at the end of [Section 8.1.1](https://paulnorthrop.github.io/stat0002book/contingency.html#indep) of the notes. We specify `correct = FALSE` to produce the same result given in the notes, that is, we do not use the [Yates's correction for continuity](https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity).
+
+```{r}
+chisq.test(ga, correct = FALSE)
+```
+
+The value of the test statistic $92.205$ is very much larger than expected under the hypothesis that `Gender` and `Admit` are independent.  Therefore, we would reject hypothesis.
+
 ### The `vcd` package
 
 The `vcd` package (@vcd) provides various functions to summarise, visualise and make inferences using categorical data.  Its functions `mosaic` and `assoc` produce plots that are equivalent to those produced by `plot.table` and `assocplot` above. It deals more easily with some aspects of tables of dimension greater than 2 than the functions in base R and offers some more features.  
 
-One extra feature of the function `assoc` is the ability to shade the rectangles in an association plot to reflect the size of a residual.  In the following we fill the rectangles with a colour that reflects the size and sign of the corresponding standardised Pearson residual. If the variables `Gender` and `Admit` are independent then these residuals should look approximately as if they have been sampled from a standard normal distribution.  Therefore, values that are greater than 2 in magnitude are unusual - they have an approximate probability of $5%$ occurring - and values that are greater than 4 in magnitude are very surprising.  
+One extra feature of the functions `mosaic` and `assoc` is the ability to shade the rectangles in an association plot with colours that reflect the size of a residual.  This can draw our attention to cells of the contingency table with large residuals and help us to spot patterns. By default, these functions base the shading on the values of the Pearson residuals. This reflects the contributions to the test statistic in the chi-squared test.  
+
+We might also like the option to shade based on the values of the standardised Pearson residuals. If the variables `Gender` and `Admit` are independent then these residuals should look approximately as if they have been sampled from a standard normal distribution.  Therefore, values that are greater than 2 in magnitude are unusual - they have an approximate probability of $5%$ occurring - and values that are greater than 4 in magnitude are very surprising. We do this in the code below by providing the values of the standardised Pearson residuals to the functions in the `vcd` package, using the argument `residuals`.  For the mosaic plot this just effects the numbers on the colour key.  For the association plots using the standardisation of the Pearson residuals changes the vertical extents of the rectangles in the plots, so now the area of a rectangle is not proportional its residual.  In this $2 \times 2$ case where all standardised Pearson residuals have the same magnitude all these vertical extents are equal. 
 
 For a technical reason, to do with wanting to change the label on the legend of the plot using `residuals_type`, we call the `vcd` function `strucplot`, which is the plotting function underlying the function `assoc`.  The function `mosaic` also allows us to colour the parts of a moasic plot based on the values of residuals. 
 
@@ -169,27 +181,19 @@ x2test$observeded - x2test$expected
 x2test$residuals
 # Standardised Pearson residuals
 x2test$stdres
-# Association plot of residuals with standardised Pearson shading
+# Association plot of residuals with Pearson residual shading
+assoc(ga, shade = TRUE)
+# Association plot of residuals with standardised Pearson residual shading
 strucplot(ga, shade = TRUE, residuals = x2test$stdres, 
           residuals_type = "Standardised Pearson", core = struc_assoc)
-# Likewise for a mosaic plot
+# Mosaic plot with standardised Pearson residual shading
 mosaic(ga, shade = TRUE, residuals = x2test$stdres, 
        residuals_type = "Standardised Pearson")
 ```
 
-Both these plots indicate that the (effectively one) standardised Pearson residual has a magnitude ($9.6$) that is very much larger than we expect if `Gender` and `Admit` are independent. In larger contingency tables, with more cells (combinations of the factors) and/or more than 2 dimensions, we can use colouring like this to draw our attention to patterns in the data and departures from independence.
+These plots indicate that the (effectively one) standardised Pearson residual has a magnitude ($9.6$) that is very much larger than we expect if `Gender` and `Admit` are independent. In larger contingency tables, with more cells (combinations of the factors) and/or more than 2 dimensions, we can use colouring like this to draw our attention to patterns in the data and departures from independence.
 
-### Testing association
-
-The function `chisq.test` in the `stats` package can be used to perform the chi-squared outlined at the end of [Section 8.1.1](https://paulnorthrop.github.io/stat0002book/contingency.html#indep) of the notes. We specify `correct = FALSE` to produce the same result given in the notes, that is, we do not use the [Yates's correction for continuity](https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity).
-
-```{r}
-chisq.test(ga, correct = FALSE)
-```
-
-The value of the test statistic $92.205$ is very much larger than expected under the hypothesis that `Gender` and `Admit` are independent.  Therefore, we would reject hypothesis.
-
-## 3-ways tables
+## 3-way tables
 
 If we have 3 (or more) variables then there are many possible associations that we could examine.  See [Section 8.2](https://paulnorthrop.github.io/stat0002book/contingency.html#way3) of the notes for details.
 
@@ -207,7 +211,7 @@ This plot tells us quite a lot. If we look individually at the parts of the plot
 ### Mutual independence
 
 As we noted in [Section 8.2.1](https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity) there seems little point in asking whether the 3 variables `Gender`, `Admit` and `Dept` are independent when we have already concluded that `Gender` and `Admit`
-are not independent. However, we perform a chi-squared test in any case, this time, using the generic function `summary`.  For an object of class `table` this function calls `chisq.test` to perform the test and also includes a very basic summary of the table in the output. 
+are not independent. However, we perform a chi-squared test in any case, this time using the generic function `summary`.  For an object of class `table` this function calls `chisq.test` to perform the test and also includes a very basic summary of the table in the output. 
 
 ```{r}
 summary(berkeley, correction = FALSE)
@@ -215,7 +219,7 @@ summary(berkeley, correction = FALSE)
 
 ### Marginal independence
 
-We examine the association between `Dept` and `Gender` and then between `Admit` and `Dept`. We create our own function `assoc2` that takes the contingency table `tab` and standardised residuals `residuals` as arguments, so that we can shorten the code needed to create an association plot coloured based on standardised Pearson residuals.
+We examine the association between `Dept` and `Gender` and then between `Admit` and `Dept`. We create our own function `assoc2` that takes the contingency table `tab` and standardised residuals `residuals` as arguments, so that we can shorten the code needed to create an association plot with rectangles shaded based on the standardised Pearson residuals.  
 
 ```{r}
 assoc2 <- function(tab, residuals, ...) {
@@ -248,7 +252,14 @@ This plot suggests that the probability of admittance is much greater in departm
 
 The plots that we have seen provide a possible explanation for the fact that the overall probability of admittance is lower for females than males: the males were more likely to apply to the departments that had the higher probability of admittance.
 
-Now we explore how successful females and males are at being admitted to Berkeley within each of the departments A to F, that is, we condition on the variable `Dept`. We create a function to produce an association plot for a given input department `dept` and then produce a plot for departments A to F.
+Now we explore how successful females and males are at being admitted to Berkeley within each of the departments A to F, that is, we condition on the variable `Dept`. We use the `vcd` function `cotabplot` to to produce an association plot for each of the departments A to F.  The shading of the rectangles is based on the Pearson residuals.
+
+```{r, fig.height = 10}
+cotabplot(~ Admit + Gender | Dept, data = berkeley, layout = 3:2, shade = TRUE,
+          panel = cotab_assoc)
+```
+
+We see that only in department A is there a substantial difference between the admittance probability of females and males, with the females doing better than the males. Finally, we focus on department A and change the shading so that it is based on the standardised Pearson residuals, mainly to see that their common magnitude is $4.15$.
 
 ```{r}
 # A function to produce an association plot within a given department
@@ -257,15 +268,14 @@ deptplot <- function(dept) {
                 subset = berkdf[, "Dept"] == dept)
   x2test <- chisq.test(temp, correct = FALSE)
   assoc2(temp, residuals = x2test$stdres, main = paste("Dept ", dept))
+  return(x2test$stdres)
 }
 ```
 
-```{r, fig.show = 'hold', out.width = "47.5%",fig.align='default'}
-par(mfrow = c(2, 3))
-toStopPrint <- lapply(LETTERS[1:6], deptplot)
+```{r}
+deptplot("A")
 ```
 
-We see that only in department A is there a substantial difference between the admittance probability of females and males, with the females doing better than the males. 
 
 ## References
 
