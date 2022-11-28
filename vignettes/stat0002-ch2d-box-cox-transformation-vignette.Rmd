@@ -21,7 +21,7 @@ knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE)
 set.seed(2601)
 ```
 
-*The vignette involves concepts that we won't cover until Chapters 4 and 5 of the course: the probability density function (p.d.f.) of a continuous random variable and p.d.f.s of the normal and exponential distributions.  For the purpose of this vignette we just need to appreciate that and that skewness (asymmetry) in the p.d.f. will tend to be reflected by skewness in data sampled from these distributions.*
+*The vignette involves concepts that we won't cover until Chapters 4 and 5 of the course: the probability density function (p.d.f.) of a continuous random variable and p.d.f.s of the normal and exponential distributions.  For the purpose of this vignette we just need to appreciate that skewness (asymmetry) in the p.d.f. will tend to be reflected by skewness in data sampled from these distributions.*
 
 Suppose that we are provided with data, $(x_1, \ldots, x_n)$ say, relating to a variable $X$ and a question of interest concerning some aspect of this variable.  Our task is to analyse these data in order to try to answer the question.  Naively, we may think that we must perform our calculations using $(x_1, \ldots, x_n)$, but this is not the case.  It can be perfectly acceptable to analyse instead $(y_1, \ldots, y_n)$, where $y_1 = g(x_1), \ldots, y_n = g(x_n)$, provided that the function $g$ used to transform $x_i$ into $y_i$ is such that our results can be translated back to answer the original question.  Typically, $g$ is an invertible continuous function.  The transformations that we have used in lectures: power and logarithmic transformations have these properties.
 
