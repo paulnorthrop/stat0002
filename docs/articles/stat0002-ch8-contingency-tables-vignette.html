@@ -446,7 +446,8 @@ produce a mosaic plot of the estimated expected frequencies</p>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Trick R into using plot.table</span></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(efreq) <span class="ot">&lt;-</span> <span class="st">"table"</span></span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Plot estimated expected frequencies</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(<span class="fu">t</span>(efreq), <span class="at">main =</span> <span class="st">"Estimated expected frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(efreq, <span class="at">main =</span> <span class="st">"Estimated expected frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">dir =</span> <span class="fu">c</span>(<span class="st">"h"</span>, <span class="st">"v"</span>))</span></code></pre></div>
 <p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>As we expect, the relative sizes of the estimated expected
 frequencies for <code>Admitted</code> and <code>Rejected</code> are the

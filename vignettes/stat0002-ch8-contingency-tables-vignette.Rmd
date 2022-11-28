@@ -136,7 +136,8 @@ efreq
 # Trick R into using plot.table
 class(efreq) <- "table"
 # Plot estimated expected frequencies
-plot(t(efreq), main = "Estimated expected frequencies", color = TRUE)
+plot(efreq, main = "Estimated expected frequencies", color = TRUE, 
+     dir = c("h", "v"))
 ```
 
 As we expect, the relative sizes of the estimated expected frequencies for `Admitted` and `Rejected` are the same for males and females.  This provides us with a visual illustration of what mosaic plots of observed frequencies should look approximately like if the variables concerned are independent. The horizontal and vertical gaps between the rectangles should look approximately like a grid in which all the horizontal gaps and the vertical gaps are approximately lined up.
