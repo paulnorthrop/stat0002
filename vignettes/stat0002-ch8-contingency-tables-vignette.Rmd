@@ -144,7 +144,7 @@ As we expect, the relative sizes of the estimated expected frequencies for `Admi
 
 ### Plotting residuals
 
-The `assocplot` function in the `graphics` package produces an **association plot** that summarises how the (Pearson) residuals vary between the combinations of the categories. The vertical extent of a rectangle is proportional to the corresponding Pearson residual and the width is proportional to the square root of the expected frequency.  Therefore, the area of a box is proportional to the corresponding (raw) residual, that is, this difference between the observed and estimated expected frequency. Look at the definitions of these residuals in [Section 8.1.1](https://paulnorthrop.github.io/stat0002book/contingency.html#indep) to see how this works.
+The `assocplot` function in the `graphics` package produces an **association plot** that summarises how the (Pearson) residuals vary between the combinations of the categories. The vertical extent of a rectangle is proportional to the corresponding Pearson residual and the width is proportional to the square root of the estimated expected frequency.  Therefore, the area of a box is proportional to the corresponding (raw) residual, that is, this difference between the observed and estimated expected frequency. Look at the definitions of these residuals in [Section 8.1.1](https://paulnorthrop.github.io/stat0002book/contingency.html#indep) to see how this works.
 
 ```{r}
 assocplot(ga, col = c("black", "grey"))
@@ -183,13 +183,15 @@ x2test$residuals
 # Standardised Pearson residuals
 x2test$stdres
 # Association plot of residuals with Pearson residual shading
-assoc(ga, shade = TRUE)
+assoc(ga, shade = TRUE, margins = c(2.25, 1, 1, 2.5))
 # Association plot of residuals with standardised Pearson residual shading
 strucplot(ga, shade = TRUE, residuals = x2test$stdres, 
-          residuals_type = "Standardised Pearson", core = struc_assoc)
+          margins = c(2.25, 1, 1, 2.5),
+          residuals_type = "Standardised\nPearson\nresiduals", core = struc_assoc,
+          keep_aspect_ratio = FALSE, legend_width = 6)
 # Mosaic plot with standardised Pearson residual shading
 mosaic(ga, shade = TRUE, residuals = x2test$stdres, 
-       residuals_type = "Standardised Pearson")
+       residuals_type = "Standardised Pearson", margins = c(0, 0, 0, 0))
 ```
 
 These plots indicate that the (effectively one) standardised Pearson residual has a magnitude ($9.6$) that is very much larger than we expect if `Gender` and `Admit` are independent. In larger contingency tables, with more cells (combinations of the factors) and/or more than 2 dimensions, we can use colouring like this to draw our attention to patterns in the data and departures from independence.
@@ -234,7 +236,7 @@ assoc2 <- function(tab, residuals, ...) {
 ```{r}
 gd <- xtabs(Freq ~ Gender + Dept, berkdf)
 x2test <- chisq.test(gd, correct = FALSE)
-assoc2(gd, residuals = x2test$stdres)
+assoc2(gd, residuals = x2test$stdres, margins = c(0, 0, 0, 0))
 ```
 
 There are some strong differences in the preferences of females and males concerning the departments to which they apply.  Males prefer departments A and B and females the other departments, particularly departments C and E.
@@ -244,7 +246,7 @@ There are some strong differences in the preferences of females and males concer
 ```{r}
 ad <- xtabs(Freq ~ Admit + Dept, berkdf)
 x2test <- chisq.test(ad, correct = FALSE)
-assoc2(ad, residuals = x2test$stdres)
+assoc2(ad, residuals = x2test$stdres, margins = c(0, 0, 0, 0))
 ```
 
 This plot suggests that the probability of admittance is much greater in departments A and B, which are the departments to which males like to apply.  Departments E and F have a relatively low probability of acceptance and females are more likely than males to apply to these departments.
