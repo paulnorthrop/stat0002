@@ -213,7 +213,7 @@ This plot tells us quite a lot. If we look individually at the parts of the plot
 
 ### Mutual independence
 
-As we noted in [Section 8.2.1](https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity) there seems little point in asking whether the 3 variables `Gender`, `Admit` and `Dept` are independent when we have already concluded that `Gender` and `Admit`
+As we noted in [Section 8.2.1](https://paulnorthrop.github.io/stat0002book/contingency.html#mutual-independence) there seems little point in asking whether the 3 variables `Gender`, `Admit` and `Dept` are independent when we have already concluded that `Gender` and `Admit`
 are not independent. However, we perform a chi-squared test in any case, this time using the generic function `summary`.  For an object of class `table` this function calls `chisq.test` to perform the test and also includes a very basic summary of the table in the output. 
 
 ```{r}
