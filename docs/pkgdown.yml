@@ -16,5 +16,6 @@ articles:
   stat0002-ch6c-qq-plots-vignette: stat0002-ch6c-qq-plots-vignette.html
   stat0002-ch7-statistical-inference-vignette: stat0002-ch7-statistical-inference-vignette.html
   stat0002-ch8-contingency-tables-vignette: stat0002-ch8-contingency-tables-vignette.html
-last_built: 2022-11-29T21:31Z
+  stat0002-ch9-linear-regression-vignette: stat0002-ch9-linear-regression-vignette.html
+last_built: 2022-12-04T18:00Z
 

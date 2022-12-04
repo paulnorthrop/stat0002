@@ -30,6 +30,7 @@ reference:
       - "USelection"
       - "aussie_births"
       - "hubble"
+      - "hubble2"
       - "birds"
   - title: Plots
     desc: ~
