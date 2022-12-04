@@ -22,7 +22,7 @@ Steele, S. (December 21, 1997), Babies by the Dozen for Christmas:
 aussie_births
 }
 \description{
-The baby arrivals data introduced in Section 5 of the STAT0002 notes.
+The baby arrivals data introduced in Chapter 6 of the STAT0002 notes.
 Information concerning the 44 babies (18 girls and 26 boys) born in a
 24-hour period at the Mater Mothers' Hospital, Brisbane, Australia, on
 December 18, 1997.
