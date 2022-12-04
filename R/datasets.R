@@ -177,7 +177,7 @@ NULL
 
 #' Australian Birth Times Data
 #'
-#' The baby arrivals data introduced in Section 5 of the STAT0002 notes.
+#' The baby arrivals data introduced in Chapter 6 of the STAT0002 notes.
 #' Information concerning the 44 babies (18 girls and 26 boys) born in a
 #' 24-hour period at the Mater Mothers' Hospital, Brisbane, Australia, on
 #' December 18, 1997.
@@ -196,10 +196,10 @@ NULL
 
 #' Nebulae data from Hubble (1929)
 #'
-#' The data used in Section 8.1 of the STAT0002 notes to introduce simple
+#' The data used in Section 9.1 of the STAT0002 notes to introduce simple
 #' linear regression.  This dataset contains estimates of the distance
 #' from Earth and the velocity relative to Earth of 24 nebulae.
-#' @format A data frame with 42 observations on the following 2 variables.
+#' @format A data frame with 24 observations on the following 2 variables.
 #' \itemize{
 #' \item{\code{distance:}}{ the distance, in megaparsecs, of the nebula
 #'   from Earth.}
@@ -210,6 +210,26 @@ NULL
 #' among extra-galactic nebulae. \emph{Proceedings of the National Academy of
 #' Science}, \strong{15}, 168-173.
 "hubble"
+
+#' Nebulae data from Freedman (2001)
+#'
+#' Data that are an update to the Hubble (1929) \code{\link{hubble}}
+#' data. Contains estimates of the distance from Earth and the velocity
+#' relative to Earth of 24 nebulae.
+#' @format A data frame with 24 observations on the following 2
+#' variables.
+#' \itemize{
+#' \item{\code{distance:}}{ the distance, in megaparsecs, of the nebula
+#'   from Earth.}
+#' \item{\code{velocity:}}{ the velocity, in kilometres per second, of the
+#'   nebula relative to Earth.}
+#' }
+#' @source The velocity values are from column 7 of Table 5 of Freedman (2001)
+#' and the distance values are the corresponding values from Table 4.
+#' @references Freedman et al. (2001) Final results from the Hubble space
+#' telescope key project to measure the Hubble constant.
+#' \emph{The Astrophysical Journal}, \strong{553}, 47-72.
+"hubble2"
 
 #' Cloud-seeding data
 #'

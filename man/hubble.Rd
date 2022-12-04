@@ -5,7 +5,7 @@
 \alias{hubble}
 \title{Nebulae data from Hubble (1929)}
 \format{
-A data frame with 42 observations on the following 2 variables.
+A data frame with 24 observations on the following 2 variables.
 \itemize{
 \item{\code{distance:}}{ the distance, in megaparsecs, of the nebula
   from Earth.}
@@ -22,7 +22,7 @@ Science}, \strong{15}, 168-173.
 hubble
 }
 \description{
-The data used in Section 8.1 of the STAT0002 notes to introduce simple
+The data used in Section 9.1 of the STAT0002 notes to introduce simple
 linear regression.  This dataset contains estimates of the distance
 from Earth and the velocity relative to Earth of 24 nebulae.
 }
