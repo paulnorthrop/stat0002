@@ -1,0 +1,115 @@
+---
+title: "Chapter 9: Linear regression"
+author: "Paul Northrop"
+date: ""
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Chapter 9: Linear regression}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: stat0002.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
+                      fig.width = 7, fig.height = 5, fig.align = 'center')
+
+required <- c("vcd")
+
+if (!all(unlist(lapply(required, function(pkg) requireNamespace(pkg, quietly = TRUE)))))
+  knitr::opts_chunk$set(eval = FALSE)
+```
+
+This vignette provides some R code that is related to some of the content of [Chapter 9 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/linreg.html#linreg), namely to (simple) linear regression.  
+
+```{r, message = FALSE}
+library(stat0002)
+```
+
+## The data
+
+We use Hubble data described at the start of [Section 9.1](https://paulnorthrop.github.io/stat0002book/linreg.html#simple-linear-regression) of the notes. These data are available in the data frame `hubble`.
+
+```{r}
+hubble
+```
+
+## The R function `lm`
+
+R provides a function `lm` to fit linear regression models.  The following code fits a simple linear regression model to the `hubble` data, with `distance` as the response variable and `velocity` as the one explanatory variable.  The `lm` function can do much more than this  For example, it can fit a regression model that has more one explanatory variable.
+
+```{r}
+lm(distance ~ velocity, data = hubble)
+```
+
+The point estimates of the intercept $\alpha$ and gradient $\beta$ regression parameters agree with those in the title of Figure 9.6 of the notes.
+
+## Our own function `slm`
+
+As an exercise in writing an R function and to demonstrate that the expressions for the least squares estimators $\hat{\alpha}$ and $\hat{\beta}$ given in [Section 9.1.2](https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-estimation-of-alpha-and-beta) are correct, we write our own function `slm` to perform simple linear regression. We give our returned (list) object the class `"lm"`, including the `call` (the code that calls the function `slm`) and the `coefficients` (estimated of the regression parameters $\alpha$ and $\beta$) so that when we print our results they looks like those from `lm`.  
+
+We include an argument `rto`, which stands for "regression through the origin". For these data, Hubble's Law gives us a reason to consider a special linear regression model in which the fitted line is forced to go through the origin, that is, the intercept parameter $\alpha$ is set to $0$ rather than being estimated from the data. We also deal with the situation where no explanatory data are provided. For further information see [Section 9.1.3](https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-fitting-to-hubbles-data) of the notes.
+
+```{r}
+slm <- function(y, x, rto = FALSE) {
+  # If only response data are provided then fit a horizontal line y = mean(y)
+  if (missing(x)) {
+    res <- list(coefficients = c(mean(y), 0), fitted.values = mean(y),
+                residuals = y - mean(y))
+    class(res) <- "lm"
+    return(res)
+  }
+  # Check that y and x have the same length  
+  if (length(y) != length(x)) {
+    stop("''y'' and ''x'' must have the same length")
+  }
+  # Calculate the estimates.  If rto = FALSE (the default) then we estimate 
+  # both alpha and beta from the data.  If rto = TRUE then we set alpha = 0
+  # and estimate only beta from the data.
+  ybar <- mean(y)
+  if (rto) {
+    betahat <- mean(x * y) / mean(x ^ 2)
+    alphahat <- 0
+  } else {
+    xbar <- mean(x)
+    betahat <- mean((x - xbar) * (y - ybar)) / mean((x - xbar) ^ 2)
+    alphahat <- ybar - betahat * xbar
+  }
+  estimates <- c(alphahat, betahat)
+  # Calculate the fitted values for y
+  fittedy <- alphahat + betahat * x
+  # Give the coefficients names
+  names(estimates) <- c("(Intercept)", deparse(substitute(x)))  
+  # Create the results list 
+  res <- list(coefficients = estimates, fitted.values = fittedy, 
+              residuals = y - fittedy, call = match.call())  
+  class(res) <- "lm"
+  return(res)
+}
+```
+
+The following code fits Model 2 from [Section 9.1.3](https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-fitting-to-hubbles-data).
+
+```{r}
+# Model 2
+slmfit2 <- slm(y = hubble$distance, x = hubble$velocity)
+slmfit2
+```
+
+For the sake of compeleteness we also fit Models 1 and 3 from [Section 9.1.3](https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-fitting-to-hubbles-data) and show that our results agree with those from `lm`.
+
+```{r}
+# Model 1
+slm(y = hubble$distance)
+lm(distance ~ 1, data = hubble)
+
+# Model 3
+slm(y = hubble$distance, x = hubble$velocity, rto = TRUE)
+lm(distance ~ velocity - 1, data = hubble)
+```
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
+</script>
