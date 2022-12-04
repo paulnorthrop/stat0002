@@ -38,7 +38,7 @@
 #' @return Nothing is returned, only the animation is produced.
 #' @seealso \code{\link{stat0002movies}}: general information about the movies.
 #' @examples
-#' # Produce movie using values from the Aussie births data
+#' # Produce movie using the hubble data
 #' lin_reg_movie(hubble, pch = 16, xlab = "recession velocity (km/sec)",
 #'               ylab = "distance (megaparsecs)")
 #' @export

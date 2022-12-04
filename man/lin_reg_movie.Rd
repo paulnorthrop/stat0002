@@ -49,7 +49,7 @@ A scatter plot of response data against the explanatory data
   the legend, for comparison.
 }
 \examples{
-# Produce movie using values from the Aussie births data
+# Produce movie using the hubble data
 lin_reg_movie(hubble, pch = 16, xlab = "recession velocity (km/sec)",
               ylab = "distance (megaparsecs)")
 }
