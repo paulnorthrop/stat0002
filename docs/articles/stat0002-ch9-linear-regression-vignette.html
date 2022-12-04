@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">stat0002</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
 
@@ -167,7 +167,9 @@ content of <a href="https://paulnorthrop.github.io/stat0002book/linreg.html#linr
 <span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="dv">21</span>    <span class="fl">2.000</span>      <span class="dv">500</span></span>
 <span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="dv">22</span>    <span class="fl">2.000</span>      <span class="dv">850</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="dv">23</span>    <span class="fl">2.000</span>      <span class="dv">800</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="dv">24</span>    <span class="fl">2.000</span>     <span class="dv">1090</span></span></code></pre></div>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="dv">24</span>    <span class="fl">2.000</span>     <span class="dv">1090</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="fu">rev</span>(hubble), <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
+<p><img src="stat0002-ch9-linear-regression-vignette_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
 <h2 id="the-r-function-lm">The R function <code>lm</code><a class="anchor" aria-label="anchor" href="#the-r-function-lm"></a>
@@ -178,16 +180,22 @@ models. The following code fits a simple linear regression model to the
 variable and <code>velocity</code> as the one explanatory variable. The
 <code>lm</code> function can do much more than this For example, it can
 fit a regression model that has more one explanatory variable.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lm</span>(distance <span class="sc">~</span> velocity, <span class="at">data =</span> hubble)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> distance <span class="sc">~</span> velocity, <span class="at">data =</span> hubble)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>(Intercept)     velocity  </span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.399098</span>     <span class="fl">0.001373</span>  </span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> l3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(distance <span class="sc">~</span> velocity, <span class="at">data =</span> hubble)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> l3 </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> distance <span class="sc">~</span> velocity, <span class="at">data =</span> hubble)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>(Intercept)     velocity  </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.399098</span>     <span class="fl">0.001373</span>  </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">coef</span>(l3)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>(Intercept)    velocity </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fl">0.399098216</span> <span class="fl">0.001372936</span> </span></code></pre></div>
 <p>The point estimates of the intercept <span class="math inline">\(\alpha\)</span> and gradient <span class="math inline">\(\beta\)</span> regression parameters agree with
-those in the title of Figure 9.6 of the notes.</p>
+those in the title of Figure 9.6 of the notes. Note that
+<code>coef</code> is a generic function that (tries to) extracts
+parameter estimates from a fitted model object.</p>
 </div>
 <div class="section level2">
 <h2 id="our-own-function-slm">Our own function <code>slm</code><a class="anchor" aria-label="anchor" href="#our-own-function-slm"></a>
@@ -199,7 +207,8 @@ perform simple linear regression. We give our returned (list) object the
 class <code>"lm"</code>, including the <code>call</code> (the code that
 calls the function <code>slm</code>) and the <code>coefficients</code>
 (estimated of the regression parameters <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>) so that when we print our results
-they looks like those from <code>lm</code>.</p>
+they looks like those from <code>lm</code>. We also include other useful
+quantities, with names that should indicate what they contain.</p>
 <p>We include an argument <code>rto</code>, which stands for “regression
 through the origin”. For these data, Hubble’s Law gives us a reason to
 consider a special linear regression model in which the fitted line is
@@ -210,87 +219,169 @@ provided. For further information see <a href="https://paulnorthrop.github.io/st
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> slm <span class="ot">&lt;-</span> <span class="cf">function</span>(y, x, <span class="at">rto =</span> <span class="cn">FALSE</span>) {</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># If only response data are provided then fit a horizontal line y = mean(y)</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="cf">if</span> (<span class="fu">missing</span>(x)) {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     res <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">coefficients =</span> <span class="fu">c</span>(<span class="fu">mean</span>(y), <span class="dv">0</span>), <span class="at">fitted.values =</span> <span class="fu">mean</span>(y),</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">residuals =</span> y <span class="sc">-</span> <span class="fu">mean</span>(y))</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">class</span>(res) <span class="ot">&lt;-</span> <span class="st">"lm"</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">return</span>(res)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   }</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Check that y and x have the same length  </span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="cf">if</span> (<span class="fu">length</span>(y) <span class="sc">!=</span> <span class="fu">length</span>(x)) {</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">stop</span>(<span class="st">"''y'' and ''x'' must have the same length"</span>)</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   }</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Calculate the estimates.  If rto = FALSE (the default) then we estimate </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># both alpha and beta from the data.  If rto = TRUE then we set alpha = 0</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># and estimate only beta from the data.</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   ybar <span class="ot">&lt;-</span> <span class="fu">mean</span>(y)</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="cf">if</span> (rto) {</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     betahat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x <span class="sc">*</span> y) <span class="sc">/</span> <span class="fu">mean</span>(x <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     alphahat <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   } <span class="cf">else</span> {</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     betahat <span class="ot">&lt;-</span> <span class="fu">mean</span>((x <span class="sc">-</span> xbar) <span class="sc">*</span> (y <span class="sc">-</span> ybar)) <span class="sc">/</span> <span class="fu">mean</span>((x <span class="sc">-</span> xbar) <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     alphahat <span class="ot">&lt;-</span> ybar <span class="sc">-</span> betahat <span class="sc">*</span> xbar</span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   }</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   estimates <span class="ot">&lt;-</span> <span class="fu">c</span>(alphahat, betahat)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Calculate the fitted values for y</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   fittedy <span class="ot">&lt;-</span> alphahat <span class="sc">+</span> betahat <span class="sc">*</span> x</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Give the coefficients names</span></span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">names</span>(estimates) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"(Intercept)"</span>, <span class="fu">deparse</span>(<span class="fu">substitute</span>(x)))  </span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Create the results list </span></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   res <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">coefficients =</span> estimates, <span class="at">fitted.values =</span> fittedy, </span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>               <span class="at">residuals =</span> y <span class="sc">-</span> fittedy, <span class="at">call =</span> <span class="fu">match.call</span>())  </span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">class</span>(res) <span class="ot">&lt;-</span> <span class="st">"lm"</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">return</span>(res)</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
-<p>The following code fits Model 2 from <a href="https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-fitting-to-hubbles-data" class="external-link">Section
-9.1.3</a>.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Model 2</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> slmfit2 <span class="ot">&lt;-</span> <span class="fu">slm</span>(<span class="at">y =</span> hubble<span class="sc">$</span>distance, <span class="at">x =</span> hubble<span class="sc">$</span>velocity)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> slmfit2</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     residuals <span class="ot">&lt;-</span> y <span class="sc">-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     rss <span class="ot">&lt;-</span> <span class="fu">sum</span>(residuals <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     n <span class="ot">&lt;-</span> <span class="fu">length</span>(y)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     estimates <span class="ot">&lt;-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">names</span>(estimates) <span class="ot">&lt;-</span> <span class="st">"(Intercept)"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     res <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">coefficients =</span> estimates, <span class="at">fitted.values =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">residuals =</span> y <span class="sc">-</span> <span class="fu">mean</span>(y), <span class="at">rss =</span> rss, </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">sigmahat =</span> <span class="fu">sqrt</span>(rss <span class="sc">/</span> (n <span class="sc">-</span> <span class="dv">1</span>)), <span class="at">y =</span> y, <span class="at">call =</span> <span class="fu">match.call</span>())</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">class</span>(res) <span class="ot">&lt;-</span> <span class="st">"lm"</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">return</span>(res)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   }</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Check that y and x have the same length  </span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="cf">if</span> (<span class="fu">length</span>(y) <span class="sc">!=</span> <span class="fu">length</span>(x)) {</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">stop</span>(<span class="st">"''y'' and ''x'' must have the same length"</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   }</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Calculate the estimates.  If rto = FALSE (the default) then we estimate </span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># both alpha and beta from the data.  If rto = TRUE then we set alpha = 0</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># and estimate only beta from the data.</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   ybar <span class="ot">&lt;-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="cf">if</span> (rto) {</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     betahat <span class="ot">&lt;-</span> <span class="fu">mean</span>(x <span class="sc">*</span> y) <span class="sc">/</span> <span class="fu">mean</span>(x <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     alphahat <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     estimates <span class="ot">&lt;-</span> betahat</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">names</span>(estimates) <span class="ot">&lt;-</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(x))</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   } <span class="cf">else</span> {</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     xbar <span class="ot">&lt;-</span> <span class="fu">mean</span>(x)</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     betahat <span class="ot">&lt;-</span> <span class="fu">mean</span>((x <span class="sc">-</span> xbar) <span class="sc">*</span> (y <span class="sc">-</span> ybar)) <span class="sc">/</span> <span class="fu">mean</span>((x <span class="sc">-</span> xbar) <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     alphahat <span class="ot">&lt;-</span> ybar <span class="sc">-</span> betahat <span class="sc">*</span> xbar</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     estimates <span class="ot">&lt;-</span> <span class="fu">c</span>(alphahat, betahat)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">names</span>(estimates) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"(Intercept)"</span>, <span class="fu">deparse</span>(<span class="fu">substitute</span>(x)))</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   }</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Calculate the fitted values for y, residuals and residual sum of squares</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   fittedy <span class="ot">&lt;-</span> alphahat <span class="sc">+</span> betahat <span class="sc">*</span> x</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   residuals <span class="ot">&lt;-</span> y <span class="sc">-</span> fittedy</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   rss <span class="ot">&lt;-</span> <span class="fu">sum</span>(residuals <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Estimate of the error standard deviation sigma</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   n <span class="ot">&lt;-</span> <span class="fu">length</span>(y)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   p <span class="ot">&lt;-</span> <span class="fu">length</span>(estimates)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   sigmahat <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(rss <span class="sc">/</span> (n <span class="sc">-</span> p))</span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Create the results list </span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   res <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">coefficients =</span> estimates, <span class="at">fitted.values =</span> fittedy, </span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>               <span class="at">residuals =</span> residuals, <span class="at">rss =</span> rss, <span class="at">sigmahat =</span> sigmahat,</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>               <span class="at">y =</span> y, <span class="at">x =</span> x, <span class="at">call =</span> <span class="fu">match.call</span>())  </span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">class</span>(res) <span class="ot">&lt;-</span> <span class="st">"lm"</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">return</span>(res)</span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
+<p>The following code fits Model 3 from <a href="https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-fitting-to-hubbles-data" class="external-link">Section
+9.1.3</a>, plots the data again and adds the fitted regression line.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Model 3</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> m3 <span class="ot">&lt;-</span> <span class="fu">slm</span>(<span class="at">y =</span> hubble<span class="sc">$</span>distance, <span class="at">x =</span> hubble<span class="sc">$</span>velocity)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m3</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">slm</span>(<span class="at">y =</span> hubble<span class="sc">$</span>distance, <span class="at">x =</span> hubble<span class="sc">$</span>velocity)</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    (Intercept)  hubble<span class="sc">$</span>velocity  </span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.399098</span>         <span class="fl">0.001373</span>  </span></code></pre></div>
-<p>For the sake of compeleteness we also fit Models 1 and 3 from <a href="https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-fitting-to-hubbles-data" class="external-link">Section
-9.1.3</a> and show that our results agree with those from
-<code>lm</code>.</p>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.399098</span>         <span class="fl">0.001373</span>  </span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="fu">rev</span>(hubble), <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">coef =</span> <span class="fu">coef</span>(m3))</span></code></pre></div>
+<p><img src="stat0002-ch9-linear-regression-vignette_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></p>
+<p>For the sake of completeness we also fit Models 1 and 2 from <a href="https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-fitting-to-hubbles-data" class="external-link">Section
+9.1.3</a>, which assume, respectively, that <span class="math inline">\(\beta=0\)</span> and that <span class="math inline">\(\alpha = 0\)</span>, and show that our results
+agree with those from <code>lm</code>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Model 1</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">slm</span>(<span class="at">y =</span> hubble<span class="sc">$</span>distance)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cn">NULL</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>]  <span class="fl">0.9114</span>  <span class="fl">0.0000</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lm</span>(distance <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> hubble)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> distance <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> hubble)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>(Intercept)  </span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>     <span class="fl">0.9114</span>  </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Model 3</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">slm</span>(<span class="at">y =</span> hubble<span class="sc">$</span>distance, <span class="at">x =</span> hubble<span class="sc">$</span>velocity, <span class="at">rto =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">slm</span>(<span class="at">y =</span> hubble<span class="sc">$</span>distance, <span class="at">x =</span> hubble<span class="sc">$</span>velocity, <span class="at">rto =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    (Intercept)  hubble<span class="sc">$</span>velocity  </span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>       <span class="fl">0.000000</span>         <span class="fl">0.001922</span>  </span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lm</span>(distance <span class="sc">~</span> velocity <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> hubble)</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>Call<span class="sc">:</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="fu">lm</span>(<span class="at">formula =</span> distance <span class="sc">~</span> velocity <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> hubble)</span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>Coefficients<span class="sc">:</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>velocity  </span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="fl">0.001922</span>  </span></code></pre></div>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># ~1 means that there is no explanatory variable in the model</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> m1 <span class="ot">&lt;-</span> <span class="fu">slm</span>(<span class="at">y =</span> hubble<span class="sc">$</span>distance)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> l1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(distance <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> hubble)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">coef</span>(m1)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>(Intercept) </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.911375</span> </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">coef</span>(l1)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>(Intercept) </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>   <span class="fl">0.911375</span> </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Model 2</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># The -1 removes the intercept from the model</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> m2 <span class="ot">&lt;-</span> <span class="fu">slm</span>(<span class="at">y =</span> hubble<span class="sc">$</span>distance, <span class="at">x =</span> hubble<span class="sc">$</span>velocity, <span class="at">rto =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> l2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(distance <span class="sc">~</span> velocity <span class="sc">-</span> <span class="dv">1</span>, <span class="at">data =</span> hubble)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">coef</span>(m2)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>hubble<span class="sc">$</span>velocity </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.001921806</span> </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">coef</span>(l2)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>   velocity </span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fl">0.001921806</span> </span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="estimates-of-the-error-standard-deviation-sigma">Estimates of the error standard deviation <span class="math inline">\(\sigma\)</span><a class="anchor" aria-label="anchor" href="#estimates-of-the-error-standard-deviation-sigma"></a>
+</h2>
+<p>An unbiased estimator of the error variance <span class="math inline">\(\sigma^2\)</span> is the sum of the squared
+residuals divided by <span class="math inline">\(n - p\)</span>, where
+<span class="math inline">\(n\)</span> is the sample size and <span class="math inline">\(p\)</span> is the number of parameter estimated.
+See <a href="https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-estimation-of-alpha-and-beta" class="external-link">Section
+9.1.2</a>, which considers the case where both <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are estimated. In the following,
+<code>sigma</code> is a function that (tries to) calculate an estimate
+of the standard deviation <span class="math inline">\(\sigma\)</span> of
+the errors. It does this, as is commonly the case, by taking by square
+root of the estimate of <span class="math inline">\(\sigma^2\)</span>.
+Again, our function agrees with the output from <code>lm</code>.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> m3<span class="sc">$</span>sigmahat</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.4049588</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sigma</span>(m3)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.4049588</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">sigma</span>(l3)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.4049588</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="standardised-residuals">Standardised residuals<a class="anchor" aria-label="anchor" href="#standardised-residuals"></a>
+</h2>
+<p>In <a href="https://paulnorthrop.github.io/stat0002book/linreg.html#model-checking" class="external-link">Section
+9.3</a> of the notes we define the <strong>standardised
+residuals</strong> for the <span class="math inline">\(i\)</span>th
+observation in the data by</p>
+<p><span class="math display">\[r_i^S =
+\frac{r_i}{\hat{\sigma}(1-h_{ii})},\]</span></p>
+<p>where <span class="math inline">\(r_i\)</span> is the residual for
+observation <span class="math inline">\(i\)</span>, <span class="math inline">\(\hat{\sigma}\)</span> is the estimate of the error
+standard deviation and <span class="math display">\[h_{ii} = \frac1n +
+\frac{(x_i - \bar{x})}{\sum_{i=1}^n (x_i - \bar{x}) ^ 2}.\]</span> is
+the <strong>leverage</strong> of observation <span class="math inline">\(i\)</span>. If the model is correct then these
+residuals have approximately a variance of 1. If the errors are normally
+distributed then these residuals should look like a sample from a
+standard normal distribution. We write a function to calculate these
+standardised residuals for a model fit produced by <code>slm</code> and
+use this function in the next section to produce a normal QQ plot of
+standardised residuals.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> stres <span class="ot">&lt;-</span> <span class="cf">function</span>(slmfit) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># The generic function nobs tries to calculate the number of observations</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   n <span class="ot">&lt;-</span> <span class="fu">nobs</span>(slmfit)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Extract the values of the explanatory variables</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   x <span class="ot">&lt;-</span> slmfit<span class="sc">$</span>x</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="co"># Calculate the leverage value for each observation</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   sx2 <span class="ot">&lt;-</span> (x <span class="sc">-</span> <span class="fu">mean</span>(x)) <span class="sc">^</span> <span class="dv">2</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   hii <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> n <span class="sc">+</span> sx2 <span class="sc">/</span> <span class="fu">sum</span>(sx2)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">return</span>(slmfit<span class="sc">$</span>residuals <span class="sc">/</span> (slmfit<span class="sc">$</span>sigmahat <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">1</span> <span class="sc">-</span> hii <span class="sc">^</span> <span class="dv">2</span>)))</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="residual-plots">Residual plots<a class="anchor" aria-label="anchor" href="#residual-plots"></a>
+</h2>
+<p>We plot the residuals against the values of the explanatory variable,
+velocity, and then against the fitted values. When there is only one
+explanatory variable these plots will look identical, apart from a
+change of scale on the horizontal axis. This is because each fitted
+values is a linear function, <span class="math inline">\(\hat{\alpha} +
+\hat{\beta} x\)</span>, of the corresponding value <span class="math inline">\(x\)</span> of the explanatory variable.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(m3<span class="sc">$</span>x, m3<span class="sc">$</span>residual, <span class="at">ylab =</span> <span class="st">"residual"</span>, <span class="at">xlab =</span> <span class="st">"velocity"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="stat0002-ch9-linear-regression-vignette_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(m3<span class="sc">$</span>fitted.values, m3<span class="sc">$</span>residual, <span class="at">ylab =</span> <span class="st">"residual"</span>, <span class="at">xlab =</span> <span class="st">"fitted values"</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="stat0002-ch9-linear-regression-vignette_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></p>
+<p>Now, we produce a normal QQ plot of the standardised residuals and
+check that we is correct using the built-in <code>plot</code> function
+for <code>lm</code> objects, selecting <code>which = 2</code> to ask for
+a normal QQ plot.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> stresiduals <span class="ot">&lt;-</span> <span class="fu">stres</span>(m3)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">qqnorm</span>(stresiduals, <span class="at">ylab =</span> <span class="st">"Standardised Residuals"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">qqline</span>(stresiduals)</span></code></pre></div>
+<p><img src="stat0002-ch9-linear-regression-vignette_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># By default, the 3 residuals with the largest magnitudes are labelled by their observation number</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(l3, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="stat0002-ch9-linear-regression-vignette_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></p>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script>
