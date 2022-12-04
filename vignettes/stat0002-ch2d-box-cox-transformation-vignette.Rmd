@@ -180,7 +180,7 @@ x <- USelection$npop / 1000
 plot(x, y, pch = 16, xlab = xlab, ylab = ylab)
 ```
 
-Clearly $Y$ is not linearly related to $x$.  In Section 8.4 of the notes we consider the use of transformation in the setting of simple linear regression.  If we are hoping to use a *linear* regression model then one of the most important considerations is whether the relationship between $Y$ and $x$ is approximately linear.  If it is not then one approach is to consider transforming $Y$ and/or $x$. 
+Clearly $Y$ is not linearly related to $x$.  In Section 9.4 of the notes we consider the use of transformation in the setting of simple linear regression.  If we are hoping to use a *linear* regression model then one of the most important considerations is whether the relationship between $Y$ and $x$ is approximately linear.  If it is not then one approach is to consider transforming $Y$ and/or $x$. 
 In the \link[=scatterplot_movie]{US election: straightening scatter plots} we saw that we could choose these transformations using trial-and-error.
 
 In @Smith2002 the author uses $\sqrt{Y}$ instead of $Y$ and $\log(x)$ instead of $x$.  In a lecture we found that this did indeed produce a relationship that looked much closer to being linear.  Here we also use $\log(x)$ instead of $x$ and we use the `boxcox` function to suggest a Box-Cox transformation for $y$.  [It is possible to look to look simultaneously for the 'best' Box-Cox transformations of both $Y$ and $x$, but the `boxcox` function doesn't provide this option.]  In the regression setting the `boxcox` function seeks a transformation of $Y$ for which the distribution of the random error is as close as possible to being normal.
