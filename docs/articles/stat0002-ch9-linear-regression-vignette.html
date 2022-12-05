@@ -306,7 +306,7 @@ agree with those from <code>lm</code>.</p>
 <span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="fl">0.001921806</span> </span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="estimates-of-the-error-standard-deviation-sigma">Estimates of the error standard deviation <span class="math inline">\(\sigma\)</span><a class="anchor" aria-label="anchor" href="#estimates-of-the-error-standard-deviation-sigma"></a>
+<h2 id="estimating-the-error-standard-deviation">Estimating the error standard deviation<a class="anchor" aria-label="anchor" href="#estimating-the-error-standard-deviation"></a>
 </h2>
 <p>An unbiased estimator of the error variance <span class="math inline">\(\sigma^2\)</span> is the sum of the squared
 residuals divided by <span class="math inline">\(n - p\)</span>, where
@@ -337,8 +337,8 @@ observation in the data by</p>
 <p>where <span class="math inline">\(r_i\)</span> is the residual for
 observation <span class="math inline">\(i\)</span>, <span class="math inline">\(\hat{\sigma}\)</span> is the estimate of the error
 standard deviation and <span class="math display">\[h_{ii} = \frac1n +
-\frac{(x_i - \bar{x})}{\sum_{i=1}^n (x_i - \bar{x}) ^ 2}.\]</span> is
-the <strong>leverage</strong> of observation <span class="math inline">\(i\)</span>. If the model is correct then these
+\frac{(x_i - \bar{x}) ^ 2}{\sum_{i=1}^n (x_i - \bar{x}) ^ 2}.\]</span>
+is the <strong>leverage</strong> of observation <span class="math inline">\(i\)</span>. If the model is correct then these
 residuals have approximately a variance of 1. If the errors are normally
 distributed then these residuals should look like a sample from a
 standard normal distribution. We write a function to calculate these
