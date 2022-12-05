@@ -136,7 +136,7 @@ coef(m2)
 coef(l2)
 ```
 
-## Estimates of the error standard deviation $\sigma$
+## Estimating the error standard deviation
 
 An unbiased estimator of the error variance $\sigma^2$ is the sum of the squared residuals divided by $n - p$, where $n$ is the sample size and $p$ is the number of parameter estimated. See [Section 9.1.2](https://paulnorthrop.github.io/stat0002book/linreg.html#least-squares-estimation-of-alpha-and-beta), which considers the case where both $\alpha$ and $\beta$ are estimated. In the following, `sigma` is a function that (tries to) calculate an estimate of the standard deviation $\sigma$ of the errors. It does this, as is commonly the case, by taking by square root of the estimate of $\sigma^2$.  Again, our function agrees with the output from `lm`.
 
@@ -153,7 +153,7 @@ In [Section 9.3](https://paulnorthrop.github.io/stat0002book/linreg.html#model-c
 $$r_i^S = \frac{r_i}{\hat{\sigma}(1-h_{ii})},$$
 
 where $r_i$ is the residual for observation $i$, $\hat{\sigma}$ is the estimate of the error standard deviation and 
-$$h_{ii} = \frac1n + \frac{(x_i - \bar{x})}{\sum_{i=1}^n (x_i - \bar{x}) ^ 2}.$$
+$$h_{ii} = \frac1n + \frac{(x_i - \bar{x}) ^ 2}{\sum_{i=1}^n (x_i - \bar{x}) ^ 2}.$$
 is the **leverage** of observation $i$.  If the model is correct then these residuals have approximately a variance of 1. If the errors are normally distributed then these residuals should look like a sample from a standard normal distribution. We write a function to calculate these standardised residuals for a model fit produced by `slm` and use this function in the next section to produce a normal QQ plot of standardised residuals.
 
 ```{r}
