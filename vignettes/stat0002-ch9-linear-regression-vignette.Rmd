@@ -23,7 +23,7 @@ This vignette provides some R code that is related to some of the content of [Ch
 library(stat0002)
 ```
 
-## The data
+## Example data
 
 We use the Hubble data described at the start of [Section 9.1](https://paulnorthrop.github.io/stat0002book/linreg.html#simple-linear-regression) of the notes. These data are available in the data frame `hubble`.
 
