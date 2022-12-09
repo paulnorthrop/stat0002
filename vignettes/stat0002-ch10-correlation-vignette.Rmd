@@ -1,0 +1,103 @@
+---
+title: "Chapter 10: Correlation"
+author: "Paul Northrop"
+date: ""
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Chapter 10: Correlation}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: stat0002.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
+                      fig.width = 7, fig.height = 5, fig.align = 'center')
+knitr::opts_knit$set(global.par = TRUE)
+
+required <- c("anscombiser")
+if (!all(unlist(lapply(required, function(pkg) requireNamespace(pkg, quietly = TRUE)))))
+  knitr::opts_chunk$set(eval = FALSE)
+```
+
+This vignette provides some R code that is related to some of the content of [Chapter 10 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/correlationchapter.html#correlationchapter) correlation.  
+
+```{r, message = FALSE}
+library(stat0002)
+```
+
+```{r, echo = FALSE}
+par(mar = c(4, 4, 1, 1))
+```
+
+## Example data
+
+We use the exchange rate data described at the start of [Section 10.1](https://paulnorthrop.github.io/stat0002book/correlationchapter.html#correlation-a-measure-of-linear-association) of the notes. These data are available in the data frame `exchange`. We look at the first 6 rows of the data and the last 6 rows and produce plots like Figures 10.1 and 10.2 of the notes.
+
+```{r}
+head(exchange)
+tail(exchange)
+# Figure 10.1
+plot(exchange, pch = 16, xlab = "Pounds sterling vs. US dollars",
+     ylab = "Pounds sterling vs. Canadian dollars", bty = "l", 
+     main = "Raw data")
+# Calculate the log-returns
+USDlogr <- diff(log(exchange$USD.GBP))
+CADlogr <- diff(log(exchange$CAD.GBP))
+# Figure 10.2
+plot(USDlogr, CADlogr, pch = 16, xlab = "Pounds sterling vs. US dollars",
+     ylab = "Pounds sterling vs. Canadian dollars", bty = "l", 
+     main = "Log-returns" )
+```
+
+
+## The R function `cor`
+
+R provides a function `cor` to calculate sample correlation coefficients.  By default, it calculates the sample (product moment) correlation coefficient given in [Section 10.2.1](https://paulnorthrop.github.io/stat0002book/correlationchapter.html#estimation). 
+
+We can supply either two vectors `x` and `y` of equal length or a matrix with columns containing the vectors of data for which we want to calculate the sample correlation coefficient. In this case, we create a 2-column matrix using `cbind` function to combine the 2 vectors `USDlogr` and `CADlogr` columnwise into a matrix. 
+
+If we supply a matrix then R will return a matrix containing the sample correlation coefficients between all possible pairs of columns in the input matrix, including between each column and itself, which produces values of 1 on the diagonal of the output matrix. If we supply vectors `x` and `y` then it does not matter which vector is entered as `x` and which as `y`.   
+
+```{r}
+cor(x = USDlogr, y = CADlogr)
+cor(x = CADlogr, y = USDlogr)
+cor(x = cbind(USDlogr, CADlogr))
+```
+
+## Anscombe's Quartet of datasets
+
+In [Section 10.3.6](https://paulnorthrop.github.io/stat0002book/correlationchapter.html#anscombes-datasets) Anscombe's Quartet of dataset are provided in Figure 10.9. These 4 datasets are available as separate data frames in the `anscombiser` package @anscombiser.  Use `install.packages("anscombiser")` to install this package.
+
+```{r}
+library(anscombiser)
+```
+
+```{r}
+class(anscombe1)
+cor(anscombe1)
+cor(anscombe2)
+cor(anscombe3)
+cor(anscombe4)
+```
+
+We see that the paired data in these datasets have almost exactly the same sample correlation coefficient.  They have many other summary statistics in common.  See [Section 10.3.6](https://paulnorthrop.github.io/stat0002book/correlationchapter.html#anscombes-datasets) for details.
+
+The `method` argument to `cor` enables us to ask R to calculate Spearman's rank correlation coefficient (See [Section 2.3.5](https://paulnorthrop.github.io/stat0002book/descriptive.html#corr1)). The values of this sample correlation coefficient differ between these datasets.
+
+```{r}
+class(anscombe1)
+cor(anscombe1, method = "spearman")
+cor(anscombe2, method = "spearman")
+cor(anscombe3, method = "spearman")
+cor(anscombe4, method = "spearman")
+```
+
+
+## References
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
+</script>
