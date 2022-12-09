@@ -349,6 +349,8 @@ NULL
 #'      at=c(0, 0.2, 0.4, 0.5, 0.6, 0.8, 1.0))
 "kerrich"
 
+# ========================== Berkeley Admissions data =========================
+
 #' Student Admisions at UCL Berkeley
 #'
 #' Aggregate data on applicants to graduate school at Berkeley for the six
@@ -356,3 +358,32 @@ NULL
 #' @details This is a copy of the \code{\link[datasets]{UCBAdmissions}} data
 #'   provided in the \code{\link[datasets:datasets-package]{datasets}} package.
 "berkeley"
+
+# ========================== Berkeley Admissions data =========================
+
+#' UK/US and UK/Canada Exchange Rates
+#'
+#' The \code{exchange} data frame has 975 rows and 2 columns. The columns
+#' contain daily exchange rates; UK sterling against the US dollar (first
+#' column) and UK sterling against the Canadian dollar (second column). The
+#' rownames contain the corresponding dates in a character string with the
+#' format \code{"2000/05/26"}. This can be converted into a \code{POSIXct} or
+#' \code{POSIXlt} object using \code{\link{as.POSIXct}} or
+#' \code{\link{as.POSIXlt}}.
+#'
+#' @format This data frame contains the following columns:
+#' \itemize{
+#'   \item{USD.GBP:}{US against UK exchange rate.}
+#'   \item{CAD.GBP:}{Canada against UK exchange rate.}
+#' }
+#' @source Coles, S. G. (2001) \emph{An Introduction to Statistical Modelling
+#'   of Extreme Values.} London: Springer.
+#' @examples
+#' # This produces a plot like Figure 10.1 of the STAT0002 notes
+#' plot(exchange)
+#'
+#' # The produces a plot like Figure 10.2 of the STAT0002 notes
+#' USDreturns <- diff(log(exchange$USD.GBP))
+#' CADreturns <- diff(log(exchange$CAD.GBP))
+#' plot(USDreturns, CADreturns)
+"exchange"
