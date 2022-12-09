@@ -37,7 +37,7 @@ Find **All Installers** near the bottom of the page and choose the installer for
 Copy and paste the following into the R console and press return.
 
 ```{r, eval = FALSE}
-install.packages(c("distributions3", "plotrix", "rpanel", "rust", "smovie", "SuppDists", "tkrplot"))
+install.packages(c("anscombiser", "distributions3", "plotrix", "rpanel", "rust", "smovie", "SuppDists", "tkrplot"))
 ```
 
 Then copy and paste **ONE** of the following into the R Console and press return.  Choose the option that is relevant to your computer.
