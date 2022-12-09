@@ -8,16 +8,16 @@ devtools::build(manual = TRUE)
 # Windows: .zip
 # To ensure that a doc directory with the vignettes in it we create the
 # binary zip file from the source tar.gz file
-devtools::build("../stat0002_1.1.0.tar.gz", binary=TRUE)
+devtools::build("../stat0002_1.2.0.tar.gz", binary=TRUE)
 
 # Now move the files to the install directory
-file.copy(from = "../stat0002_1.1.0.tar.gz", to = "install/stat0002.tar.gz",
+file.copy(from = "../stat0002_1.2.0.tar.gz", to = "install/stat0002.tar.gz",
           overwrite = TRUE)
-file.copy(from = "../stat0002_1.1.0.zip", to = "install/stat0002.zip",
+file.copy(from = "../stat0002_1.2.0.zip", to = "install/stat0002.zip",
           overwrite = TRUE)
 # Remove the originals
-file.remove("../stat0002_1.0.0.tar.gz")
-file.remove("../stat0002_1.0.0.zip")
+file.remove("../stat0002_1.2.0.tar.gz")
+file.remove("../stat0002_1.2.0.zip")
 
 # Mac osx: .tgz
 # Submit .tar.gz to macOS builder at
