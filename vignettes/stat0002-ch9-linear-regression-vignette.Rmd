@@ -15,11 +15,6 @@ bibliography: stat0002.bib
 ```{r, include = FALSE}
 knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE,
                       fig.width = 7, fig.height = 5, fig.align = 'center')
-
-required <- c("vcd")
-
-if (!all(unlist(lapply(required, function(pkg) requireNamespace(pkg, quietly = TRUE)))))
-  knitr::opts_chunk$set(eval = FALSE)
 ```
 
 This vignette provides some R code that is related to some of the content of [Chapter 9 of the STAT0002 notes](https://paulnorthrop.github.io/stat0002book/linreg.html#linreg), namely to (simple) linear regression.  
