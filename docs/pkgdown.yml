@@ -17,5 +17,6 @@ articles:
   stat0002-ch7-statistical-inference-vignette: stat0002-ch7-statistical-inference-vignette.html
   stat0002-ch8-contingency-tables-vignette: stat0002-ch8-contingency-tables-vignette.html
   stat0002-ch9-linear-regression-vignette: stat0002-ch9-linear-regression-vignette.html
-last_built: 2022-12-05T11:19Z
+  stat0002-ch9plus1-correlation-vignette: stat0002-ch9plus1-correlation-vignette.html
+last_built: 2022-12-09T18:22Z
 

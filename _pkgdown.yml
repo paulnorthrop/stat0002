@@ -32,6 +32,7 @@ reference:
       - "hubble"
       - "hubble2"
       - "birds"
+      - "exchange"
   - title: Plots
     desc: ~
     contents:

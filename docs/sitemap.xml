@@ -7,6 +7,9 @@
     <loc>/articles/index.html</loc>
   </url>
   <url>
+    <loc>/articles/stat0002-ch10-correlation-vignette.html</loc>
+  </url>
+  <url>
     <loc>/articles/stat0002-ch1a-shuttle-vignette.html</loc>
   </url>
   <url>
@@ -56,6 +59,9 @@
   </url>
   <url>
     <loc>/articles/stat0002-ch9-linear-regression-vignette.html</loc>
+  </url>
+  <url>
+    <loc>/articles/stat0002-ch9plus1-correlation-vignette.html</loc>
   </url>
   <url>
     <loc>/authors.html</loc>
@@ -113,6 +119,9 @@
   </url>
   <url>
     <loc>/reference/diving.html</loc>
+  </url>
+  <url>
+    <loc>/reference/exchange.html</loc>
   </url>
   <url>
     <loc>/reference/five_number.html</loc>
