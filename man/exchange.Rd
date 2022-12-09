@@ -35,6 +35,6 @@ plot(exchange)
 # Calculate the log-returns
 USDlogr <- diff(log(exchange$USD.GBP))
 CADlogr <- diff(log(exchange$CAD.GBP))
-plot(USDreturns, CADreturns)
+plot(USDlogr, CADlogr)
 }
 \keyword{datasets}
