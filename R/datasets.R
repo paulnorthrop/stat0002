@@ -383,7 +383,8 @@ NULL
 #' plot(exchange)
 #'
 #' # The produces a plot like Figure 10.2 of the STAT0002 notes
-#' USDreturns <- diff(log(exchange$USD.GBP))
-#' CADreturns <- diff(log(exchange$CAD.GBP))
+#' # Calculate the log-returns
+#' USDlogr <- diff(log(exchange$USD.GBP))
+#' CADlogr <- diff(log(exchange$CAD.GBP))
 #' plot(USDreturns, CADreturns)
 "exchange"

@@ -32,8 +32,9 @@ format \code{"2000/05/26"}. This can be converted into a \code{POSIXct} or
 plot(exchange)
 
 # The produces a plot like Figure 10.2 of the STAT0002 notes
-USDreturns <- diff(log(exchange$USD.GBP))
-CADreturns <- diff(log(exchange$CAD.GBP))
+# Calculate the log-returns
+USDlogr <- diff(log(exchange$USD.GBP))
+CADlogr <- diff(log(exchange$CAD.GBP))
 plot(USDreturns, CADreturns)
 }
 \keyword{datasets}
