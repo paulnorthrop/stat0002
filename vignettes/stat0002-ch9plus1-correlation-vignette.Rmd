@@ -76,7 +76,6 @@ library(anscombiser)
 ```
 
 ```{r}
-class(anscombe1)
 cor(anscombe1)
 cor(anscombe2)
 cor(anscombe3)
@@ -88,7 +87,6 @@ We see that the paired data in these datasets have almost exactly the same sampl
 The `method` argument to `cor` enables us to ask R to calculate Spearman's rank correlation coefficient (See [Section 2.3.5](https://paulnorthrop.github.io/stat0002book/descriptive.html#corr1)). The values of this sample correlation coefficient differ between these datasets.
 
 ```{r}
-class(anscombe1)
 cor(anscombe1, method = "spearman")
 cor(anscombe2, method = "spearman")
 cor(anscombe3, method = "spearman")
