@@ -546,22 +546,25 @@ based on the values of residuals.</p>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Extract the standardised Pearson residuals</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ga)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Raw residuals</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>observeded <span class="sc">-</span> x2test<span class="sc">$</span>expected</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">numeric</span>(<span class="dv">0</span>)</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Pearson residuals</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>residuals</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>        Admit</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">4.784093</span> <span class="sc">-</span><span class="fl">3.807325</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">5.793466</span>  <span class="fl">4.610614</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Standardised Pearson residuals</span></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>stdres</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        Admit</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">9.602358</span> <span class="sc">-</span><span class="fl">9.602358</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">9.602358</span>  <span class="fl">9.602358</span></span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with Pearson residual shading</span></span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">assoc</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">margins =</span> <span class="fu">c</span>(<span class="fl">2.25</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">2.5</span>))</span></code></pre></div>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>observed <span class="sc">-</span> x2test<span class="sc">$</span>expected</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">154.5389</span> <span class="sc">-</span><span class="fl">154.5389</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">154.5389</span>  <span class="fl">154.5389</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Pearson residuals</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>residuals</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">4.784093</span> <span class="sc">-</span><span class="fl">3.807325</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">5.793466</span>  <span class="fl">4.610614</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Standardised Pearson residuals</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>stdres</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">9.602358</span> <span class="sc">-</span><span class="fl">9.602358</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">9.602358</span>  <span class="fl">9.602358</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with Pearson residual shading</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">assoc</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">margins =</span> <span class="fu">c</span>(<span class="fl">2.25</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">2.5</span>))</span></code></pre></div>
 <p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with standardised Pearson residual shading</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">strucplot</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>

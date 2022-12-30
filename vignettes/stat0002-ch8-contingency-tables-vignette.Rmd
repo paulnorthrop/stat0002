@@ -177,7 +177,7 @@ library(vcd)
 # Extract the standardised Pearson residuals
 x2test <- chisq.test(ga)
 # Raw residuals
-x2test$observeded - x2test$expected
+x2test$observed - x2test$expected
 # Pearson residuals
 x2test$residuals
 # Standardised Pearson residuals
