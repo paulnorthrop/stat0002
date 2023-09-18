@@ -28,7 +28,7 @@ The functions `shuttle_sim` and `shuttle_sim_plot` can be viewed by typing the n
 
 In the first lecture we discussed the Challenger Space Shuttle Disaster.   In this vignette we are concerned mainly with the R code, so there is very little discussion of the problem, the data or statistical ideas.  
 
-In this vignette we consider how R can be used to analyse data related to this disaster.  See @shuttle for more information about these data and analyses to estimate the probability of a catastrophic failure of the Challenger space shuttle under the launch conditions on 28th January 1986.  This paper is used as a worked example for the STAT0002 Meet your Professor ICA.
+In this vignette we consider how R can be used to analyse data related to this disaster.  See @shuttle for more information about these data and analyses to estimate the probability of a catastrophic failure of the Challenger space shuttle under the launch conditions on 28th January 1986. 
 
 In the following R commands follow the command prompt `>` and `#` is used to create a comment, that is, to prevent R from trying to execute text that contains comments rather than a command.
 

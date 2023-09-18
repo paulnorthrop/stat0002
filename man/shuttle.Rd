@@ -29,11 +29,10 @@ shuttle
 }
 \description{
 These data are discussed in the first STAT0002 lecture.
-A paper (Dalal \emph{et al.}, 1989), in which these data are analysed
+In a paper (Dalal \emph{et al.}, 1989) these data are analysed
 with a view to estimating (retrospectively) the probability of a
 catastrophic failure of the Challenger space shuttle under the
-launch conditions on 28th January 1986 is used as a worked example
-for the STAT0002 Meet your Professor ICA.
+launch conditions on 28th January 1986.
 }
 \seealso{
 \code{\link{shuttle_sim}}, \code{\link{shuttle_sim_plot}}
