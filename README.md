@@ -3,6 +3,7 @@
 
 [![AppVeyor Build
 Status](https://ci.appveyor.com/api/projects/status/github/paulnorthrop/stat0002?branch=master&svg=true)](https://ci.appveyor.com/project/paulnorthrop/stat0002)
+[![R-CMD-check](https://github.com/paulnorthrop/stat0002/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/paulnorthrop/stat0002/actions/workflows/R-CMD-check.yaml)
 
 # stat0002 <img src="standalone.png" align="right" />
 
@@ -87,15 +88,17 @@ under **Reference** and tutorials under **Articles** (direct link:
 
 ### Suggestions about how to use this resource
 
-- Use the tutorials to see how some of the content of STAT0002 is
-  produced. There are questions to consider in some of these tutorials.
-- Look at the example datasets when they arise during the module. Play
-  with them in R.
-- Run the ‘movies’ shown in STAT0002 workshops and videos for yourself.
-- Look at the code in some of the R functions. For example, if you type
-  `scatter` in the R console and press return then you will see the
-  content of the function `scatter`. Use `?scatter` to find out what the
-  function does and look at the code to see how it does it.
+-   Use the tutorials to see how some of the content of STAT0002 is
+    produced. There are questions to consider in some of these
+    tutorials.
+-   Look at the example datasets when they arise during the module. Play
+    with them in R.
+-   Run the ‘movies’ shown in STAT0002 workshops and videos for
+    yourself.
+-   Look at the code in some of the R functions. For example, if you
+    type `scatter` in the R console and press return then you will see
+    the content of the function `scatter`. Use `?scatter` to find out
+    what the function does and look at the code to see how it does it.
 
 You will find that some tutorials contain ideas that we have not yet
 covered in lectures and occasionally things that are beyond the scope of
