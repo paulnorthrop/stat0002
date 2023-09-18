@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">stat0002</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.1</span>
       </span>
     </div>
 
@@ -231,22 +231,23 @@ easily to use some simple R functions to perform calculations with this
 random variable. The way that this works is perhaps more intuitive than
 the way in which we use functions like <code><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">dbinom()</a></code> above.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(distributions3)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'distributions3'</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    Gamma</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:grDevices'</span><span class="sc">:</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    pdf</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># (The warnings tell us that the distributions3 package has functions with the</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># same names as functions from other packages and has `masked' them, that is,</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># R will use these functions from distributions3, not the other functions.)</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Create an R object that is, effectively, a binomial(n, 1/2) random variable</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> Y <span class="ot">&lt;-</span> <span class="fu">Binomial</span>(n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Y</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Binomial distribution (size = 44, p = 0.5)"</span></span></code></pre></div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'distributions3'</span> was built under R version <span class="dv">4</span>.<span class="fl">2.3</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'distributions3'</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    Gamma</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:grDevices'</span><span class="sc">:</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    pdf</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># (The warnings tell us that the distributions3 package has functions with the</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># same names as functions from other packages and has `masked' them, that is,</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># R will use these functions from distributions3, not the other functions.)</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Create an R object that is, effectively, a binomial(n, 1/2) random variable</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> Y <span class="ot">&lt;-</span> <span class="fu">Binomial</span>(n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Y</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Binomial distribution (size = 44, p = 0.5)"</span></span></code></pre></div>
 <p>We reproduce the plot and repeat the calculation of the
 probabilities.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Reproduce the plot.  </span></span>
@@ -361,7 +362,7 @@ Objects</em>. <a href="https://github.com/alexpghayes/distributions3" class="ext
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>

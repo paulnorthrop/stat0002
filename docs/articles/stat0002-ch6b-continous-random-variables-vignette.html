@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">stat0002</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.1</span>
       </span>
     </div>
 
@@ -178,20 +178,21 @@ function <code>runif</code> in the background.</p>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a> [<span class="dv">8</span>] <span class="fl">0.3743011</span> <span class="fl">0.2070426</span> <span class="fl">0.9377372</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Using the distributions3 package to define a U(0, 1) object U</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(distributions3)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'distributions3'</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    Gamma</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:grDevices'</span><span class="sc">:</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    pdf</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">13112019</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> U <span class="ot">&lt;-</span> <span class="fu">Uniform</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u2 <span class="ot">&lt;-</span> <span class="fu">random</span>(U, <span class="dv">10</span>)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u2</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="fl">0.6499195</span> <span class="fl">0.1472341</span> <span class="fl">0.5326011</span> <span class="fl">0.5731850</span> <span class="fl">0.1622124</span> <span class="fl">0.4371483</span> <span class="fl">0.5716510</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a> [<span class="dv">8</span>] <span class="fl">0.3743011</span> <span class="fl">0.2070426</span> <span class="fl">0.9377372</span></span></code></pre></div>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'distributions3'</span> was built under R version <span class="dv">4</span>.<span class="fl">2.3</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'distributions3'</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    Gamma</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:grDevices'</span><span class="sc">:</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    pdf</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">13112019</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> U <span class="ot">&lt;-</span> <span class="fu">Uniform</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u2 <span class="ot">&lt;-</span> <span class="fu">random</span>(U, <span class="dv">10</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u2</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="fl">0.6499195</span> <span class="fl">0.1472341</span> <span class="fl">0.5326011</span> <span class="fl">0.5731850</span> <span class="fl">0.1622124</span> <span class="fl">0.4371483</span> <span class="fl">0.5716510</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a> [<span class="dv">8</span>] <span class="fl">0.3743011</span> <span class="fl">0.2070426</span> <span class="fl">0.9377372</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="the-exponential-distribution">The exponential distribution<a class="anchor" aria-label="anchor" href="#the-exponential-distribution"></a>
@@ -300,7 +301,7 @@ Objects</em>. <a href="https://github.com/alexpghayes/distributions3" class="ext
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer>
