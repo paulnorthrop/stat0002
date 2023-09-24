@@ -42,7 +42,7 @@ your operating system.
 Copy and paste the following into the R console and press return.
 
 ``` r
-install.packages(c("anscombiser", "distributions3", "plotrix", "rpanel", "rust", "smovie", "SuppDists", "tkrplot"))
+install.packages(c("anscombiser", "distributions3", "plotrix", "rgl", "rpanel", "rust", "smovie", "SuppDists", "tkrplot", "vcd"))
 ```
 
 Then copy and paste **ONE** of the following into the R Console and
