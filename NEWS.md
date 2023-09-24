@@ -1,6 +1,10 @@
-# stat0002 1.2.1: 18/9/2023
+# stat0002 1.2.1: 24/9/2023
 
 Minor edits for the 2023/24 session owing to changes in assessments.
+
+## New features
+
+* A new [Article](https://paulnorthrop.github.io/stat0002/articles/), Stochastic Simulation 2, providing details to supplement the article Stochastic Simulation.
 
 # stat0002 1.2.0: 9/12/2022
 
