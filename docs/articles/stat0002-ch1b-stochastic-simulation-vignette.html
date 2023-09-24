@@ -56,6 +56,9 @@
       <a href="../articles/stat0002-ch1b-stochastic-simulation-vignette.html">Chapter 1: Stochastic Simulation</a>
     </li>
     <li>
+      <a href="../articles/stat0002-ch1c-stochastic-simulation-vignette-2.html">Chapter 1: Stochastic Simulation 2</a>
+    </li>
+    <li>
       <a href="../articles/stat0002-ch2a-descriptive-statistics-vignette.html">Chapter 2: Descriptive Statistics</a>
     </li>
     <li>
@@ -320,15 +323,16 @@ the p.d.f. of the distributions satisfies some conditions.</p>
 simulate from a standard normal distribution using the function
 <code>ru</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(rust)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ?ru</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Simulate from a standard normal N(0,1) distribution</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> ru_sim <span class="ot">&lt;-</span> <span class="fu">ru</span>(<span class="at">logf =</span> <span class="cf">function</span>(x) <span class="sc">-</span>x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">d =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">1000</span>, <span class="at">init =</span> <span class="fl">0.1</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The function ru returns an object of class "ru"</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(ru_sim)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ru"</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The default plot method for objects of class "ru" produces a plot to compare the </span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># simulated values and the p.d.f. of the distribution from which they are simulated</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(ru_sim, <span class="at">xlab =</span> <span class="st">"x"</span>)</span></code></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'rust'</span> was built under R version <span class="dv">4</span>.<span class="fl">2.3</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ?ru</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Simulate from a standard normal N(0,1) distribution</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> ru_sim <span class="ot">&lt;-</span> <span class="fu">ru</span>(<span class="at">logf =</span> <span class="cf">function</span>(x) <span class="sc">-</span>x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">d =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">1000</span>, <span class="at">init =</span> <span class="fl">0.1</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The function ru returns an object of class "ru"</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(ru_sim)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ru"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The default plot method for objects of class "ru" produces a plot to compare the </span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># simulated values and the p.d.f. of the distribution from which they are simulated</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(ru_sim, <span class="at">xlab =</span> <span class="st">"x"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch1b-stochastic-simulation-vignette_files/figure-html/unnamed-chunk-12-1.png" width="576"></p>
 <p>Note that</p>
 <ul>

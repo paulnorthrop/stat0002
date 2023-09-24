@@ -56,6 +56,9 @@
       <a href="../articles/stat0002-ch1b-stochastic-simulation-vignette.html">Chapter 1: Stochastic Simulation</a>
     </li>
     <li>
+      <a href="../articles/stat0002-ch1c-stochastic-simulation-vignette-2.html">Chapter 1: Stochastic Simulation 2</a>
+    </li>
+    <li>
       <a href="../articles/stat0002-ch2a-descriptive-statistics-vignette.html">Chapter 2: Descriptive Statistics</a>
     </li>
     <li>
@@ -180,10 +183,53 @@ departments involved there is a <span class="math inline">\(2 \times
 <code>Gender</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Find the dimensions of the data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">dim</span>(berkeley)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># What type of R object is berkeley?</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(berkeley)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Print the data</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> berkeley</span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">2</span> <span class="dv">2</span> <span class="dv">6</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># What type of R object is berkeley?</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(berkeley)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"table"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Print the data</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> berkeley</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>, , Dept <span class="ot">=</span> A</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>          Gender</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Admit      Male Female</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  Admitted  <span class="dv">512</span>     <span class="dv">89</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  Rejected  <span class="dv">313</span>     <span class="dv">19</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>, , Dept <span class="ot">=</span> B</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>          Gender</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>Admit      Male Female</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  Admitted  <span class="dv">353</span>     <span class="dv">17</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  Rejected  <span class="dv">207</span>      <span class="dv">8</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>, , Dept <span class="ot">=</span> C</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>          Gender</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>Admit      Male Female</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  Admitted  <span class="dv">120</span>    <span class="dv">202</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  Rejected  <span class="dv">205</span>    <span class="dv">391</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>, , Dept <span class="ot">=</span> D</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>          Gender</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>Admit      Male Female</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  Admitted  <span class="dv">138</span>    <span class="dv">131</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  Rejected  <span class="dv">279</span>    <span class="dv">244</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>, , Dept <span class="ot">=</span> E</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>          Gender</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>Admit      Male Female</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  Admitted   <span class="dv">53</span>     <span class="dv">94</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  Rejected  <span class="dv">138</span>    <span class="dv">299</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>, , Dept <span class="ot">=</span> F</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>          Gender</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>Admit      Male Female</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  Admitted   <span class="dv">22</span>     <span class="dv">24</span></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  Rejected  <span class="dv">351</span>    <span class="dv">317</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="classes-of-r-objects">Classes of R objects<a class="anchor" aria-label="anchor" href="#classes-of-r-objects"></a>
 </h3>
@@ -219,8 +265,37 @@ within each <code>Gender-Admit</code> category, over all the values of
 variables.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> berkdf <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(berkeley)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> berkdf</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ga <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Gender <span class="sc">+</span> Admit, berkdf)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ga</span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>      Admit Gender Dept Freq</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>  Admitted   Male    A  <span class="dv">512</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>  Rejected   Male    A  <span class="dv">313</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>  Admitted Female    A   <span class="dv">89</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>  Rejected Female    A   <span class="dv">19</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>  Admitted   Male    B  <span class="dv">353</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>  Rejected   Male    B  <span class="dv">207</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="dv">7</span>  Admitted Female    B   <span class="dv">17</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="dv">8</span>  Rejected Female    B    <span class="dv">8</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="dv">9</span>  Admitted   Male    C  <span class="dv">120</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> Rejected   Male    C  <span class="dv">205</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="dv">11</span> Admitted Female    C  <span class="dv">202</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="dv">12</span> Rejected Female    C  <span class="dv">391</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="dv">13</span> Admitted   Male    D  <span class="dv">138</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="dv">14</span> Rejected   Male    D  <span class="dv">279</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="dv">15</span> Admitted Female    D  <span class="dv">131</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="dv">16</span> Rejected Female    D  <span class="dv">244</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="dv">17</span> Admitted   Male    E   <span class="dv">53</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="dv">18</span> Rejected   Male    E  <span class="dv">138</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="dv">19</span> Admitted Female    E   <span class="dv">94</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span> Rejected Female    E  <span class="dv">299</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="dv">21</span> Admitted   Male    F   <span class="dv">22</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="dv">22</span> Rejected   Male    F  <span class="dv">351</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="dv">23</span> Admitted Female    F   <span class="dv">24</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="dv">24</span> Rejected Female    F  <span class="dv">317</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ga <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Gender <span class="sc">+</span> Admit, berkdf)</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ga</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>Gender   Admitted Rejected</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  Male       <span class="dv">1198</span>     <span class="dv">1493</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  Female      <span class="dv">557</span>     <span class="dv">1278</span></span></code></pre></div>
 <p>If we think about how the variables in this 2-way table may be
 related we might imagine that <code>Gender</code> could affect the value
 of <code>Admit</code>, that is, the gender of the applicant could affect
@@ -240,20 +315,45 @@ that appear in <a href="https://paulnorthrop.github.io/stat0002book/contingency.
 example</a> in Chapter 3 of the notes.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Total number of applicants</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">marginSums</span>(ga)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Number of males and females</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">marginSums</span>(ga, <span class="st">"Gender"</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Number of admitted and rejected applicants</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">marginSums</span>(ga, <span class="st">"Admit"</span>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Add the marginal totals to the table</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">addmargins</span>(ga)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Calculate proportions (relative frequencies)</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">proportions</span>(ga)</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Row proportions (sum to 1 across the rows)</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">proportions</span>(ga, <span class="st">"Gender"</span>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Column proportions (sum to 1 down the columns)</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">proportions</span>(ga, <span class="st">"Admit"</span>)</span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">4526</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Number of males and females</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">marginSums</span>(ga, <span class="st">"Gender"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>Gender</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  Male Female </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2691</span>   <span class="dv">1835</span> </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Number of admitted and rejected applicants</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">marginSums</span>(ga, <span class="st">"Admit"</span>)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>Admit</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>Admitted Rejected </span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1755</span>     <span class="dv">2771</span> </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Add the marginal totals to the table</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">addmargins</span>(ga)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>Gender   Admitted Rejected  Sum</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  Male       <span class="dv">1198</span>     <span class="dv">1493</span> <span class="dv">2691</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  Female      <span class="dv">557</span>     <span class="dv">1278</span> <span class="dv">1835</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  Sum        <span class="dv">1755</span>     <span class="dv">2771</span> <span class="dv">4526</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Calculate proportions (relative frequencies)</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">proportions</span>(ga)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  Male   <span class="fl">0.2646929</span> <span class="fl">0.3298719</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  Female <span class="fl">0.1230667</span> <span class="fl">0.2823685</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Row proportions (sum to 1 across the rows)</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">proportions</span>(ga, <span class="st">"Gender"</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  Male   <span class="fl">0.4451877</span> <span class="fl">0.5548123</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  Female <span class="fl">0.3035422</span> <span class="fl">0.6964578</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Column proportions (sum to 1 down the columns)</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">proportions</span>(ga, <span class="st">"Admit"</span>)</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>  Male   <span class="fl">0.6826211</span> <span class="fl">0.5387947</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  Female <span class="fl">0.3173789</span> <span class="fl">0.4612053</span></span></code></pre></div>
 <p>What class does <code>ga</code> have?</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(ga)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">class</span>(ga)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"xtabs"</span> <span class="st">"table"</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="plotting-frequencies">Plotting frequencies<a class="anchor" aria-label="anchor" href="#plotting-frequencies"></a>
 </h3>
@@ -275,6 +375,7 @@ factors then <code>plot.table</code> produces a plot using the function
 comes as standard when you install R. Let’s see what happens if we do
 this.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ga, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>A <strong>mosaic</strong> plot is produced. First, the plot area is
 first split into two parts vertically, with the sizes of the parts
 reflecting the marginal distribution of the first variable
@@ -296,6 +397,7 @@ argument <code>dir</code>, which determines whether we split first in
 the horizontal or vertical direction. The information in the plot is the
 same, but cosmetically it is slightly different.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ga, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>, <span class="at">dir =</span> <span class="fu">c</span>(<span class="st">"h"</span>, <span class="st">"v"</span>))</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We can see that more applicants are rejected than admitted and that
 the proportion of males that are admitted is greater than the proportion
 of females that are admitted.</p>
@@ -305,15 +407,25 @@ conditioning on <code>Admit</code> first, producing the following
 plot.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ag <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Gender, berkdf)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ag</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Alternatively, we could have transposed ga</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">t</span>(ga)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ag, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>          Gender</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Admit      Male Female</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  Admitted <span class="dv">1198</span>    <span class="dv">557</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  Rejected <span class="dv">1493</span>   <span class="dv">1278</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Alternatively, we could have transposed ga</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">t</span>(ga)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>          Gender</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>Admit      Male Female</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  Admitted <span class="dv">1198</span>    <span class="dv">557</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  Rejected <span class="dv">1493</span>   <span class="dv">1278</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ag, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>This is not wrong, but it concentrates on conditional probabilities
 of <code>Gender</code> given <code>Admit</code>, which is not what we
 want. We can use the argument <code>sort</code> to reverse the order in
 which the mosaic plots takes the variables and reproduce our preferred
 plot.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ag, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>, <span class="at">sort =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">1</span>)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="calculating-estimated-expected-frequencies">Calculating estimated expected frequencies<a class="anchor" aria-label="anchor" href="#calculating-estimated-expected-frequencies"></a>
@@ -329,14 +441,23 @@ of the estimated expected frequencies that it calculates. We also
 produce a mosaic plot of the estimated expected frequencies</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> efreq <span class="ot">&lt;-</span> <span class="fu">outer</span>(<span class="fu">marginSums</span>(ga, <span class="st">"Gender"</span>), <span class="fu">marginSums</span>(ga, <span class="st">"Admit"</span>)) <span class="sc">/</span> <span class="fu">marginSums</span>(ga)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> efreq</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Check using chisq.test</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> efreq <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ga)<span class="sc">$</span>expected</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> efreq</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Trick R into using plot.table</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(efreq) <span class="ot">&lt;-</span> <span class="st">"table"</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Plot estimated expected frequencies</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(efreq, <span class="at">main =</span> <span class="st">"Estimated expected frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">dir =</span> <span class="fu">c</span>(<span class="st">"h"</span>, <span class="st">"v"</span>))</span></code></pre></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>Gender    Admitted Rejected</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  Male   <span class="fl">1043.4611</span> <span class="fl">1647.539</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  Female  <span class="fl">711.5389</span> <span class="fl">1123.461</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Check using chisq.test</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> efreq <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ga)<span class="sc">$</span>expected</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> efreq</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>Gender    Admitted Rejected</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  Male   <span class="fl">1043.4611</span> <span class="fl">1647.539</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  Female  <span class="fl">711.5389</span> <span class="fl">1123.461</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Trick R into using plot.table</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(efreq) <span class="ot">&lt;-</span> <span class="st">"table"</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Plot estimated expected frequencies</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(efreq, <span class="at">main =</span> <span class="st">"Estimated expected frequencies"</span>, <span class="at">color =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">dir =</span> <span class="fu">c</span>(<span class="st">"h"</span>, <span class="st">"v"</span>))</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>As we expect, the relative sizes of the estimated expected
 frequencies for <code>Admitted</code> and <code>Rejected</code> are the
 same for males and females. This provides us with a visual illustration
@@ -360,6 +481,7 @@ difference between the observed and estimated expected frequency. Look
 at the definitions of these residuals in <a href="https://paulnorthrop.github.io/stat0002book/contingency.html#indep" class="external-link">Section
 8.1.1</a> to see how this works.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assocplot</span>(ga, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"grey"</span>))</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>Comparing the rectangles with the horizontal dashed line, we see that
 more men are admitted than is expected if <code>Gender</code> and
 <code>Admit</code> are independent.</p>
@@ -373,7 +495,12 @@ package can be used to perform the chi-squared outlined at the end of <a href="h
 produce the same result given in the notes, that is, we do not use the
 <a href="https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity" class="external-link">Yates’s
 correction for continuity</a>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">chisq.test</span>(ga, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">chisq.test</span>(ga, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    Pearson<span class="st">'s Chi-squared test</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="st">data:  ga</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="st">X-squared = 92.205, df = 1, p-value &lt; 2.2e-16</span></span></code></pre></div>
 <p>The value of the test statistic <span class="math inline">\(92.205\)</span> is very much larger than expected
 under the hypothesis that <code>Gender</code> and <code>Admit</code> are
 independent. Therefore, we would reject hypothesis.</p>
@@ -423,20 +550,35 @@ based on the values of residuals.</p>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ga)</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Raw residuals</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>observed <span class="sc">-</span> x2test<span class="sc">$</span>expected</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Pearson residuals</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>residuals</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Standardised Pearson residuals</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>stdres</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with Pearson residual shading</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">assoc</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">margins =</span> <span class="fu">c</span>(<span class="fl">2.25</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">2.5</span>))</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with standardised Pearson residual shading</span></span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">strucplot</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">margins =</span> <span class="fu">c</span>(<span class="fl">2.25</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">2.5</span>),</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">residuals_type =</span> <span class="st">"Standardised</span><span class="sc">\n</span><span class="st">Pearson</span><span class="sc">\n</span><span class="st">residuals"</span>, <span class="at">core =</span> struc_assoc,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">keep_aspect_ratio =</span> <span class="cn">FALSE</span>, <span class="at">legend_width =</span> <span class="dv">6</span>)</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Mosaic plot with standardised Pearson residual shading</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">mosaic</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>, <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">154.5389</span> <span class="sc">-</span><span class="fl">154.5389</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">154.5389</span>  <span class="fl">154.5389</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Pearson residuals</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>residuals</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">4.784093</span> <span class="sc">-</span><span class="fl">3.807325</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">5.793466</span>  <span class="fl">4.610614</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Standardised Pearson residuals</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> x2test<span class="sc">$</span>stdres</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>        Admit</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>Gender    Admitted  Rejected</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>  Male    <span class="fl">9.602358</span> <span class="sc">-</span><span class="fl">9.602358</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>  Female <span class="sc">-</span><span class="fl">9.602358</span>  <span class="fl">9.602358</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with Pearson residual shading</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">assoc</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">margins =</span> <span class="fu">c</span>(<span class="fl">2.25</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">2.5</span>))</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Association plot of residuals with standardised Pearson residual shading</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">strucplot</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">margins =</span> <span class="fu">c</span>(<span class="fl">2.25</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="fl">2.5</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">residuals_type =</span> <span class="st">"Standardised</span><span class="sc">\n</span><span class="st">Pearson</span><span class="sc">\n</span><span class="st">residuals"</span>, <span class="at">core =</span> struc_assoc,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">keep_aspect_ratio =</span> <span class="cn">FALSE</span>, <span class="at">legend_width =</span> <span class="dv">6</span>)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-13-2.png" width="672" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Mosaic plot with standardised Pearson residual shading</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">mosaic</span>(ga, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>        <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>, <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-13-3.png" width="672" style="display: block; margin: auto;"></p>
 <p>These plots indicate that the (effectively one) standardised Pearson
 residual has a magnitude (<span class="math inline">\(9.6\)</span>) that
 is very much larger than we expect if <code>Gender</code> and
@@ -456,10 +598,11 @@ associations that we could examine. See <a href="https://paulnorthrop.github.io/
 <code>berkeley</code> dataset. To avoid cluttering the plot with text,
 we create a new object <code>x</code> in which the levels of
 <code>Admit</code> have been abbreviated.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> berkeley</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(b)<span class="sc">$</span>Admit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"R"</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(b)<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(b, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">sort =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">color =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> b <span class="ot">&lt;-</span> berkeley</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(b)<span class="sc">$</span>Admit <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"R"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dimnames</span>(b)<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"M"</span>, <span class="st">"F"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(b, <span class="at">main =</span> <span class="st">"Observed frequencies"</span>, <span class="at">sort =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">color =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">8</span>))</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>This plot tells us quite a lot. If we look individually at the parts
 of the plot relating to departments B to F then we find that
 <code>Gender</code> and <code>Admit</code> look to be approximately
@@ -479,7 +622,11 @@ chi-squared test in any case, this time using the generic function
 <code>summary</code>. For an object of class <code>table</code> this
 function calls <code>chisq.test</code> to perform the test and also
 includes a very basic summary of the table in the output.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(berkeley, <span class="at">correction =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(berkeley, <span class="at">correction =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>Number of cases <span class="cf">in</span> table<span class="sc">:</span> <span class="dv">4526</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Number of factors<span class="sc">:</span> <span class="dv">3</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>Test <span class="cf">for</span> independence of all factors<span class="sc">:</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    Chisq <span class="ot">=</span> <span class="fl">2000.3</span>, df <span class="ot">=</span> <span class="dv">16</span>, p<span class="sc">-</span>value <span class="ot">=</span> <span class="dv">0</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="marginal-independence">Marginal independence<a class="anchor" aria-label="anchor" href="#marginal-independence"></a>
@@ -491,16 +638,17 @@ takes the contingency table <code>tab</code> and standardised residuals
 <code>residuals</code> as arguments, so that we can shorten the code
 needed to create an association plot with rectangles shaded based on the
 standardised Pearson residuals.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> assoc2 <span class="ot">&lt;-</span> <span class="cf">function</span>(tab, residuals, ...) {</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">strucplot</span>(tab, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> residuals, </span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>             <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>, <span class="at">core =</span> struc_assoc, ...)</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> assoc2 <span class="ot">&lt;-</span> <span class="cf">function</span>(tab, residuals, ...) {</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">strucplot</span>(tab, <span class="at">shade =</span> <span class="cn">TRUE</span>, <span class="at">residuals =</span> residuals, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>             <span class="at">residuals_type =</span> <span class="st">"Standardised Pearson"</span>, <span class="at">core =</span> struc_assoc, ...)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
 <div class="section level4">
 <h4 id="gender-and-department">Gender and department<a class="anchor" aria-label="anchor" href="#gender-and-department"></a>
 </h4>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> gd <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Gender <span class="sc">+</span> Dept, berkdf)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(gd, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assoc2</span>(gd, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> gd <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Gender <span class="sc">+</span> Dept, berkdf)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(gd, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assoc2</span>(gd, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>There are some strong differences in the preferences of females and
 males concerning the departments to which they apply. Males prefer
 departments A and B and females the other departments, particularly
@@ -509,9 +657,10 @@ departments C and E.</p>
 <div class="section level4">
 <h4 id="admittance-and-department">Admittance and department<a class="anchor" aria-label="anchor" href="#admittance-and-department"></a>
 </h4>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ad <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Dept, berkdf)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ad, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assoc2</span>(ad, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ad <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Dept, berkdf)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(ad, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">assoc2</span>(ad, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, <span class="at">margins =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>This plot suggests that the probability of admittance is much greater
 in departments A and B, which are the departments to which males like to
 apply. Departments E and F have a relatively low probability of
@@ -532,22 +681,28 @@ on the variable <code>Dept</code>. We use the <code>vcd</code> function
 <code>cotabplot</code> to to produce an association plot for each of the
 departments A to F. The shading of the rectangles is based on the
 Pearson residuals.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cotabplot</span>(<span class="sc">~</span> Admit <span class="sc">+</span> Gender <span class="sc">|</span> Dept, <span class="at">data =</span> berkeley, <span class="at">layout =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">shade =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">panel =</span> cotab_assoc)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cotabplot</span>(<span class="sc">~</span> Admit <span class="sc">+</span> Gender <span class="sc">|</span> Dept, <span class="at">data =</span> berkeley, <span class="at">layout =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">shade =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>           <span class="at">panel =</span> cotab_assoc)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>We see that only in department A is there a substantial difference
 between the admittance probability of females and males, with the
 females doing better than the males. Finally, we focus on department A
 and change the shading so that it is based on the standardised Pearson
 residuals, mainly to see that their common magnitude is <span class="math inline">\(4.15\)</span>.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A function to produce an association plot within a given department</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> deptplot <span class="ot">&lt;-</span> <span class="cf">function</span>(dept) {</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   temp <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Gender, berkdf, </span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">subset =</span> berkdf[, <span class="st">"Dept"</span>] <span class="sc">==</span> dept)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(temp, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">assoc2</span>(temp, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Dept "</span>, dept))</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">return</span>(x2test<span class="sc">$</span>stdres)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">deptplot</span>(<span class="st">"A"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A function to produce an association plot within a given department</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> deptplot <span class="ot">&lt;-</span> <span class="cf">function</span>(dept) {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   temp <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Freq <span class="sc">~</span> Admit <span class="sc">+</span> Gender, berkdf, </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>                 <span class="at">subset =</span> berkdf[, <span class="st">"Dept"</span>] <span class="sc">==</span> dept)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   x2test <span class="ot">&lt;-</span> <span class="fu">chisq.test</span>(temp, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">assoc2</span>(temp, <span class="at">residuals =</span> x2test<span class="sc">$</span>stdres, <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Dept "</span>, dept))</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">return</span>(x2test<span class="sc">$</span>stdres)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">deptplot</span>(<span class="st">"A"</span>)</span></code></pre></div>
+<p><img src="stat0002-ch8-contingency-tables-vignette_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;"></p>
+<pre><code>          Gender
+Admit           Male    Female
+  Admitted -4.153073  4.153073
+  Rejected  4.153073 -4.153073</code></pre>
 </div>
 </div>
 <div class="section level2">

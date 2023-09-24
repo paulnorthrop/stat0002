@@ -4,6 +4,7 @@ pkgdown_sha: ~
 articles:
   stat0002-ch1a-shuttle-vignette: stat0002-ch1a-shuttle-vignette.html
   stat0002-ch1b-stochastic-simulation-vignette: stat0002-ch1b-stochastic-simulation-vignette.html
+  stat0002-ch1c-stochastic-simulation-vignette-2: stat0002-ch1c-stochastic-simulation-vignette-2.html
   stat0002-ch2a-descriptive-statistics-vignette: stat0002-ch2a-descriptive-statistics-vignette.html
   stat0002-ch2b-graphs-vignette: stat0002-ch2b-graphs-vignette.html
   stat0002-ch2c-graphs-vignette: stat0002-ch2c-graphs-vignette.html
@@ -18,5 +19,5 @@ articles:
   stat0002-ch8-contingency-tables-vignette: stat0002-ch8-contingency-tables-vignette.html
   stat0002-ch9-linear-regression-vignette: stat0002-ch9-linear-regression-vignette.html
   stat0002-ch9plus1-correlation-vignette: stat0002-ch9plus1-correlation-vignette.html
-last_built: 2023-09-18T12:17Z
+last_built: 2023-09-24T21:19Z
 
