@@ -31,6 +31,9 @@ If you need to install R then you can get it from
 system: Windows, macOS or Linux. Do not change the default installation
 settings.
 
+**For users of older Intel Macs**: `stat0002` uses the `tcltk` package,
+so may need to install [XQuartz](http://xquartz.macosforge.org/).
+
 I recommend that you use RStudio (a **free** user-friendly front-end to
 R). Install it from the [Download RStudio
 page](https://www.rstudio.com/products/rstudio/download/). Find **All
@@ -88,17 +91,15 @@ under **Reference** and tutorials under **Articles** (direct link:
 
 ### Suggestions about how to use this resource
 
--   Use the tutorials to see how some of the content of STAT0002 is
-    produced. There are questions to consider in some of these
-    tutorials.
--   Look at the example datasets when they arise during the module. Play
-    with them in R.
--   Run the ‘movies’ shown in STAT0002 workshops and videos for
-    yourself.
--   Look at the code in some of the R functions. For example, if you
-    type `scatter` in the R console and press return then you will see
-    the content of the function `scatter`. Use `?scatter` to find out
-    what the function does and look at the code to see how it does it.
+- Use the tutorials to see how some of the content of STAT0002 is
+  produced. There are questions to consider in some of these tutorials.
+- Look at the example datasets when they arise during the module. Play
+  with them in R.
+- Run the ‘movies’ shown in STAT0002 workshops and videos for yourself.
+- Look at the code in some of the R functions. For example, if you type
+  `scatter` in the R console and press return then you will see the
+  content of the function `scatter`. Use `?scatter` to find out what the
+  function does and look at the code to see how it does it.
 
 You will find that some tutorials contain ideas that we have not yet
 covered in lectures and occasionally things that are beyond the scope of
