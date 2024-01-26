@@ -31,6 +31,7 @@ reference:
       - "aussie_births"
       - "hubble"
       - "hubble2"
+      - "sea_temps"
       - "birds"
       - "exchange"
   - title: Plots
