@@ -150,15 +150,15 @@ and Moller-Trane 2019)</span>, which provides a neat way to work with
 random variables in R.</p>
 <p>We illustrate these functions using the Australian birth times data,
 which are available in the data frame <code>aussie_births</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(aussie_births)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  time  sex weight</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">5</span> girl   <span class="dv">3837</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>   <span class="dv">64</span> girl   <span class="dv">3334</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>   <span class="dv">78</span>  boy   <span class="dv">3554</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>  <span class="dv">115</span>  boy   <span class="dv">3838</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>  <span class="dv">177</span>  boy   <span class="dv">3625</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>  <span class="dv">245</span> girl   <span class="dv">2208</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(aussie_births)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>  time  sex weight</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="dv">1</span>    <span class="dv">5</span> girl   <span class="dv">3837</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="dv">2</span>   <span class="dv">64</span> girl   <span class="dv">3334</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="dv">3</span>   <span class="dv">78</span>  boy   <span class="dv">3554</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="dv">4</span>  <span class="dv">115</span>  boy   <span class="dv">3838</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="dv">5</span>  <span class="dv">177</span>  boy   <span class="dv">3625</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="dv">6</span>  <span class="dv">245</span> girl   <span class="dv">2208</span></span></code></pre></div>
 <p>The <strong>stats</strong> package contains functions to evaluate the
 probability mass function (p.m.f.), cumulative distribution function
 (c.d.f.) and quantile function (which could also be called the inverse
@@ -177,11 +177,11 @@ abbreviated) of the distribution in question: <code>dxxx</code> (p.m.f),
 the data) the number <span class="math inline">\(Y\)</span> of boy
 babies is a random variable with a binomial(44, <span class="math inline">\(p\)</span>) distribution, where <span class="math inline">\(p\)</span> is the probability that a randomly
 chosen birth produces a boy. We use the data to estimate <span class="math inline">\(p\)</span>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> nboys <span class="ot">&lt;-</span> <span class="fu">sum</span>(aussie_births[, <span class="st">"sex"</span>] <span class="sc">==</span> <span class="st">"boy"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ngirls <span class="ot">&lt;-</span> <span class="fu">sum</span>(aussie_births[, <span class="st">"sex"</span>] <span class="sc">==</span> <span class="st">"girl"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> phat <span class="ot">&lt;-</span> nboys <span class="sc">/</span> (nboys <span class="sc">+</span> ngirls)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> phat</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.5909091</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">&gt;</span> nboys <span class="ot">&lt;-</span> <span class="fu">sum</span>(aussie_births[, <span class="st">"sex"</span>] <span class="sc">==</span> <span class="st">"boy"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="sc">&gt;</span> ngirls <span class="ot">&lt;-</span> <span class="fu">sum</span>(aussie_births[, <span class="st">"sex"</span>] <span class="sc">==</span> <span class="st">"girl"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="sc">&gt;</span> phat <span class="ot">&lt;-</span> nboys <span class="sc">/</span> (nboys <span class="sc">+</span> ngirls)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="sc">&gt;</span> phat</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.5909091</span></span></code></pre></div>
 <p>The function <code>dbinom</code> evaluates the p.m.f. of a binomial
 distribution. See <code><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">?Binomial</a></code> for information about this
 function and <code>pbinom</code>, <code>qbinom</code> and
@@ -189,12 +189,12 @@ function and <code>pbinom</code>, <code>qbinom</code> and
 to the ones we looked at in a lecture. You could vary <code>p</code>,
 perhaps setting it to be equal to <code>phat</code>, and see the effect
 on the p.m.f. of the binomial distribution.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Plot the binomial(44, 1/2) p.m.f. </span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> n <span class="ot">&lt;-</span> nboys <span class="sc">+</span> ngirls</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> p <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>n</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Note that dbinom calculates the probabilities all values in the vector y</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(y, <span class="fu">dbinom</span>(y, n, p), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(Y = y)"</span>, <span class="at">xlab =</span> <span class="st">"y"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Plot the binomial(44, 1/2) p.m.f. </span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="er">&gt;</span> n <span class="ot">&lt;-</span> nboys <span class="sc">+</span> ngirls</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="sc">&gt;</span> p <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>n</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Note that dbinom calculates the probabilities all values in the vector y</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(y, <span class="fu">dbinom</span>(y, n, p), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(Y = y)"</span>, <span class="at">xlab =</span> <span class="st">"y"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch6a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;"></p>
 <p>For the purposes of illustrating how the functions
 <code>pbinom</code>, <code>qbinom</code> and <code>rbinom</code> work,
@@ -202,28 +202,28 @@ let us suppose that <span class="math inline">\(p = 1/2\)</span>. We
 used the values of the following probabilities during a lecture, when we
 considered how surprised we might to observe a number of boys 4 or more
 from the expected value of 22 under the hypothesis that <span class="math inline">\(p = 1/2\)</span>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Calculate P(Y &gt;= 26) = P(Y &gt; 25) and P(Y &lt;= 18)</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pbinom</span>(<span class="dv">25</span>, <span class="at">size =</span> n, <span class="at">prob =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pbinom</span>(<span class="dv">18</span>, n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Calculate P(Y &gt;= 26) = P(Y &gt; 25) and P(Y &lt;= 18)</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pbinom</span>(<span class="dv">25</span>, <span class="at">size =</span> n, <span class="at">prob =</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pbinom</span>(<span class="dv">18</span>, n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span></code></pre></div>
 <p>Suppose that we want to find the median of <span class="math inline">\(Y\)</span>. We can use <code>qbinom</code>:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">qbinom</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">22</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A check (look at the definition of the median in the notes)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pbinom</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.4401979</span> <span class="fl">0.5598021</span> <span class="fl">0.6742061</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">qbinom</span>(<span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>, n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">22</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A check (look at the definition of the median in the notes)</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pbinom</span>(<span class="dv">21</span><span class="sc">:</span><span class="dv">23</span>, n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.4401979</span> <span class="fl">0.5598021</span> <span class="fl">0.6742061</span></span></code></pre></div>
 <p>The following code simulates 100 values from a Binomial(44, 1/2)
 distribution.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ysim <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="dv">44</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ysim</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  [<span class="dv">1</span>] <span class="dv">22</span> <span class="dv">26</span> <span class="dv">22</span> <span class="dv">18</span> <span class="dv">22</span> <span class="dv">30</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">20</span> <span class="dv">21</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">22</span> <span class="dv">24</span> <span class="dv">19</span> <span class="dv">20</span> <span class="dv">26</span> <span class="dv">22</span> <span class="dv">24</span> <span class="dv">17</span> <span class="dv">23</span> <span class="dv">20</span> <span class="dv">16</span> <span class="dv">24</span> <span class="dv">26</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a> [<span class="dv">26</span>] <span class="dv">24</span> <span class="dv">17</span> <span class="dv">24</span> <span class="dv">25</span> <span class="dv">18</span> <span class="dv">20</span> <span class="dv">18</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">27</span> <span class="dv">19</span> <span class="dv">22</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">20</span> <span class="dv">25</span> <span class="dv">26</span> <span class="dv">22</span> <span class="dv">21</span> <span class="dv">25</span> <span class="dv">22</span> <span class="dv">25</span> <span class="dv">23</span> <span class="dv">22</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a> [<span class="dv">51</span>] <span class="dv">21</span> <span class="dv">22</span> <span class="dv">26</span> <span class="dv">23</span> <span class="dv">21</span> <span class="dv">28</span> <span class="dv">20</span> <span class="dv">23</span> <span class="dv">22</span> <span class="dv">23</span> <span class="dv">26</span> <span class="dv">23</span> <span class="dv">22</span> <span class="dv">22</span> <span class="dv">19</span> <span class="dv">23</span> <span class="dv">23</span> <span class="dv">19</span> <span class="dv">27</span> <span class="dv">23</span> <span class="dv">27</span> <span class="dv">21</span> <span class="dv">24</span> <span class="dv">21</span> <span class="dv">22</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a> [<span class="dv">76</span>] <span class="dv">25</span> <span class="dv">18</span> <span class="dv">22</span> <span class="dv">23</span> <span class="dv">23</span> <span class="dv">20</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">28</span> <span class="dv">21</span> <span class="dv">21</span> <span class="dv">21</span> <span class="dv">25</span> <span class="dv">25</span> <span class="dv">23</span> <span class="dv">21</span> <span class="dv">24</span> <span class="dv">23</span> <span class="dv">30</span> <span class="dv">28</span> <span class="dv">19</span> <span class="dv">26</span> <span class="dv">28</span> <span class="dv">20</span> <span class="dv">21</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(ysim)</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fl">16.00</span>   <span class="fl">21.00</span>   <span class="fl">22.50</span>   <span class="fl">22.61</span>   <span class="fl">24.00</span>   <span class="fl">30.00</span> </span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">&gt;</span> ysim <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="dv">44</span>, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="sc">&gt;</span> ysim</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>  [<span class="dv">1</span>] <span class="dv">22</span> <span class="dv">26</span> <span class="dv">22</span> <span class="dv">18</span> <span class="dv">22</span> <span class="dv">30</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">20</span> <span class="dv">21</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">22</span> <span class="dv">24</span> <span class="dv">19</span> <span class="dv">20</span> <span class="dv">26</span> <span class="dv">22</span> <span class="dv">24</span> <span class="dv">17</span> <span class="dv">23</span> <span class="dv">20</span> <span class="dv">16</span> <span class="dv">24</span> <span class="dv">26</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a> [<span class="dv">26</span>] <span class="dv">24</span> <span class="dv">17</span> <span class="dv">24</span> <span class="dv">25</span> <span class="dv">18</span> <span class="dv">20</span> <span class="dv">18</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">27</span> <span class="dv">19</span> <span class="dv">22</span> <span class="dv">18</span> <span class="dv">21</span> <span class="dv">20</span> <span class="dv">25</span> <span class="dv">26</span> <span class="dv">22</span> <span class="dv">21</span> <span class="dv">25</span> <span class="dv">22</span> <span class="dv">25</span> <span class="dv">23</span> <span class="dv">22</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a> [<span class="dv">51</span>] <span class="dv">21</span> <span class="dv">22</span> <span class="dv">26</span> <span class="dv">23</span> <span class="dv">21</span> <span class="dv">28</span> <span class="dv">20</span> <span class="dv">23</span> <span class="dv">22</span> <span class="dv">23</span> <span class="dv">26</span> <span class="dv">23</span> <span class="dv">22</span> <span class="dv">22</span> <span class="dv">19</span> <span class="dv">23</span> <span class="dv">23</span> <span class="dv">19</span> <span class="dv">27</span> <span class="dv">23</span> <span class="dv">27</span> <span class="dv">21</span> <span class="dv">24</span> <span class="dv">21</span> <span class="dv">22</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a> [<span class="dv">76</span>] <span class="dv">25</span> <span class="dv">18</span> <span class="dv">22</span> <span class="dv">23</span> <span class="dv">23</span> <span class="dv">20</span> <span class="dv">24</span> <span class="dv">24</span> <span class="dv">28</span> <span class="dv">21</span> <span class="dv">21</span> <span class="dv">21</span> <span class="dv">25</span> <span class="dv">25</span> <span class="dv">23</span> <span class="dv">21</span> <span class="dv">24</span> <span class="dv">23</span> <span class="dv">30</span> <span class="dv">28</span> <span class="dv">19</span> <span class="dv">26</span> <span class="dv">28</span> <span class="dv">20</span> <span class="dv">21</span></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">summary</span>(ysim)</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>  <span class="fl">16.00</span>   <span class="fl">21.00</span>   <span class="fl">22.50</span>   <span class="fl">22.61</span>   <span class="fl">24.00</span>   <span class="fl">30.00</span> </span></code></pre></div>
 <div class="section level3">
 <h3 id="the-distributions3-package">The distributions3 package<a class="anchor" aria-label="anchor" href="#the-distributions3-package"></a>
 </h3>
@@ -233,33 +233,32 @@ that corresponds to a particular random variable. Then we are able
 easily to use some simple R functions to perform calculations with this
 random variable. The way that this works is perhaps more intuitive than
 the way in which we use functions like <code><a href="https://rdrr.io/r/stats/Binomial.html" class="external-link">dbinom()</a></code> above.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(distributions3)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'distributions3'</span> was built under R version <span class="dv">4</span>.<span class="fl">2.3</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'distributions3'</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    Gamma</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>The following object is masked from <span class="st">'package:grDevices'</span><span class="sc">:</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    pdf</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># (The warnings tell us that the distributions3 package has functions with the</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># same names as functions from other packages and has `masked' them, that is,</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># R will use these functions from distributions3, not the other functions.)</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Create an R object that is, effectively, a binomial(n, 1/2) random variable</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> Y <span class="ot">&lt;-</span> <span class="fu">Binomial</span>(n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> Y</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Binomial distribution (size = 44, p = 0.5)"</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(distributions3)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>Attaching package<span class="sc">:</span> <span class="st">'distributions3'</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>The following object is masked from <span class="st">'package:stats'</span><span class="sc">:</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>    Gamma</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>The following object is masked from <span class="st">'package:grDevices'</span><span class="sc">:</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>    pdf</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># (The warnings tell us that the distributions3 package has functions with the</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># same names as functions from other packages and has `masked' them, that is,</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># R will use these functions from distributions3, not the other functions.)</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="er">&gt;</span> <span class="co">#</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Create an R object that is, effectively, a binomial(n, 1/2) random variable</span></span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a><span class="er">&gt;</span> Y <span class="ot">&lt;-</span> <span class="fu">Binomial</span>(n, <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a><span class="sc">&gt;</span> Y</span>
+<span id="cb7-17"><a href="#cb7-17" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Binomial distribution (size = 44, p = 0.5)"</span></span></code></pre></div>
 <p>We reproduce the plot and repeat the calculation of the
 probabilities.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Reproduce the plot.  </span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span>n, <span class="fu">pmf</span>(Y, <span class="dv">0</span><span class="sc">:</span>n), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(X = x)"</span>, <span class="at">xlab =</span> <span class="st">"x"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Reproduce the plot.  </span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span>n, <span class="fu">pmf</span>(Y, <span class="dv">0</span><span class="sc">:</span>n), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(X = x)"</span>, <span class="at">xlab =</span> <span class="st">"x"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch6a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(Y, <span class="dv">25</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cdf</span>(Y, <span class="dv">18</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(Y, <span class="dv">25</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cdf</span>(Y, <span class="dv">18</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.1456076</span></span></code></pre></div>
 <p>Now we use the <strong>distributions</strong> package to performs
 some of the calculations that were involved in producing the lecture
 slides associated with the geometric and Poisson distributions.</p>
@@ -276,42 +275,42 @@ values under a geometric distribution fitted to the data.</p>
 are is based on the number of failures before the first success, not the
 number of trials. Therefore, we subtract 1 below when we call the
 function <code>dgeom</code>.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Observed, adding a zero for greater than or equal to 6</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> geom <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">which</span>(aussie_births<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"boy"</span>)))</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> max_w <span class="ot">&lt;-</span> <span class="fu">max</span>(geom)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> geom <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(max_w <span class="sc">+</span> <span class="dv">1</span>), geom)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> obs_freq <span class="ot">&lt;-</span> <span class="fu">table</span>(geom) <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> obs_prop <span class="ot">&lt;-</span> obs_freq <span class="sc">/</span> <span class="fu">sum</span>(obs_freq)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(obs_prop, <span class="dv">3</span>)</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>geom</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>     <span class="dv">2</span>     <span class="dv">3</span>     <span class="dv">4</span>     <span class="dv">5</span>     <span class="dv">6</span> </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fl">0.692</span> <span class="fl">0.115</span> <span class="fl">0.154</span> <span class="fl">0.000</span> <span class="fl">0.038</span> <span class="fl">0.000</span> </span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Estimated expected, using dgeom</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> est_prob <span class="ot">&lt;-</span> <span class="fu">dgeom</span>((<span class="dv">1</span><span class="sc">:</span>max_w) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">prob =</span> phat)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> est_prob <span class="ot">&lt;-</span> <span class="fu">c</span>(est_prob, <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(est_prob))</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> exp_freq <span class="ot">&lt;-</span> nboys <span class="sc">*</span> est_prob</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># The table</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">round</span>(<span class="fu">cbind</span>(<span class="at">w =</span> <span class="dv">1</span><span class="sc">:</span>(max_w <span class="sc">+</span> <span class="dv">1</span>), obs_freq, exp_freq, obs_prop, est_prob), <span class="dv">3</span>)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  w obs_freq exp_freq obs_prop est_prob</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="dv">1</span>       <span class="dv">18</span>   <span class="fl">15.364</span>    <span class="fl">0.692</span>    <span class="fl">0.591</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2</span>        <span class="dv">3</span>    <span class="fl">6.285</span>    <span class="fl">0.115</span>    <span class="fl">0.242</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="dv">3</span>        <span class="dv">4</span>    <span class="fl">2.571</span>    <span class="fl">0.154</span>    <span class="fl">0.099</span></span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="dv">4</span>        <span class="dv">0</span>    <span class="fl">1.052</span>    <span class="fl">0.000</span>    <span class="fl">0.040</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="dv">5</span>        <span class="dv">1</span>    <span class="fl">0.430</span>    <span class="fl">0.038</span>    <span class="fl">0.017</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span> <span class="dv">6</span>        <span class="dv">0</span>    <span class="fl">0.298</span>    <span class="fl">0.000</span>    <span class="fl">0.011</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Observed, adding a zero for greater than or equal to 6</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="er">&gt;</span> geom <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">which</span>(aussie_births<span class="sc">$</span>sex <span class="sc">==</span> <span class="st">"boy"</span>)))</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="sc">&gt;</span> max_w <span class="ot">&lt;-</span> <span class="fu">max</span>(geom)</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="sc">&gt;</span> geom <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span>(max_w <span class="sc">+</span> <span class="dv">1</span>), geom)</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="sc">&gt;</span> obs_freq <span class="ot">&lt;-</span> <span class="fu">table</span>(geom) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="sc">&gt;</span> obs_prop <span class="ot">&lt;-</span> obs_freq <span class="sc">/</span> <span class="fu">sum</span>(obs_freq)</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">round</span>(obs_prop, <span class="dv">3</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a>geom</span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a>    <span class="dv">1</span>     <span class="dv">2</span>     <span class="dv">3</span>     <span class="dv">4</span>     <span class="dv">5</span>     <span class="dv">6</span> </span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a><span class="fl">0.692</span> <span class="fl">0.115</span> <span class="fl">0.154</span> <span class="fl">0.000</span> <span class="fl">0.038</span> <span class="fl">0.000</span> </span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Estimated expected, using dgeom</span></span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a><span class="er">&gt;</span> est_prob <span class="ot">&lt;-</span> <span class="fu">dgeom</span>((<span class="dv">1</span><span class="sc">:</span>max_w) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">prob =</span> phat)</span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a><span class="sc">&gt;</span> est_prob <span class="ot">&lt;-</span> <span class="fu">c</span>(est_prob, <span class="dv">1</span> <span class="sc">-</span> <span class="fu">sum</span>(est_prob))</span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a><span class="sc">&gt;</span> exp_freq <span class="ot">&lt;-</span> nboys <span class="sc">*</span> est_prob</span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># The table</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">round</span>(<span class="fu">cbind</span>(<span class="at">w =</span> <span class="dv">1</span><span class="sc">:</span>(max_w <span class="sc">+</span> <span class="dv">1</span>), obs_freq, exp_freq, obs_prop, est_prob), <span class="dv">3</span>)</span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>  w obs_freq exp_freq obs_prop est_prob</span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a><span class="dv">1</span> <span class="dv">1</span>       <span class="dv">18</span>   <span class="fl">15.364</span>    <span class="fl">0.692</span>    <span class="fl">0.591</span></span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a><span class="dv">2</span> <span class="dv">2</span>        <span class="dv">3</span>    <span class="fl">6.285</span>    <span class="fl">0.115</span>    <span class="fl">0.242</span></span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a><span class="dv">3</span> <span class="dv">3</span>        <span class="dv">4</span>    <span class="fl">2.571</span>    <span class="fl">0.154</span>    <span class="fl">0.099</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a><span class="dv">4</span> <span class="dv">4</span>        <span class="dv">0</span>    <span class="fl">1.052</span>    <span class="fl">0.000</span>    <span class="fl">0.040</span></span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a><span class="dv">5</span> <span class="dv">5</span>        <span class="dv">1</span>    <span class="fl">0.430</span>    <span class="fl">0.038</span>    <span class="fl">0.017</span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a><span class="dv">6</span> <span class="dv">6</span>        <span class="dv">0</span>    <span class="fl">0.298</span>    <span class="fl">0.000</span>    <span class="fl">0.011</span></span></code></pre></div>
 <p>Alternatively, We could also use the <strong>distributions3</strong>
 package to calculate the probabilities that we require.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> W <span class="ot">&lt;-</span> <span class="fu">Geometric</span>(phat)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> W</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Geometric distribution (p = 0.5909)"</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># P(W = w), for w = 1, ..., 5 (note the -1)</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pmf</span>(W, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.59090909</span> <span class="fl">0.24173554</span> <span class="fl">0.09889181</span> <span class="fl">0.04045574</span> <span class="fl">0.01655008</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># P(W &gt;= 6) = 1 - P(W &lt; 6) = 1 - P(W &lt;= 5)</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(W, <span class="dv">5</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.01145774</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="sc">&gt;</span> W <span class="ot">&lt;-</span> <span class="fu">Geometric</span>(phat)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="sc">&gt;</span> W</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Geometric distribution (p = 0.5909)"</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># P(W = w), for w = 1, ..., 5 (note the -1)</span></span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pmf</span>(W, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.59090909</span> <span class="fl">0.24173554</span> <span class="fl">0.09889181</span> <span class="fl">0.04045574</span> <span class="fl">0.01655008</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># P(W &gt;= 6) = 1 - P(W &lt; 6) = 1 - P(W &lt;= 5)</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="er">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(W, <span class="dv">5</span> <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.01145774</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="the-poisson-distribution">The Poisson distribution<a class="anchor" aria-label="anchor" href="#the-poisson-distribution"></a>
@@ -321,18 +320,18 @@ plot of the p.m.f. of the Poisson(<span class="math inline">\(\hat{\lambda}\)</s
 of the numbers of babies born in each of the 24 hourly periods. We also
 calculate the probabilities involved in the table of observed and
 estimated expected frequencies given in the lecture.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> lambdahat <span class="ot">&lt;-</span> <span class="dv">44</span> <span class="sc">/</span> <span class="dv">24</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> N <span class="ot">&lt;-</span> <span class="fu">Poisson</span>(lambdahat)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> N</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Poisson distribution (lambda = 1.833)"</span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">pmf</span>(N, <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(N = n)"</span>, <span class="at">xlab =</span> <span class="st">"n"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="sc">&gt;</span> lambdahat <span class="ot">&lt;-</span> <span class="dv">44</span> <span class="sc">/</span> <span class="dv">24</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="sc">&gt;</span> N <span class="ot">&lt;-</span> <span class="fu">Poisson</span>(lambdahat)</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="sc">&gt;</span> N</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"Poisson distribution (lambda = 1.833)"</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">pmf</span>(N, <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>), <span class="at">type =</span> <span class="st">"h"</span>, <span class="at">lwd =</span> <span class="dv">3</span>, <span class="at">ylab =</span> <span class="st">"P(N = n)"</span>, <span class="at">xlab =</span> <span class="st">"n"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch6a-discrete-random-variables-vignette_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> </span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pmf</span>(N, <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.15987975</span> <span class="fl">0.29311287</span> <span class="fl">0.26868680</span> <span class="fl">0.16419749</span> <span class="fl">0.07525718</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># P(N &gt;= 5)</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(N, <span class="dv">4</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.03886592</span></span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pmf</span>(N, <span class="dv">0</span><span class="sc">:</span><span class="dv">4</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.15987975</span> <span class="fl">0.29311287</span> <span class="fl">0.26868680</span> <span class="fl">0.16419749</span> <span class="fl">0.07525718</span></span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># P(N &gt;= 5)</span></span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="er">&gt;</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">cdf</span>(N, <span class="dv">4</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.03886592</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>

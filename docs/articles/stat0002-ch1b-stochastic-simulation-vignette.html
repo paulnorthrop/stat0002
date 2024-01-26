@@ -159,10 +159,10 @@ As we will see in Chapter 5 of the STAT0002 notes this is equivalent to
 generating numbers that behave approximately like a random sample from a
 standard uniform U(0,1) distribution. The function in R that does this
 is <code>runif</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="fl">0.2716465</span> <span class="fl">0.2459657</span> <span class="fl">0.7786462</span> <span class="fl">0.9790115</span> <span class="fl">0.4347586</span> <span class="fl">0.9141322</span> <span class="fl">0.4885213</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> [<span class="dv">8</span>] <span class="fl">0.3757858</span> <span class="fl">0.5054086</span> <span class="fl">0.4264149</span></span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">runif</span>(<span class="dv">10</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a> [<span class="dv">1</span>] <span class="fl">0.2716465</span> <span class="fl">0.2459657</span> <span class="fl">0.7786462</span> <span class="fl">0.9790115</span> <span class="fl">0.4347586</span> <span class="fl">0.9141322</span> <span class="fl">0.4885213</span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a> [<span class="dv">8</span>] <span class="fl">0.3757858</span> <span class="fl">0.5054086</span> <span class="fl">0.4264149</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="simulation-from-a-binomial-distribution">Simulation from a binomial distribution<a class="anchor" aria-label="anchor" href="#simulation-from-a-binomial-distribution"></a>
@@ -181,8 +181,8 @@ an O-ring suffers thermal distress when the space shuttle is launched at
 58 degrees Fahrenheit.</p>
 <p>The function in R that simulates from a binomial distribution is
 <code>rbinom</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">6</span>, <span class="at">prob =</span> <span class="fl">0.2</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">6</span>, <span class="at">prob =</span> <span class="fl">0.2</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span></span></code></pre></div>
 <ol style="list-style-type: decimal">
 <li><strong>Can you see the convention in the way that R’s simulation
 functions are named?</strong></li>
@@ -214,25 +214,25 @@ write our own R functions to perform calculations.</p>
 <code>set.seed</code> to initialize the pseudo-random number sequence in
 a particular place. This will enable us to repeat these calculations
 below using exactly the same random numbers.]</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1826</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rbinomial</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">prob =</span> <span class="fl">0.2</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1826</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rbinomial</span>(<span class="at">size =</span> <span class="dv">6</span>, <span class="at">prob =</span> <span class="fl">0.2</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Can you work out what is happening in each line of the code
 inside <code>rbinomial</code>? The following should help.</strong></li>
 </ol>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1826</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> size <span class="ot">&lt;-</span> <span class="dv">6</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> prob <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u <span class="ot">&lt;-</span> <span class="fu">runif</span>(size)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.3561567</span> <span class="fl">0.9131876</span> <span class="fl">0.5627795</span> <span class="fl">0.1879185</span> <span class="fl">0.3193222</span> <span class="fl">0.6738423</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> distress <span class="ot">&lt;-</span> u <span class="sc">&lt;</span> prob</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> distress</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> n_successes <span class="ot">&lt;-</span> <span class="fu">sum</span>(distress)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> n_successes</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1826</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="sc">&gt;</span> size <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="sc">&gt;</span> prob <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="sc">&gt;</span> u <span class="ot">&lt;-</span> <span class="fu">runif</span>(size)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="sc">&gt;</span> u</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.3561567</span> <span class="fl">0.9131876</span> <span class="fl">0.5627795</span> <span class="fl">0.1879185</span> <span class="fl">0.3193222</span> <span class="fl">0.6738423</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="sc">&gt;</span> distress <span class="ot">&lt;-</span> u <span class="sc">&lt;</span> prob</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="sc">&gt;</span> distress</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>[<span class="dv">1</span>] <span class="cn">FALSE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span>  <span class="cn">TRUE</span> <span class="cn">FALSE</span> <span class="cn">FALSE</span></span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="sc">&gt;</span> n_successes <span class="ot">&lt;-</span> <span class="fu">sum</span>(distress)</span>
+<span id="cb5-11"><a href="#cb5-11" tabindex="-1"></a><span class="sc">&gt;</span> n_successes</span>
+<span id="cb5-12"><a href="#cb5-12" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">1</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>The effect of <code>sum(distress)</code> is quite subtle.
 Can you see what is happening? Check your answer using
@@ -241,8 +241,8 @@ Can you see what is happening? Check your answer using
 <p>A related point is that if we turn the logical vector
 <code>distress</code> (which contains <code>TRUE</code>s and
 <code>FALSE</code>s) into a numeric vector, then we get …</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">as.numeric</span>(distress)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">0</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">as.numeric</span>(distress)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">1</span> <span class="dv">0</span> <span class="dv">0</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="simulation-from-a-exponential-distribution">Simulation from a exponential distribution<a class="anchor" aria-label="anchor" href="#simulation-from-a-exponential-distribution"></a>
@@ -255,15 +255,15 @@ an exponential distribution?</strong></li>
 </ol>
 <p>We simulate a sample of size 1000 from an exponential distribution
 with (rate) parameter equal to 2.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> lambda <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> exp_sim <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">rate =</span> lambda)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">&gt;</span> lambda <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="sc">&gt;</span> exp_sim <span class="ot">&lt;-</span> <span class="fu">rexp</span>(<span class="at">n =</span> <span class="dv">1000</span>, <span class="at">rate =</span> lambda)</span></code></pre></div>
 <p>We produce a histogram of these simulated values and superimpose the
 probability density function (p.d.f.) of the exponential distribution
 from which these values have been simulated.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A histogram (see Section 2.5 of the STAT0002 notes)</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">hist</span>(exp_sim, <span class="at">probability =</span> <span class="cn">TRUE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, lambda), <span class="at">main =</span> <span class="st">""</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(exp_sim), <span class="at">len =</span> <span class="dv">500</span>)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(x, <span class="fu">dexp</span>(x, <span class="at">rate =</span> lambda))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># A histogram (see Section 2.5 of the STAT0002 notes)</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">hist</span>(exp_sim, <span class="at">probability =</span> <span class="cn">TRUE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, lambda), <span class="at">main =</span> <span class="st">""</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fu">max</span>(exp_sim), <span class="at">len =</span> <span class="dv">500</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(x, <span class="fu">dexp</span>(x, <span class="at">rate =</span> lambda))</span></code></pre></div>
 <p><img src="stat0002-ch1b-stochastic-simulation-vignette_files/figure-html/unnamed-chunk-9-1.png" width="576"></p>
 <ol start="5" style="list-style-type: decimal">
 <li><strong>Can you guess what the function <code>dexp</code> does? Use
@@ -271,10 +271,10 @@ from which these values have been simulated.</p>
 </ol>
 <p>The following R code could also be used to simulate from an
 exponential distribution.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> exp_inv <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log</span>(u)<span class="sc">/</span>lambda</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(exp_inv, <span class="at">probability =</span> <span class="cn">TRUE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, lambda), <span class="at">main =</span> <span class="st">""</span>, <span class="at">breaks =</span> <span class="dv">14</span>, <span class="at">col =</span> <span class="st">"grey"</span>)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(x, <span class="fu">dexp</span>(x, <span class="at">rate =</span> lambda))</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="sc">&gt;</span> u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a><span class="sc">&gt;</span> exp_inv <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fu">log</span>(u)<span class="sc">/</span>lambda</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(exp_inv, <span class="at">probability =</span> <span class="cn">TRUE</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, lambda), <span class="at">main =</span> <span class="st">""</span>, <span class="at">breaks =</span> <span class="dv">14</span>, <span class="at">col =</span> <span class="st">"grey"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(x, <span class="fu">dexp</span>(x, <span class="at">rate =</span> lambda))</span></code></pre></div>
 <p><img src="stat0002-ch1b-stochastic-simulation-vignette_files/figure-html/unnamed-chunk-10-1.png" width="576"></p>
 </div>
 <div class="section level2">
@@ -283,13 +283,13 @@ exponential distribution.</p>
 <p>The code immediately above is an example of the <em>inversion
 method</em> of simulation. The following code implements this for the
 normal distribution.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> mu <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> sigma <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> norm_sim <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(u, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(norm_sim, <span class="at">probability =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">""</span>, <span class="at">col =</span> <span class="st">"grey"</span>)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(norm_sim), <span class="fu">max</span>(norm_sim), <span class="at">len =</span> <span class="dv">500</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(x, <span class="fu">dnorm</span>(x, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma))</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="sc">&gt;</span> u <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="sc">&gt;</span> mu <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a><span class="sc">&gt;</span> sigma <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a><span class="sc">&gt;</span> norm_sim <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(u, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma)</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(norm_sim, <span class="at">probability =</span> <span class="cn">TRUE</span>, <span class="at">main =</span> <span class="st">""</span>, <span class="at">col =</span> <span class="st">"grey"</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fu">min</span>(norm_sim), <span class="fu">max</span>(norm_sim), <span class="at">len =</span> <span class="dv">500</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(x, <span class="fu">dnorm</span>(x, <span class="at">mean =</span> mu, <span class="at">sd =</span> sigma))</span></code></pre></div>
 <p><img src="stat0002-ch1b-stochastic-simulation-vignette_files/figure-html/unnamed-chunk-11-1.png" width="576"></p>
 <ol start="6" style="list-style-type: decimal">
 <li><strong>Use <code><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">?qnorm</a></code> to find out what <code>qnorm</code>
@@ -322,17 +322,16 @@ the p.d.f. of the distributions satisfies some conditions.</p>
 2017)</span> implements this algorithm. The code below can be used to
 simulate from a standard normal distribution using the function
 <code>ru</code>.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(rust)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'rust'</span> was built under R version <span class="dv">4</span>.<span class="fl">2.3</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ?ru</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Simulate from a standard normal N(0,1) distribution</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> ru_sim <span class="ot">&lt;-</span> <span class="fu">ru</span>(<span class="at">logf =</span> <span class="cf">function</span>(x) <span class="sc">-</span>x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">d =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">1000</span>, <span class="at">init =</span> <span class="fl">0.1</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The function ru returns an object of class "ru"</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(ru_sim)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ru"</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The default plot method for objects of class "ru" produces a plot to compare the </span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># simulated values and the p.d.f. of the distribution from which they are simulated</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(ru_sim, <span class="at">xlab =</span> <span class="st">"x"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(rust)</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a><span class="sc">&gt;</span> ?ru</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Simulate from a standard normal N(0,1) distribution</span></span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a><span class="er">&gt;</span> ru_sim <span class="ot">&lt;-</span> <span class="fu">ru</span>(<span class="at">logf =</span> <span class="cf">function</span>(x) <span class="sc">-</span>x <span class="sc">^</span> <span class="dv">2</span> <span class="sc">/</span> <span class="dv">2</span>, <span class="at">d =</span> <span class="dv">1</span>, <span class="at">n =</span> <span class="dv">1000</span>, <span class="at">init =</span> <span class="fl">0.1</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The function ru returns an object of class "ru"</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">class</span>(ru_sim)</span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ru"</span></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># The default plot method for objects of class "ru" produces a plot to compare the </span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># simulated values and the p.d.f. of the distribution from which they are simulated</span></span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(ru_sim, <span class="at">xlab =</span> <span class="st">"x"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch1b-stochastic-simulation-vignette_files/figure-html/unnamed-chunk-12-1.png" width="576"></p>
 <p>Note that</p>
 <ul>
@@ -357,22 +356,22 @@ The function <code>log_dmvnorm</code> below calculates the log of the
 p.d.f. of the multivariate normal distribution with mean vector
 <code>mean</code> and variance-covariance matrix <code>sigma</code>,
 again ignoring the normalizing constant.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># two-dimensional normal with positive association ----------------</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> rho <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> covmat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, rho, rho, <span class="dv">1</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> log_dmvnorm <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">mean =</span> <span class="fu">rep</span>(<span class="dv">0</span>, d), <span class="at">sigma =</span> <span class="fu">diag</span>(d)) {</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="fu">length</span>(x))</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   d <span class="ot">&lt;-</span> <span class="fu">ncol</span>(x)</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">return</span>(<span class="sc">-</span> <span class="fl">0.5</span> <span class="sc">*</span> (x <span class="sc">-</span> mean) <span class="sc">%*%</span> <span class="fu">solve</span>(sigma) <span class="sc">%*%</span> <span class="fu">t</span>(x <span class="sc">-</span> mean))</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span> }</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> ru_sim2 <span class="ot">&lt;-</span> <span class="fu">ru</span>(<span class="at">logf =</span> log_dmvnorm, <span class="at">sigma =</span> covmat, <span class="at">d =</span> <span class="dv">2</span>, <span class="at">n =</span> <span class="dv">1000</span>, <span class="at">init =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># two-dimensional normal with positive association ----------------</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a><span class="er">&gt;</span> rho <span class="ot">&lt;-</span> <span class="fl">0.9</span></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a><span class="sc">&gt;</span> covmat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, rho, rho, <span class="dv">1</span>), <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a><span class="sc">&gt;</span> log_dmvnorm <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">mean =</span> <span class="fu">rep</span>(<span class="dv">0</span>, d), <span class="at">sigma =</span> <span class="fu">diag</span>(d)) {</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a><span class="sc">+</span>   x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(x, <span class="at">ncol =</span> <span class="fu">length</span>(x))</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a><span class="sc">+</span>   d <span class="ot">&lt;-</span> <span class="fu">ncol</span>(x)</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a><span class="sc">+</span>   <span class="fu">return</span>(<span class="sc">-</span> <span class="fl">0.5</span> <span class="sc">*</span> (x <span class="sc">-</span> mean) <span class="sc">%*%</span> <span class="fu">solve</span>(sigma) <span class="sc">%*%</span> <span class="fu">t</span>(x <span class="sc">-</span> mean))</span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a><span class="sc">+</span> }</span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="sc">&gt;</span> ru_sim2 <span class="ot">&lt;-</span> <span class="fu">ru</span>(<span class="at">logf =</span> log_dmvnorm, <span class="at">sigma =</span> covmat, <span class="at">d =</span> <span class="dv">2</span>, <span class="at">n =</span> <span class="dv">1000</span>, <span class="at">init =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>))</span></code></pre></div>
 <p>In the bivariate case the <code>plot</code> method for objects of
 class “ru” produces a scatter plot of the simulated values of the random
 variables <span class="math inline">\((X_1, X_2)\)</span> with the
 contours of the value of the p.d.f. superimposed. Each contour is
 labelled by a number indicating the percentage of the simulated values
 that should lie within that contour.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ru_sim2, <span class="at">xlab =</span> <span class="fu">expression</span>(X[<span class="dv">1</span>]), <span class="at">ylab =</span> <span class="fu">expression</span>(X[<span class="dv">2</span>]))</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(ru_sim2, <span class="at">xlab =</span> <span class="fu">expression</span>(X[<span class="dv">1</span>]), <span class="at">ylab =</span> <span class="fu">expression</span>(X[<span class="dv">2</span>]))</span></code></pre></div>
 <p><img src="stat0002-ch1b-stochastic-simulation-vignette_files/figure-html/unnamed-chunk-14-1.png" width="576"></p>
 <p>The generalized ratio-of-uniforms method works well enough for this
 example but it is not the most efficient way to simulate from a
@@ -388,7 +387,7 @@ it.</p>
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Jasra" class="csl-entry">
-Jasra, A. 2011. <em><span>M3/M4s9</span> Stochastic Simulation (Course
+Jasra, A. 2011. <em><span>M3/M4S9</span> Stochastic Simulation (Course
 Notes)</em>. Imperial College, London. <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.188.5510&amp;rep=rep1&amp;type=pdf" class="external-link">http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.188.5510&amp;rep=rep1&amp;type=pdf</a>.
 </div>
 <div id="ref-Morgan" class="csl-entry">

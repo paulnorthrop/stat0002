@@ -141,7 +141,7 @@ Northrop</h4>
 <p>This vignette provides some R code that is related to some of the
 content of <a href="https://paulnorthrop.github.io/stat0002book/correlationchapter.html#correlationchapter" class="external-link">Chapter
 10 of the STAT0002 notes</a> correlation.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(stat0002)</span></code></pre></div>
 <div class="section level2">
 <h2 id="example-data">Example data<a class="anchor" aria-label="anchor" href="#example-data"></a>
 </h2>
@@ -150,34 +150,34 @@ content of <a href="https://paulnorthrop.github.io/stat0002book/correlationchapt
 <code>exchange</code>. We look at the first 6 rows of the data and the
 last 6 rows and produce plots like Figures 10.1 and 10.2 of the
 notes.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(exchange)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           USD.GBP CAD.GBP</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">02</span>  <span class="fl">1.6865</span>  <span class="fl">2.3167</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">03</span>  <span class="fl">1.6905</span>  <span class="fl">2.3224</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">06</span>  <span class="fl">1.6855</span>  <span class="fl">2.3056</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">07</span>  <span class="fl">1.6951</span>  <span class="fl">2.2999</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">08</span>  <span class="fl">1.6884</span>  <span class="fl">2.2850</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">09</span>  <span class="fl">1.6947</span>  <span class="fl">2.2906</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">tail</span>(exchange)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>           USD.GBP CAD.GBP</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">14</span>  <span class="fl">1.4309</span>  <span class="fl">2.2102</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">15</span>  <span class="fl">1.4265</span>  <span class="fl">2.2121</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">16</span>  <span class="fl">1.4229</span>  <span class="fl">2.2088</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">17</span>  <span class="fl">1.4233</span>  <span class="fl">2.2194</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">20</span>  <span class="fl">1.4223</span>  <span class="fl">2.2172</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">21</span>  <span class="fl">1.4169</span>  <span class="fl">2.2029</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Figure 10.1</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(exchange, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span> <span class="st">"Pounds sterling vs. US dollars"</span>,</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">ylab =</span> <span class="st">"Pounds sterling vs. Canadian dollars"</span>, <span class="at">bty =</span> <span class="st">"l"</span>, </span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">main =</span> <span class="st">"Raw data"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(exchange)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>           USD.GBP CAD.GBP</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">02</span>  <span class="fl">1.6865</span>  <span class="fl">2.3167</span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">03</span>  <span class="fl">1.6905</span>  <span class="fl">2.3224</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">06</span>  <span class="fl">1.6855</span>  <span class="fl">2.3056</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">07</span>  <span class="fl">1.6951</span>  <span class="fl">2.2999</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">08</span>  <span class="fl">1.6884</span>  <span class="fl">2.2850</span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="dv">1997</span><span class="sc">/</span><span class="dv">01</span><span class="sc">/</span><span class="dv">09</span>  <span class="fl">1.6947</span>  <span class="fl">2.2906</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">tail</span>(exchange)</span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a>           USD.GBP CAD.GBP</span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">14</span>  <span class="fl">1.4309</span>  <span class="fl">2.2102</span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">15</span>  <span class="fl">1.4265</span>  <span class="fl">2.2121</span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">16</span>  <span class="fl">1.4229</span>  <span class="fl">2.2088</span></span>
+<span id="cb2-14"><a href="#cb2-14" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">17</span>  <span class="fl">1.4233</span>  <span class="fl">2.2194</span></span>
+<span id="cb2-15"><a href="#cb2-15" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">20</span>  <span class="fl">1.4223</span>  <span class="fl">2.2172</span></span>
+<span id="cb2-16"><a href="#cb2-16" tabindex="-1"></a><span class="dv">2000</span><span class="sc">/</span><span class="dv">11</span><span class="sc">/</span><span class="dv">21</span>  <span class="fl">1.4169</span>  <span class="fl">2.2029</span></span>
+<span id="cb2-17"><a href="#cb2-17" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Figure 10.1</span></span>
+<span id="cb2-18"><a href="#cb2-18" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(exchange, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span> <span class="st">"Pounds sterling vs. US dollars"</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" tabindex="-1"></a><span class="sc">+</span>      <span class="at">ylab =</span> <span class="st">"Pounds sterling vs. Canadian dollars"</span>, <span class="at">bty =</span> <span class="st">"l"</span>, </span>
+<span id="cb2-20"><a href="#cb2-20" tabindex="-1"></a><span class="sc">+</span>      <span class="at">main =</span> <span class="st">"Raw data"</span>)</span></code></pre></div>
 <p><img src="stat0002-ch9plus1-correlation-vignette_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;"></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Calculate the log-returns</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> USDlogr <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(exchange<span class="sc">$</span>USD.GBP))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> CADlogr <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(exchange<span class="sc">$</span>CAD.GBP))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Figure 10.2</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(USDlogr, CADlogr, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span> <span class="st">"Pounds sterling vs. US dollars"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">ylab =</span> <span class="st">"Pounds sterling vs. Canadian dollars"</span>, <span class="at">bty =</span> <span class="st">"l"</span>, </span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="sc">+</span>      <span class="at">main =</span> <span class="st">"Log-returns"</span> )</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Calculate the log-returns</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="er">&gt;</span> USDlogr <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(exchange<span class="sc">$</span>USD.GBP))</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="sc">&gt;</span> CADlogr <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(exchange<span class="sc">$</span>CAD.GBP))</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Figure 10.2</span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(USDlogr, CADlogr, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">xlab =</span> <span class="st">"Pounds sterling vs. US dollars"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="sc">+</span>      <span class="at">ylab =</span> <span class="st">"Pounds sterling vs. Canadian dollars"</span>, <span class="at">bty =</span> <span class="st">"l"</span>, </span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="sc">+</span>      <span class="at">main =</span> <span class="st">"Log-returns"</span> )</span></code></pre></div>
 <p><img src="stat0002-ch9plus1-correlation-vignette_files/figure-html/unnamed-chunk-4-2.png" width="672" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level2">
@@ -199,14 +199,14 @@ the input matrix, including between each column and itself, which
 produces values of 1 on the diagonal of the output matrix. If we supply
 vectors <code>x</code> and <code>y</code> then it does not matter which
 vector is entered as <code>x</code> and which as <code>y</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="at">x =</span> USDlogr, <span class="at">y =</span> CADlogr)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.8201113</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="at">x =</span> CADlogr, <span class="at">y =</span> USDlogr)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.8201113</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="at">x =</span> <span class="fu">cbind</span>(USDlogr, CADlogr))</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>          USDlogr   CADlogr</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>USDlogr <span class="fl">1.0000000</span> <span class="fl">0.8201113</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>CADlogr <span class="fl">0.8201113</span> <span class="fl">1.0000000</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="at">x =</span> USDlogr, <span class="at">y =</span> CADlogr)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.8201113</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="at">x =</span> CADlogr, <span class="at">y =</span> USDlogr)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">0.8201113</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(<span class="at">x =</span> <span class="fu">cbind</span>(USDlogr, CADlogr))</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a>          USDlogr   CADlogr</span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a>USDlogr <span class="fl">1.0000000</span> <span class="fl">0.8201113</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>CADlogr <span class="fl">0.8201113</span> <span class="fl">1.0000000</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="anscombes-quartet-of-datasets">Anscombe’s Quartet of datasets<a class="anchor" aria-label="anchor" href="#anscombes-quartet-of-datasets"></a>
@@ -217,24 +217,23 @@ These 4 datasets are available as separate data frames in the
 <code>anscombiser</code> package <span class="citation">Northrop
 (2022)</span>. Use <code>install.packages("anscombiser")</code> to
 install this package.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(anscombiser)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'anscombiser'</span> was built under R version <span class="dv">4</span>.<span class="fl">2.3</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe1)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>          x1        y1</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="fl">1.0000000</span> <span class="fl">0.8164205</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>y1 <span class="fl">0.8164205</span> <span class="fl">1.0000000</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe2)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          x2        y2</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>x2 <span class="fl">1.0000000</span> <span class="fl">0.8162365</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>y2 <span class="fl">0.8162365</span> <span class="fl">1.0000000</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe3)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>          x3        y3</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>x3 <span class="fl">1.0000000</span> <span class="fl">0.8162867</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>y3 <span class="fl">0.8162867</span> <span class="fl">1.0000000</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe4)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>          x4        y4</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>x4 <span class="fl">1.0000000</span> <span class="fl">0.8165214</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>y4 <span class="fl">0.8165214</span> <span class="fl">1.0000000</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(anscombiser)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe1)</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a>          x1        y1</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>x1 <span class="fl">1.0000000</span> <span class="fl">0.8164205</span></span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a>y1 <span class="fl">0.8164205</span> <span class="fl">1.0000000</span></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe2)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a>          x2        y2</span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>x2 <span class="fl">1.0000000</span> <span class="fl">0.8162365</span></span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>y2 <span class="fl">0.8162365</span> <span class="fl">1.0000000</span></span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe3)</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>          x3        y3</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>x3 <span class="fl">1.0000000</span> <span class="fl">0.8162867</span></span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>y3 <span class="fl">0.8162867</span> <span class="fl">1.0000000</span></span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe4)</span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>          x4        y4</span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>x4 <span class="fl">1.0000000</span> <span class="fl">0.8165214</span></span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a>y4 <span class="fl">0.8165214</span> <span class="fl">1.0000000</span></span></code></pre></div>
 <p>We see that the paired data in these datasets have almost exactly the
 same sample correlation coefficient. They have many other summary
 statistics in common. See <a href="https://paulnorthrop.github.io/stat0002book/correlationchapter.html#anscombes-datasets" class="external-link">Section
@@ -243,22 +242,22 @@ statistics in common. See <a href="https://paulnorthrop.github.io/stat0002book/c
 ask R to calculate Spearman’s rank correlation coefficient (See <a href="https://paulnorthrop.github.io/stat0002book/descriptive.html#corr1" class="external-link">Section
 2.3.5</a>). The values of this sample correlation coefficient differ
 between these datasets.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe1, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>          x1        y1</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="fl">1.0000000</span> <span class="fl">0.8181818</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>y1 <span class="fl">0.8181818</span> <span class="fl">1.0000000</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe2, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>          x2        y2</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>x2 <span class="fl">1.0000000</span> <span class="fl">0.6909091</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>y2 <span class="fl">0.6909091</span> <span class="fl">1.0000000</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe3, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>          x3        y3</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>x3 <span class="fl">1.0000000</span> <span class="fl">0.9909091</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>y3 <span class="fl">0.9909091</span> <span class="fl">1.0000000</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe4, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    x4  y4</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>x4 <span class="fl">1.0</span> <span class="fl">0.5</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>y4 <span class="fl">0.5</span> <span class="fl">1.0</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe1, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>          x1        y1</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>x1 <span class="fl">1.0000000</span> <span class="fl">0.8181818</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a>y1 <span class="fl">0.8181818</span> <span class="fl">1.0000000</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe2, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>          x2        y2</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>x2 <span class="fl">1.0000000</span> <span class="fl">0.6909091</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>y2 <span class="fl">0.6909091</span> <span class="fl">1.0000000</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe3, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a>          x3        y3</span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a>x3 <span class="fl">1.0000000</span> <span class="fl">0.9909091</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a>y3 <span class="fl">0.9909091</span> <span class="fl">1.0000000</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">cor</span>(anscombe4, <span class="at">method =</span> <span class="st">"spearman"</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a>    x4  y4</span>
+<span id="cb7-15"><a href="#cb7-15" tabindex="-1"></a>x4 <span class="fl">1.0</span> <span class="fl">0.5</span></span>
+<span id="cb7-16"><a href="#cb7-16" tabindex="-1"></a>y4 <span class="fl">0.5</span> <span class="fl">1.0</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
