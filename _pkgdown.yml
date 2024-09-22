@@ -4,8 +4,7 @@ development:
   mode: release
 
 template:
-  params:
-    bootswatch: paper
+  bootstrap: 5
 
 reference:
   - title: Package
