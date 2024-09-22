@@ -1,3 +1,7 @@
+# stat0002 1.2.2: 22/9/2024
+
+Minor edits for the 2024/25 session.
+
 # stat0002 1.2.1: 24/9/2023
 
 Minor edits for the 2023/24 session owing to changes in assessments.
