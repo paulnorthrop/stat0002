@@ -1,0 +1,22 @@
+pandoc: 3.1.11
+pkgdown: 2.1.1
+pkgdown_sha: ~
+articles:
+  stat0002-ch1a-shuttle-vignette: stat0002-ch1a-shuttle-vignette.html
+  stat0002-ch1b-stochastic-simulation-vignette: stat0002-ch1b-stochastic-simulation-vignette.html
+  stat0002-ch1c-stochastic-simulation-vignette-2: stat0002-ch1c-stochastic-simulation-vignette-2.html
+  stat0002-ch2a-descriptive-statistics-vignette: stat0002-ch2a-descriptive-statistics-vignette.html
+  stat0002-ch2b-graphs-vignette: stat0002-ch2b-graphs-vignette.html
+  stat0002-ch2c-graphs-vignette: stat0002-ch2c-graphs-vignette.html
+  stat0002-ch2d-box-cox-transformation-vignette: stat0002-ch2d-box-cox-transformation-vignette.html
+  stat0002-ch3-probability-vignette: stat0002-ch3-probability-vignette.html
+  stat0002-ch4-more-probability-vignette: stat0002-ch4-more-probability-vignette.html
+  stat0002-ch5-random-variables-vignette: stat0002-ch5-random-variables-vignette.html
+  stat0002-ch6a-discrete-random-variables-vignette: stat0002-ch6a-discrete-random-variables-vignette.html
+  stat0002-ch6b-continous-random-variables-vignette: stat0002-ch6b-continous-random-variables-vignette.html
+  stat0002-ch6c-qq-plots-vignette: stat0002-ch6c-qq-plots-vignette.html
+  stat0002-ch7-statistical-inference-vignette: stat0002-ch7-statistical-inference-vignette.html
+  stat0002-ch8-contingency-tables-vignette: stat0002-ch8-contingency-tables-vignette.html
+  stat0002-ch9-linear-regression-vignette: stat0002-ch9-linear-regression-vignette.html
+  stat0002-ch9plus1-correlation-vignette: stat0002-ch9plus1-correlation-vignette.html
+last_built: 2024-09-22T15:54Z
