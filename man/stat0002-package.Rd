@@ -3,7 +3,6 @@
 \docType{package}
 \name{stat0002-package}
 \alias{stat0002-package}
-\alias{_PACKAGE}
 \alias{stat0002}
 \title{stat0002: Introduction to Probability and Statistics at UCL}
 \description{
