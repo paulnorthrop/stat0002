@@ -47,7 +47,7 @@ shuttle_movie(n_reps = 10)
 \seealso{
 \code{\link{stat0002movies}}: general information about the movies.
 
-\code{\link{shuttle_sim}} and \code{\link{shuttle_sim}} simulation
+\code{\link{shuttle_sim}} and \code{\link{shuttle_sim_plot}} simulation
   of fake space shuttle data (from a linear logistic regression model)
   and plotting these data, respectively.
 }
