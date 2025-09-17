@@ -1,3 +1,7 @@
+# stat0002 1.2.3: 17/9/2024
+
+Updates for the 2025/26 session.
+
 # stat0002 1.2.2: 22/9/2024
 
 Minor edits for the 2024/25 session.
