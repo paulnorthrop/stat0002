@@ -24,6 +24,10 @@ statistical computing package like R is essential for performing
 statistical analyses and many students taking STAT0002 will need to use
 R in other modules.
 
+For information about R see the **STAT0004 Moodle page** (if you are
+taking STAT0004) or the **Introduction to R** Moodle page (if you are
+not taking STAT0004, e.g. Natural Sciences students).
+
 ### Software required
 
 If you need to install R then you can get it from

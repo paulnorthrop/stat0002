@@ -25,6 +25,8 @@ The `stat0002` package provides R code, datasets, articles (tutorials demonstrat
 
 Currently, it is not compulsory for you to use R when studying for STAT0002. However, it is strongly recommended that you use R and make use of the content of the `stat0002` package.  Being able to use a statistical computing package like R is essential for performing statistical analyses and many students taking STAT0002 will need to use R in other modules.
 
+For information about R see the **STAT0004 Moodle page** (if you are taking STAT0004) or the **Introduction to R** Moodle page (if you are not taking STAT0004, e.g. Natural Sciences students).
+
 ### Software required
 
 If you need to install R then you can get it from [CRAN](https://cran.r-project.org/). Choose your computer's operating system: Windows, macOS or Linux. Do not change the default installation settings. 
