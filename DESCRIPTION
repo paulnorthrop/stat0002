@@ -15,7 +15,8 @@ License: GPL (>= 2)
 LazyData: TRUE
 Encoding: UTF-8
 RoxygenNote: 7.3.2
-Imports: distributions3,
+Imports: accessr,
+    distributions3,
     graphics,
     grDevices,
     MASS,
