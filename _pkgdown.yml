@@ -89,3 +89,9 @@ reference:
       - "lin_reg_movie"
       - "lev_inf_movie"
       - "corr_sim_movie"
+  - title: Create PDF, Word or HTML R output
+    desc: ~
+    contents:
+      - "create_pdf"
+      - "word"
+      - "html"
