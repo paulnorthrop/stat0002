@@ -7,11 +7,11 @@
 \format{
 A data frame with 44 observations on the following 3 variables.
 \itemize{
-\item{\code{time:}}{ the number of minutes past midnight at which the
-  baby was born.}
-\item{\code{sex:}}{ a character variable, the sex of the baby ("girl"
-  or "boy").}
-\item{\code{weight:}}{ the weight of the baby in grams.}
+\item \code{time:} the number of minutes past midnight at which the
+  baby was born.
+\item \code{sex:} a character variable, the sex of the baby ("girl"
+  or "boy").
+\item \code{weight:} the weight of the baby in grams.
 }
 }
 \source{

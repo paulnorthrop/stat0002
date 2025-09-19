@@ -12,8 +12,8 @@ Each row relates to a county in Florida.
   county number \code{co}, county name \code{co_names},
   latitude in degrees north \code{lat},
   longitude in degrees west \code{lon}.
-\item{Columns 5-12, county demographic variables: }
-{population in 1997 \code{npop},
+\item Columns 5-12, county demographic variables:
+ population in 1997 \code{npop},
 percentage of whites in 1996 \code{whit},
 percentage of blacks in 1996 \code{blac},
 percentage of Hispanics in 1996 \code{hisp},
@@ -22,13 +22,14 @@ percentage of the population that graduated from high school
 (1990 census) \code{hsed},
 percentage of the population that graduated from college
 (1990 census) \code{coll},
-mean personal income (1994) \code{inco}.}
-\item{Columns 13-22, numbers of votes for candidates: }{
+mean personal income (1994) \code{inco}.
+\item Columns 13-22, numbers of votes for candidates:
 Bush \code{bush}, Gore \code{gore}, Browne \code{brow},
 Nader \code{nade}, Harris \code{harr}, Hagelin \code{hage},
 Buchanan \code{buch}, McReynolds \code{mcre}, Phillips \code{phil},
-Moorehead \code{moor}}.
-\item{Column 23, total number of votes cast: \code{tvot}}.}
+Moorehead \code{moor}.
+\item Column 23, total number of votes cast: \code{tvot}.
+}
 
 For full details see Tables 1 to 4 of
 \href{http://dx.doi.org/10.1214/ss/1049993203}{Smith (2002)}.

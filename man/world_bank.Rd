@@ -40,12 +40,12 @@ Selected annual World Development Indicators provided in the World Bank's
 World Development Indicators database for the countries of the world,
 1960-2014.  The indicators are
 \itemize{
-  \item{\strong{co2_per_capita}: }{total carbon dioxide emissions per
-    capita, in metric tons per person}
-  \item{\strong{gdp_per_capita}: }{Gross Domestic Product (GDP) per
-    capita, in current US dollars per person}
-  \item{\strong{population_size}: }{total population size}
-  \item{\strong{life_expectancy}: }{life expectancy at birth, in years}
+  \item \strong{co2_per_capita}: total carbon dioxide emissions per
+    capita, in metric tons per person
+  \item \strong{gdp_per_capita}: Gross Domestic Product (GDP) per
+    capita, in current US dollars per person
+  \item \strong{population_size}: total population size
+  \item \strong{life_expectancy}: life expectancy at birth, in years
 }
 }
 \keyword{datasets}

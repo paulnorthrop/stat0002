@@ -7,9 +7,10 @@
 \format{
 A data frame with 42 observations on the following 2 variables.
 \itemize{
-\item{\code{tcell:}}{ a numeric vector giving the number of T-cells.}
-\item{\code{type:}}{ a factor giving the type of lymphoma: Hodgkin's or
-  non-Hodgkin's.}}
+\item \code{tcell:} a numeric vector giving the number of T-cells.
+\item \code{type:} a factor giving the type of lymphoma: Hodgkin's or
+  non-Hodgkin's.
+}
 }
 \usage{
 lymphoma

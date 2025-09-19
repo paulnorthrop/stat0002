@@ -10,28 +10,28 @@ A data frame with 60 observations on the following 17 variables.
   For each competitor, the first row relates to the first round of dives
   and the sixth row the last round.
 \itemize{
-\item{\code{Rank:}}{ Final position (rank) in competition.}
-\item{\code{Name:}}{ Full name.}
-\item{\code{NOCcode:}}{ Country code.}
-\item{\code{DiveNo:}}{ Code for the type of dive performed.}
-\item{\code{DD:}}{ Degree of difficulty: the larger the number the more
-  difficult the dive.}
-\item{\code{J1-J7:}}{ Respective scores from each of the 7 judges.}
-\item{\code{DivePoints:}}{ Points awarded for the dive, based on the scores
-  and the degree of difficulty.}
-\item{\code{DiveRank:}}{ The rank of the dive in the round in question.  In
+\item \code{Rank:} Final position (rank) in competition.
+\item \code{Name:} Full name.
+\item \code{NOCcode:} Country code.
+\item \code{DiveNo:} Code for the type of dive performed.
+\item \code{DD:} Degree of difficulty: the larger the number the more
+  difficult the dive.
+\item \code{J1-J7:} Respective scores from each of the 7 judges.
+\item \code{DivePoints:} Points awarded for the dive, based on the scores
+  and the degree of difficulty.
+\item \code{DiveRank:} The rank of the dive in the round in question.  In
   the raw data there are entries like "=2", resulting from ties.  In
   \code{daley} the "=" sign is removed and the ranks are stored as numeric
-  scalars, e.g. 2.}
-\item{\code{TotalPoints:}}{ The total point accumulated from all dives
-  to this round of the competition.}
-\item{\code{OverallRank:}}{ The rank of the diver after the current round.
+  scalars, e.g. 2.
+\item \code{TotalPoints:} The total point accumulated from all dives
+  to this round of the competition.
+\item \code{OverallRank:} The rank of the diver after the current round.
   In the raw data there are entries like "=2", resulting from ties.  In
   \code{daley} the "=" sign is removed and the ranks are stored as numeric
-  scalars, e.g. 2.}
-\item{\code{PointsBehind:}}{ The number of points that the diver is behind
+  scalars, e.g. 2.
+\item \code{PointsBehind:} The number of points that the diver is behind
   the leader after the current round.  If the diver is the leader then this
-  is missing (NA).}
+  is missing (NA).
 }
 }
 \source{

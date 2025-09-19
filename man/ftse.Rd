@@ -7,8 +7,9 @@
 \format{
 A data frame with 1220 observations on the following 2 variables.
 \itemize{
-\item{\code{date:}}{ the date.}
-\item{\code{price:}}{ the closing price on that date.}}
+\item \code{date:} the date.
+\item \code{price:} the closing price on that date.
+}
 }
 \usage{
 ftse

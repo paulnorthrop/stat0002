@@ -7,8 +7,8 @@
 \format{
 This data frame contains the following columns:
 \itemize{
-  \item{USD.GBP:}{US against UK exchange rate.}
-  \item{CAD.GBP:}{Canada against UK exchange rate.}
+  \item USD.GBP: US against UK exchange rate.
+  \item CAD.GBP: Canada against UK exchange rate.
 }
 }
 \source{

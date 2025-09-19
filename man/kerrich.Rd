@@ -7,9 +7,9 @@
 \format{
 A data frame with 35 observations on 2 variables:
 \itemize{
-  \item{\code{throws:}}{ the number of throws conducted.}
-  \item{\code{heads:}}{ the corresponding cumulative number of heads
-    obtained.}
+  \item \code{throws:} the number of throws conducted.
+  \item \code{heads:} the corresponding cumulative number of heads
+    obtained.
 }
 }
 \usage{

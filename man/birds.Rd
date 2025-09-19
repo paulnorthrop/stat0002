@@ -7,16 +7,16 @@
 \format{
 A data frame with 10 observations on the following 8 variables.
 \itemize{
-\item{\code{species:}}{ a two-letter abbreviation for the bird species.}
-\item{\code{species_name:}}{ the common bird species name.}
-\item{\code{sci_name:}}{ the scientific bird species name.}
-\item{\code{mass_g:}}{ mean species mass in grams.}
-\item{\code{dom_rank:}}{ dominance rank, the smaller the value the more
-  dominant species tends to be over other species.}
-\item{\code{dom_rank_LCI:}}{ lower 95\% confidence limit for the dominance
-  rank.}
-\item{\code{dom_rank_UCI:}}{ upper 95\% confidence limit for the dominance
-  rank.}
+\item \code{species:} a two-letter abbreviation for the bird species.
+\item \code{species_name:} the common bird species name.
+\item \code{sci_name:} the scientific bird species name.
+\item \code{mass_g:} mean species mass in grams.
+\item \code{dom_rank:} dominance rank, the smaller the value the more
+  dominant species tends to be over other species.
+\item \code{dom_rank_LCI:} lower 95\% confidence limit for the dominance
+  rank.
+\item \code{dom_rank_UCI:} upper 95\% confidence limit for the dominance
+  rank.
 }
 }
 \source{

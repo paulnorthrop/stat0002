@@ -7,9 +7,9 @@
 \format{
 A data frame with 8 observations on the following 3 variables.
 \itemize{
-\item{\code{ABO:}}{ Blood type in the ABO system (A, B or O).}
-\item{\code{rhesus:}}{ Blood type in the Rhesus system (Rh+ or Rh-).}
-\item{\code{percentage:}}{ Percentage of people in the ABO-Rhesus blood type}.}
+\item \code{ABO:} Blood type in the ABO system (A, B or O).
+\item \code{rhesus:} Blood type in the Rhesus system (Rh+ or Rh-).
+\item \code{percentage:} Percentage of people in the ABO-Rhesus blood type}.
 }
 \usage{
 blood_types

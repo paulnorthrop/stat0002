@@ -57,9 +57,10 @@
 #'
 #' @format A data frame with 42 observations on the following 2 variables.
 #' \itemize{
-#' \item{\code{tcell:}}{ a numeric vector giving the number of T-cells.}
-#' \item{\code{type:}}{ a factor giving the type of lymphoma: Hodgkin's or
-#'   non-Hodgkin's.}}
+#' \item \code{tcell:} a numeric vector giving the number of T-cells.
+#' \item \code{type:} a factor giving the type of lymphoma: Hodgkin's or
+#'   non-Hodgkin's.
+#' }
 "lymphoma"
 
 #' Blood Types
@@ -68,9 +69,9 @@
 #'
 #' @format A data frame with 8 observations on the following 3 variables.
 #' \itemize{
-#' \item{\code{ABO:}}{ Blood type in the ABO system (A, B or O).}
-#' \item{\code{rhesus:}}{ Blood type in the Rhesus system (Rh+ or Rh-).}
-#' \item{\code{percentage:}}{ Percentage of people in the ABO-Rhesus blood type}.}
+#' \item \code{ABO:} Blood type in the ABO system (A, B or O).
+#' \item \code{rhesus:} Blood type in the Rhesus system (Rh+ or Rh-).
+#' \item \code{percentage:} Percentage of people in the ABO-Rhesus blood type}.
 #'
 "blood_types"
 
@@ -81,8 +82,9 @@
 #'
 #' @format A data frame with 1220 observations on the following 2 variables.
 #' \itemize{
-#' \item{\code{date:}}{ the date.}
-#' \item{\code{price:}}{ the closing price on that date.}}
+#' \item \code{date:} the date.
+#' \item \code{price:} the closing price on that date.
+#' }
 #'
 "ftse"
 
@@ -112,8 +114,8 @@
 #'   county number \code{co}, county name \code{co_names},
 #'   latitude in degrees north \code{lat},
 #'   longitude in degrees west \code{lon}.
-#' \item{Columns 5-12, county demographic variables: }
-#' {population in 1997 \code{npop},
+#' \item Columns 5-12, county demographic variables:
+#'  population in 1997 \code{npop},
 #' percentage of whites in 1996 \code{whit},
 #' percentage of blacks in 1996 \code{blac},
 #' percentage of Hispanics in 1996 \code{hisp},
@@ -122,13 +124,14 @@
 #' (1990 census) \code{hsed},
 #' percentage of the population that graduated from college
 #' (1990 census) \code{coll},
-#' mean personal income (1994) \code{inco}.}
-#' \item{Columns 13-22, numbers of votes for candidates: }{
+#' mean personal income (1994) \code{inco}.
+#' \item Columns 13-22, numbers of votes for candidates:
 #' Bush \code{bush}, Gore \code{gore}, Browne \code{brow},
 #' Nader \code{nade}, Harris \code{harr}, Hagelin \code{hage},
 #' Buchanan \code{buch}, McReynolds \code{mcre}, Phillips \code{phil},
-#' Moorehead \code{moor}}.
-#' \item{Column 23, total number of votes cast: \code{tvot}}.}
+#' Moorehead \code{moor}.
+#' \item Column 23, total number of votes cast: \code{tvot}.
+#' }
 #'
 #' For full details see Tables 1 to 4 of
 #' \href{http://dx.doi.org/10.1214/ss/1049993203}{Smith (2002)}.
@@ -145,12 +148,12 @@
 #' World Development Indicators database for the countries of the world,
 #' 1960-2014.  The indicators are
 #' \itemize{
-#'   \item{\strong{co2_per_capita}: }{total carbon dioxide emissions per
-#'     capita, in metric tons per person}
-#'   \item{\strong{gdp_per_capita}: }{Gross Domestic Product (GDP) per
-#'     capita, in current US dollars per person}
-#'   \item{\strong{population_size}: }{total population size}
-#'   \item{\strong{life_expectancy}: }{life expectancy at birth, in years}
+#'   \item \strong{co2_per_capita}: total carbon dioxide emissions per
+#'     capita, in metric tons per person
+#'   \item \strong{gdp_per_capita}: Gross Domestic Product (GDP) per
+#'     capita, in current US dollars per person
+#'   \item \strong{population_size}: total population size
+#'   \item \strong{life_expectancy}: life expectancy at birth, in years
 #' }
 #' @format A data frame with 217 rows (one for each country) and one column
 #'   for each year in the data, i.e 55 columns.
@@ -183,11 +186,11 @@ NULL
 #'
 #' @format A data frame with 44 observations on the following 3 variables.
 #' \itemize{
-#' \item{\code{time:}}{ the number of minutes past midnight at which the
-#'   baby was born.}
-#' \item{\code{sex:}}{ a character variable, the sex of the baby ("girl"
-#'   or "boy").}
-#' \item{\code{weight:}}{ the weight of the baby in grams.}
+#' \item \code{time:} the number of minutes past midnight at which the
+#'   baby was born.
+#' \item \code{sex:} a character variable, the sex of the baby ("girl"
+#'   or "boy").
+#' \item \code{weight:} the weight of the baby in grams.
 #' }
 #' @source Steele, S. (December 21, 1997), Babies by the Dozen for Christmas:
 #' 24-Hour Baby Boom, The Sunday Mail (Brisbane), page 7.
@@ -200,10 +203,10 @@ NULL
 #' from Earth and the velocity relative to Earth of 24 nebulae.
 #' @format A data frame with 24 observations on the following 2 variables.
 #' \itemize{
-#' \item{\code{distance:}}{ the distance, in megaparsecs, of the nebula
-#'   from Earth.}
-#' \item{\code{velocity:}}{ the velocity, in kilometres per second, of the
-#'   nebula relative to Earth.}
+#' \item \code{distance:} the distance, in megaparsecs, of the nebula
+#'   from Earth.
+#' \item \code{velocity:} the velocity, in kilometres per second, of the
+#'   nebula relative to Earth.
 #' }
 #' @source Hubble, E. (1929) A relation between distance and radial velocity
 #' among extra-galactic nebulae. \emph{Proceedings of the National Academy of
@@ -218,10 +221,10 @@ NULL
 #' @format A data frame with 24 observations on the following 2
 #' variables.
 #' \itemize{
-#' \item{\code{distance:}}{ the distance, in megaparsecs, of the nebula
-#'   from Earth.}
-#' \item{\code{velocity:}}{ the velocity, in kilometres per second, of the
-#'   nebula relative to Earth.}
+#' \item \code{distance:} the distance, in megaparsecs, of the nebula
+#'   from Earth.
+#' \item \code{velocity:} the velocity, in kilometres per second, of the
+#'   nebula relative to Earth.
 #' }
 #' @source The velocity values are from column 7 of Table 5 of Freedman (2001)
 #' and the distance values are the corresponding values from Table 4.
@@ -238,8 +241,8 @@ NULL
 #' chosen at random to be seeded with silver nitrate.
 #' @format A data frame with 26 observations on the following 2 variables.
 #' \itemize{
-#' \item{\code{unseeded:}}{ the rainfall amount for unseeded clouds.}
-#' \item{\code{seeded:}}{ the rainfall amount for unseeded clouds.}
+#' \item \code{unseeded:} the rainfall amount for unseeded clouds.
+#' \item \code{seeded:} the rainfall amount for unseeded clouds.
 #' }
 #' @source Simpson, J., Olsen, A. , and Eden. J.C. (1975). A Bayesian analysis
 #' of a multiplicative treatment effect in weather modification.
@@ -256,16 +259,16 @@ NULL
 #'
 #' @format A data frame with 10 observations on the following 8 variables.
 #' \itemize{
-#' \item{\code{species:}}{ a two-letter abbreviation for the bird species.}
-#' \item{\code{species_name:}}{ the common bird species name.}
-#' \item{\code{sci_name:}}{ the scientific bird species name.}
-#' \item{\code{mass_g:}}{ mean species mass in grams.}
-#' \item{\code{dom_rank:}}{ dominance rank, the smaller the value the more
-#'   dominant species tends to be over other species.}
-#' \item{\code{dom_rank_LCI:}}{ lower 95\% confidence limit for the dominance
-#'   rank.}
-#' \item{\code{dom_rank_UCI:}}{ upper 95\% confidence limit for the dominance
-#'   rank.}
+#' \item \code{species:} a two-letter abbreviation for the bird species.
+#' \item \code{species_name:} the common bird species name.
+#' \item \code{sci_name:} the scientific bird species name.
+#' \item \code{mass_g:} mean species mass in grams.
+#' \item \code{dom_rank:} dominance rank, the smaller the value the more
+#'   dominant species tends to be over other species.
+#' \item \code{dom_rank_LCI:} lower 95\% confidence limit for the dominance
+#'   rank.
+#' \item \code{dom_rank_UCI:} upper 95\% confidence limit for the dominance
+#'   rank.
 #' }
 #' @source \href{https://doi.org/10.1371/journal.pone.0202152.s002}{S1 dataset.}
 #'   Data for species identities, mass and dominance rankings from
@@ -288,28 +291,28 @@ NULL
 #'   For each competitor, the first row relates to the first round of dives
 #'   and the sixth row the last round.
 #' \itemize{
-#' \item{\code{Rank:}}{ Final position (rank) in competition.}
-#' \item{\code{Name:}}{ Full name.}
-#' \item{\code{NOCcode:}}{ Country code.}
-#' \item{\code{DiveNo:}}{ Code for the type of dive performed.}
-#' \item{\code{DD:}}{ Degree of difficulty: the larger the number the more
-#'   difficult the dive.}
-#' \item{\code{J1-J7:}}{ Respective scores from each of the 7 judges.}
-#' \item{\code{DivePoints:}}{ Points awarded for the dive, based on the scores
-#'   and the degree of difficulty.}
-#' \item{\code{DiveRank:}}{ The rank of the dive in the round in question.  In
+#' \item \code{Rank:} Final position (rank) in competition.
+#' \item \code{Name:} Full name.
+#' \item \code{NOCcode:} Country code.
+#' \item \code{DiveNo:} Code for the type of dive performed.
+#' \item \code{DD:} Degree of difficulty: the larger the number the more
+#'   difficult the dive.
+#' \item \code{J1-J7:} Respective scores from each of the 7 judges.
+#' \item \code{DivePoints:} Points awarded for the dive, based on the scores
+#'   and the degree of difficulty.
+#' \item \code{DiveRank:} The rank of the dive in the round in question.  In
 #'   the raw data there are entries like "=2", resulting from ties.  In
 #'   \code{daley} the "=" sign is removed and the ranks are stored as numeric
-#'   scalars, e.g. 2.}
-#' \item{\code{TotalPoints:}}{ The total point accumulated from all dives
-#'   to this round of the competition.}
-#' \item{\code{OverallRank:}}{ The rank of the diver after the current round.
+#'   scalars, e.g. 2.
+#' \item \code{TotalPoints:} The total point accumulated from all dives
+#'   to this round of the competition.
+#' \item \code{OverallRank:} The rank of the diver after the current round.
 #'   In the raw data there are entries like "=2", resulting from ties.  In
 #'   \code{daley} the "=" sign is removed and the ranks are stored as numeric
-#'   scalars, e.g. 2.}
-#' \item{\code{PointsBehind:}}{ The number of points that the diver is behind
+#'   scalars, e.g. 2.
+#' \item \code{PointsBehind:} The number of points that the diver is behind
 #'   the leader after the current round.  If the diver is the leader then this
-#'   is missing (NA).}
+#'   is missing (NA).
 #' }
 #' @details \code{DivePoints} is calculated by: removing the 2 smallest and 2
 #'   largest scores from the 7 scores \code{J1-J7}; calculating the sum of the
@@ -326,9 +329,9 @@ NULL
 #'
 #' @format A data frame with 35 observations on 2 variables:
 #' \itemize{
-#'   \item{\code{throws:}}{ the number of throws conducted.}
-#'   \item{\code{heads:}}{ the corresponding cumulative number of heads
-#'     obtained.}
+#'   \item \code{throws:} the number of throws conducted.
+#'   \item \code{heads:} the corresponding cumulative number of heads
+#'     obtained.
 #' }
 #' @details These data are considered in
 #' \href{https://paulnorthrop.github.io/stat0002book/probability.html#relative-frequency-definition-of-probability}{Section 3.2}
@@ -372,8 +375,8 @@ NULL
 #'
 #' @format This data frame contains the following columns:
 #' \itemize{
-#'   \item{USD.GBP:}{US against UK exchange rate.}
-#'   \item{CAD.GBP:}{Canada against UK exchange rate.}
+#'   \item USD.GBP: US against UK exchange rate.
+#'   \item CAD.GBP: Canada against UK exchange rate.
 #' }
 #' @source Coles, S. G. (2001) \emph{An Introduction to Statistical Modelling
 #'   of Extreme Values.} London: Springer.
@@ -395,8 +398,8 @@ NULL
 #'
 #' @format A dataframe with 173 rows and 2 columns:
 #' \itemize{
-#' \item{\code{year}:}{ the year.}
-#' \item{\code{temp}:}{ the temperature anomaly in degrees C.}
+#' \item \code{year}: the year.
+#' \item \code{temp}: the temperature anomaly in degrees C.
 #' }
 #' @source Kennedy, J. J., Rayner, N. A., Atkinson, C. P., & Killick, R. E.
 #'   (2019). An ensemble data set of sea surface temperature change from 1850:

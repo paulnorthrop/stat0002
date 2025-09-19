@@ -7,8 +7,8 @@
 \format{
 A data frame with 26 observations on the following 2 variables.
 \itemize{
-\item{\code{unseeded:}}{ the rainfall amount for unseeded clouds.}
-\item{\code{seeded:}}{ the rainfall amount for unseeded clouds.}
+\item \code{unseeded:} the rainfall amount for unseeded clouds.
+\item \code{seeded:} the rainfall amount for unseeded clouds.
 }
 }
 \source{

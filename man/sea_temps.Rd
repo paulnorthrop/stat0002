@@ -7,8 +7,8 @@
 \format{
 A dataframe with 173 rows and 2 columns:
 \itemize{
-\item{\code{year}:}{ the year.}
-\item{\code{temp}:}{ the temperature anomaly in degrees C.}
+\item \code{year}: the year.
+\item \code{temp}: the temperature anomaly in degrees C.
 }
 }
 \source{

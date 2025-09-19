@@ -7,10 +7,10 @@
 \format{
 A data frame with 24 observations on the following 2 variables.
 \itemize{
-\item{\code{distance:}}{ the distance, in megaparsecs, of the nebula
-  from Earth.}
-\item{\code{velocity:}}{ the velocity, in kilometres per second, of the
-  nebula relative to Earth.}
+\item \code{distance:} the distance, in megaparsecs, of the nebula
+  from Earth.
+\item \code{velocity:} the velocity, in kilometres per second, of the
+  nebula relative to Earth.
 }
 }
 \source{
