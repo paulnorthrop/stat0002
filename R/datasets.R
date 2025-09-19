@@ -108,10 +108,10 @@
 #' @format A data frame with 67 observations on 22 variables.
 #' Each row relates to a county in Florida.
 #' \itemize{
-#' \item{Columns 1-4, county identifiers and location: }
-#'   {county number \code{co}, county name \code{co_names},
+#' \item Columns 1-4, county identifiers and location:
+#'   county number \code{co}, county name \code{co_names},
 #'   latitude in degrees north \code{lat},
-#'   longitude in degrees west \code{lon}.}
+#'   longitude in degrees west \code{lon}.
 #' \item{Columns 5-12, county demographic variables: }
 #' {population in 1997 \code{npop},
 #' percentage of whites in 1996 \code{whit},
