@@ -1,0 +1,88 @@
+---
+title: "A basic example Rmd document"
+author: "Paul Northrop"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+lang: "en-gb"
+output: 
+  word_document: default
+  html_document: default
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE, prompt = TRUE, fig.align = 'center')
+knitr::opts_knit$set(global.par = TRUE)
+```
+
+We load the `stat0002` R package.
+
+```{r stat0002, warning = FALSE, message = FALSE}
+library(stat0002)
+```
+
+We simulate some example data and store it in the vector `x`.
+
+```{r example_data}
+x <- rnorm(100)
+```
+
+# Summary statistics
+
+```{r}
+five_number(x)
+summary(x)
+```
+
+See the [Summary statistics section](https://paulnorthrop.github.io/stat0002book/descriptive.html#summary-statistics) of the STAT0002 notes. See also the `stat0002` R package article [Chapter 2: Descriptive Statistics](https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2a-descriptive-statistics-vignette.html) to help you consider why some of these numbers seem to be in disagreement.
+
+# Plots
+
+```{r plot_margins, echo = FALSE}
+# We adjust the plot margins.
+oldpar <- par(mar = c(4, 4, 0, 0))
+```
+
+```{r Rfigure, fig.alt = "Alt text to describe the content of the figure.", fig.cap = "A boxplot of a random sample from a standard normal distribution.", echo = TRUE, fig.width = 6, fig.height= 4, fig.align='center'}
+box_plot(x, horizontal = TRUE, xlab = "Sample values")
+```
+
+See the [Boxplots](https://paulnorthrop.github.io/stat0002book/descriptive.html#boxplots) of the STAT0002 notes. See also the `stat0002` R package article [Chapter 2: Graphs (One Variable)](https://paulnorthrop.github.io/stat0002/articles/stat0002-ch2b-graphs-vignette.html) to help you consider why some of these numbers seem to be in disagreement.
+
+```{r plot_margins_reset, echo = FALSE}
+# Reset the plot margins to their origin values.
+par(oldpar)
+```
+
+# Lists
+
+Bullet points
+
+* Bullet 1
+* Bullet 2
+
+Numbered points
+
+1. Point 1
+2. Point 2
+3. Point 3
+
+#  Mathematics
+
+We can typeset mathematics within sentences by place mathematical notation inside a pair of dollar signs \$ \$, for example, $ax^2 + b x + c$, $\log_e y$, $\ln y$, $\exp(x)$, $\frac{1}{n}$ or $1/n$.
+
+## Displayed equations
+
+$$y = mx + c.$$
+
+$$
+\begin{aligned}
+P(X \leq x)
+&= P(F^{-1}(U) \leq x) \\
+&= P(F(F^{-1}(U)) \leq F(x)) \\
+&= P(U \leq F(x)) = F(x).
+\end{aligned}
+$$
+
+Tips (prompted by issues when creating Word output):
+
+* We need to wrap LaTeX maths environments in ```$$ ... $$```.  Otherwise, the maths is ignored.
+* Use ```\text{}``` or ```\mbox{}``` for text in an maths environment. (```\rm{}``` causes problems.)

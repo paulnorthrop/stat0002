@@ -18,3 +18,5 @@
 ^install$
 ^\.github$
 ^ex7sim\.R$
+^inst/examples/example\.html$
+^inst/examples/example\.docx$

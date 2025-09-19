@@ -9,3 +9,5 @@ Meta
 /Meta/
 install/results.tar.bz2
 install/OLD_BUILDS
+inst/examples/example.html
+inst/examples/example.docx
