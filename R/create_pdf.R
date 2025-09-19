@@ -82,11 +82,11 @@ NULL
 #' @export
 word <- function(x, pdf = isTRUE(.Platform$OS.type == "windows"), zip = FALSE,
                  ...) {
-  access::rmd2word(x, pdf = pdf, zip = zip, ...)
+  accessr::rmd2word(x, pdf = pdf, zip = zip, ...)
 }
 
 #' @rdname create_pdf
 #' @export
 html <- function(x, pdf = TRUE, zip = FALSE, ...) {
-  access::rmd2html(x, pdf = pdf, zip = zip, ...)
+  accessr::rmd2html(x, pdf = pdf, zip = zip, ...)
 }
