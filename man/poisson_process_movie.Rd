@@ -59,7 +59,7 @@ This movie contains two displays of plots: one plot on the top and
   on the radio button clicked by the user. The choices are
   \itemize{
   \item "none": Nothing is plotted
-  \item "numbers of events in each hour" }{A barplot (the red bars) giving
+  \item "numbers of events in each hour": A barplot (the red bars) giving
     the proportions of the hours for which there are 0, 1 , 2, ... events.
     Also included are black bars showing the p.m.f. of a
     Poisson(\eqn{\lambda}) random variable.
