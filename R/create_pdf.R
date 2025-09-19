@@ -49,13 +49,13 @@
 #'   \code{\link[accessr]{install_otp}}.
 #' @examples
 #'
+#' \dontrun{
 #' # We copy example.Rmd to the current working directory.
 #' # Then we call word() and html().
 #'
 #' eg <- system.file(package = "stat0002", "examples", "example.Rmd")
 #' file.copy(eg, getwd(), overwrite = TRUE)
 #'
-#' \dontrun{
 #' # These examples are not run when the package is tested because they will
 #' # not work on all operating systems.
 #'
