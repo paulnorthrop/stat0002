@@ -20,15 +20,13 @@
 #'     \code{.Platform$OS.type == "windows"} and the `OfficeToPDF` software has
 #'     been installed (see \code{\link[accessr]{install_otp}}) then a PDF file
 #'     is created from each Word file. Otherwise, no PDF files are created.
-#'   \item \code{html}: each html file is printed to a PDF file using
-#'   \code{\link[pagedown]{chrome_print}}. Google Chrome (or an alternative
-#'   browser specified in \code{pdf_args} by the \code{browser} argument to
-#'   \code{\link[pagedown]{chrome_print}}) must be installed prior to use of
-#'   this option. An error message like
-#'   \code{Error in servr::random_port(NULL) : Cannot find an available TCP port}
-#'   means that the \code{random_port} function in the \code{servr}
-#'   package could not find an internet connection that Chrome considers
-#'   secure.  Perhaps you are using a coffee shop's wifi.
+#'   \item \code{html}: each html file is printed to a PDF file using the
+#'     \code{chrome_print} function from the \code{pagedown} package.
+#'     Google Chrome must be installed prior to use of this option. An error
+#'     message like \code{Error in servr::random_port(NULL) : Cannot find an
+#'     available TCP port} means that the \code{random_port} function in the
+#'     \code{servr} package could not find an internet connection that Chrome
+#'     considers secure.  Perhaps you are using a coffee shop's wifi.
 #'   }
 #' @param zip A logical scalar. The argument \code{zip} to
 #'   \code{\link[accessr]{rmd2word}} or \code{\link[accessr]{rmd2html}}.
