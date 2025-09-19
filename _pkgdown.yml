@@ -89,7 +89,7 @@ reference:
       - "lin_reg_movie"
       - "lev_inf_movie"
       - "corr_sim_movie"
-  - title: Create PDF, Word or HTML R output
+  - title: R Markdown helper functions
     desc: ~
     contents:
       - "create_pdf"
