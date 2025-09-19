@@ -8,11 +8,12 @@
 #'
 #' @format A dataframe with 24 rows and 5 columns:
 #' \itemize{
-#' \item{\code{flight}:}{ the flight number.}
-#' \item{\code{date}:}{ the date.}
-#' \item{\code{damaged}:}{ the number of O-rings with thermal distress.}
-#' \item{\code{temperature}:}{ temperature, in degrees Fahrenheit.}
-#' \item{\code{pressure}:}{ pressure, pounds per square inch.}}
+#' \item \code{flight}: the flight number.
+#' \item \code{date}: the date.
+#' \item \code{damaged}: the number of O-rings with thermal distress.
+#' \item \code{temperature}: temperature, in degrees Fahrenheit.
+#' \item \code{pressure}: pressure, pounds per square inch.
+#' }
 #'
 #' The first 23 rows contain data for test flights.  The last row
 #' contains the data for the ill-fated flight on 28th January 1986,
@@ -33,8 +34,9 @@
 #'
 #' @format A data frame with 95 observations on the following 2 variables.
 #' \itemize{
-#' \item{\code{day:}}{ Day on which the woman arrived.}
-#' \item{\code{time:}}{ Time (hours) spent on delivery suite.}}
+#' \item \code{day:} Day on which the woman arrived.
+#' \item \code{time:} Time (hours) spent on delivery suite.
+#' }
 #'
 #' @source Davison, A. C. (2003) Statistical Models. Cambridge University Press.
 #'   Page 18.
@@ -96,9 +98,10 @@
 #'
 #' @format A data frame with 494 observations on the following 2 variables.
 #' \itemize{
-#' \item{\code{date:}}{ the date.}
-#' \item{\code{visits:}}{ the number of people visiting their doctor with
-#' symptoms of flu.}}
+#' \item \code{date:} the date.
+#' \item \code{visits:} the number of people visiting their doctor with
+#' symptoms of flu.
+#' }
 #'
 "flu"
 

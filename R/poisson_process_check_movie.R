@@ -35,17 +35,17 @@
 #'   The type of plot that appears in the bottom of the display depends
 #'   on the radio click by the user. The choices are
 #'   \itemize{
-#'   \item{"none" }{Nothing is plotted}
-#'   \item{"numbers of events in each hour" }{A barplot (the red bars) giving
+#'   \item "none": Nothing is plotted
+#'   \item "numbers of events in each hour": A barplot (the red bars) giving
 #'     the proportions of the hours for which there are 0, 1 , 2, ... events.
 #'     Also included are black bars showing the p.m.f. of a
-#'     Poisson(\eqn{m}) random variable.}
-#'   \item{"times between events" }{A histogram (with red rectangles) of
+#'     Poisson(\eqn{m}) random variable.
+#'   \item "times between events": A histogram (with red rectangles) of
 #'     the sample times between events, with the p.d.f. of an
-#'     exponential(\eqn{m}) random variable superimposed.}
-#'   \item{"times at which events occur" }{A histogram (with red rectangles)
+#'     exponential(\eqn{m}) random variable superimposed.
+#'   \item "times at which events occur": A histogram (with red rectangles)
 #'     of the simulated event times, with the p.d.f. of a
-#'     uniform(0, \code{hours}) random variable superimposed.}
+#'     uniform(0, \code{hours}) random variable superimposed.
 #'   }
 #'   The type of plot can be changed by clicking on the appropriate radio
 #'   button.

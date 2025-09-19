@@ -58,17 +58,17 @@ This movie contains two displays of plots: one plot on the top and
   The type of plot that appears in the bottom of the display depends
   on the radio button clicked by the user. The choices are
   \itemize{
-  \item{"none" }{Nothing is plotted}
-  \item{"numbers of events in each hour" }{A barplot (the red bars) giving
+  \item "none": Nothing is plotted
+  \item "numbers of events in each hour" }{A barplot (the red bars) giving
     the proportions of the hours for which there are 0, 1 , 2, ... events.
     Also included are black bars showing the p.m.f. of a
-    Poisson(\eqn{\lambda}) random variable.}
-  \item{"times between events" }{A histogram (with red rectangles) of
+    Poisson(\eqn{\lambda}) random variable.
+  \item "times between events": A histogram (with red rectangles) of
     the simulated times between events, with the p.d.f. of an
-    exponential(\eqn{\lambda}) random variable superimposed.}
-  \item{"times at which events occur" }{A histogram (with red rectangles)
+    exponential(\eqn{\lambda}) random variable superimposed.
+  \item "times at which events occur": A histogram (with red rectangles)
     of the simulated event times, with the p.d.f. of a
-    uniform(0, \code{hours}) random variable superimposed.}
+    uniform(0, \code{hours}) random variable superimposed.
   }
   Each time the "simulate another sequence of events" button is clicked
   [or the currently-selected radio button is clicked again] then a new
