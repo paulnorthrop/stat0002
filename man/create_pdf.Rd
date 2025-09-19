@@ -4,7 +4,7 @@
 \alias{create_pdf}
 \alias{word}
 \alias{html}
-\title{Create PDF output}
+\title{Create PDF, Word or HTML R output}
 \usage{
 word(x, pdf = isTRUE(.Platform$OS.type == "windows"), zip = FALSE, ...)
 

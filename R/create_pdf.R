@@ -1,4 +1,4 @@
-#' Create PDF output
+#' Create PDF, Word or HTML R output
 #'
 #' Functions to create PDF files containing R output and/or Microsoft Word or
 #' HTML files from which PDF files can be produced.
