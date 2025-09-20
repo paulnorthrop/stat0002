@@ -1,0 +1,76 @@
+---
+title: "Creating PDF files using R markdown"
+author: "Paul Northrop"
+date: ""
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+vignette: >
+  %\VignetteIndexEntry{Creating PDF files using R markdown}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+bibliography: stat0002.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE)
+```
+
+STAT0004: R Markdown tutorial at the end of Term 1.
+
+[R Markdown from RStudio](https://rmarkdown.rstudio.com/).
+
+Helper wrapper files in `stat0002`.
+
+* `stat0002::word()`.
+* `stat0002::html()`
+
+Command line using `accessr` or using the Knit button.
+
+Look at the STAT0004/STAT0006 Moodle pages
+
+# Cut-and-paste using a Word Processor
+
+This is the least elegant and most time-consuming approach, but it can be useful ...
+
+# PDF
+
+Accessibility (links). May not matter for your personal use.
+
+# Via Word using `accessr`
+
+## Windows users
+
+```{r}
+library(accessr)
+```
+
+Either 
+
+* `OfficeToPDF` works only on a Windows operating system.
+
+or following the general instructons for Mac / linux users below.
+
+## Mac / linux users
+
+* Create the Word file using `rmd2word()`.
+* (Perhaps convert it to an alternative format.)
+* Open it in a Word Processor and print to PDF. 
+
+
+# Via HTML using Google print
+
+* PDF file is not accessible
+
+# Directly, using LaTeX
+
+* Requires a LaTeX installation
+* PDF file is not accessible
+
+
+
+## References
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
+</script>
