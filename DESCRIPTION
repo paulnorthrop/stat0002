@@ -10,7 +10,7 @@ Description: Provides R code, datasets and vignettes to help students taking
   London to understand the course material and to see how R can be used to 
   perform some of the analyses in the course.
 Depends: 
-    R (>= 3.3.0)
+    R (>= 3.5)
 License: GPL (>= 2)
 LazyData: TRUE
 Encoding: UTF-8
