@@ -1,0 +1,66 @@
+---
+title: "Template Rmd document for Exercises 1"
+author: "Paul Northrop"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+lang: "en-gb"
+output: 
+  html_document: default
+  word_document: default
+---
+
+```{r, include = FALSE}
+# Set some default options for the R Markdown code (called "chunks") below
+# Each chunk starts with ```{r } and ends with ```
+#   echo = TRUE: the code in the chunk will be printed
+#   prompt = TRUE: the R prompt > will appear with R code
+#   fig.align = 'center': plots will be centered on the page
+#   message = FALSE and warning = FALSE turns off messages and warnings
+knitr::opts_chunk$set(echo = TRUE, prompt = TRUE, fig.align = 'center',
+                      message = FALSE, warning = FALSE)
+```
+
+Of course, you should replace the text below with your own work.
+
+The R Markdown chunk immediately below loads the `stat0002` package. If you do not have this installed then change `eval = TRUE` to `eval = FALSE` (`eval` is short for evaluate).
+
+```{r load_stat0002, eval = TRUE}
+library(stat0002)
+```
+
+```{r, echo = TRUE, eval = TRUE}
+dat <- "https://github.com/paulnorthrop/stat0002/blob/master/days.Rdata?raw=true"
+load(url(dat))
+```
+
+# 1 
+
+Perform calculations by hand or use R. If you do the calculations by hand then given your final answer in the form: (minimum, lower quartile, median, upper quartile, maximum). If you use R then include your code and the output that it produces.
+
+# 2
+
+The following code produces a boxplot that is similar to the one in the Exercises 1 instructions.
+
+```{r boxplot}
+box_plot(days, horizontal = TRUE, 
+         xlab = "mystery variable (days)",
+         axes = TRUE, cex.lab = 1.5, cex.axis = 1.5)
+```
+# 3
+
+Use `?hist` to see instructions for creating a histogram.
+
+```{r}
+?hist
+```
+
+# 4
+
+Use `?stem` to see instructions for creating a stem-and-leaf plot.
+
+# 5
+
+Write text here either to answer question 5.
+
+# 6
+
+Write text here either to answer question 6.
