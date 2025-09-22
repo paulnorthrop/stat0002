@@ -18,6 +18,6 @@
 ^install$
 ^\.github$
 ^ex7sim\.R$
-[.]docx$
-[.]pdf$
-[.]html$
+^^inst/examples/\.*\\.docx$$
+^^inst/examples/\.*\\.html$$
+^^inst/examples/\.*\\.pdf$$
