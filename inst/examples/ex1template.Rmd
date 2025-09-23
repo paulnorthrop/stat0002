@@ -10,7 +10,7 @@ output:
 
 ```{r, include = FALSE}
 # Set some default options for the R Markdown code (called "chunks") below
-# Each chunk starts with ```{r } and ends with ```
+# Each chunk starts with ```{r name_of_chunk} and ends with ```
 #   echo = TRUE: the code in the chunk will be printed
 #   prompt = TRUE: the R prompt > will appear with R code
 #   fig.align = 'center': plots will be centered on the page
