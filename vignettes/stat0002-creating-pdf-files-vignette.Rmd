@@ -12,65 +12,126 @@ vignette: >
 bibliography: stat0002.bib
 ---
 
-```{r, include = FALSE}
-knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE)
+```{r chunks, include = FALSE}
+knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE, eval = FALSE)
 ```
 
-STAT0004: R Markdown tutorial at the end of Term 1.
+When working on STAT0002 Exercises 1 you have the **option** of using R to perform calculations and create plots. If you prefer to everything by hand then follow the guidance in the **Creating your PDF file** section of [Exercise submission and your participation mark](https://moodle.ucl.ac.uk/mod/page/view.php?id=7763554).
 
-[R Markdown from RStudio](https://rmarkdown.rstudio.com/).
+This article describes ways to use R to create a PDF file containing your work. I suggest that in the long-term using [R Markdown](https://rmarkdown.rstudio.com/) is the best option. If you are taking STAT0004, or auditing the STAT0004 Moodle page, then R Markdown will be covered towards the end of Term 1, so you could wait until then to try R Markdown and, for now, use the following "copy-and-paste" approach.
 
-Helper wrapper files in `stat0002`.
+# Copy-and-paste
 
-* `stat0002::word()`.
-* `stat0002::html()`
+This is the least elegant approach, but it is simple.
 
-Command line using `accessr` or using the Knit button.
+1.  Open a file in the word processor of your choice. (It must have the capability of creating a PDF file.)
+    -   For the weekly exercises include a title like "Exercises 1" and your full name and student ID number.
+2.  Type text to answer questions in the usual way.
+3.  R code with output in the R Console:
+    -   Highlight the code and the output, e.g. using left click with a mouse.
+    -   Copy the highlighted text e.g. right click and Copy.
+    -   Navigate to your word processor file and paste the text where you would like it to appear, e.g. right click Paste.
+4.  R code producing plot output in the Plots tab. Either:
+    -   Right click "Copy Image" and paste into your document, or
+    -   Right click "Save image as ...", save and import the image file into your document, or
+    -   Click "Export" above the plot and "Copy to Clipboard", or
+    -   Click "Export" and "Save image as ...", save and import the image file into your document.
 
-Look at the STAT0004/STAT0006 Moodle pages
+When you are finished, save your file in PDF format. For the weekly exercises
 
-# Cut-and-paste using a Word Processor
+# R Markdown in RStudio
 
-This is the least elegant and most time-consuming approach, but it can be useful ...
+I will assume that you are using [RStudio](https://posit.co/download/rstudio-desktop/). You might find [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) helpful.
 
-# PDF
+I have provided a template R Markdown file [ex1template.Rmd](https://github.com/paulnorthrop/stat0002/blob/master/inst/examples/ex1template.Rmd) for you to use. You may like to rename this file. If you do this then replace `ex1template` in the text below with the name that you choose.
 
-Accessibility (links). May not matter for your personal use.
+-   Follow this link, click on the "Download raw file" (a downwards pointing arrow) icon near the top right of the page.
+-   Move this file to a directory of your choice and click on it to open a **new** RStudio session.
 
-# Via Word using `accessr`
+The file should open in RStudio, if you have RStudio installed.
 
-## Windows users
+There are several ways to create a PDF using from an `.Rmd` file. The easiest way is to use the Knit button, but I will also outline approaches that call an R function from the command prompt `>` in the RStudio Console.
 
-```{r}
+# Using the Knit button
+
+Above the title "Template Rmd document for Exercises 1" is a Knit button with a triangle on its right side. 
+
+## Knit to Word
+
+* Click on the triangle and select either "Knit to Word". A file `ex1template.docx` is created in your chosen directory. 
+* If you have software that enables you to open the Word document `ex1template.docx` file then you can save this file in PDF format.
+
+## Knit to HTML
+
+* If you select "Knit to HTML" then a file `ex1template.html` is created.
+* You can create a PDF file from `ex1template.html` by opening it in a browser, e.g. Google chrome, and printing to PDF.
+
+## Knit to PDF
+
+It is possible to Knit directly to PDF format by selecting the "Knit to PDF" option. However, this requires that an installation of LaTeX - software designed to create nice-looking mathematics - is available to RStudio on the computer that you are using. I expect that you have never heard of LaTeX, and may not need it unless you do a final year project. 
+
+However, if "Knit to PDF" does not work and you would like it to then see follow  the instructions in [Chapter 1 Installation](https://bookdown.org/yihui/rmarkdown/installation.html)
+of [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) for creating a LaTeX installation using `TinyTeX`.
+
+# Using an R function
+
+The Knit button creates output of different types by calling an R function, in the `rmarkdown` package, called `render`. The following code will work provided that your Rmd file is located in your current working directory, which will be the case if you started your RStudio session by clicking on your Rmd file to open it. To check this, use the `getwd` function:
+
+```{r getwd}
+getwd()
+```
+
+## The `accessr` package
+
+The [accessr](https://paulnorthrop.github.io/accessr/) package provides functions that call `render` for certain output file formats. The following command line R code creates Word and HTML documents. The Word document will look a bit different to the one produced above because `accessr` uses a different default style of Word document.
+
+### Word and HTML
+
+```{r accessr}
+# Load accessr
 library(accessr)
+# Knit and render to Word 
+rmd2word("ex1template", pdf = FALSE)
+# Knit and render to HTML
+rmd2html("ex1template", pdf = FALSE)
 ```
 
-Either 
+### PDF
 
-* `OfficeToPDF` works only on a Windows operating system.
+If you are using Microsoft Windows then you can set `pdf = TRUE` to create automatically a PDF copy of an output Word document. This requires the [OfficeToPDF](https://github.com/cognidox/OfficeToPDF/releases) software to be installed.
 
-or following the general instructons for Mac / linux users below.
+```{r install_otp}
+# Install OfficeToPDF from https://github.com/cognidox/OfficeToPDF/releases
+install_otp(dir = "accessr")
+```
 
-## Mac / linux users
+```{r accessr_word_pdf}
+# Knit and render to Word and PDF
+# (Microsoft Windows only)
+rmd2word("ex1template", pdf = TRUE)
+```
 
-* Create the Word file using `rmd2word()`.
-* (Perhaps convert it to an alternative format.)
-* Open it in a Word Processor and print to PDF. 
+Similarly, on Windows, macOS or linux, we can print HTML output to PDF automatically.
 
+```{r accessr_html_pdf}
+# Knit and render to HTML and print to PDF
+# (Need a browser, such as Google Chrome or Microsoft Edge)
+rmd2html("ex1template", pdf = TRUE)
+```
 
-# Via HTML using Google print
+## The `stat0002` package
 
-* PDF file is not accessible
+If you have installed the [stat0002](https://paulnorthrop.github.io/stat0002/) package then you can save a few key strokes using the convenience functions `word()` and `html`, for example:
 
-# Directly, using LaTeX
+```{r stat0002}
+# Load stat0002
+library(stat0002)
+word("ex1template", pdf = FALSE)
+html("ex1template", pdf = FALSE)
+```
 
-* Requires a LaTeX installation
-* PDF file is not accessible
-
-
-
-## References
-
+```{=html}
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script>
+```
