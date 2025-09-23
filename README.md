@@ -32,8 +32,8 @@ not taking STAT0004, e.g. Natural Sciences students).
 
 If you need to install R then you can get it from
 [CRAN](https://cran.r-project.org/). Choose your computer’s operating
-system: Windows, macOS or Linux. Do not change the default installation
-settings.
+system: Windows, macOS or Linux. **Do not change the default
+installation settings.**
 
 **For users of older Intel Macs**: parts of `stat0002` uses the `tcltk`
 package, so you may need to install

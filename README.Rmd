@@ -29,7 +29,7 @@ For information about R see the **STAT0004 Moodle page** (if you are taking STAT
 
 ### Software required
 
-If you need to install R then you can get it from [CRAN](https://cran.r-project.org/). Choose your computer's operating system: Windows, macOS or Linux. Do not change the default installation settings. 
+If you need to install R then you can get it from [CRAN](https://cran.r-project.org/). Choose your computer's operating system: Windows, macOS or Linux. **Do not change the default installation settings.** 
 
 **For users of older Intel Macs**: parts of `stat0002` uses the `tcltk` package, so you may need to install [XQuartz](http://xquartz.macosforge.org/). 
 
