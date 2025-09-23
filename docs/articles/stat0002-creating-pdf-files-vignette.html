@@ -90,71 +90,175 @@ Northrop</h4>
 
     
     
-<p>STAT0004: R Markdown tutorial at the end of Term 1.</p>
-<p><a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown from
-RStudio</a>.</p>
-<p>Helper wrapper files in <code>stat0002</code>.</p>
+<p>When working on STAT0002 Exercises 1 you have the
+<strong>option</strong> of using R to perform calculations and create
+plots. If you prefer to everything by hand then follow the guidance in
+the <strong>Creating your PDF file</strong> section of <a href="https://moodle.ucl.ac.uk/mod/page/view.php?id=7763554" class="external-link">Exercise
+submission and your participation mark</a>.</p>
+<p>This article describes ways to use R to create a PDF file containing
+your work. I suggest that in the long-term using <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> is the best option.
+If you are taking STAT0004, or auditing the STAT0004 Moodle page, then R
+Markdown will be covered towards the end of Term 1, so you could wait
+until then to try R Markdown and, for now, use the following
+“copy-and-paste” approach.</p>
+<div class="section level2">
+<h2 id="copy-and-paste">Copy-and-paste<a class="anchor" aria-label="anchor" href="#copy-and-paste"></a>
+</h2>
+<p>This is the least elegant approach, but it is simple.</p>
+<ol style="list-style-type: decimal">
+<li>Open a file in the word processor of your choice. (It must have the
+capability of creating a PDF file.)
 <ul>
-<li>
-<code><a href="../reference/create_pdf.html">stat0002::word()</a></code>.</li>
-<li><code><a href="../reference/create_pdf.html">stat0002::html()</a></code></li>
+<li>For the weekly exercises include a title like “Exercises 1” and your
+full name and student ID number.</li>
 </ul>
-<p>Command line using <code>accessr</code> or using the Knit button.</p>
-<p>Look at the STAT0004/STAT0006 Moodle pages</p>
-<div class="section level2">
-<h2 id="cut-and-paste-using-a-word-processor">Cut-and-paste using a Word Processor<a class="anchor" aria-label="anchor" href="#cut-and-paste-using-a-word-processor"></a>
-</h2>
-<p>This is the least elegant and most time-consuming approach, but it
-can be useful …</p>
+</li>
+<li>Type text to answer questions in the usual way.</li>
+<li>R code with output in the R Console:
+<ul>
+<li>Highlight the code and the output, e.g. using left click with a
+mouse.</li>
+<li>Copy the highlighted text e.g. right click and Copy.</li>
+<li>Navigate to your word processor file and paste the text where you
+would like it to appear, e.g. right click Paste.</li>
+</ul>
+</li>
+<li>R code producing plot output in the Plots tab. Either:
+<ul>
+<li>Right click “Copy Image” and paste into your document, or</li>
+<li>Right click “Save image as …”, save and import the image file into
+your document, or</li>
+<li>Click “Export” above the plot and “Copy to Clipboard”, or</li>
+<li>Click “Export” and “Save image as …”, save and import the image file
+into your document.</li>
+</ul>
+</li>
+</ol>
+<p>When you are finished, save your file in PDF format. For the weekly
+exercises</p>
 </div>
 <div class="section level2">
-<h2 id="pdf">PDF<a class="anchor" aria-label="anchor" href="#pdf"></a>
+<h2 id="r-markdown-in-rstudio">R Markdown in RStudio<a class="anchor" aria-label="anchor" href="#r-markdown-in-rstudio"></a>
 </h2>
-<p>Accessibility (links). May not matter for your personal use.</p>
+<p>I will assume that you are using <a href="https://posit.co/download/rstudio-desktop/" class="external-link">RStudio</a>. You might
+find <a href="https://bookdown.org/yihui/rmarkdown/" class="external-link">R Markdown: The
+Definitive Guide</a> helpful.</p>
+<p>I have provided a template R Markdown file <a href="https://github.com/paulnorthrop/stat0002/blob/master/inst/examples/ex1template.Rmd">ex1template.Rmd</a>
+for you to use. You may like to rename this file. If you do this then
+replace <code>ex1template</code> in the text below with the name that
+you choose.</p>
+<ul>
+<li>Follow this link, click on the “Download raw file” (a downwards
+pointing arrow) icon near the top right of the page.</li>
+<li>Move this file to a directory of your choice and click on it to open
+a <strong>new</strong> RStudio session.</li>
+</ul>
+<p>The file should open in RStudio, if you have RStudio installed.</p>
+<p>There are several ways to create a PDF using from an
+<code>.Rmd</code> file. The easiest way is to use the Knit button, but I
+will also outline approaches that call an R function from the command
+prompt <code>&gt;</code> in the RStudio Console.</p>
 </div>
 <div class="section level2">
-<h2 id="via-word-using-accessr">Via Word using <code>accessr</code><a class="anchor" aria-label="anchor" href="#via-word-using-accessr"></a>
+<h2 id="using-the-knit-button">Using the Knit button<a class="anchor" aria-label="anchor" href="#using-the-knit-button"></a>
 </h2>
+<p>Above the title “Template Rmd document for Exercises 1” is a Knit
+button with a triangle on its right side.</p>
 <div class="section level3">
-<h3 id="windows-users">Windows users<a class="anchor" aria-label="anchor" href="#windows-users"></a>
+<h3 id="knit-to-word">Knit to Word<a class="anchor" aria-label="anchor" href="#knit-to-word"></a>
 </h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(accessr)</span>
-<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>Warning<span class="sc">:</span> package <span class="st">'accessr'</span> was built under R version <span class="dv">4</span>.<span class="fl">4.3</span></span></code></pre></div>
-<p>Either</p>
 <ul>
-<li>
-<code>OfficeToPDF</code> works only on a Windows operating
-system.</li>
+<li>Click on the triangle and select either “Knit to Word”. A file
+<code>ex1template.docx</code> is created in your chosen directory.</li>
+<li>If you have software that enables you to open the Word document
+<code>ex1template.docx</code> file then you can save this file in PDF
+format.</li>
 </ul>
-<p>or following the general instructons for Mac / linux users below.</p>
 </div>
 <div class="section level3">
-<h3 id="mac-linux-users">Mac / linux users<a class="anchor" aria-label="anchor" href="#mac-linux-users"></a>
+<h3 id="knit-to-html">Knit to HTML<a class="anchor" aria-label="anchor" href="#knit-to-html"></a>
 </h3>
 <ul>
-<li>Create the Word file using <code>rmd2word()</code>.</li>
-<li>(Perhaps convert it to an alternative format.)</li>
-<li>Open it in a Word Processor and print to PDF.</li>
+<li>If you select “Knit to HTML” then a file
+<code>ex1template.html</code> is created.</li>
+<li>You can create a PDF file from <code>ex1template.html</code> by
+opening it in a browser, e.g. Google chrome, and printing to PDF.</li>
 </ul>
+</div>
+<div class="section level3">
+<h3 id="knit-to-pdf">Knit to PDF<a class="anchor" aria-label="anchor" href="#knit-to-pdf"></a>
+</h3>
+<p>It is possible to Knit directly to PDF format by selecting the “Knit
+to PDF” option. However, this requires that an installation of LaTeX -
+software designed to create nice-looking mathematics - is available to
+RStudio on the computer that you are using. I expect that you have never
+heard of LaTeX, and may not need it unless you do a final year
+project.</p>
+<p>However, if “Knit to PDF” does not work and you would like it to then
+see follow the instructions in <a href="https://bookdown.org/yihui/rmarkdown/installation.html" class="external-link">Chapter 1
+Installation</a> of <a href="https://bookdown.org/yihui/rmarkdown/" class="external-link">R
+Markdown: The Definitive Guide</a> for creating a LaTeX installation
+using <code>TinyTeX</code>.</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="via-html-using-google-print">Via HTML using Google print<a class="anchor" aria-label="anchor" href="#via-html-using-google-print"></a>
+<h2 id="using-an-r-function">Using an R function<a class="anchor" aria-label="anchor" href="#using-an-r-function"></a>
 </h2>
-<ul>
-<li>PDF file is not accessible</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="directly-using-latex">Directly, using LaTeX<a class="anchor" aria-label="anchor" href="#directly-using-latex"></a>
-</h2>
-<ul>
-<li>Requires a LaTeX installation</li>
-<li>PDF file is not accessible</li>
-</ul>
+<p>The Knit button creates output of different types by calling an R
+function, in the <code>rmarkdown</code> package, called
+<code>render</code>. The following code will work provided that your Rmd
+file is located in your current working directory, which will be the
+case if you started your RStudio session by clicking on your Rmd file to
+open it. To check this, use the <code>getwd</code> function:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">getwd</span>()</span></code></pre></div>
 <div class="section level3">
-<h3 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
+<h3 id="the-accessr-package">The <code>accessr</code> package<a class="anchor" aria-label="anchor" href="#the-accessr-package"></a>
 </h3>
+<p>The <a href="https://paulnorthrop.github.io/accessr/" class="external-link">accessr</a>
+package provides functions that call <code>render</code> for certain
+output file formats. The following command line R code creates Word and
+HTML documents. The Word document will look a bit different to the one
+produced above because <code>accessr</code> uses a different default
+style of Word document.</p>
+<div class="section level4">
+<h4 id="word-and-html">Word and HTML<a class="anchor" aria-label="anchor" href="#word-and-html"></a>
+</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Load accessr</span></span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(accessr)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to Word </span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to HTML</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="pdf">PDF<a class="anchor" aria-label="anchor" href="#pdf"></a>
+</h4>
+<p>If you are using Microsoft Windows then you can set
+<code>pdf = TRUE</code> to create automatically a PDF copy of an output
+Word document. This requires the <a href="https://github.com/cognidox/OfficeToPDF/releases" class="external-link">OfficeToPDF</a>
+software to be installed.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Install OfficeToPDF from https://github.com/cognidox/OfficeToPDF/releases</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">install_otp</span>(<span class="at">dir =</span> <span class="st">"accessr"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to Word and PDF</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># (Microsoft Windows only)</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<p>Similarly, on Windows, macOS or linux, we can print HTML output to
+PDF automatically.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to HTML and print to PDF</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># (Need a browser, such as Google Chrome or Microsoft Edge)</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="the-stat0002-package">The <code>stat0002</code> package<a class="anchor" aria-label="anchor" href="#the-stat0002-package"></a>
+</h3>
+<p>If you have installed the <a href="https://paulnorthrop.github.io/stat0002/" class="external-link">stat0002</a> package
+then you can save a few key strokes using the convenience functions
+<code><a href="../reference/create_pdf.html">word()</a></code> and <code>html</code>, for example:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Load stat0002</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(stat0002)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script>
