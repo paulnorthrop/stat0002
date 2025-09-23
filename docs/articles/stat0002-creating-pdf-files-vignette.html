@@ -92,15 +92,17 @@ Northrop</h4>
     
 <p>When working on STAT0002 Exercises 1 you have the
 <strong>option</strong> of using R to perform calculations and create
-plots. If you prefer to everything by hand then follow the guidance in
-the <strong>Creating your PDF file</strong> section of <a href="https://moodle.ucl.ac.uk/mod/page/view.php?id=7763554" class="external-link">Exercise
-submission and your participation mark</a>.</p>
+plots. If you prefer to do everything by hand then follow the guidance
+in the <strong>Creating your PDF file</strong> section of
+<strong>Exercise submission and your participation mark</strong> in the
+<strong>Exercises</strong> section on Moodle.</p>
 <p>This article describes ways to use R to create a PDF file containing
-your work. I suggest that in the long-term using <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> is the best option.
-If you are taking STAT0004, or auditing the STAT0004 Moodle page, then R
-Markdown will be covered towards the end of Term 1, so you could wait
-until then to try R Markdown and, for now, use the following
-“copy-and-paste” approach.</p>
+your work. In the long-term using <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> is arguably the
+best option for creating documents that contain R output. If you are
+taking STAT0004, or auditing the STAT0004 Moodle page, then R Markdown
+will be covered towards the end of Term 1, so you could wait until then
+to try R Markdown and, for now, use the following “copy-and-paste”
+approach.</p>
 <div class="section level2">
 <h2 id="copy-and-paste">Copy-and-paste<a class="anchor" aria-label="anchor" href="#copy-and-paste"></a>
 </h2>
@@ -128,14 +130,14 @@ would like it to appear, e.g. right click Paste.</li>
 <li>Right click “Copy Image” and paste into your document, or</li>
 <li>Right click “Save image as …”, save and import the image file into
 your document, or</li>
-<li>Click “Export” above the plot and “Copy to Clipboard”, or</li>
+<li>Click “Export” above the plot, “Copy to Clipboard” and paste into
+our document, or</li>
 <li>Click “Export” and “Save image as …”, save and import the image file
 into your document.</li>
 </ul>
 </li>
 </ol>
-<p>When you are finished, save your file in PDF format. For the weekly
-exercises</p>
+<p>When you are finished, save your file in PDF format.</p>
 </div>
 <div class="section level2">
 <h2 id="r-markdown-in-rstudio">R Markdown in RStudio<a class="anchor" aria-label="anchor" href="#r-markdown-in-rstudio"></a>
@@ -143,13 +145,14 @@ exercises</p>
 <p>I will assume that you are using <a href="https://posit.co/download/rstudio-desktop/" class="external-link">RStudio</a>. You might
 find <a href="https://bookdown.org/yihui/rmarkdown/" class="external-link">R Markdown: The
 Definitive Guide</a> helpful.</p>
-<p>I have provided a template R Markdown file <a href="https://github.com/paulnorthrop/stat0002/blob/master/inst/examples/ex1template.Rmd">ex1template.Rmd</a>
-for you to use. You may like to rename this file. If you do this then
-replace <code>ex1template</code> in the text below with the name that
-you choose.</p>
+<p>I have provided a template R Markdown file for you to use.</p>
 <ul>
-<li>Follow this link, click on the “Download raw file” (a downwards
-pointing arrow) icon near the top right of the page.</li>
+<li>Follow the link <a href="https://github.com/paulnorthrop/stat0002/blob/master/inst/examples/ex1template.Rmd">ex1template.Rmd</a>,
+click on the “Download raw file” (a downwards pointing arrow) icon near
+the top right of the page.</li>
+<li>You may like to rename this file. If you do this then replace
+<code>ex1template</code> in the text below with the name that you
+chose.</li>
 <li>Move this file to a directory of your choice and click on it to open
 a <strong>new</strong> RStudio session.</li>
 </ul>
@@ -168,10 +171,10 @@ button with a triangle on its right side.</p>
 <h3 id="knit-to-word">Knit to Word<a class="anchor" aria-label="anchor" href="#knit-to-word"></a>
 </h3>
 <ul>
-<li>Click on the triangle and select either “Knit to Word”. A file
+<li>Click on the triangle and select “Knit to Word”. A file
 <code>ex1template.docx</code> is created in your chosen directory.</li>
-<li>If you have software that enables you to open the Word document
-<code>ex1template.docx</code> file then you can save this file in PDF
+<li>If you have software that enables you to open
+<code>ex1template.docx</code> then you can save this file in PDF
 format.</li>
 </ul>
 </div>
@@ -191,11 +194,10 @@ opening it in a browser, e.g. Google chrome, and printing to PDF.</li>
 <p>It is possible to Knit directly to PDF format by selecting the “Knit
 to PDF” option. However, this requires that an installation of LaTeX -
 software designed to create nice-looking mathematics - is available to
-RStudio on the computer that you are using. I expect that you have never
-heard of LaTeX, and may not need it unless you do a final year
-project.</p>
-<p>However, if “Knit to PDF” does not work and you would like it to then
-see follow the instructions in <a href="https://bookdown.org/yihui/rmarkdown/installation.html" class="external-link">Chapter 1
+RStudio on the computer that you are using. You may never heard of
+LaTeX, and might not need it unless you do a final year project.</p>
+<p>However, if “Knit to PDF” does not work and you would like it to,
+then follow the instructions in <a href="https://bookdown.org/yihui/rmarkdown/installation.html" class="external-link">Chapter 1
 Installation</a> of <a href="https://bookdown.org/yihui/rmarkdown/" class="external-link">R
 Markdown: The Definitive Guide</a> for creating a LaTeX installation
 using <code>TinyTeX</code>.</p>
