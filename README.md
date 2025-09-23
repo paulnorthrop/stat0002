@@ -36,7 +36,7 @@ system: Windows, macOS or Linux. Do not change the default installation
 settings.
 
 **For users of older Intel Macs**: parts of `stat0002` uses the `tcltk`
-package, so may need to install
+package, so you may need to install
 [XQuartz](http://xquartz.macosforge.org/).
 
 I recommend that you use RStudio (a **free** user-friendly front-end to

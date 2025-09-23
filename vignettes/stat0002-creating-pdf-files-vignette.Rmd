@@ -16,7 +16,7 @@ bibliography: stat0002.bib
 knitr::opts_chunk$set(comment = "", prompt = TRUE, collapse = TRUE, eval = FALSE)
 ```
 
-When working on STAT0002 Exercises 1 you have the **option** of using R to perform calculations and create plots. If you prefer to do everything by hand then follow the guidance in the **Creating your PDF file** section of **Exercise submission and your participation mark** in the **Exercises** section on Moodle.
+When working on STAT0002 Exercises 1 you have the **option** of using R to perform calculations and create plots. If you prefer to do everything by hand then follow the guidance in the **Creating your PDF file** section of **Exercise submission and your participation mark** in the **Exercises** section on the STAT0002 Moodle page.
 
 This article describes ways to use R to create a PDF file containing your work. In the long-term using [R Markdown](https://rmarkdown.rstudio.com/) is arguably the best option for creating documents that contain R output. If you are taking STAT0004, or auditing the STAT0004 Moodle page, then R Markdown will be covered towards the end of Term 1, so you could wait until then to try R Markdown and, for now, use the following "copy-and-paste" approach.
 
