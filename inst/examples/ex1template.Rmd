@@ -10,24 +10,30 @@ output:
 
 ```{r, include = FALSE}
 # Set some default options for the R Markdown code (called "chunks") below
-# Each chunk starts with ```{r name_of_chunk} and ends with ```
+# Each R code chunk starts with ```{r name_of_chunk} and ends with ```
 #   echo = TRUE: the code in the chunk will be printed
 #   prompt = TRUE: the R prompt > will appear with R code
 #   fig.align = 'center': plots will be centered on the page
 #   message = FALSE and warning = FALSE turns off messages and warnings
+
+# The chunk below that starts ```{asis, echo = FALSE} and ends ``` provides a
+# way to include text comments in an Rmd document that will not appear in the 
+# output.
 knitr::opts_chunk$set(echo = TRUE, prompt = TRUE, fig.align = 'center',
                       message = FALSE, warning = FALSE)
 ```
 
-Of course, you should replace the text below with your own work.
+```{asis, echo = FALSE}
+Of course, you should replace the text and R code below with your own work.
 
 The R Markdown chunk immediately below loads the `stat0002` package. If you do not have this installed then change `eval = TRUE` to `eval = FALSE` (`eval` is short for evaluate).
+```
 
-```{r load_stat0002, eval = TRUE}
+```{r load_stat0002, eval = TRUE, echo = FALSE}
 library(stat0002)
 ```
 
-```{r, echo = TRUE, eval = TRUE}
+```{r, echo = TRUE, eval = TRUE, echo = FALSE}
 dat <- "https://github.com/paulnorthrop/stat0002/blob/master/days.Rdata?raw=true"
 load(url(dat))
 ```
