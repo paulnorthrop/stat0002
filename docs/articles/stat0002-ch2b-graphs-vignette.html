@@ -579,13 +579,17 @@ frequency of the observations and the attribute <code>class</code>
 indicates that this is a <code>ts</code> (time series) object.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" tabindex="-1"></a><span class="sc">&gt;</span> ftse_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(ftse<span class="sc">$</span>price, <span class="at">frequency =</span> <span class="dv">52</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">1984</span>, <span class="dv">14</span>))</span>
 <span id="cb29-2"><a href="#cb29-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">head</span>(ftse_ts)</span>
-<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1096.3</span> <span class="fl">1129.1</span> <span class="fl">1116.2</span> <span class="fl">1130.9</span> <span class="fl">1134.7</span> <span class="fl">1076.1</span></span>
-<span id="cb29-4"><a href="#cb29-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(ftse_ts)</span>
-<span id="cb29-5"><a href="#cb29-5" tabindex="-1"></a><span class="sc">$</span>tsp</span>
-<span id="cb29-6"><a href="#cb29-6" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1984.250</span> <span class="fl">2007.692</span>   <span class="fl">52.000</span></span>
-<span id="cb29-7"><a href="#cb29-7" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="#cb29-8" tabindex="-1"></a><span class="sc">$</span>class</span>
-<span id="cb29-9"><a href="#cb29-9" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ts"</span></span></code></pre></div>
+<span id="cb29-3"><a href="#cb29-3" tabindex="-1"></a>Time Series<span class="sc">:</span></span>
+<span id="cb29-4"><a href="#cb29-4" tabindex="-1"></a>Start <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1984</span>, <span class="dv">14</span>) </span>
+<span id="cb29-5"><a href="#cb29-5" tabindex="-1"></a>End <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1984</span>, <span class="dv">19</span>) </span>
+<span id="cb29-6"><a href="#cb29-6" tabindex="-1"></a>Frequency <span class="ot">=</span> <span class="dv">52</span> </span>
+<span id="cb29-7"><a href="#cb29-7" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1096.3</span> <span class="fl">1129.1</span> <span class="fl">1116.2</span> <span class="fl">1130.9</span> <span class="fl">1134.7</span> <span class="fl">1076.1</span></span>
+<span id="cb29-8"><a href="#cb29-8" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">attributes</span>(ftse_ts)</span>
+<span id="cb29-9"><a href="#cb29-9" tabindex="-1"></a><span class="sc">$</span>tsp</span>
+<span id="cb29-10"><a href="#cb29-10" tabindex="-1"></a>[<span class="dv">1</span>] <span class="fl">1984.250</span> <span class="fl">2007.692</span>   <span class="fl">52.000</span></span>
+<span id="cb29-11"><a href="#cb29-11" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" tabindex="-1"></a><span class="sc">$</span>class</span>
+<span id="cb29-13"><a href="#cb29-13" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"ts"</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="time-series-plot">Time series plot<a class="anchor" aria-label="anchor" href="#time-series-plot"></a>
 </h3>
