@@ -1,6 +1,6 @@
 # Creating the built packages
 
-path <- paste0(getwd(), "/install")
+#path <- paste0(getwd(), "/install")
 
 # source: .tar.gz
 devtools::build(manual = TRUE)
@@ -9,6 +9,8 @@ devtools::build(manual = TRUE)
 # To ensure that a doc directory with the vignettes in it we create the
 # binary zip file from the source tar.gz file
 devtools::build("../stat0002_1.2.3.tar.gz", binary = TRUE)
+
+pkgbuild::build("../stat0002_1.2.3.tar.gz", binary = TRUE)
 
 # Now move the files to the install directory
 file.copy(from = "../stat0002_1.2.3.tar.gz", to = "install/stat0002.tar.gz",
