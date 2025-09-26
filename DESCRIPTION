@@ -2,7 +2,7 @@ Package: stat0002
 Type: Package
 Title: Introduction to Probability and Statistics
 Version: 1.2.3
-Date: 2025-09-24
+Date: 2025-09-26
 Authors@R: person(c("Paul", "J."), "Northrop", email = "p.northrop@ucl.ac.uk",
   role = c("aut", "cre", "cph"))
 Description: Provides R code, datasets and vignettes to help students taking 
@@ -14,7 +14,7 @@ Depends:
 License: GPL (>= 2)
 LazyData: TRUE
 Encoding: UTF-8
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports: accessr,
     distributions3,
     graphics,

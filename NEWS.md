@@ -1,4 +1,4 @@
-# stat0002 1.2.3: 24/9/2024
+# stat0002 1.2.3: 26/9/2024
 
 Updates for the 2025/26 session.
 
