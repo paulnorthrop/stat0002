@@ -31,8 +31,7 @@ Moorehead \code{moor}.
 \item Column 23, total number of votes cast: \code{tvot}.
 }
 
-For full details see Tables 1 to 4 of
-\href{http://dx.doi.org/10.1214/ss/1049993203}{Smith (2002)}.
+For full details see Tables 1 to 4 of Smith (2002).
 }
 \usage{
 USelection
@@ -44,6 +43,6 @@ United States presidential election in the year 2000.
 \references{
 Smith, R. L. (2002) A Statistical Assessment of Buchanan's
   Vote in Palm Beach County, \emph{Statistical Science}, \strong{17(4)},
-  441-457, \url{http://dx.doi.org/10.1214/ss/1049993203}.
+  441-457, \doi{10.1214/ss/1049993203}.
 }
 \keyword{datasets}

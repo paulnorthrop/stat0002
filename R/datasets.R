@@ -22,7 +22,7 @@
 #'   Risk Analysis of the Space Shuttle: Pre-Challenger Prediction
 #'   of Failure. \emph{Journal of the American Statistical Association},
 #'   \strong{84}(408), 945-957.
-#'   \url{http://dx.doi.org/10.1080/01621459.1989.10478858}
+#'   \doi{10.1080/01621459.1989.10478858}
 #' @seealso \code{\link{shuttle_sim}}, \code{\link{shuttle_sim_plot}}
 "shuttle"
 
@@ -136,11 +136,10 @@
 #' \item Column 23, total number of votes cast: \code{tvot}.
 #' }
 #'
-#' For full details see Tables 1 to 4 of
-#' \href{http://dx.doi.org/10.1214/ss/1049993203}{Smith (2002)}.
+#' For full details see Tables 1 to 4 of Smith (2002).
 #' @references Smith, R. L. (2002) A Statistical Assessment of Buchanan's
 #'   Vote in Palm Beach County, \emph{Statistical Science}, \strong{17(4)},
-#'   441-457, \url{http://dx.doi.org/10.1214/ss/1049993203}.
+#'   441-457, \doi{10.1214/ss/1049993203}.
 "USelection"
 
 # ========================== World Bank data =========================
@@ -163,7 +162,7 @@
 #'   The names of the countries are given in the row names of the dataset,
 #'   e.g. by \code{rownames(popn)}.
 #' @source The World Bank's
-#' \href{https://data.worldbank.org/data-catalog/world-development-indicators}{World Development Indicators database}.
+#' \href{https://datacatalog.worldbank.org/dataset/world-development-indicators}{World Development Indicators database}.
 #' @name world_bank
 NULL
 ## NULL
@@ -320,8 +319,7 @@ NULL
 #' @details \code{DivePoints} is calculated by: removing the 2 smallest and 2
 #'   largest scores from the 7 scores \code{J1-J7}; calculating the sum of the
 #'   3 scores that remain; and multiplying the result by \code{DD}.
-#' @source \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/olympic-schedule-and-results.htm}{Tokyo 2020 Diving Results}, specifically
-#' \href{https://olympics.com/tokyo-2020/olympic-games/en/results/diving/results-men-s-10m-platform-fnl-000100-.htm}{Men's 10m Platform Results}.
+#' @source \href{https://www.olympics.com/en/olympic-games/tokyo-2020/results/diving}.
 "daley"
 
 # =========================== Kerrich's coin data =============================

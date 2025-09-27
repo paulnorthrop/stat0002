@@ -24,7 +24,7 @@ An object of class \code{data.frame} with 217 rows and 55 columns.
 }
 \source{
 The World Bank's
-\href{https://data.worldbank.org/data-catalog/world-development-indicators}{World Development Indicators database}.
+\href{https://datacatalog.worldbank.org/dataset/world-development-indicators}{World Development Indicators database}.
 }
 \usage{
 co2_per_capita

@@ -49,11 +49,9 @@ for more details.
 
 \section{Please note}{
 
-\strong{The main source of information about the material in STAT0002 is
-the
-\href{https://moodle.ucl.ac.uk/course/view.php?id=8579&section=0}{STAT0002 Moodle page}.
-You are not required to use the `stat0002` package during STAT0002, but it
-is recommended as a supplement to the STAT0002 syllabus.}
+\strong{The main source of information about the material in STAT0002 is the
+STAT0002 Moodle page. You are not required to use the `stat0002` package
+during STAT0002, but it is recommended as a supplement to the STAT0002 syllabus.}
 }
 
 \section{How to learn about R}{

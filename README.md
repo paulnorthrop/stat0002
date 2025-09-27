@@ -36,12 +36,11 @@ system: Windows, macOS or Linux. **Do not change the default
 installation settings.**
 
 **For users of older Intel Macs**: parts of `stat0002` uses the `tcltk`
-package, so you may need to install
-[XQuartz](http://xquartz.macosforge.org/).
+package, so you may need to install [XQuartz](https://www.xquartz.org/).
 
 I recommend that you use RStudio (a **free** user-friendly front-end to
 R). Install it from the [Download RStudio
-page](https://www.rstudio.com/products/rstudio/download/). Find **All
+page](https://posit.co/download/rstudio-desktop/). Find **All
 Installers** near the bottom of the page and choose the installer for
 your operating system.
 
