@@ -55,10 +55,6 @@ box_plot(days, horizontal = TRUE,
 
 Use `?hist` to see instructions for creating a histogram.
 
-```{r}
-?hist
-```
-
 # 4
 
 Use `?stem` to see instructions for creating a stem-and-leaf plot.
