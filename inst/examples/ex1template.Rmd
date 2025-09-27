@@ -51,6 +51,7 @@ box_plot(days, horizontal = TRUE,
          xlab = "mystery variable (days)",
          axes = TRUE, cex.lab = 1.5, cex.axis = 1.5)
 ```
+
 # 3
 
 Use `?hist` to see instructions for creating a histogram.
