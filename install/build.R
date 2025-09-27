@@ -3,7 +3,7 @@
 #path <- paste0(getwd(), "/install")
 
 # source: .tar.gz
-devtools::build(manual = TRUE)
+devtools::build(manual = TRUE, vignettes = TRUE)
 
 # Windows: .zip
 # To ensure that a doc directory with the vignettes in it we create the
