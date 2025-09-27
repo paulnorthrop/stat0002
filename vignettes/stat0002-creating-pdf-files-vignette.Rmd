@@ -22,7 +22,7 @@ This article describes ways to use R to create a PDF file containing your work. 
 
 # Copy-and-paste
 
-This is the least elegant approach, but it is simple.
+This is the least elegant approach, but it is simple, at least in principle.
 
 1.  Open a file in the word processor of your choice. (It must have the capability of creating a PDF file.)
     -   For the weekly exercises include a title like "Exercises 1" and your full name and student ID number.
@@ -32,12 +32,12 @@ This is the least elegant approach, but it is simple.
     -   Copy the highlighted text e.g. right click and Copy.
     -   Navigate to your word processor file and paste the text where you would like it to appear, e.g. right click Paste.
 4.  R code producing plot output in the Plots tab. Either:
-    -   Right click "Copy Image" and paste into your document, or
-    -   Right click "Save image as ...", save and import the image file into your document, or
-    -   Click "Export" above the plot, "Copy to Clipboard" and paste into our document, or
-    -   Click "Export" and "Save image as ...", save and import the image file into your document.
+    -   Click "Export" and "Save image as ...", save in the format of your choice and import the image file into your document, or
+    -   Click "Export" above the plot, "Copy to Clipboard", choose "Bitmap" or "Metafile", and paste into our document.
 
 When you are finished, save your file in PDF format.
+
+In part 4, you may find that you need to spend time learning which file format work best for you and how to change the size and position of plots in your document. To be honest, I do not know how best to do this because I never use the copy-and-paste approach.
 
 # R Markdown in RStudio
 
