@@ -319,7 +319,7 @@ NULL
 #' @details \code{DivePoints} is calculated by: removing the 2 smallest and 2
 #'   largest scores from the 7 scores \code{J1-J7}; calculating the sum of the
 #'   3 scores that remain; and multiplying the result by \code{DD}.
-#' @source \href{https://www.olympics.com/en/olympic-games/tokyo-2020/results/diving}.
+#' @source \href{https://www.olympics.com/en/olympic-games/tokyo-2020/results/diving}{Tokyo 2020 Diving Results}.
 "daley"
 
 # =========================== Kerrich's coin data =============================
