@@ -59,7 +59,7 @@ press return. Choose the option that is relevant to your computer.
 
 ``` r
 download.file(url = "https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.zip",
-              destfile = paste0(getwd(), "stat0002.zip"))
+              destfile = paste0(getwd(), "/stat0002.zip"))
 install.packages("stat0002.zip")
 ```
 
@@ -67,7 +67,7 @@ install.packages("stat0002.zip")
 
 ``` r
 download.file(url = "https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tgz",
-              destfile = paste0(getwd(), "stat0002.tgz"))
+              destfile = paste0(getwd(), "/stat0002.tgz"))
 install.packages("stat0002.tgz")
 ```
 

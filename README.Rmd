@@ -51,7 +51,7 @@ Then copy and paste **ONE** of the following into the R Console and press return
 
 ```{r, eval = FALSE}
 download.file(url = "https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.zip",
-              destfile = paste0(getwd(), "stat0002.zip"))
+              destfile = paste0(getwd(), "/stat0002.zip"))
 install.packages("stat0002.zip")
 ```
 
@@ -59,7 +59,7 @@ install.packages("stat0002.zip")
 
 ```{r, eval = FALSE}
 download.file(url = "https://github.com/paulnorthrop/stat0002/raw/master/install/stat0002.tgz",
-              destfile = paste0(getwd(), "stat0002.tgz"))
+              destfile = paste0(getwd(), "/stat0002.tgz"))
 install.packages("stat0002.tgz")
 ```
 
