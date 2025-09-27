@@ -40,7 +40,12 @@ load(url(dat))
 
 # 1 
 
-Perform calculations by hand or use R. If you do the calculations by hand then given your final answer in the form: (minimum, lower quartile, median, upper quartile, maximum). If you use R then include your code and the output that it produces.
+Here is an example of creating R output in the console.
+
+
+```{r summary}
+mean(days)
+```
 
 # 2
 
