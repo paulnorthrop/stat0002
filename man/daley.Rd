@@ -35,7 +35,7 @@ A data frame with 60 observations on the following 17 variables.
 }
 }
 \source{
-\href{https://www.olympics.com/en/olympic-games/tokyo-2020/results/diving}{Tokyo 2020 Diving Results}.
+\code{https://www.olympics.com/en/olympic-games/tokyo-2020/results/diving}.
 }
 \usage{
 daley

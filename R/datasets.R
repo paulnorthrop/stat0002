@@ -257,7 +257,7 @@ NULL
 #'
 #' Francis et al. (2018) conducted an experiment to study the competitive
 #' interactions between 10 species of birds.  These are the data presented in
-#' \href{https://doi.org/10.1371/journal.pone.0202152.t001}{Table 1} of this paper.
+#' Table 1 of this paper. \doi{journal.pone.0202152.t001}
 #'
 #' @format A data frame with 10 observations on the following 8 variables.
 #' \itemize{
@@ -272,13 +272,12 @@ NULL
 #' \item \code{dom_rank_UCI:} upper 95\% confidence limit for the dominance
 #'   rank.
 #' }
-#' @source \href{https://doi.org/10.1371/journal.pone.0202152.s002}{S1 dataset.}
-#'   Data for species identities, mass and dominance rankings from
-#'   Francis et al (2018).
+#' @source Data for species identities, mass and dominance rankings from
+#'   Francis et al (2018). S1 dataset. \doi{10.1371/journal.pone.0202152.s002}
 #' @references Francis M.L., Plummer K.E., Lythgoe B.A., Macallan C., Currie T.E.,
 #'   Blount J.D. (2018) Effects of supplementary feeding on interspecific
 #'   dominance hierarchies in garden birds. PLoS ONE 13(9): e0202152.
-#'   \href{https://doi.org/10.1371/journal.pone.0202152}{https://doi.org/10.1371/journal.pone.0202152}
+#'   \doi{10.1371/journal.pone.0202152}
 "birds"
 
 # === Tokyo 2020 Olympics Diving Men's Individual 10m platform final results ==
@@ -319,7 +318,7 @@ NULL
 #' @details \code{DivePoints} is calculated by: removing the 2 smallest and 2
 #'   largest scores from the 7 scores \code{J1-J7}; calculating the sum of the
 #'   3 scores that remain; and multiplying the result by \code{DD}.
-#' @source \href{https://www.olympics.com/en/olympic-games/tokyo-2020/results/diving}{Tokyo 2020 Diving Results}.
+#' @source \code{https://www.olympics.com/en/olympic-games/tokyo-2020/results/diving}.
 "daley"
 
 # =========================== Kerrich's coin data =============================
