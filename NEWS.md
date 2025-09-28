@@ -1,6 +1,10 @@
-# stat0002 1.2.3: 28/9/2024
+# stat0002 1.2.3: 28/9/2025
 
 Updates for the 2025/26 session.
+
+## New features
+
+* A new [Article](https://paulnorthrop.github.io/stat0002/articles/), Creating PDF files using R markdown.
 
 # stat0002 1.2.2: 22/9/2024
 
