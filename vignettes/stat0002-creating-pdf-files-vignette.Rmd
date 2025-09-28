@@ -86,6 +86,14 @@ getwd()
 
 The [accessr](https://paulnorthrop.github.io/accessr/) package provides functions that call `render` for certain output file formats. The following command line R code creates Word and HTML documents. The Word document will look a bit different to the one produced above because `accessr` uses a different default style of Word document.
 
+We install the `accessr` package. If you wish to output to Word format using `accessr` then you need to install the packages `officer` and `officedown`.
+
+```{r install_for_accessr}
+install.packages("accessr")
+# officer and officedown are only needed if you wish to output to Word format
+install.packages(c("officer", "officedown"))
+```
+
 ### Word and HTML
 
 ```{r accessr}
@@ -112,7 +120,12 @@ install_otp(dir = "accessr")
 rmd2word("ex1template", pdf = TRUE)
 ```
 
-Similarly, on Windows, macOS or linux, we can print HTML output to PDF automatically.
+Similarly, on Windows, macOS or linux, we can print HTML output to PDF automatically, provided that we have the `pagedown` package installed.
+
+```{r install_for_html_print}
+# pagedown is only need if you wish to print from HTML to PDF
+install.packages("pagedown")
+```
 
 ```{r accessr_html_pdf}
 # Knit and render to HTML and print to PDF
