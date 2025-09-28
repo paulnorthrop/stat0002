@@ -224,15 +224,21 @@ output file formats. The following command line R code creates Word and
 HTML documents. The Word document will look a bit different to the one
 produced above because <code>accessr</code> uses a different default
 style of Word document.</p>
+<p>We install the <code>accessr</code> package. If you wish to output to
+Word format using <code>accessr</code> then you need to install the
+packages <code>officer</code> and <code>officedown</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">install.packages</span>(<span class="st">"accessr"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># officer and officedown are only needed if you wish to output to Word format</span></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"officer"</span>, <span class="st">"officedown"</span>))</span></code></pre></div>
 <div class="section level4">
 <h4 id="word-and-html">Word and HTML<a class="anchor" aria-label="anchor" href="#word-and-html"></a>
 </h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Load accessr</span></span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(accessr)</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to Word </span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to HTML</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Load accessr</span></span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(accessr)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to Word </span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to HTML</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="pdf">PDF<a class="anchor" aria-label="anchor" href="#pdf"></a>
@@ -241,16 +247,19 @@ style of Word document.</p>
 <code>pdf = TRUE</code> to create automatically a PDF copy of an output
 Word document. This requires the <a href="https://github.com/cognidox/OfficeToPDF/releases" class="external-link">OfficeToPDF</a>
 software to be installed.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Install OfficeToPDF from https://github.com/cognidox/OfficeToPDF/releases</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">install_otp</span>(<span class="at">dir =</span> <span class="st">"accessr"</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to Word and PDF</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># (Microsoft Windows only)</span></span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Install OfficeToPDF from https://github.com/cognidox/OfficeToPDF/releases</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">install_otp</span>(<span class="at">dir =</span> <span class="st">"accessr"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to Word and PDF</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># (Microsoft Windows only)</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Similarly, on Windows, macOS or linux, we can print HTML output to
-PDF automatically.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to HTML and print to PDF</span></span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># (Need a browser, such as Google Chrome or Microsoft Edge)</span></span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+PDF automatically, provided that we have the <code>pagedown</code>
+package installed.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># pagedown is only need if you wish to print from HTML to PDF</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">install.packages</span>(<span class="st">"pagedown"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Knit and render to HTML and print to PDF</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># (Need a browser, such as Google Chrome or Microsoft Edge)</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rmd2html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -259,10 +268,10 @@ PDF automatically.</p>
 <p>If you have installed the <a href="https://paulnorthrop.github.io/stat0002/" class="external-link">stat0002</a> package
 then you can save a few key strokes using the convenience functions
 <code><a href="../reference/create_pdf.html">word()</a></code> and <code>html</code>, for example:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Load stat0002</span></span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(stat0002)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Load stat0002</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">library</span>(stat0002)</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">word</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">html</span>(<span class="st">"ex1template"</span>, <span class="at">pdf =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({  "HTML-CSS": { minScaleAdjust: 125, availableFonts: [] }  });
 </script>
