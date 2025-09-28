@@ -445,8 +445,7 @@ more men are admitted than is expected if <code>Gender</code> and
 package can be used to perform the chi-squared outlined at the end of <a href="https://paulnorthrop.github.io/stat0002book/contingency.html#indep" class="external-link">Section
 8.1.1</a> of the notes. We specify <code>correct = FALSE</code> to
 produce the same result given in the notes, that is, we do not use the
-<a href="https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity" class="external-link">Yates’s
-correction for continuity</a>.</p>
+Yates’s correction for continuity.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">chisq.test</span>(ga, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>    Pearson<span class="st">'s Chi-squared test</span></span>

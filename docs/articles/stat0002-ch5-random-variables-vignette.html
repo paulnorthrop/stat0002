@@ -154,8 +154,7 @@ code.</p>
 </li>
 <li>
 <span class="math inline">\(\sum_{x=1}^{\infty} p(x) = 1\)</span>
-(<a href="https://en.wikipedia.org/wiki/Basel_problem" class="external-link">Basel
-problem</a>)</li>
+(Basel problem)</li>
 </ol>
 <p>To illustrate 2. look at the following output and plot.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="sc">&gt;</span> m <span class="ot">&lt;-</span> <span class="dv">100</span></span>
@@ -195,21 +194,24 @@ You could try some larger values of <span class="math inline">\(m\)</span> to in
 <span class="math inline">\(\sum_{x=1}^{\infty} x p(x)\)</span>
 algebraically. Does it involve an example series that you have seen
 before? Is this series convergent or divergent?</p>
-<p>This distribution is a special case of a <a href="https://en.wikipedia.org/wiki/Zeta_distribution" class="external-link">Zeta
-distribution</a>, where a parameter <span class="math inline">\(s=
-2\)</span>. This distribution has a (finite) mean only if <span class="math inline">\(s &gt; 2\)</span>. If <span class="math inline">\(s \in (1, 2]\)</span> then we can argue either
-that this distribution has no mean or that it has an infinite mean. If
-we simulate samples of finite size from a Zeta distribution with <span class="math inline">\(s = 2\)</span> then we can calculate the sample
-means of these samples. However, these sample means are of little use to
-us because this distribution does not have a finite mean. The values of
-these sample means are liable to be influenced by the values of the
-largest sample values which may be very large. The <code>VGAM</code> R
-package has a function <code>rzeta</code> that simulates samples from a
-Zeta distribution. If you would like to explore how these sample means
-behave then you can use the code below. You could repeat this a few
-times and look at how the sample means vary. When using the
-<code>VGAM</code> package setting the argument <code>shape = 1</code>
-corresponds to the distribution that we have considered.</p>
+<p>This distribution is a special case of a Zeta distribution, where a
+parameter <span class="math inline">\(s= 2\)</span>. This distribution
+has a (finite) mean only if <span class="math inline">\(s &gt;
+2\)</span>. If <span class="math inline">\(s \in (1, 2]\)</span> then we
+can argue either that this distribution has no mean or that it has an
+infinite mean. If we simulate samples of finite size from a Zeta
+distribution with <span class="math inline">\(s = 2\)</span> then we can
+calculate the sample means of these samples. However, these sample means
+are of little use to us because this distribution does not have a finite
+mean. The values of these sample means are liable to be influenced by
+the values of the largest sample values which may be very large. The
+<code>VGAM</code> R package has a function <code>rzeta</code> that
+simulates samples from a Zeta distribution. If you would like to explore
+how these sample means behave then you can use the code below. You could
+repeat this a few times and look at how the sample means vary. When
+using the <code>VGAM</code> package setting the argument
+<code>shape = 1</code> corresponds to the distribution that we have
+considered.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Install VGAM</span></span>
 <span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">install.packages</span>(<span class="st">"VGAM"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Load VGAM</span></span>
