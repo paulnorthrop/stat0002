@@ -151,7 +151,6 @@ The *rust* R package [@rust] implements this algorithm.  The code below can be u
 
 ```{r, fig.width = 6, fig.height = 4, message = FALSE}
 library(rust)
-?ru
 # Simulate from a standard normal N(0,1) distribution
 ru_sim <- ru(logf = function(x) -x ^ 2 / 2, d = 1, n = 1000, init = 0.1)
 # The function ru returns an object of class "ru"
