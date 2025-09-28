@@ -59,7 +59,7 @@ where $m$ is a positive integer and $a, b$ and $X_0$ are integers satisfying $0 
 
 Once the seed $X_0$ is set the numbers $U_1, U_2, \ldots$ are clearly not random: each number is determined from the previous one.  Also, the maximum number of unique values for $U_i$ is $m$ and therefore the sequence of values will repeat after a period $k \leq m$. However, if the values of $a, b$ and $m$ are set carefully and $k$ is a very large number then $U_1, U_2, \ldots$ may appear initially to us to be unrelated to each other and uniformly spread in the interval $[0, 1)$.  
 
-Appearances can be deceptive.  Consider the [RANDU](https://en.wikipedia.org/wiki/RANDU) generator, which used $m=2^{31}, a=65539$ and $b=0$.  A good PRNG should produce numbers that are spread close to randomly over the interval $(0, 1)$, successive pairs of numbers that are spread close to randomly in the unit square, successive triplets that are spread close to randomly in the unit cube, and so on.  However, RANDU has the property that all consecutive triplets of numbers fall on one of only 15 two-dimensional planes, so that there are large spaces between these planes where no numbers can ever be produced.  All LCGs have some non-random structure like this, but RANDU is a particularly bad example and is therefore no longer used.
+Appearances can be deceptive.  Consider the RANDU generator, which used $m=2^{31}, a=65539$ and $b=0$.  A good PRNG should produce numbers that are spread close to randomly over the interval $(0, 1)$, successive pairs of numbers that are spread close to randomly in the unit square, successive triplets that are spread close to randomly in the unit cube, and so on.  However, RANDU has the property that all consecutive triplets of numbers fall on one of only 15 two-dimensional planes, so that there are large spaces between these planes where no numbers can ever be produced.  All LCGs have some non-random structure like this, but RANDU is a particularly bad example and is therefore no longer used.
 
 ```{r, setup, echo = FALSE, warning = FALSE}
 options(rgl.useNULL = TRUE)
@@ -108,15 +108,15 @@ plot3d(randu[, 1], randu[, 2], randu[, 3], xlab = expression(u[i]),
        ylab = expression(u[i + 1]), zlab = expression(u[i + 2]))
 ```
 
-You should be able to left click on the plot above and move your mouse in order to rotate the plot in 3D.  If you orientate the plot correctly you will see RANDU's very non-random behaviour. (If this doesn't work for you then please look at the plot at [RANDU](https://en.wikipedia.org/wiki/RANDU).)
+You should be able to left click on the plot above and move your mouse in order to rotate the plot in 3D.  If you orientate the plot correctly you will see RANDU's very non-random behaviour. (If this doesn't work for you then please look at the plot at on the Wikipedia page for RANDU.)
 
-RANDU is a particularly bad PRNG.  No PRNG can be perfect but we want to avoid very obvious non-random behaviour.  Various statistical [tests](https://en.wikipedia.org/wiki/Randomness_tests) have been designed to detect certain types of non-random behaviour in PRNG output.  The vignette of the [RDieHarder](https://CRAN.R-project.org/package=RDieHarder) R package provides some examples. Improvements have been made to the basic setup described above, resulting in improved performance.  The general idea is the same but the implementation is more complicated. If you are interested then please see [the Wikipedia PRNG page](https://en.wikipedia.org/wiki/Pseudorandom_number_generator).  
+RANDU is a particularly bad PRNG.  No PRNG can be perfect but we want to avoid very obvious non-random behaviour.  Various statistical tests of randomness have been designed to detect certain types of non-random behaviour in PRNG output.  The vignette of the [RDieHarder](https://CRAN.R-project.org/package=RDieHarder) R package provides some examples. Improvements have been made to the basic setup described above, resulting in improved performance.  The general idea is the same but the implementation is more complicated. If you are interested then please see the Wikipedia page for Pseudorandom number generator.  
 
 We mention briefly an alternative approach, which aims to produce **true** random numbers, based on measurements of phenomena that behave randomly.  The R packages [random](https://CRAN.R-project.org/package=random) and [qrandom](https://CRAN.R-project.org/package=random) provide functions to do this.
 
 ## Simulation of pseudo-random numbers in R
 
-To generate pseudo-random numbers in the interval (0, 1) we may use the `runif` function.  The `unif` part of the name relates to a [uniform distribution](https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)).  We view numbers generated using `runif` as behaving approximately like a random sample from a standard uniform U(0, 1) distribution.  We often refer to this as simulating (a random sample) from a uniform distribution. By default R uses the [Mersenne-Twister generator](https://en.wikipedia.org/wiki/Mersenne_Twister).  See `?Random` for details.  We repeat the 3D plot that exposed the big problem with RANDU, using numbers generated from `runif`.
+To generate pseudo-random numbers in the interval (0, 1) we may use the `runif` function.  The `unif` part of the name relates to a uniform distribution.  We view numbers generated using `runif` as behaving approximately like a random sample from a standard uniform U(0, 1) distribution.  We often refer to this as simulating (a random sample) from a uniform distribution. By default R uses the Mersenne-Twister generator.  See `?Random` for details.  We repeat the 3D plot that exposed the big problem with RANDU, using numbers generated from `runif`.
 
 ```{r, runif, fig.alt = "3D scatter plot of successive triplets from the RANDU generator. When the plot is rotated we cannot see any obvious structure.", fig.width = 5, fig.height = 5, results = 'hide', warning = FALSE}
 x <- embed(runif(10000 + 2), 3)
@@ -275,7 +275,7 @@ lines(x, dexp(x, rate = lambda))
 
 ## The inversion method
 
-The code immediately above is an example of the [inversion method](https://en.wikipedia.org/wiki/Inverse_transform_sampling) of simulation.  The following code implements this for the [normal distribution](https://en.wikipedia.org/wiki/Normal_distribution).
+The code immediately above is an example of the inversion method of simulation.  The following code implements this for the normal distribution.
 
 ```{r, fig.width = 6, fig.height = 4, fig.alt = "Histogram of a sample of size 1000 simulated from a standard normal distribution, with the corresponding pdf superimposed."}
 u <- runif(1000)
@@ -298,7 +298,7 @@ We have illustrated the inversion method using a one-dimensional continuous rand
 
 ## Other methods of simulation
 
-Often the most efficient method of simulating values from a probability distribution is one that has been devised for that particular distribution.  However, it is useful to have more general methods that can, in principle, be used to simulate from any distribution, although, in practice, there are constraints on the type of distribution to which a method can be applied.  Many of these methods work by proposing values and then accepting or rejecting them using a rule, hence they are often called **acceptance-rejection** or [rejection methods](https://en.wikipedia.org/wiki/Rejection_sampling).  In principle these methods can be used in the $m$-dimensional multivariate case but in practice they quickly become inefficient as $m$ increases.
+Often the most efficient method of simulating values from a probability distribution is one that has been devised for that particular distribution.  However, it is useful to have more general methods that can, in principle, be used to simulate from any distribution, although, in practice, there are constraints on the type of distribution to which a method can be applied.  Many of these methods work by proposing values and then accepting or rejecting them using a rule, hence they are often called **acceptance-rejection** or rejection methods.  In principle these methods can be used in the $m$-dimensional multivariate case but in practice they quickly become inefficient as $m$ increases.
 
 # Example 1. Estimating statistical properties
 
@@ -306,7 +306,7 @@ A commonly-used summary of a random variable its **mean**, also known as its **e
 
 \[ \mbox{E}(X) = \int_{-\infty}^{\infty} x f_X(x) \mbox{ d}x. \]
 
-In simple cases this integral can be evaluated easily, but there are instances where this is not easy. For example, there are cases where the value of p.d.f. $f_X(x)$ cannot be calculated.  If we are able to simulate from the distribution of $X$ then we can use these simulated values to estimate $\text{E}(X)$.  This technique is called [Monte Carlo integration](https://en.wikipedia.org/wiki/Monte_Carlo_integration).
+In simple cases this integral can be evaluated easily, but there are instances where this is not easy. For example, there are cases where the value of p.d.f. $f_X(x)$ cannot be calculated.  If we are able to simulate from the distribution of $X$ then we can use these simulated values to estimate $\text{E}(X)$.  This technique is called Monte Carlo integration.
 
 ## Monte Carlo integration
 
@@ -321,7 +321,7 @@ u <- runif(10000)
 mean(u)
 ```
 
-Hopefully, this seems obvious.  There is some theory that supports this idea, the [Law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers).  Loosely speaking, this means that the estimate of the expectation of the variable provided by the sample mean can be made as precise as we like by increasing the size $n$ of the simulated sample.  In short, the sample mean converges to the expectation as $n$ tends to infinity.  This is illustrated in the following plot. 
+Hopefully, this seems obvious.  There is some theory that supports this idea, the Law of large numbers.  Loosely speaking, this means that the estimate of the expectation of the variable provided by the sample mean can be made as precise as we like by increasing the size $n$ of the simulated sample.  In short, the sample mean converges to the expectation as $n$ tends to infinity.  This is illustrated in the following plot. 
 
 ```{r, fig.alt = "Plot of the sample mean of a sample of size n from a standard uniform distribution against n. As n increases the value of the sample mean is variable but it tends to become closer to 1/2."}
 m <- cumsum(u) / seq_along(u)
@@ -329,7 +329,7 @@ plot(seq_along(u), m, type = "l", xlab = "n", ylab = expression(estimate~of~E(X)
 abline(h = 1/2, col = "blue", lty = 2)
 ```
 
-The convergence that we see here is not of a non-random quantity getting inexorably closer and closer to the limit $1/2$, because as $n$ increases the estimate can move further from $1/2$ and then move back towards it.  For the so-called [weak law of large numbers](https://en.wikipedia.org/wiki/Law_of_large_numbers#Weak_law) the idea is that however close to $1/2$ we require the estimate to be, as $n$ tends to infinity the probability that our requirement is not satisfied tends to $0$.
+The convergence that we see here is not of a non-random quantity getting inexorably closer and closer to the limit $1/2$, because as $n$ increases the estimate can move further from $1/2$ and then move back towards it.  For the so-called weak law of large numbers the idea is that however close to $1/2$ we require the estimate to be, as $n$ tends to infinity the probability that our requirement is not satisfied tends to $0$.
 
 This idea can generalised.  Suppose that $Y$ has p.d.f. $f_Y(y)$ and instead of $\mbox{E}(Y)$ we are interested in $\mbox{E}(g(Y))$ for some function $g$.  $\mbox{E}(g(Y))$ can be calculated using $$\mbox{E}(g(Y)) = \int_{-\infty}^{\infty} g(y) f_Y(y) \mbox{ d}y.$$ If we simulate a sample $y_1, \ldots, y_n$ from the distribution of $Y$ then $$\frac1n \sum_{i=1}^{n} g(y_i)$$ can be used an as estimate of $\mbox{E}(g(Y))$.
 
@@ -527,7 +527,7 @@ matplot(r1[, 1], r1[, -1], type = "l", lty = 1, lwd = 2, col = 1:4,
 legend("right", legend = leg, lty = 1, lwd = 2, col = 1:4, bg = "transparent")
 ```
 
-After the infection arrives in the population the number of infected people increases quickly.  We expect this because the [basic reproduction number $R_0$](https://en.wikipedia.org/wiki/Basic_reproduction_number) is equal to $\beta / \gamma = 5$, which is greater than 1.  Then the number of infected people drops quickly because many of these people become immune.  At the end of 100 days there are still approximately 100 susceptible people in the population.  This means that the disease will spread again at some point in the future, but the outbreak may be less dramatic if the proportion of susceptible people in the population is low.  
+After the infection arrives in the population the number of infected people increases quickly.  We expect this because the basic reproduction number $R_0$ is equal to $\beta / \gamma = 5$, which is greater than 1.  Then the number of infected people drops quickly because many of these people become immune.  At the end of 100 days there are still approximately 100 susceptible people in the population.  This means that the disease will spread again at some point in the future, but the outbreak may be less dramatic if the proportion of susceptible people in the population is low.  
 
 Suppose that we only have resources to treat infected 500 people at any one time.  We repeat the simulation from this SIR model 100 times.  We plot only the evolution of the number of infected people and calculate the proportion of simulations where the number of infected people exceeds 500 during the 100-day period.  This give an estimate of 69\% for the probability that our resources are not sufficient. 
 

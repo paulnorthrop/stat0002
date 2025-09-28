@@ -169,7 +169,7 @@ Note that
 The second point, a typical feature of *rejection* methods, can be important because there are cases where we can't easily calculate the normalizing constant.
 
 We the use of `ru` to simulate from a multivariate distribution using the bivariate normal distribution. This distribution will be studied in the second-year statistics module STAT0005. See the Wikipedia page for the 
-[multivariate normal distribution](https://en.wikipedia.org/wiki/Multivariate_normal_distribution) for the form of the p.d.f. of this distribution.  The function `log_dmvnorm` below calculates the log of the p.d.f. of the multivariate normal distribution with mean vector `mean` and variance-covariance matrix `sigma`, again ignoring the normalizing constant.
+multivariate normal distribution for the form of the p.d.f. of this distribution.  The function `log_dmvnorm` below calculates the log of the p.d.f. of the multivariate normal distribution with mean vector `mean` and variance-covariance matrix `sigma`, again ignoring the normalizing constant.
 
 ```{r, fig.width = 6, fig.height = 4}
 # two-dimensional normal with positive association ----------------

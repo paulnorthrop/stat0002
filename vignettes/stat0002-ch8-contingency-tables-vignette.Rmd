@@ -154,7 +154,7 @@ Comparing the rectangles with the horizontal dashed line, we see that more men a
 
 ### Testing association
 
-The function `chisq.test` in the `stats` package can be used to perform the chi-squared outlined at the end of [Section 8.1.1](https://paulnorthrop.github.io/stat0002book/contingency.html#indep) of the notes. We specify `correct = FALSE` to produce the same result given in the notes, that is, we do not use the [Yates's correction for continuity](https://en.wikipedia.org/wiki/Yates%27s_correction_for_continuity).
+The function `chisq.test` in the `stats` package can be used to perform the chi-squared outlined at the end of [Section 8.1.1](https://paulnorthrop.github.io/stat0002book/contingency.html#indep) of the notes. We specify `correct = FALSE` to produce the same result given in the notes, that is, we do not use the Yates's correction for continuity.
 
 ```{r}
 chisq.test(ga, correct = FALSE)

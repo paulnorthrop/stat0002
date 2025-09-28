@@ -73,7 +73,7 @@ $$ p(x) = P(X = x) = \frac{6}{\pi^2} \frac{1}{x^2}, \quad \mbox{ for } x = 1, 2,
 This is a valid p.m.f. of a discrete random variable $X$, because
 
 1. $p(x) \geq 0$ for $x = 1, 2, 3,\, ...$
-2. $\sum_{x=1}^{\infty} p(x) = 1$ ([Basel problem](https://en.wikipedia.org/wiki/Basel_problem))
+2. $\sum_{x=1}^{\infty} p(x) = 1$ (Basel problem)
 
 To illustrate 2. look at the following output and plot.
 
@@ -108,7 +108,7 @@ title(ylab = expression(hat(S)(m)), line = 2.25)
 
 Does it look like $\hat{S}(m)$ is converging as $m \rightarrow \infty$? You could try some larger values of $m$ to investigate.  You could also examine $\sum_{x=1}^{\infty} x p(x)$ algebraically.  Does it involve an example series that you have seen before? Is this series convergent or divergent?
 
-This distribution is a special case of a [Zeta distribution](https://en.wikipedia.org/wiki/Zeta_distribution), where a parameter $s= 2$.  This distribution has a (finite) mean only if $s > 2$. If $s \in (1, 2]$ then we can argue either that this distribution has no mean or that it has an infinite mean. If we simulate samples of finite size from a Zeta distribution with $s = 2$ then we can calculate the sample means of these samples.  However, these sample means are of little use to us because this distribution does not have a finite mean. The values of these sample means are liable to be influenced by the values of the largest sample values which may be very large.  The `VGAM` R package has a function `rzeta` that simulates samples from a Zeta distribution. If you would like to explore how these sample means behave then you can use the code below.  You could repeat this a few times and look at how the sample means vary. When using the `VGAM` package setting the argument `shape = 1` corresponds to the distribution that we have considered.
+This distribution is a special case of a Zeta distribution, where a parameter $s= 2$.  This distribution has a (finite) mean only if $s > 2$. If $s \in (1, 2]$ then we can argue either that this distribution has no mean or that it has an infinite mean. If we simulate samples of finite size from a Zeta distribution with $s = 2$ then we can calculate the sample means of these samples.  However, these sample means are of little use to us because this distribution does not have a finite mean. The values of these sample means are liable to be influenced by the values of the largest sample values which may be very large.  The `VGAM` R package has a function `rzeta` that simulates samples from a Zeta distribution. If you would like to explore how these sample means behave then you can use the code below.  You could repeat this a few times and look at how the sample means vary. When using the `VGAM` package setting the argument `shape = 1` corresponds to the distribution that we have considered.
 
 ```{r,eval= FALSE}
 # Install VGAM
